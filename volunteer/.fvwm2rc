@@ -20,6 +20,12 @@
 # The gVim icon is available from the Vim source tarball.
 # The Mozilla icon is from an old Mozilla source tarball, available from:
 # http://ftp.mozilla.org/pub/mozilla.org/mozilla/releases/mozilla1.8b1/source/
+#
+# This config is recommended with the following lines in ~/.xinitrc or 
+# ~/.xsession:
+#
+# xscreensaver -no-splash &
+# xsetroot -solid DarkGrey &
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
