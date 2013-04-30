@@ -31,6 +31,9 @@ DeskTopSize 3x3
 
 Style * SloppyFocus
 
+# This line makes XMMS, Audacious, mplayer -noborder, and similar work properly:
+Style * MWMDecor
+
 Style * IconBox 0 -10 -280 -1
 
 DefaultFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
