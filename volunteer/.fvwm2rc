@@ -73,9 +73,11 @@ Style MPlayer Icon hicolor/48x48/apps/mplayer.png
 *FvwmIdent: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 
 # FvwmPager
+*FvwmPager: Font -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
 *FvwmPager: SmallFont -misc-fixed-medium-r-*-*-8-*-*-*-*-*-*-*
-*FvwmPager: Back Grey
+*FvwmPager: Back Grey60
 *FvwmPager: Fore Black
+*FvwmPager: Hilight Grey
 *FvwmPager: Balloons
 *FvwmPager: BalloonFore White
 *FvwmPager: BalloonBack DimGrey
