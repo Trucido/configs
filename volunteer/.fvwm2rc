@@ -15,11 +15,9 @@
 # - FvwmBanner
 #
 # The only site-specific parts are the MenuFvwmLogins menu (including its
-# icons), the gVim icon, and the SeaMonkey (Mozilla) icon.
+# icons) and the gVim icon.
 #
 # The gVim icon is available from the Vim source tarball.
-# The Mozilla icon is from an old Mozilla source tarball, available from:
-# http://ftp.mozilla.org/pub/mozilla.org/mozilla/releases/mozilla1.8b1/source/
 #
 # This config is recommended with the following lines in ~/.xinitrc or 
 # ~/.xsession:
@@ -94,7 +92,7 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 *FvwmButtons: screen xterm-color_48x48.xpm Exec exec urxvt -sl 0 -e screen -dRR
 *FvwmButtons: gVim vim48x48.xpm Exec exec gvim
-*FvwmButtons: SeaMonkey mozilla.xpm Exec exec seamonkey
+*FvwmButtons: SeaMonkey nscape.xpm Exec exec seamonkey
 *FvwmButtons: (1x1, Swallow "xclock" \
 	`Exec exec xclock -update 1 -bg Grey -fg Black`)
 *FvwmButtons: (1x1, Swallow "xload" `Exec exec \
