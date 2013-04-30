@@ -4,6 +4,7 @@
 # This config is recommended for use with stock Slackware 14.0, with
 # urxvt <http://www.slackbuilds.org/repository/14.0/system/rxvt-unicode/>.
 # The font used in this config is misc-fixed, which should make it portable.
+# (FvwmPager's label uses adobe-helvetica.)
 #
 # Features:
 # - Sloppy focus
