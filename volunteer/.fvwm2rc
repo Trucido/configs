@@ -153,9 +153,9 @@ AddToMenu MenuFvwmRoot "$[gt.Root Menu]" Title
 # Remote Logins Menu (Disclaimer: This menu is esoteric to my personal LAN.)
 DestroyMenu MenuFvwmLogins
 AddToMenu MenuFvwmLogins
-+ "%archlinux.xpm%&genesis" Exec exec \
++ "%mini-ball.xpm%&genesis" Exec exec \
   urxvt -sl 0 -hold -title genesis -e ssh -t genesis tmux attach-session -d
-+ "%hackerhaven.xpm%&tesseract" Exec exec \
++ "%mini-ball.xpm%&tesseract" Exec exec \
   urxvt -sl 0 -hold -title tesseract -e ssh -tC 69.164.219.208 screen -dRR
 
 # Applications Menu
