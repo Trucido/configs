@@ -15,8 +15,7 @@
 # - FvwmAnimate
 # - FvwmBanner
 #
-# The only site-specific parts are the MenuFvwmLogins menu (including its
-# icons) and the gVim icon.
+# The only site-specific parts are the MenuFvwmLogins menu and the gVim icons.
 #
 # The gVim icon is available from the Vim source tarball.
 #
