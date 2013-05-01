@@ -112,12 +112,10 @@ AddToFunc FuncFvwmMoveOrIconify
 
 DestroyFunc FuncFvwmMaximize
 AddToFunc FuncFvwmMaximize
-+ M Maximize   0 100
-+ H Maximize   0 100
-+ C Maximize   0  80
++ M Maximize 0 100
++ H Maximize 0 100
++ C Maximize 0 80
 + D Maximize 100 100
-
-Mouse 1 I A FuncFvwmMoveOrIconify
 
 # Urgency (This raises the window and turns its border yellow.)
 DestroyFunc UrgencyFunc
@@ -130,6 +128,33 @@ DestroyFunc UrgencyDoneFunc
 AddToFunc UrgencyDoneFunc
 + I WindowStyle Colorset 0
 + I WindowStyle HilightColorset 1
+
+# Keybindings (CUA-inspired) ###################################################
+
+Key F1 A M Menu MenuFvwmRoot
+Key F3 A M Menu MenuFvwmWindowOps
+Key F4 A M Close
+Key F7 A M Move
+Key F8 A M Resize
+Key F9 A M Iconify
+Key F10 A M FuncFvwmMaximize
+Key F12 A M WindowShade
+
+Key Space A M Menu MenuFvwmWindowOps
+
+# Mouse Bindings ###############################################################
+
+Mouse 0 1 A Menu MenuFvwmWindowOps Close
+Mouse 0 2 A FuncFvwmMaximize
+Mouse 0 4 A Iconify
+
+Mouse 3 TSIF A RaiseLower
+
+Mouse 2 R A Menu MenuFvwmWindowOps Nop
+Mouse 3 R A WindowList
+
+# Without this one, iconified windows do not re-iconify when clicked:
+Mouse 1 I A FuncFvwmMoveOrIconify
 
 # Menus ########################################################################
 
@@ -225,31 +250,7 @@ DestroyMenu MenuGTFOExit
 AddToMenu MenuGTFOExit
 + "%mini-exclam.xpm%$[gt.Really Exit]" Quit
 
-# Mouse Bindings ###############################################################
-
-Mouse 0 1 A Menu MenuFvwmWindowOps Close
-Mouse 0 2 A FuncFvwmMaximize
-Mouse 0 4 A Iconify
-
-Mouse 3 TSIF A RaiseLower
-
-Mouse 2 R A Menu MenuFvwmWindowOps Nop
-Mouse 3 R A WindowList
-
-# Keybindings (CUA-inspired) ###################################################
-
-Key F1 A M Menu MenuFvwmRoot
-Key F3 A M Menu MenuFvwmWindowOps
-Key F4 A M Close
-Key F7 A M Move
-Key F8 A M Resize
-Key F9 A M Iconify
-Key F10 A M FuncFvwmMaximize
-Key F12 A M WindowShade
-
-Key Space A M Menu MenuFvwmWindowOps
-
-# Startup Applications #########################################################
+# StartFunction ################################################################
 
 AddToFunc StartFunction
 + I Module FvwmAnimate
