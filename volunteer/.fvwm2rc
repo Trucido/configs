@@ -88,11 +88,12 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: Back Grey
 *FvwmButtons: Rows 1
 *FvwmButtons: Columns 6
-*FvwmButtons: Geometry 600x100-0-0
+*FvwmButtons: Geometry 700x100-0-0
 *FvwmButtons: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 *FvwmButtons: screen xterm-color_48x48.xpm Exec exec urxvt -sl 0 -e screen -dRR
 *FvwmButtons: gVim vim48x48.xpm Exec exec gvim
 *FvwmButtons: SeaMonkey nscape.xpm Exec exec seamonkey
+*FvwmButtons: Lock xscreensaver.xpm Exec exec xscreensaver-command -lock
 *FvwmButtons: (Swallow "xclock" `Exec exec xclock -update 1 -bg Grey -fg Black`)
 *FvwmButtons: (Swallow "xload" `Exec exec \
 	xload -bg Grey -fg Black -fn -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*`)
