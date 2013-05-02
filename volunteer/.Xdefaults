@@ -1,11 +1,21 @@
 ! woddfellow2's ~/.Xdefaults (volunteer)
 ! by woddfellow2 | http://wlair.us.to/
 
+Xft.dpi: 96
+
+! Terminal Emulators
 Rxvt.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 Rxvt.reverseVideo: true
 Rxvt.urgentOnBell: true
 Rxvt.visualBell: true
 
+XTerm*font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+XTerm*reverseVideo: true
+XTerm*altIsNotMeta: true
+XTerm*altSendsEscape: true
+XTerm*scrollBar: true
+
+! Emacs
 emacs.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 emacs.menuBar: off
 emacs.verticalScrollBars: off
@@ -14,14 +24,7 @@ emacs.internalBorder: 0
 emacs.background: black
 emacs.foreground: grey
 
-XTerm*font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
-XTerm*reverseVideo: true
-XTerm*altIsNotMeta: true
-XTerm*altSendsEscape: true
-XTerm*scrollBar: true
-
-Xft.dpi: 96
-
+! xbiff
 XBiff*checkCommand: fetchmail -d0 -csk
 XBiff*update: 300
 XBiff*volume: 0
