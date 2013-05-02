@@ -38,6 +38,7 @@ Style * SloppyFocus
 # This line makes XMMS, Audacious, mplayer -noborder, and similar work properly:
 Style * MWMDecor
 
+# This is specifically intended not to run into FvwmButtons:
 Style * IconBox 0 -0 -700 0
 
 DefaultFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
