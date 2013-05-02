@@ -18,5 +18,6 @@ XTerm*font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 XTerm*reverseVideo: true
 XTerm*altIsNotMeta: true
 XTerm*altSendsEscape: true
+XTerm*scrollBar: true
 
 Xft.dpi: 96
