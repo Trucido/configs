@@ -11,7 +11,7 @@
 # - 9 pages
 # - Custom urgency handling
 # - CUA-style keybindings
-# - FvwmButtons (swallowed xclock, xload, FvwmPager)
+# - FvwmButtons (swallowed xclock, xload, xbiff, FvwmPager)
 # - FvwmAnimate
 # - FvwmBanner
 #
@@ -205,8 +205,8 @@ AddToMenu MenuFvwmUtilities
 DestroyMenu MenuFvwmFvwm
 AddToMenu MenuFvwmFvwm
 + "%mini-term.xpm%Fvwm&Console" Module FvwmConsole
-+ "%mini-edit.xpm%&Edit Config" Exec exec gvim ~/.fvwm/.fvwm2rc
-+ "%mini-book1.xpm%&Manual" Exec exec urxvt -e man fvwm
++ "%mini-edit.xpm%$[gt.&Edit Config]" Exec exec gvim ~/.fvwm/.fvwm2rc
++ "%mini-book1.xpm%$[gt.&Manual]" Exec exec urxvt -e man fvwm
 
 # Window Ops Menu
 DestroyMenu MenuFvwmWindowOps
