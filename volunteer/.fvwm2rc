@@ -88,7 +88,7 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
       ClickToFocus, FixedPosition, !Borders, !Handles
 *FvwmButtons: Back Grey
 *FvwmButtons: Rows 1
-*FvwmButtons: Columns 6
+*FvwmButtons: Columns 8
 *FvwmButtons: Geometry 640x80-0-0
 *FvwmButtons: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 *FvwmButtons: screen xterm-color_48x48.xpm Exec exec urxvt -sl 0 -e screen -dRR
