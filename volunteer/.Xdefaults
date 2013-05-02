@@ -21,3 +21,6 @@ XTerm*altSendsEscape: true
 XTerm*scrollBar: true
 
 Xft.dpi: 96
+
+XBiff*checkCommand: fetchmail -d0 -csk
+XBiff*update: 300
