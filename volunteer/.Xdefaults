@@ -24,3 +24,4 @@ Xft.dpi: 96
 
 XBiff*checkCommand: fetchmail -d0 -csk
 XBiff*update: 300
+XBiff*volume: 0
