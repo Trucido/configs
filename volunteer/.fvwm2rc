@@ -38,7 +38,7 @@ Style * SloppyFocus
 # This line makes XMMS, Audacious, mplayer -noborder, and similar work properly:
 Style * MWMDecor
 
-Style * IconBox 0 -10 -280 -1
+Style * IconBox 0 -0 -700 0
 
 DefaultFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 
@@ -204,6 +204,7 @@ DestroyMenu MenuFvwmFvwm
 AddToMenu MenuFvwmFvwm
 + "%mini-term.xpm%Fvwm&Console" Module FvwmConsole
 + "%mini-edit.xpm%&Edit Config" Exec exec gvim ~/.fvwm/.fvwm2rc
++ "%mini-book1.xpm%&Manual" Exec exec urxvt -e man fvwm
 
 # Window Ops Menu
 DestroyMenu MenuFvwmWindowOps
@@ -217,7 +218,7 @@ AddToMenu MenuFvwmWindowOps
 + "%mini.stickpressed.xpm%$[gt.(Un)&Stick]" Stick
 + "%mini-max1.xpm%$[gt.(Un)Ma&ximize]" FuncFvwmMaximize
 + "" Nop
-+ "%mini-book1.xpm%$[gt.I&nformation]" FvwmIdent
++ "%mini-book2.xpm%$[gt.I&nformation]" FvwmIdent
 + "" Nop
 + "%mini-desktop.xpm%$[gt.Move to &Workspace...]" Popup MenuMoveToWorkspace
 + "" Nop
