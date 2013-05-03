@@ -7,7 +7,6 @@ Xft.dpi: 96
 Rxvt.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 Rxvt.reverseVideo: true
 Rxvt.urgentOnBell: true
-Rxvt.visualBell: true
 
 XTerm*font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 XTerm*reverseVideo: true
@@ -27,4 +26,3 @@ emacs.foreground: grey
 ! xbiff
 XBiff*checkCommand: fetchmail -d0 -csk
 XBiff*update: 300
-XBiff*volume: 0
