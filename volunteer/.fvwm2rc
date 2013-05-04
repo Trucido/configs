@@ -258,6 +258,7 @@ AddToMenu MenuGTFOExit
 # StartFunction ################################################################
 
 AddToFunc StartFunction
++ I Module FvwmCommandS
 + I Module FvwmAnimate
 + I Module FvwmBanner
 + I Module FvwmButtons
