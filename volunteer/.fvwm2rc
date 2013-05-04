@@ -12,6 +12,7 @@
 # - Custom urgency handling
 # - CUA-style keybindings
 # - FvwmButtons (swallowed xclock, xload, xbiff, FvwmPager)
+# - FvwmCommand
 # - FvwmAnimate
 # - FvwmBanner
 #
