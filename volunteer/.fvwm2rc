@@ -35,6 +35,7 @@ DeskTopSize 3x3
 # Style ########################################################################
 
 Style * SloppyFocus
+Style * SnapAttraction 16 Screen
 
 # This line makes XMMS, Audacious, mplayer -noborder, and similar work properly:
 Style * MWMDecor
