@@ -212,12 +212,23 @@ AddToMenu MenuFvwmUtilities
 + "%hicolor/16x16/apps/emacs.png%&Emacs" Exec exec emacs
 + "" Nop
 + "%mini-nscape.xpm%Sea&Monkey" Exec exec seamonkey
-+ "%mini-nscape.xpm%SeaMonkey (&Private)" \
++ "%mini-nscape.xpm%Moz (&Private)" \
   Exec exec seamonkey -P private -new-instance
 + "" Nop
 + "%mini-paint.xpm%The &GIMP" Exec exec gimp
 + "" Nop
 + "%mini-cdlabel.xpm%&Audacious" Exec exec audacious
++ "" Nop
++ "%mini.xmag.xpm%&Xmag" Exec exec xmag
++ "%mini-happy.xpm%Game&s" Popup MenuFvwmGames
+
+# Games Menu
+DestroyMenu MenuFvwmGames
+AddToMenu MenuFvwmGames
++ "%mini-espada.xpm%&Spider" Exec exec spider
++ "%mini-bomb.xpm%XM&inesweep" Exec exec xminesweep
++ "&Micropolis" Exec exec micropolis
++ "L&Breakout2" Exec exec lbreakout2
 
 # FVWM Menu
 DestroyMenu MenuFvwmFvwm
