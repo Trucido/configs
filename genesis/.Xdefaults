@@ -1,52 +1,8 @@
-! rxvt-unicode -----------------------------------------------------------------
+XTerm*loginShell:true
+XTerm*locale: UTF-8
 
-! ^G
-URxvt.urgentOnBell: true
-URxvt.visualBell: true
-
-! Clipboard
-URxvt.perl-ext-common: keyboard-select
-URxvt.keysym.Menu: perl:keyboard-select:activate
-
-! Appearance
-URxvt.geometry: 80x25
-
-URxvt.font: -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
-
-URxvt.colorBD: #FFFFFF
-
-URxvt.cursorUnderline: true
-URxvt.cursorBlink: true
-
-URxvt.scrollBar: false
-
-URxvt.fading: 25
-
-! Colour Scheme {{{
-URxvt.background: #000000
-URxvt.foreground: #AAAAAA
-! Black
-URxvt.color0: #000000
-URxvt.color8: #555555
-! Red
-URxvt.color1: #AA0000
-URxvt.color9: #FF5555
-! Green
-URxvt.color2: #00AA00
-URxvt.color10: #55FF55
-! Yellow
-URxvt.color3: #AA5500
-URxvt.color11: #FFFF55
-! Blue
-URxvt.color4: #0000AA
-URxvt.color12: #5555FF
-! Magenta
-URxvt.color5: #AA00AA
-URxvt.color13: #FF55FF
-! Cyan
-URxvt.color6: #00AAAA
-URxvt.color14: #55FFFF
-! White
-URxvt.color7: #AAAAAA
-URxvt.color15: #FFFFFF
-! }}}
+XTerm*font: -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
+XTerm*reverseVideo: true
+XTerm*altIsNotMeta: true
+XTerm*altSendsEscape: true
+XTerm*pointerMode: true

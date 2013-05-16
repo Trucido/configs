@@ -2,7 +2,7 @@
 " by woddfellow2 | http://wlair.us.to/
 
 " Terminus FTW
-set guifont=Terminus\ 8
+set guifont=Fixed\ 11
 
 " Hide those space-wasting toolbars and use console dialogues
 set guioptions=aic

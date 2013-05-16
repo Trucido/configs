@@ -1,0 +1,15 @@
+# woddfellow2's cwm Config
+# by woddfellow2 | http://wlair.us.to/
+
+# Appearance
+fontname "Fixed:pixelsize=15:bold"
+
+# Ignored Windows
+ignore xconsole
+ignore xclock
+ignore xload
+
+# Applications
+command lock "xscreensaver-command -lock"
+command www xombrero
+command vi gvim

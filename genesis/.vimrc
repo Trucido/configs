@@ -21,11 +21,5 @@ map ZQ <Nop>
 " As per RFC 1855:
 autocmd FileType mail set textwidth=64
 
-" Custom command:
-command PostUpdate :read !~/scripts/post-update
-
 " Pointless eye candy is pointless
 colorscheme polemon
-
-" For vim-powerline
-set laststatus=2
