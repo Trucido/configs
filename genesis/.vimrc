@@ -9,6 +9,7 @@ set splitbelow
 set splitright
 
 set directory=$HOME/.vim/swap
+set backupdir=$HOME/tmp
 
 " Fix tab completion
 set wildmenu

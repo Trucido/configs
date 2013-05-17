@@ -9,5 +9,12 @@ set -o vi
 export EDITOR="vim"
 export FCEDIT="$EDITOR"
 
+# Make exiting difficult in tmux
+if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
+	alias exit="false"
+	set -o ignoreeof
+fi
+
 # Aliases
 alias mp="mplayer"
+alias p3="ping -c 3"
