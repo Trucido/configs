@@ -5,7 +5,6 @@
 XTerm*loginShell:true
 XTerm*locale: UTF-8
 
-XTerm*font: -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
 XTerm*reverseVideo: true
 XTerm*altIsNotMeta: true
 XTerm*altSendsEscape: true
