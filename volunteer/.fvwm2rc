@@ -199,11 +199,9 @@ AddToMenu MenuFvwmRoot "$[gt.Root Menu]" Title
 DestroyMenu MenuFvwmLogins
 AddToMenu MenuFvwmLogins
 + "%mini-ball.xpm%&genesis" Exec exec \
-  urxvt -sl 0 -hold -title genesis \
-  -e ssh -t woddf2@genesis tmux attach-session -d
+  urxvt -title genesis -e ssh -t woddf2@genesis
 + "%mini-ball.xpm%&tesseract" Exec exec \
-  urxvt -sl 0 -hold -title tesseract \
-  -e ssh -tC woddf2@69.164.219.208 screen -dRR
+  urxvt -title tesseract -e ssh -t woddf2@69.164.219.208
 
 # Applications Menu
 DestroyMenu MenuFvwmUtilities
