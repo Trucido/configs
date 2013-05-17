@@ -8,6 +8,7 @@ fontname "Fixed:pixelsize=15:bold"
 ignore xconsole
 ignore xclock
 ignore xload
+ignore xbiff
 
 # Applications
 command lock "xscreensaver-command -lock"

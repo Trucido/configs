@@ -1,3 +1,7 @@
+! woddfellow2's ~/.Xdefaults (genesis)
+! by woddfellow2 | http://wlair.us.to
+
+! xterm
 XTerm*loginShell:true
 XTerm*locale: UTF-8
 
@@ -5,4 +9,10 @@ XTerm*font: -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
 XTerm*reverseVideo: true
 XTerm*altIsNotMeta: true
 XTerm*altSendsEscape: true
-XTerm*pointerMode: true
+XTerm*pointerMode: 2
+
+XTerm*scrollBar: true
+
+! xbiff
+XBiff*checkCommand: fetchmail -d0 -csk
+XBiff*update: 300

@@ -8,5 +8,6 @@ xsetroot -solid rgb:11/11/11 &
 
 xclock -digital -update 1 -geometry -0+0 -face Fixed -bg black -fg green &
 xload -geometry -0+40 -bg black -fg green -hl blue &
+xbiff -bg black -fg green -geometry -0+190 &
 
 exec cwm
