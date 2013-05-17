@@ -1,9 +1,6 @@
 " woddfellow2's Vim Config
 " by woddfellow2 | http://wlair.us.to/
 
-" Note that this is very short compared to many people's ~/.vimrc files;
-" this is because Vim has sane defaults.
-
 syntax on
 
 set showcmd
@@ -12,6 +9,7 @@ set splitbelow
 set splitright
 
 set directory=$HOME/.vim/swap
+set backupdir=$HOME/tmp
 
 " Fix tab completion
 set wildmenu

@@ -4,12 +4,12 @@
 Xft.dpi: 96
 
 ! Terminal Emulators
-Rxvt.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+Rxvt.font: -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
 Rxvt.reverseVideo: true
 Rxvt.urgentOnBell: true
 URxvt.pointerBlank: true
 
-XTerm*font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+XTerm*font: -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
 XTerm*reverseVideo: true
 XTerm*altIsNotMeta: true
 XTerm*altSendsEscape: true
