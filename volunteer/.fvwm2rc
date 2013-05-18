@@ -97,7 +97,7 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 *FvwmButtons: screen xterm-color_48x48.xpm Exec exec urxvt -sl 0 -e screen -dRR
 *FvwmButtons: gVim vim48x48.xpm Exec exec gvim
-*FvwmButtons: Mozilla nscape.xpm Exec exec seamonkey
+*FvwmButtons: Mozilla nscape.xpm Exec exec seamonkey -P default -new-instance
 *FvwmButtons: Lock xscreensaver.xpm Exec exec xscreensaver-command -lock
 *FvwmButtons: (Swallow "xbiff" `Exec exec xbiff -bg Grey -fg Black`)
 *FvwmButtons: (Swallow "xclock" `Exec exec xclock -update 1 -bg Grey -fg Black`)
@@ -211,7 +211,7 @@ AddToMenu MenuFvwmUtilities
 + "%vim16x16.xpm%g&Vim" Exec exec gvim
 + "%hicolor/16x16/apps/emacs.png%&Emacs" Exec exec emacs
 + "" Nop
-+ "%mini-nscape.xpm%Sea&Monkey" Exec exec seamonkey
++ "%mini-nscape.xpm%Sea&Monkey" Exec exec seamonkey -P default -new-instance
 + "%mini-nscape.xpm%Moz (&Private)" \
   Exec exec seamonkey -P private -new-instance
 + "" Nop
