@@ -18,3 +18,4 @@ fi
 # Aliases
 alias mp="mplayer"
 alias p3="ping -c 3"
+alias sprunge="curl -F sprunge=@- http://sprunge.us/"

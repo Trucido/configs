@@ -14,3 +14,8 @@ ignore xbiff
 command lock "xscreensaver-command -lock"
 command www xombrero
 command vi gvim
+
+# Groups
+autogroup 1 XTerm
+autogroup 2 Xombrero
+autogroup 3 Gvim
