@@ -27,3 +27,6 @@ emacs.foreground: grey
 ! xbiff
 XBiff*checkCommand: fetchmail -d0 -csk
 XBiff*update: 300
+XBiff*flip: false
+XBiff*fullPixmap: mailfull
+XBiff*emptyPixmap: mailempty
