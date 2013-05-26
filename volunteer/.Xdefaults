@@ -24,6 +24,9 @@ emacs.internalBorder: 0
 emacs.background: black
 emacs.foreground: grey
 
+! xload
+XLoad*update: 1
+
 ! xbiff
 XBiff*checkCommand: fetchmail -d0 -csk
 XBiff*update: 300
