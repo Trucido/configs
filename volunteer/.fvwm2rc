@@ -72,6 +72,7 @@ Style *rxvt Icon xterm-color_48x48.xpm, MiniIcon mini-term.xpm, \
 Style MPlayer Icon hicolor/48x48/apps/mplayer.png
 Style Seamonkey IconOverride, EWMHMiniIconOverride, \
 	Icon nscape.xpm, MiniIcon mini-nscape.xpm
+Style Xpdf MiniIcon mini-pdf.xpm
 
 # FvwmIdent
 *FvwmIdent: Back navy
@@ -219,6 +220,7 @@ AddToMenu MenuFvwmUtilities
   Exec exec seamonkey -P private -new-instance
 + "" Nop
 + "%mini-paint.xpm%The &GIMP" Exec exec gimp
++ "%mini-pdf.xpm%Xp&df" Exec exec xpdf
 + "" Nop
 + "%mini-cdlabel.xpm%&Audacious" Exec exec audacious
 + "" Nop
