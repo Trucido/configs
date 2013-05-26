@@ -66,9 +66,12 @@ ImagePath /usr/share/pixmaps:/usr/share/icons:/usr/include/X11/pixmaps
 ImagePath +:$[FVWM_USERDIR]/icons
 
 # Application-specific Style
-Style XTerm Icon xterm-color_48x48.xpm
-Style *rxvt Icon xterm-color_48x48.xpm, MWMBorder, MWMButtons
+Style XTerm Icon xterm-color_48x48.xpm, MiniIcon mini-term.xpm
+Style *rxvt Icon xterm-color_48x48.xpm, MiniIcon mini-term.xpm, \
+	MWMBorder, MWMButtons
 Style MPlayer Icon hicolor/48x48/apps/mplayer.png
+Style Seamonkey IconOverride, EWMHMiniIconOverride, \
+	Icon nscape.xpm, MiniIcon mini-nscape.xpm
 
 # FvwmIdent
 *FvwmIdent: Back navy
