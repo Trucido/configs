@@ -185,6 +185,8 @@ Key F10 A M FuncFvwmMaximize
 Key F12 A M WindowShade
 
 Key Space A M Menu MenuFvwmWindowOps
+Key l A CM Exec exec xscreensaver-command -lock
+Key Delete A CM Module FvwmForm QuitVerify
 
 # Mouse Bindings ###############################################################
 
