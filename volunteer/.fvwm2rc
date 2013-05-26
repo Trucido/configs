@@ -124,6 +124,23 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *QuitVerify: Button quit "Cancel" ^[
 *QuitVerify: Command Nop
 
+# AppLauncher
+*AppLauncher: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+*AppLauncher: ButtonFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+*AppLauncher: Fore Black
+*AppLauncher: Back LightGrey
+*AppLauncher: ItemFore White
+*AppLauncher: ItemBack Grey50
+*AppLauncher: Line center
+*AppLauncher: Text "Run Command:"
+*AppLauncher: Line center
+*AppLauncher: Input Command 50 ""
+*AppLauncher: Line expand
+*AppLauncher: Button quit "  OK  " ^M
+*AppLauncher: Command Exec exec $(Command)
+*AppLauncher: Button quit "Cancel" ^[
+*AppLauncher: Command Nop
+
 # FvwmBanner
 Style FvwmBanner StaysOnTop, !Title
 
@@ -158,6 +175,7 @@ AddToFunc UrgencyDoneFunc
 # Keybindings (CUA-inspired) ###################################################
 
 Key F1 A M Menu MenuFvwmRoot
+Key F2 A M Module FvwmForm AppLauncher
 Key F3 A M Menu MenuFvwmWindowOps
 Key F4 A M Close
 Key F7 A M Move
