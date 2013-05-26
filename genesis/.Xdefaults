@@ -12,6 +12,9 @@ XTerm*pointerMode: 2
 
 XTerm*scrollBar: true
 
+! xload
+XLoad*update: 1
+
 ! xbiff
 XBiff*checkCommand: fetchmail -d0 -csk
 XBiff*update: 300
