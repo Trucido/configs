@@ -4,7 +4,7 @@
 xscreensaver -no-splash &
 xmodmap ~/.Xmodmap &
 
-xsetroot -solid rgb:11/11/11 &
+xsetroot -solid black &
 
 xclock -digital -update 1 -geometry -0+0 -face Fixed -bg black -fg green &
 xload -geometry -0+40 -bg black -fg green -hl blue &

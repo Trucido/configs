@@ -4,6 +4,10 @@
 # Appearance
 fontname "Fixed:pixelsize=15:bold"
 
+color menubg black
+color menufg green
+color font green
+
 # Ignored Windows
 ignore xconsole
 ignore xclock
