@@ -16,6 +16,7 @@
 # - FvwmCommand
 # - FvwmAnimate
 # - FvwmBanner
+# - FvwmForm-powered application launcher
 #
 # The only site-specific parts are the MenuFvwmLogins menu and the gVim icons.
 #
