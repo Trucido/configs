@@ -16,13 +16,11 @@ XTerm*altSendsEscape: true
 XTerm*scrollBar: true
 
 ! Emacs
-emacs.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+emacs.font: -adobe-courier-medium-r-*-*-14-*-*-*-*-*-*-*
 emacs.menuBar: off
 emacs.verticalScrollBars: off
 emacs.toolBar: off
 emacs.internalBorder: 0
-emacs.background: black
-emacs.foreground: grey
 
 ! xload
 XLoad*update: 1
