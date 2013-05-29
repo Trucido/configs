@@ -2,15 +2,15 @@
 ! by woddfellow2 | http://wlair.us.to
 
 ! xterm
-XTerm*loginShell:true
-XTerm*locale: UTF-8
+XTerm.vt100.loginShell:true
+XTerm.vt100.locale: UTF-8
 
-XTerm*reverseVideo: true
-XTerm*altIsNotMeta: true
-XTerm*altSendsEscape: true
-XTerm*pointerMode: 2
+XTerm.vt100.reverseVideo: true
+XTerm.vt100.altIsNotMeta: true
+XTerm.vt100.altSendsEscape: true
+XTerm.vt100.pointerMode: 2
 
-XTerm*scrollBar: true
+XTerm.vt100.scrollBar: true
 
 ! xload
 XLoad*update: 1
