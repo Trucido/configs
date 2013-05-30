@@ -5,12 +5,14 @@
 XTerm.vt100.loginShell:true
 XTerm.vt100.locale: UTF-8
 
-XTerm.vt100.reverseVideo: true
 XTerm.vt100.altIsNotMeta: true
 XTerm.vt100.altSendsEscape: true
 XTerm.vt100.pointerMode: 2
 
 XTerm.vt100.scrollBar: true
+
+XTerm.vt100.background: black
+XTerm.vt100.foreground: white
 
 ! xload
 XLoad*update: 1
