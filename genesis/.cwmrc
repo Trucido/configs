@@ -5,8 +5,8 @@
 fontname "Fixed:pixelsize=15:bold"
 
 color menubg black
-color menufg green
-color font green
+color menufg white
+color font white
 
 # Ignored Windows
 ignore xconsole
