@@ -19,6 +19,9 @@ set wildmode=longest,list
 set shortmess+=I
 map ZQ <Nop>
 
+" Disable mouse reporting:
+set mouse=
+
 " As per RFC 1855:
 autocmd FileType mail set textwidth=64
 
