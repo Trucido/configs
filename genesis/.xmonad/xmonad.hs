@@ -14,7 +14,6 @@ import System.IO
 
 -- xmonad-contrib
 import XMonad.Actions.FloatKeys
-import XMonad.Actions.GridSelect
 import XMonad.Actions.Warp
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -24,7 +23,7 @@ import XMonad.Prompt.Ssh
 import XMonad.Prompt.Window
 
 -- Workspaces and what to put in them
-myWorkspaces = ["1:term","2:www","3:vi","4:media","5:other"]
+myWorkspaces = ["1:term","2:www","3:vi","4:media","5:Xnest","6:other"]
 
 myManageHook :: ManageHook
 myManageHook = composeAll . concat $
@@ -32,7 +31,8 @@ myManageHook = composeAll . concat $
     , [ className =? b --> doF (W.shift "2:www")   | b <- myClassWWWShifts   ]
     , [ className =? c --> viewShift "3:vi"        | c <- myClassgVimShifts  ]
     , [ className =? d --> viewShift "4:media"     | d <- myClassMediaShifts ]
-    , [ className =? e --> doF (W.shift "5:other") | e <- myClassOtherShifts ]
+    , [ className =? e --> viewShift "5:Xnest"     | e <- myClassXnestShifts ]
+    , [ className =? f --> doF (W.shift "6:other") | f <- myClassOtherShifts ]
     ]
     where
         viewShift = doF . liftM2 (.) W.greedyView W.shift
@@ -40,7 +40,8 @@ myManageHook = composeAll . concat $
         myClassWWWShifts   = ["Xombrero"]
         myClassgVimShifts  = ["Gvim"]
         myClassMediaShifts = ["feh","MPlayer"]
-        myClassOtherShifts = ["XConsole","XClock","XLoad","XBiff"]
+        myClassXnestShifts = ["Xnest","Xephyr"]
+        myClassOtherShifts = ["XConsole","XClock","XLoad","XBiff","Xmessage"]
 
 -- Keybindings
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
@@ -72,14 +73,14 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_period),     sendMessage (IncMasterN (-1)))
 
     -- Leave
-    , ((modMask .|. shiftMask, xK_q),          io (exitWith ExitSuccess))
-    , ((modMask,               xK_q),          spawn "xmonad --recompile; xmonad --restart")
+    , ((modMask .|. shiftMask, xK_backslash),  io (exitWith ExitSuccess))
+    , ((modMask .|. shiftMask, xK_q),          spawn "xmonad --recompile; xmonad --restart")
 
     -- Custom Keybindings
     , ((modMask,               xK_Escape),     spawn "xscreensaver-command -lock")
+    , ((modMask .|. shiftMask, xK_f),          spawn "xombrero")
     , ((modMask,               xK_x),          banishScreen LowerRight)
     , ((modMask,               xK_grave),      focusUrgent)
-    , ((modMask,               xK_g),          goToSelected defaultGSConfig)
     , ((modMask .|. shiftMask, xK_apostrophe), windowPromptGoto defaultXPConfig)
     , ((modMask .|. shiftMask, xK_period),     sshPrompt defaultXPConfig)
     ]
@@ -141,6 +142,9 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
                                           >> windows W.shiftMaster))
     ]
 
+myStartupHook = do
+    banishScreen LowerRight
+
 main = do
     xmproc <- spawnPipe "xmobar" -- For xmobar
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
@@ -154,6 +158,7 @@ main = do
                                , ppUrgent = xmobarColor "yellow" "red"
                                }
         , layoutHook         = avoidStruts $ layoutHook defaultConfig
+        , startupHook        = myStartupHook
         , modMask            = mod4Mask
         , terminal           = "urxvtc"
         , focusFollowsMouse  = False
