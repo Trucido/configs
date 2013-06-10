@@ -1,0 +1,17 @@
+-- vim: ft=haskell
+
+Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 10090
+       , hideOnStart = False
+       , lowerOnStart = True
+       , persistent = False
+       , commands = [ Run Weather "KRDD" ["-t","<station>: <tempF>F <skyCondition>","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 18000
+                    , Run Date "%a %b %_d %Y %H:%M:%S %Z %Y" "date" 2
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %KRDD% | <fc=#ee9a00>%date%</fc> "
+       }

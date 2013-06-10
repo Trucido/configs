@@ -14,6 +14,20 @@ XTerm.vt100.scrollBar: true
 XTerm.vt100.background: black
 XTerm.vt100.foreground: white
 
+! rxvt-unicode
+URxvt.loginShell: true
+URxvt.locale: UTF-8
+URxvt.urgentOnBell: true
+
+URxvt.scrollBar: false
+
+URxvt.background: black
+URxvt.foreground: grey
+
+URxvt.font: -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt.boldFont: -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt.colorBD: white
+
 ! xload
 XLoad*update: 1
 
