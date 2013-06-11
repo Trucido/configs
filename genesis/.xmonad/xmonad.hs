@@ -16,6 +16,7 @@ import System.IO
 import XMonad.Actions.CycleWS
 import XMonad.Actions.FloatKeys
 import XMonad.Actions.Warp
+import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
@@ -81,7 +82,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_Escape),       spawn "xscreensaver-command -lock")
 
     -- Applications
-    , ((modMask .|. shiftMask, xK_f),            spawn "xombrero")
+    , ((modMask .|. shiftMask, xK_f),            runOrRaise "xombrero" (className =? "Xombrero"))
 
     -- Banish Pointer
     , ((modMask,               xK_x),            banishScreen LowerRight)
