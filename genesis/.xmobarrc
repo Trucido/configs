@@ -8,7 +8,7 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , lowerOnStart = True
        , persistent = False
        , commands = [ Run Weather "KRDD" ["-t","<station>: <tempF>F <skyCondition>","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 18000
-                    , Run Date "%a %b %_d %Y %H:%M:%S %Z %Y" "date" 2
+                    , Run Date "%a %b %_d %H:%M:%S %Z %Y" "date" 2
                     , Run StdinReader
                     ]
        , sepChar = "%"
