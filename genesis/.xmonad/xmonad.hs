@@ -47,7 +47,7 @@ myManageHook = composeAll . concat $
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Launching
     [ ((modMask .|. shiftMask, xK_Return),     spawn $ XMonad.terminal conf)
-    , ((modMask,               xK_p),          spawn "dmenu_run -fn -misc-fixed-medium-r-*-*-12-*-*-*-*-*-*-*")
+    , ((modMask .|. shiftMask, xK_slash),      spawn "dmenu_run -fn -misc-fixed-medium-r-*-*-12-*-*-*-*-*-*-*")
     , ((modMask .|. shiftMask, xK_c),          kill)
 
     -- Layout
@@ -61,26 +61,31 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_j),          windows W.focusDown)
     , ((modMask,               xK_k),          windows W.focusUp)
     , ((modMask,               xK_m),          windows W.focusMaster)
+    , ((modMask,               xK_Return),     focusUrgent)
 
     -- Moving and Resizing
-    , ((modMask,               xK_Return),     windows W.swapMaster)
+    , ((modMask .|. shiftMask, xK_m),          windows W.swapMaster)
     , ((modMask .|. shiftMask, xK_j),          windows W.swapDown)
     , ((modMask .|. shiftMask, xK_k),          windows W.swapUp)
     , ((modMask,               xK_h),          sendMessage Shrink)
     , ((modMask,               xK_l),          sendMessage Expand)
     , ((modMask,               xK_t),          withFocused $ windows . W.sink)
-    , ((modMask,               xK_comma),      sendMessage (IncMasterN 1))
-    , ((modMask,               xK_period),     sendMessage (IncMasterN (-1)))
+    , ((modMask .|. shiftMask, xK_h),          sendMessage (IncMasterN 1))
+    , ((modMask .|. shiftMask, xK_l),          sendMessage (IncMasterN (-1)))
 
     -- Leave
     , ((modMask .|. shiftMask, xK_backslash),  io (exitWith ExitSuccess))
     , ((modMask .|. shiftMask, xK_q),          spawn "xmonad --recompile; xmonad --restart")
-
-    -- Custom Keybindings
+    , ((modMask,               xK_q),          spawn "xmonad --restart")
     , ((modMask,               xK_Escape),     spawn "xscreensaver-command -lock")
+
+    -- Applications
     , ((modMask .|. shiftMask, xK_f),          spawn "xombrero")
+
+    -- Banish Pointer
     , ((modMask,               xK_x),          banishScreen LowerRight)
-    , ((modMask,               xK_grave),      focusUrgent)
+
+    -- Menus
     , ((modMask .|. shiftMask, xK_apostrophe), windowPromptGoto defaultXPConfig)
     , ((modMask .|. shiftMask, xK_period),     sshPrompt defaultXPConfig)
     ]
