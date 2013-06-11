@@ -21,6 +21,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
 import XMonad.Prompt
+import XMonad.Prompt.Shell
 import XMonad.Prompt.Ssh
 import XMonad.Prompt.Window
 
@@ -49,7 +50,7 @@ myManageHook = composeAll . concat $
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Launching
     [ ((modMask .|. shiftMask, xK_Return),       spawn $ XMonad.terminal conf)
-    , ((modMask .|. shiftMask, xK_slash),        spawn "dmenu_run -fn -misc-fixed-medium-r-*-*-12-*-*-*-*-*-*-*")
+    , ((modMask .|. shiftMask, xK_slash),        shellPrompt defaultXPConfig)
     , ((modMask .|. shiftMask, xK_c),            kill)
 
     -- Layout
