@@ -1,6 +1,23 @@
 -- woddfellow2's xmonad Config
 -- by woddfellow2 | http://wlair.us.to/
 
+-- Features:
+-- - Spiral and Grid layouts
+-- - Keybindings to cycle through and toggle between workspaces
+-- - ratpoison-style banish keybinding
+-- - Keybinding to run or raise xombrero
+-- - FloatKeys
+-- - SSH menu
+-- - Shell menu
+-- - Window menu
+-- - xmobar
+--
+-- This config is recommended with the following lines in ~/.xinitrc or
+-- ~/.xsession:
+--
+-- xscreensaver -no-splash &
+-- urxvtd -q -o -f &
+
 -- Imports
 import XMonad
 import qualified XMonad.StackSet as W
@@ -20,6 +37,8 @@ import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
+import XMonad.Layout.Grid
+import XMonad.Layout.Spiral
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.Ssh
@@ -154,8 +173,21 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
                                           >> windows W.shiftMaster))
     ]
 
+-- Banish pointer at startup
 myStartupHook = do
     banishScreen LowerRight
+
+-- Layouts (Tall, Mirror Tall, Full, Grid, Spiral)
+myLayoutHook = tiled
+           ||| Mirror tiled
+           ||| Full
+           ||| Grid
+           ||| spiral (6/7)
+    where
+        tiled   = Tall nmaster delta ratio
+        nmaster = 1
+        delta   = 1/100
+        ratio   = 1/2
 
 main = do
     xmproc <- spawnPipe "xmobar" -- For xmobar
@@ -169,13 +201,10 @@ main = do
                                , ppTitle  = xmobarColor "green"  ""
                                , ppUrgent = xmobarColor "yellow" "red"
                                }
-        , layoutHook         = avoidStruts $ layoutHook defaultConfig
+        , layoutHook         = avoidStruts $ myLayoutHook
         , startupHook        = myStartupHook
         , modMask            = mod4Mask
-        , terminal           = "urxvtc"
+        , terminal           = "urxvtc" -- Requires "urxvtd -q -o -f &" in ~/.xinitrc or ~/.xsession
         , focusFollowsMouse  = False
         , clickJustFocuses   = False
-        , borderWidth        = 1
-        , normalBorderColor  = "#DDDDDD"
-        , focusedBorderColor = "#FF0000"
         }
