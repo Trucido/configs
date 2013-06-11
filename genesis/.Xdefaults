@@ -1,26 +1,37 @@
 ! woddfellow2's ~/.Xdefaults (genesis)
 ! by woddfellow2 | http://wlair.us.to
 
-! xterm
+! xterm ------------------------------------------------------------------------
 XTerm.vt100.loginShell:true
 XTerm.vt100.locale: UTF-8
 
+! Make ALT/META do what it should
 XTerm.vt100.altIsNotMeta: true
 XTerm.vt100.altSendsEscape: true
+
+! Hide pointer
 XTerm.vt100.pointerMode: 2
 
 XTerm.vt100.scrollBar: true
 
+! Appearance
 XTerm.vt100.background: black
 XTerm.vt100.foreground: white
 
-! rxvt-unicode
+! rxvt-unicode -----------------------------------------------------------------
 URxvt.loginShell: true
 URxvt.locale: UTF-8
 URxvt.urgentOnBell: true
 
+! Hide scroll bar and pointer
 URxvt.scrollBar: false
+URxvt.pointerBlank: true
 
+! keyboard-select
+URxvt.perl-ext-common: keyboard-select
+URxvt.keysym.Menu: perl:keyboard-select:activate
+
+! Appearance
 URxvt.background: black
 URxvt.foreground: grey
 
@@ -28,9 +39,28 @@ URxvt.font: -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt.boldFont: -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
 URxvt.colorBD: white
 
-! xload
+! Colour Scheme
+URxvt.color0: Black
+URxvt.color1: Red4
+URxvt.color2: Green4
+URxvt.color3: Yellow4
+URxvt.color4: Blue4
+URxvt.color5: Magenta4
+URxvt.color6: Cyan4
+URxvt.color7: Grey
+URxvt.color8: DimGrey
+URxvt.color9: Red
+URxvt.color10: Green
+URxvt.color11: Yellow
+URxvt.color12: Blue
+URxvt.color13: Magenta
+URxvt.color14: Cyan
+URxvt.color15: White
+
+
+! xload ------------------------------------------------------------------------
 XLoad*update: 1
 
-! xbiff
+! xbiff ------------------------------------------------------------------------
 XBiff*checkCommand: fetchmail -d0 -csk
 XBiff*update: 300
