@@ -38,6 +38,9 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
 import XMonad.Layout.Grid
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.NoBorders
 import XMonad.Layout.Spiral
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -94,6 +97,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_t),            withFocused $ windows . W.sink)
     , ((modMask .|. shiftMask, xK_h),            sendMessage (IncMasterN 1))
     , ((modMask .|. shiftMask, xK_l),            sendMessage (IncMasterN (-1)))
+    , ((modMask .|. shiftMask, xK_equal),        sendMessage $ Toggle FULL)
 
     -- Leave
     , ((modMask .|. shiftMask, xK_backslash),    io (exitWith ExitSuccess))
@@ -178,7 +182,9 @@ myStartupHook = do
     banishScreen LowerRight
 
 -- Layouts (Tall, Mirror Tall, Full, Grid, Spiral)
-myLayoutHook = tiled
+myLayoutHook = smartBorders
+             $ mkToggle (NOBORDERS ?? FULL ?? EOT)
+             $ tiled
            ||| Mirror tiled
            ||| Full
            ||| Grid
