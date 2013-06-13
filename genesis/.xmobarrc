@@ -3,12 +3,12 @@
 Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "grey"
-       , position = TopW L 10090
+       , position = TopW L 100
        , hideOnStart = False
        , lowerOnStart = True
        , persistent = False
-       , commands = [ Run Weather "KRDD" ["-t","<station>: <tempF>F <skyCondition>","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 18000
-                    , Run Date "%a %b %_d %H:%M:%S %Z %Y" "date" 2
+       , commands = [ Run Weather "KRDD" ["-t","<station>: <tempC>C <skyCondition>","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 18000
+                    , Run Date "%a %b %_d %H:%M:%S %Z %Y" "date" 1
                     , Run StdinReader
                     ]
        , sepChar = "%"
