@@ -3,6 +3,8 @@
 
 -- Features:
 -- - Spiral and Grid layouts
+-- - Zoom keybinding
+-- - Hides border if there is only 1 window visible
 -- - Keybindings to cycle through and toggle between workspaces
 -- - ratpoison-style banish keybinding
 -- - Keybinding to run or raise xombrero
