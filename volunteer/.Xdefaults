@@ -9,6 +9,7 @@ Rxvt.reverseVideo: true
 Rxvt.urgentOnBell: true
 URxvt.pointerBlank: true
 
+XTerm.vt100.locale: UTF-8
 XTerm.vt100.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 XTerm.vt100.utf8Fonts.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 XTerm.vt100.reverseVideo: true

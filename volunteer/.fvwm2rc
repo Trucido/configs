@@ -223,9 +223,12 @@ AddToMenu MenuFvwmRoot "$[gt.Root Menu]" Title
 # Remote Logins Menu (Disclaimer: This menu is esoteric to my personal LAN.)
 DestroyMenu MenuFvwmLogins
 AddToMenu MenuFvwmLogins
-+ "%mini-ball.xpm%&genesis" Exec exec urxvt -title genesis -e ssh xoddf2@genesis
-+ "%mini-ball.xpm%&tesseract" Exec exec \
-  urxvt -title tesseract -e ssh woddf2@69.164.219.208
++ "%mini-ball.xpm%&genesis.local" Exec exec \
+  urxvt -title genesis -e ssh xoddf2@genesis
++ "%mini-ball.xpm%&tesseract.hackerhaven.net" Exec exec \
+  urxvt -title tesseract -e ssh woddf2@tesseract.hackerhaven.net
++ "%mini-ball.xpm%is.a.&hax0r.se" Exec exec \
+  urxvt -title elisabeth -e ssh xoddf2@is.not.a.hax0r.se
 
 # Applications Menu
 DestroyMenu MenuFvwmUtilities
