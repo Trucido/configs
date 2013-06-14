@@ -227,7 +227,7 @@ AddToMenu MenuFvwmLogins
   urxvt -title genesis -e ssh xoddf2@genesis
 + "%mini-ball.xpm%&tesseract.hackerhaven.net" Exec exec \
   urxvt -title tesseract -e ssh woddf2@tesseract.hackerhaven.net
-+ "%mini-ball.xpm%is.a.&hax0r.se" Exec exec \
++ "%mini-ball.xpm%is.not.a.&hax0r.se" Exec exec \
   urxvt -title elisabeth -e ssh xoddf2@is.not.a.hax0r.se
 
 # Applications Menu
