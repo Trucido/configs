@@ -8,6 +8,10 @@ xmodmap ~/.Xmodmap &
 
 urxvtd -q -o -f &
 
-xsetroot -solid black &
+xsetroot -solid Grey20 &
 
-exec xmonad
+xclock -digital -update 1 -geometry -0+0 -face Fixed &
+xload -geometry -0+40 &
+xbiff -geometry -0+190 &
+
+exec cwm

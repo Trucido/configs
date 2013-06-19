@@ -32,7 +32,7 @@ URxvt.perl-ext-common: keyboard-select
 URxvt.keysym.Menu: perl:keyboard-select:activate
 
 ! Appearance
-URxvt.background: black
+URxvt.background: Grey10
 URxvt.foreground: grey
 
 URxvt.font: -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
@@ -56,9 +56,6 @@ URxvt.color12: Blue
 URxvt.color13: Magenta
 URxvt.color14: Cyan
 URxvt.color15: White
-
-! xload ------------------------------------------------------------------------
-XLoad*update: 1
 
 ! xbiff ------------------------------------------------------------------------
 XBiff*checkCommand: fetchmail -d0 -csk
