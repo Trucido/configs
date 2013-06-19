@@ -21,6 +21,6 @@ command www xombrero
 command vi gvim
 
 # Groups
-autogroup 1 XTerm
+autogroup 1 URxvt
 autogroup 2 Xombrero
 autogroup 3 Gvim
