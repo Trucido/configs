@@ -9,7 +9,7 @@ color menufg white
 color font white
 
 # Misc #########################################################################
-snapdist 16
+snapdist 8
 
 # Ignored Windows ##############################################################
 ignore xconsole
