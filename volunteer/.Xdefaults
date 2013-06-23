@@ -24,9 +24,6 @@ emacs.verticalScrollBars: off
 emacs.toolBar: off
 emacs.internalBorder: 0
 
-! xload
-XLoad*update: 1
-
 ! xbiff
 XBiff*checkCommand: fetchmail -d0 -csk
 XBiff*update: 300
