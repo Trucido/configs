@@ -235,7 +235,7 @@ AddToMenu MenuFvwmRoot "$[gt.Root Menu]" Title
 
 # Remote Logins Menu (Disclaimer: This menu is esoteric to my personal LAN.)
 DestroyMenu MenuFvwmLogins
-AddToMenu MenuFvwmLogins
+AddToMenu MenuFvwmLogins "$[gt.Remote Logins]" Title
 + "%mini-ball.xpm%&genesis.local" Exec exec \
   urxvt -title genesis -e ssh xoddf2@genesis.local
 + "%mini-ball.xpm%&tesseract.hackerhaven.net" Exec exec \
@@ -245,7 +245,7 @@ AddToMenu MenuFvwmLogins
 
 # Applications Menu
 DestroyMenu MenuFvwmUtilities
-AddToMenu MenuFvwmUtilities
+AddToMenu MenuFvwmUtilities "$[gt.Applications]" Title
 + "%mini-term.xpm%X&Term" Exec exec xterm
 + "%mini-term.xpm%&Rxvt" Exec exec rxvt
 + "" Nop
@@ -253,8 +253,7 @@ AddToMenu MenuFvwmUtilities
 + "%hicolor/16x16/apps/emacs.png%&Emacs" Exec exec emacs
 + "" Nop
 + "%mini-nscape.xpm%Sea&Monkey" Exec exec seamonkey -P default -new-instance
-+ "%mini-nscape.xpm%Moz (&Private)" \
-  Exec exec seamonkey -P private -new-instance
++ "%mini-nscape.xpm%Moz (&Private)" Exec exec seamonkey -P private -new-instance
 + "" Nop
 + "%mini-paint.xpm%The &GIMP" Exec exec gimp
 + "%mini-pdf.xpm%Xp&df" Exec exec xpdf
@@ -266,7 +265,7 @@ AddToMenu MenuFvwmUtilities
 
 # Games Menu
 DestroyMenu MenuFvwmGames
-AddToMenu MenuFvwmGames
+AddToMenu MenuFvwmGames "$[gt.Games]" Title
 + "%mini-espada.xpm%&Spider" Exec exec spider
 + "%mini-bomb.xpm%XM&inesweep" Exec exec xminesweep
 + "&Micropolis" Exec exec micropolis
@@ -274,14 +273,14 @@ AddToMenu MenuFvwmGames
 
 # FVWM Menu
 DestroyMenu MenuFvwmFvwm
-AddToMenu MenuFvwmFvwm
+AddToMenu MenuFvwmFvwm "$[gt.FVWM]" Title
 + "%mini-term.xpm%Fvwm&Console" Module FvwmConsole
 + "%mini-edit.xpm%$[gt.&Edit Config]" Exec exec gvim ~/.fvwm/.fvwm2rc
 + "%mini-book1.xpm%$[gt.&Manual]" Exec exec urxvt -e man fvwm
 
 # Window Ops Menu
 DestroyMenu MenuFvwmWindowOps
-AddToMenu MenuFvwmWindowOps
+AddToMenu MenuFvwmWindowOps "$[gt.Window Ops]" Title
 + "%mini-move.xpm%$[gt.&Move]" Move
 + "%mini-resize.xpm%$[gt.&Resize]" Resize
 + "%mini-raise.xpm%$[gt.R&aise]" Raise
@@ -300,7 +299,7 @@ AddToMenu MenuFvwmWindowOps
 
 # "Move to Workspace..." menu
 DestroyMenu MenuMoveToWorkspace
-AddToMenu MenuMoveToWorkspace
+AddToMenu MenuMoveToWorkspace "$[gt.Move to...]" Title
 + "&1. $[gt.Northwest]" MoveToPage 0 0
 + "&2. $[gt.North]" MoveToPage 1 0
 + "&3. $[gt.Northeast]" MoveToPage 2 0
@@ -313,7 +312,7 @@ AddToMenu MenuMoveToWorkspace
 
 # Leave Menu
 DestroyMenu MenuGTFO
-AddToMenu MenuGTFO
+AddToMenu MenuGTFO "$[gt.Leave]" Title
 + "%mini-lock.xpm%&X. $[gt.XScreenSaver]" Exec exec xscreensaver-command -lock
 + "%mini-lock.xpm%&L. $[gt.xlock]" Exec exec xlock
 + "" Nop
