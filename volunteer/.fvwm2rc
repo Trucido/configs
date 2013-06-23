@@ -101,7 +101,8 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: Geometry 160x560-0+0
 *FvwmButtons: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 *FvwmButtons: (2x2, Swallow "FvwmPager" `Module FvwmPager 0 0`)
-*FvwmButtons: (Swallow "xclock" `Exec exec xclock -update 1 -bg Grey -fg Black`)
+*FvwmButtons: (Swallow "xclock" \
+	`Exec exec xclock -update 1 -norender -bg Grey -fg Black`)
 *FvwmButtons: (Swallow "xbiff" `Exec exec xbiff -bg Grey -fg Black`)
 *FvwmButtons: (2x1, Swallow "xload" `Exec exec \
 	xload -bg Grey -fg Black -fn -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*`)
