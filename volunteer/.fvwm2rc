@@ -43,7 +43,7 @@ Style * MWMDecor
 
 # This is specifically intended not to run into FvwmButtons. Change it if you
 # change the width of FvwmButtons:
-Style * IconBox 0 -0 -0 0
+Style * IconBox 0 -0 -574 0
 
 DefaultFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 
@@ -95,21 +95,19 @@ DestroyModuleConfig FvwmButtons: *
 Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
       ClickToFocus, FixedPosition
 *FvwmButtons: Back Grey
-*FvwmButtons: Rows 7
-*FvwmButtons: Columns 2
-*FvwmButtons: Geometry 160x560-0+0
+*FvwmButtons: Rows 2
+*FvwmButtons: Columns 7
+*FvwmButtons: Geometry 560x160-0-0
 *FvwmButtons: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
-*FvwmButtons: (2x2, Swallow "FvwmPager" `Module FvwmPager 0 0`)
+*FvwmButtons: screen xterm-color_48x48.xpm Exec exec urxvt -sl 0 -e screen -dRR
+*FvwmButtons: SSH xterm_48x48.xpm Menu MenuFvwmLogins
+*FvwmButtons: Lock xscreensaver.xpm Exec exec xscreensaver-command -lock
 *FvwmButtons: (Swallow "xclock" \
 	`Exec exec xclock -update 1 -norender -bg Grey -fg Black`)
 *FvwmButtons: (Swallow "xbiff" `Exec exec xbiff -bg Grey -fg Black`)
-*FvwmButtons: (2x1, Swallow "xload" `Exec exec \
-	xload -bg Grey -fg Black -fn -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*`)
-*FvwmButtons: screen xterm-color_48x48.xpm Exec exec urxvt -sl 0 -e screen -dRR
-*FvwmButtons: SSH xterm_48x48.xpm Menu MenuFvwmLogins
+*FvwmButtons: (2x2, Swallow "FvwmPager" `Module FvwmPager 0 0`)
 *FvwmButtons: gVim vim48x48.xpm Exec exec gvim
 *FvwmButtons: Mozilla nscape.xpm Exec exec seamonkey -P default -new-instance
-*FvwmButtons: Lock xscreensaver.xpm Exec exec xscreensaver-command -lock
 *FvwmButtons: (1x1, Container(Rows 3, Columns 3))
 *FvwmButtons: (Icon mini-term.xpm, Action FvwmConsole)
 *FvwmButtons: (Icon mini-run.xpm, Action Module FvwmForm AppLauncher)
@@ -121,6 +119,8 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: (Icon mini-turn.xpm, Action Restart)
 *FvwmButtons: (Icon mini-stop.xpm, Action Module FvwmForm QuitVerify)
 *FvwmButtons: (End)
+*FvwmButtons: (2x1, Swallow "xload" `Exec exec \
+	xload -bg Grey -fg Black -fn -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*`)
 
 # QuitVerify
 *QuitVerify: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
