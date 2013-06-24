@@ -19,8 +19,7 @@
 # - FvwmForm-powered application launcher
 #
 # The only site-specific parts are the MenuFvwmLogins menu and the gVim icons.
-#
-# The gVim icon is available from the Vim source tarball.
+# The gVim icons are available from the Vim source tarball.
 #
 # This config is recommended with the following lines in ~/.xinitrc or 
 # ~/.xsession:
@@ -44,7 +43,7 @@ Style * MWMDecor
 
 # This is specifically intended not to run into FvwmButtons. Change it if you
 # change the width of FvwmButtons:
-Style * IconBox 0 -0 -640 0
+Style * IconBox 0 -0 -0 0
 
 DefaultFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 
@@ -121,6 +120,7 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: (Icon mini-bomb.xpm, Action Destroy)
 *FvwmButtons: (Icon mini-turn.xpm, Action Restart)
 *FvwmButtons: (Icon mini-stop.xpm, Action Module FvwmForm QuitVerify)
+*FvwmButtons: (End)
 
 # QuitVerify
 *QuitVerify: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
