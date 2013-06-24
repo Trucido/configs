@@ -107,17 +107,17 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: (2x1, Swallow "xload" `Exec exec \
 	xload -bg Grey -fg Black -fn -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*`)
 *FvwmButtons: screen xterm-color_48x48.xpm Exec exec urxvt -sl 0 -e screen -dRR
-*FvwmButtons: SSH xterm_48x48.xpm Popup MenuFvwmLogins
+*FvwmButtons: SSH xterm_48x48.xpm Menu MenuFvwmLogins
 *FvwmButtons: gVim vim48x48.xpm Exec exec gvim
 *FvwmButtons: Mozilla nscape.xpm Exec exec seamonkey -P default -new-instance
 *FvwmButtons: Lock xscreensaver.xpm Exec exec xscreensaver-command -lock
 *FvwmButtons: (1x1, Container(Rows 3, Columns 3))
 *FvwmButtons: (Icon mini-term.xpm, Action FvwmConsole)
 *FvwmButtons: (Icon mini-run.xpm, Action Module FvwmForm AppLauncher)
-*FvwmButtons: (Icon mini-x2.xpm, Action Popup MenuFvwmUtilities)
-*FvwmButtons: (Icon mini-windows.xpm, Action Popup MenuFvwmWindowOps)
+*FvwmButtons: (Icon mini-x2.xpm, Action Menu MenuFvwmUtilities)
+*FvwmButtons: (Icon mini-windows.xpm, Action Menu MenuFvwmWindowOps)
 *FvwmButtons: (Icon mini-book2.xpm, Action FvwmIdent)
-*FvwmButtons: (Icon mini-desktop.xpm, Action Popup MenuMoveToWorkspace)
+*FvwmButtons: (Icon mini-desktop.xpm, Action Menu MenuMoveToWorkspace)
 *FvwmButtons: (Icon mini-bomb.xpm, Action Destroy)
 *FvwmButtons: (Icon mini-turn.xpm, Action Restart)
 *FvwmButtons: (Icon mini-stop.xpm, Action Module FvwmForm QuitVerify)
