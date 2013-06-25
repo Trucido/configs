@@ -114,7 +114,7 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: (Icon mini-cdlabel.xpm, Action Exec exec audacious)
 *FvwmButtons: (Icon mini-term.xpm, Action FvwmConsole)
 *FvwmButtons: (Icon mini-run.xpm, Action Module FvwmForm AppLauncher)
-*FvwmButtons: (Icon mini-book2.xpm, Action FvwmIdent)
+*FvwmButtons: (Icon mini-ray.xpm, Action PlaceAgain)
 *FvwmButtons: (Icon mini-bomb.xpm, Action Destroy)
 *FvwmButtons: (Icon mini-turn.xpm, Action Restart)
 *FvwmButtons: (Icon mini-stop.xpm, Action Module FvwmForm QuitVerify)
@@ -198,6 +198,7 @@ Key F10 A M FuncFvwmMaximize
 Key F12 A M WindowShade
 
 Key Space A M Menu MenuFvwmWindowOps
+
 Key l A CM Exec exec xscreensaver-command -lock
 Key Delete A CM Module FvwmForm QuitVerify
 
@@ -289,6 +290,7 @@ AddToMenu MenuFvwmWindowOps "$[gt.Window Ops]" Title
 + "$[gt.S&hade]" WindowShade
 + "%mini.stickpressed.xpm%$[gt.(Un)&Stick]" Stick
 + "%mini-max1.xpm%$[gt.(Un)Ma&ximize]" FuncFvwmMaximize
++ "%mini-ray.xpm%$[gt.&Place Again]" PlaceAgain
 + "" Nop
 + "%mini-book2.xpm%$[gt.I&nformation]" FvwmIdent
 + "" Nop
