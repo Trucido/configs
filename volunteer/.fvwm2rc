@@ -109,12 +109,12 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: gVim vim48x48.xpm Exec exec gvim
 *FvwmButtons: Mozilla nscape.xpm Exec exec seamonkey -P default -new-instance
 *FvwmButtons: (1x1, Container(Rows 3, Columns 3))
+*FvwmButtons: (Icon mini-xv.xpm, Action Exec exec display)
+*FvwmButtons: (Icon mini-paint.xpm, Action Exec exec gimp)
+*FvwmButtons: (Icon mini-cdlabel.xpm, Action Exec exec audacious)
 *FvwmButtons: (Icon mini-term.xpm, Action FvwmConsole)
 *FvwmButtons: (Icon mini-run.xpm, Action Module FvwmForm AppLauncher)
-*FvwmButtons: (Icon mini-x2.xpm, Action Menu MenuFvwmUtilities)
-*FvwmButtons: (Icon mini-windows.xpm, Action Menu MenuFvwmWindowOps)
 *FvwmButtons: (Icon mini-book2.xpm, Action FvwmIdent)
-*FvwmButtons: (Icon mini-desktop.xpm, Action Menu MenuMoveToWorkspace)
 *FvwmButtons: (Icon mini-bomb.xpm, Action Destroy)
 *FvwmButtons: (Icon mini-turn.xpm, Action Restart)
 *FvwmButtons: (Icon mini-stop.xpm, Action Module FvwmForm QuitVerify)
