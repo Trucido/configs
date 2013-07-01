@@ -97,7 +97,7 @@ Style Xpdf MiniIcon mini.pdf.xpm
 # FvwmButtons
 DestroyModuleConfig FvwmButtons: *
 Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
-      ClickToFocus, FixedPosition
+      ClickToFocus, FixedPosition, FixedSize
 *FvwmButtons: Back Grey
 *FvwmButtons: Rows 2
 *FvwmButtons: Columns 7
