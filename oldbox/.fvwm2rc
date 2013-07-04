@@ -111,7 +111,7 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: (Swallow "xbiff" `Exec exec xbiff -bg Grey -fg Black`)
 *FvwmButtons: (2x2, Swallow "FvwmPager" `Module FvwmPager 0 0`)
 *FvwmButtons: gVim vim48x48.xpm Exec exec gvim
-*FvwmButtons: Mozilla nscape.xpm Exec exec seamonkey -P default -new-instance
+*FvwmButtons: Mozilla nscape.xpm Exec exec seamonkey
 *FvwmButtons: (1x1, Container(Rows 3, Columns 3))
 *FvwmButtons: (Icon mini.picture.xpm, Action Exec exec display)
 *FvwmButtons: (Icon mini.gimp.xpm, Action Exec exec gimp)
@@ -258,8 +258,7 @@ AddToMenu MenuFvwmUtilities "$[gt.Applications]" Title
 + "%vim16x16.xpm%g&Vim" Exec exec gvim
 + "%mini.gnu.xpm%&Emacs" Exec exec emacs
 + "" Nop
-+ "%mini.nscape.xpm%Sea&Monkey" Exec exec seamonkey -P default -new-instance
-+ "%mini.nscape.xpm%Moz (&Private)" Exec exec seamonkey -P private -new-instance
++ "%mini.nscape.xpm%Sea&Monkey" Exec exec seamonkey
 + "" Nop
 + "%mini.gimp.xpm%The &GIMP" Exec exec gimp
 + "%mini.pdf.xpm%Xp&df" Exec exec xpdf
