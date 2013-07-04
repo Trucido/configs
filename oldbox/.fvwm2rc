@@ -248,6 +248,9 @@ AddToMenu MenuFvwmLogins "$[gt.Remote Logins]" Title
   urxvt -title tesseract -e ssh woddf2@tesseract.hackerhaven.net
 + "%mini.ball.xpm%is.not.a.&hax0r.se" Exec exec \
   urxvt -title elisabeth -e ssh xoddf2@is.not.a.hax0r.se
++ "" Nop
++ "%mini.keys.xpm%&A. Add Key" Exec exec ssh-add
++ "%mini.keys.xpm%&D. Delete Key" Exec exec ssh-add -D
 
 # Applications Menu
 DestroyMenu MenuFvwmUtilities
