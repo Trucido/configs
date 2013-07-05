@@ -10,7 +10,7 @@ urxvtd -q -o -f
 
 xsetroot -solid Grey20 &
 
-xclock -digital -update 1 -geometry -0+0 -face Fixed &
+xclock -digital -update 1 -geometry -0+0 -render -face Fixed-12 &
 xload -geometry -0+40 &
 xbiff -geometry -0+190 &
 
