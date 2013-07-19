@@ -23,6 +23,8 @@ URxvt.loginShell: true
 URxvt.locale: UTF-8
 URxvt.urgentOnBell: true
 
+URxvt.geometry: 80x30
+
 ! Hide scroll bar and pointer
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
