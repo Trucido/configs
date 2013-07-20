@@ -4,9 +4,10 @@
 Xft.dpi: 96
 
 ! Terminal Emulators
-Rxvt.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+Rxvt.font: -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 Rxvt.reverseVideo: true
 Rxvt.urgentOnBell: true
+Rxvt.scrollBar: false
 URxvt.pointerBlank: true
 
 XTerm.vt100.locale: UTF-8

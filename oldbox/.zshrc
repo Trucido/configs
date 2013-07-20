@@ -27,7 +27,7 @@ export PS1="%{$fg_bold[green]%}%c%{$reset_color%} ${cmdstatus} "
 bindkey -v
 
 # Make Exiting Difficult
-if [[ -n "$STY" ]] && [[ "$WINDOW" == "0" ]]; then
+if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
 	alias exit="false"
 	setopt ignoreeof
 fi

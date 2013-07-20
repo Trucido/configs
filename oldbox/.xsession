@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# woddfellow2's ~/.xsession (volunteer)
+# woddfellow2's ~/.xsession (oldbox)
 # by woddfellow2 | http://wlair.us.to/
 
 # XScreenSaver
@@ -10,7 +10,7 @@ xscreensaver -no-splash &
 xmodmap ~/.Xmodmap &
 
 # Set wallpaper
-xsetroot -solid DarkGrey &
+xsetroot -solid black &
 
 # ssh-agent (Inspired by and stolen from OpenBSD)
 id1=$HOME/.ssh/identity
@@ -24,7 +24,7 @@ then
 fi
 
 # Start the WM
-fvwm
+i3
 
 # Kill ssh-agent upon exiting
 if [ "$SSH_AGENT_PID" ]; then

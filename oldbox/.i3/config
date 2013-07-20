@@ -1,0 +1,141 @@
+# woddfellow2's i3 Config
+# by woddfellow2 | http://wlair.us.to/
+#
+# $Id: ~/.i3/config,v 1.2 2013/07/20 01:57:19Z xoddf2 Exp $
+
+# Use SUPER (Mod4) for keybindings
+set $mod Mod4
+floating_modifier $mod
+
+# Font
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# Terminal keybinding
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Close Window
+bindsym $mod+Shift+q kill
+
+# dmenu
+bindsym $mod+d exec dmenu_run
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+
+# Focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Horizontal and vertical spilts
+bindsym $mod+semicolon split h
+bindsym $mod+v split v
+
+# Full-screen
+bindsym $mod+f fullscreen
+
+# Layouts
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Float a window
+bindsym $mod+Shift+space floating toggle
+
+# Focus the other layer
+bindsym $mod+space focus mode_toggle
+
+# Focus parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+z focus child
+
+# Workspaces
+bindsym $mod+1 workspace 1: one
+bindsym $mod+2 workspace 2: two
+bindsym $mod+3 workspace 3: three
+bindsym $mod+4 workspace 4: four
+bindsym $mod+5 workspace 5: five
+bindsym $mod+6 workspace 6: six
+bindsym $mod+7 workspace 7: seven
+bindsym $mod+8 workspace 8: eight
+bindsym $mod+9 workspace 9: nine
+bindsym $mod+0 workspace 10: ten
+
+# Switch between workspaces
+bindsym $mod+Tab workspace back_and_forth
+
+# Move to workspace...
+bindsym $mod+Shift+1 move container to workspace 1: one
+bindsym $mod+Shift+2 move container to workspace 2: two
+bindsym $mod+Shift+3 move container to workspace 3: three
+bindsym $mod+Shift+4 move container to workspace 4: four
+bindsym $mod+Shift+5 move container to workspace 5: five
+bindsym $mod+Shift+6 move container to workspace 6: six
+bindsym $mod+Shift+7 move container to workspace 7: seven
+bindsym $mod+Shift+8 move container to workspace 8: eight
+bindsym $mod+Shift+9 move container to workspace 9: nine
+bindsym $mod+Shift+0 move container to workspace 10: ten
+
+# Move to previous workspace
+bindsym $mod+Shift+Tab move container to workspace back_and_forth
+
+# Reload config
+bindsym $mod+Shift+c reload
+# Restart i3
+bindsym $mod+Shift+r restart
+# Exit
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -b 'Yes' 'i3-msg exit'"
+# Lock
+bindsym $mod+Escape exec "xscreensaver-command -lock"
+
+# Resize
+mode "resize" {
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym j resize grow height 10 px or 10 ppt
+	bindsym k resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Applications
+mode "apps" {
+	bindsym t exec "i3-sensible-terminal -e tmux attach-sesion -d"
+	bindsym f exec "firefox"
+	bindsym m exec "mozilla"
+	bindsym v exec "gvim"
+	bindsym e exec "emacs"
+	bindsym g exec "gimp"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+a mode "apps"
+
+# SSH to...
+mode "ssh" {
+	bindsym g exec "i3-sensible-terminal -e ssh rofldell.local"
+	bindsym m exec "i3-sensible-terminal -e ssh tesseract.hackerhaven.net"
+	bindsym d exec "i3-sensible-terminal -e ssh is.not.a.hax0r.se"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+s mode "ssh"
+
+# i3bar
+bar {
+	status_command i3status
+}
