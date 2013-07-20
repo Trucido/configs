@@ -1,4 +1,4 @@
-! woddfellow2's ~/.Xdefaults (volunteer)
+! woddfellow2's ~/.Xdefaults (oldbox)
 ! by woddfellow2 | http://wlair.us.to/
 
 Xft.dpi: 96
@@ -9,6 +9,8 @@ Rxvt.reverseVideo: true
 Rxvt.urgentOnBell: true
 Rxvt.scrollBar: false
 URxvt.pointerBlank: true
+URxvt.perl-ext-common: keyboard-select
+URxvt.keysym.Menu: perl:keyboard-select:activate
 
 XTerm.vt100.locale: UTF-8
 XTerm.vt100.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
