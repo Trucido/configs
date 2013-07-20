@@ -1,7 +1,7 @@
 # woddfellow2's i3 Config
 # by woddfellow2 | http://wlair.us.to/
 #
-# $Id: ~/.i3/config,v 1.2 2013/07/20 01:57:19Z xoddf2 Exp $
+# $Id: ~/.i3/config,v 1.3 2013/07/20 06:36:20Z xoddf2 Exp $
 
 # Use SUPER (Mod4) for keybindings
 set $mod Mod4
@@ -110,12 +110,12 @@ bindsym $mod+r mode "resize"
 
 # Applications
 mode "apps" {
-	bindsym t exec "i3-sensible-terminal -e tmux attach-sesion -d"
-	bindsym f exec "firefox"
-	bindsym m exec "mozilla"
-	bindsym v exec "gvim"
-	bindsym e exec "emacs"
-	bindsym g exec "gimp"
+	bindsym t exec "i3-sensible-terminal -e tmux attach-sesion -d"; mode "default"
+	bindsym f exec "firefox"; mode "default"
+	bindsym m exec "mozilla"; mode "default"
+	bindsym v exec "gvim"; mode "default"
+	bindsym e exec "emacs"; mode "default"
+	bindsym g exec "gimp"; mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -125,9 +125,9 @@ bindsym $mod+Shift+a mode "apps"
 
 # SSH to...
 mode "ssh" {
-	bindsym g exec "i3-sensible-terminal -e ssh rofldell.local"
-	bindsym m exec "i3-sensible-terminal -e ssh tesseract.hackerhaven.net"
-	bindsym d exec "i3-sensible-terminal -e ssh is.not.a.hax0r.se"
+	bindsym g exec "i3-sensible-terminal -e ssh rofldell.local"; mode "default"
+	bindsym m exec "i3-sensible-terminal -e ssh tesseract.hackerhaven.net"; mode "default"
+	bindsym d exec "i3-sensible-terminal -e ssh is.not.a.hax0r.se"; mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
