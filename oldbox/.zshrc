@@ -46,3 +46,7 @@ alias elinks-porn="elinks -config-file ~/.elinks/elinks.conf -no-home"
 alias dRR="screen -dRR"
 alias sprunge="curl -F sprunge=@- http://sprunge.us/"
 alias rot13="tr a-zA-Z n-za-m-N-ZA-M"
+
+if [[ -z "$DISPLAY" ]] && [[ -z "$TMUX" ]]; then
+	alias x="startx &! exit"
+fi

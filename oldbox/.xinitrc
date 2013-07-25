@@ -1,16 +1,20 @@
 #!/bin/sh
 
-# woddfellow2's ~/.xsession (oldbox)
+# woddfellow2's ~/.xinitrc (oldbox)
 # by woddfellow2 | http://wlair.us.to/
 
-# XScreenSaver
-xscreensaver -no-splash &
+# Screen saver
+xset s 60 &
+xsidle.sh slock &
 
 # xmodmap
 xmodmap ~/.Xmodmap &
 
 # Set wallpaper
 xsetroot -solid black &
+
+# rxvt-unicode daemon
+urxvtd -q -o -f
 
 # ssh-agent (Inspired by and stolen from OpenBSD)
 id1=$HOME/.ssh/identity
@@ -23,8 +27,14 @@ then
 	ssh-add < /dev/null
 fi
 
+# Banish the pointer
+banish &
+
+# Start a terminal
+urxvtc &
+
 # Start the WM
-i3
+until conky | dwm; do true; done
 
 # Kill ssh-agent upon exiting
 if [ "$SSH_AGENT_PID" ]; then

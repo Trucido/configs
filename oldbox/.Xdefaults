@@ -4,7 +4,7 @@
 Xft.dpi: 96
 
 ! Terminal Emulators
-Rxvt.font: -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+Rxvt.font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 Rxvt.reverseVideo: true
 Rxvt.urgentOnBell: true
 Rxvt.scrollBar: false
