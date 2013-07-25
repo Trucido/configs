@@ -34,7 +34,7 @@ banish &
 urxvtc &
 
 # Start the WM
-until conky | dwm; do true; done
+conky | dwm
 
 # Kill ssh-agent upon exiting
 if [ "$SSH_AGENT_PID" ]; then
