@@ -1,0 +1,12 @@
+# woddfellow2's Conky Config
+# by woddfellow2 | http://wlair.us.to/
+#
+# $Id: .conkyrc,v 1.0 2013-07-25 03:48:20 xoddf2 Exp $
+
+out_to_console yes
+out_to_x no
+update_interval 0.3
+temperature_unit fahrenheit
+
+TEXT
+${if_up eth0}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD temperature 30}°F ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather 30}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather 30}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover 30}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover 30}}clear$endif$endif$endif | ${cpu}% | ${loadavg} | ${time %F %T}
