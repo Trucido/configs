@@ -7,8 +7,8 @@
 xset s 60 &
 xsidle.sh slock &
 
-# xmodmap
-xmodmap ~/.Xmodmap &
+# Make CAPS LOCK another ESC key
+setxkbmap -option caps:escape &
 
 # Set wallpaper
 xsetroot -solid black &
