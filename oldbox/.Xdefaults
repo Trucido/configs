@@ -3,18 +3,11 @@
 
 Xft.dpi: 96
 
-! Terminal Emulators
-Rxvt.font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
-Rxvt.reverseVideo: true
-Rxvt.urgentOnBell: true
-Rxvt.scrollBar: false
-URxvt.pointerBlank: true
-URxvt.perl-ext-common: keyboard-select
-URxvt.keysym.Menu: perl:keyboard-select:activate
-
+! xterm
 XTerm.vt100.locale: UTF-8
-XTerm.vt100.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
-XTerm.vt100.utf8Fonts.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+XTerm.vt100.font: -misc-fixed-medium-r-normal--15-*-*-*-*-*-iso10646-1
+XTerm.vt100.utf8Fonts.font: -misc-fixed-medium-r-normal--15-*-*-*-*-*-iso10646-1
+XTerm.vt100.wideFont: -*-*-*-*-*-ja-*-*-*-*-*-*-*-*
 XTerm.vt100.reverseVideo: true
 XTerm.vt100.altIsNotMeta: true
 XTerm.vt100.altSendsEscape: true
@@ -22,6 +15,9 @@ XTerm.vt100.scrollBar: true
 
 ! Emacs
 emacs.font: -adobe-courier-medium-r-*-*-14-*-*-*-*-*-*-*
+emacs.geometry: 80x50
+emacs.background: black
+emacs.foreground: grey
 emacs.menuBar: off
 emacs.verticalScrollBars: off
 emacs.toolBar: off

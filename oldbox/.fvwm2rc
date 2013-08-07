@@ -1,0 +1,338 @@
+# $Id: .fvwm2rc,v 1.8 2013/08/07 02:21:55 xoddf2 Exp $
+
+# This config is recommended for use with stock Slackware 14.0, with
+# fvwm_icons <http://www.fvwm.org/download/icons.php>.
+#
+# The fonts used in this config are misc-fixed and adobe-helvetica, which
+# should make it portable.
+#
+# Features:
+# - Sloppy focus
+# - 9 pages
+# - 16-pixel window snap
+# - Custom urgency handling
+# - CUA-style keybindings
+# - FvwmButtons (swallowed xclock, xload, xbiff)
+# - FvwmPager
+# - FvwmCommand
+# - FvwmAnimate
+# - FvwmBanner
+# - FvwmForm-powered application launcher
+#
+# This config is recommended with the following lines in ~/.xinitrc or 
+# ~/.xsession:
+#
+# xscreensaver -no-splash &
+# xsetroot -solid DarkGrey &
+
+# See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
+IgnoreModifiers L25
+
+# Virtual Desktops
+DeskTopSize 3x3
+
+# Style ########################################################################
+
+Style * SloppyFocus
+Style * SnapAttraction 16 Screen
+
+# This line makes XMMS, Audacious, mplayer -noborder, and similar work properly:
+Style * MWMDecor
+
+# This is specifically intended not to run into FvwmButtons. Change it if you
+# change the width of FvwmButtons:
+Style * IconBox 0 -0 -654 0
+
+DefaultFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+
+# Colours
+Colorset 0 fg White, bg DimGrey
+Colorset 1 fg White, bg DarkCyan
+Colorset 2 fg Black, bg Yellow3
+Colorset 3 fg Maroon, bg Grey
+
+DefaultColorset 1
+Style * Colorset 0
+Style * HilightColorset 1
+MenuStyle * fvwm, MenuColorset 3
+
+# Window list
+MenuStyle WindowList MenuColorset 3
+
+# Icons
+ImagePath /usr/share/pixmaps:/usr/share/icons:/usr/include/X11/pixmaps
+ImagePath +:$[FVWM_USERDIR]/icons
+
+# Application-specific Style
+Style XTerm Icon xterm.xpm, MiniIcon mini.term.xpm
+Style *rxvt Icon term.xpm, MiniIcon mini.term.xpm, \
+	MWMBorder, MWMButtons
+Style Seamonkey IconOverride, EWMHMiniIconOverride, \
+	Icon nscape.xpm, MiniIcon mini.nscape.xpm
+Style Emacs IconOverride, EWMHMiniIconOverride, \
+	Icon gnu-animal.xpm, MiniIcon mini.gnu.xpm, !Title
+Style MPlayer Icon hicolor/48x48/apps/mplayer.png
+Style Xpdf MiniIcon mini.pdf.xpm
+
+# FvwmIdent
+*FvwmIdent: Back navy
+*FvwmIdent: Fore yellow
+*FvwmIdent: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+
+# FvwmPager
+DestroyModuleConfig FvwmPager: *
+Style FvwmPager !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
+      ClickToFocus, FixedPosition, FixedSize
+*FvwmPager: Font -adobe-helvetica-bold-r-normal--10-100-75-75-p-60-iso8859-1
+*FvwmPager: SmallFont -misc-fixed-medium-r-*-*-8-*-*-*-*-*-*-*
+*FvwmPager: Geometry 125x125-0+0
+*FvwmPager: Back Grey60
+*FvwmPager: Fore Black
+*FvwmPager: Hilight Grey
+*FvwmPager: Balloons
+*FvwmPager: BalloonFore White
+*FvwmPager: BalloonBack DimGrey
+*FvwmPager: BalloonBorderColor Black
+
+# FvwmButtons
+DestroyModuleConfig FvwmButtons: *
+Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
+      ClickToFocus, FixedPosition, FixedSize
+*FvwmButtons: Back Grey
+*FvwmButtons: Rows 1
+*FvwmButtons: Columns 8
+*FvwmButtons: Geometry 640x80-0-0
+*FvwmButtons: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+*FvwmButtons: xterm xterm.xpm Exec exec xterm
+*FvwmButtons: Emacs gnu-animal.xpm \
+	Exec exec emacsclient --alternate-editor='' -c
+*FvwmButtons: Mozilla nscape.xpm Exec exec mozilla
+*FvwmButtons: Lock xscreensaver.xpm Exec exec xscreensaver-command -lock
+*FvwmButtons: (Swallow "xclock" \
+	`Exec exec xclock -update 1 -norender -bg Grey -fg Black`)
+*FvwmButtons: (2x1, Swallow "xload" `Exec exec \
+	xload -bg Grey -fg Black -fn -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*`)
+*FvwmButtons: (Swallow "xbiff" `Exec exec xbiff -bg Grey -fg Black`)
+
+# QuitVerify
+*QuitVerify: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+*QuitVerify: ButtonFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+*QuitVerify: Fore Black
+*QuitVerify: Back LightGrey
+*QuitVerify: ItemFore White
+*QuitVerify: ItemBack Grey50
+*QuitVerify: Line center
+*QuitVerify: Text "Are you sure?"
+*QuitVerify: Line expand
+*QuitVerify: Button quit " Exit " ^M
+*QuitVerify: Command Quit
+*QuitVerify: Button quit "Cancel" ^[
+*QuitVerify: Command Nop
+
+# AppLauncher
+*AppLauncher: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+*AppLauncher: ButtonFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+*AppLauncher: Fore Black
+*AppLauncher: Back LightGrey
+*AppLauncher: ItemFore White
+*AppLauncher: ItemBack Grey50
+*AppLauncher: Line center
+*AppLauncher: Text "Run Command:"
+*AppLauncher: Line center
+*AppLauncher: Input Command 50 ""
+*AppLauncher: Line expand
+*AppLauncher: Button quit "  OK  " ^M
+*AppLauncher: Command Exec exec $(Command)
+*AppLauncher: Button quit "Cancel" ^[
+*AppLauncher: Command Nop
+
+# FvwmBanner
+Style FvwmBanner StaysOnTop, !Title
+*FvwmBanner: Pixmap fvwm2_big.xpm
+
+# Functions ####################################################################
+
+# Iconify function
+DestroyFunc FuncFvwmMoveOrIconify
+AddToFunc FuncFvwmMoveOrIconify
++ I Raise
++ M Move
++ D Iconify
+
+DestroyFunc FuncFvwmMaximize
+AddToFunc FuncFvwmMaximize
++ M Maximize 0 100
++ H Maximize 0 100
++ C Maximize 0 80
++ D Maximize 100 100
+
+# Urgency (This raises the window and turns its border yellow.)
+DestroyFunc UrgencyFunc
+AddToFunc UrgencyFunc
++ I ThisWindow (!Focused) WindowStyle HilightColorset 2
++ I ThisWindow (!Focused) WindowStyle Colorset 2
++ I ThisWindow (!Focused) Raise
+
+DestroyFunc UrgencyDoneFunc
+AddToFunc UrgencyDoneFunc
++ I WindowStyle Colorset 0
++ I WindowStyle HilightColorset 1
+
+# Keybindings (CUA-inspired) ###################################################
+
+Key F1 A M Menu MenuFvwmRoot
+Key F2 A M Module FvwmForm AppLauncher
+Key F3 A M Menu MenuFvwmWindowOps
+Key F4 A M Close
+Key F7 A M Move
+Key F8 A M Resize
+Key F9 A M Iconify
+Key F10 A M FuncFvwmMaximize
+Key F12 A M WindowShade
+
+Key Space A M Menu MenuFvwmWindowOps
+
+Key Up A CM GotoPage 0p -1p
+Key Down A CM GotoPage 0p 1p
+Key Left A CM GotoPage -1p 0p
+Key Right A CM GotoPage 1p 0p
+
+Key l A CM Exec exec xscreensaver-command -lock
+Key Delete A CM Module FvwmForm QuitVerify
+
+# Mouse Bindings ###############################################################
+
+Mouse 0 1 A Menu MenuFvwmWindowOps Close
+Mouse 0 2 A FuncFvwmMaximize
+Mouse 0 4 A Iconify
+
+Mouse 3 TSIF A RaiseLower
+
+Mouse 2 R A Menu MenuFvwmWindowOps Nop
+Mouse 3 R A WindowList
+
+# Without this one, iconified windows do not re-iconify when clicked:
+Mouse 1 I A FuncFvwmMoveOrIconify
+
+# Menus ########################################################################
+
+# Root Menu
+DestroyMenu MenuFvwmRoot
+AddToMenu MenuFvwmRoot "$[gt.Root Menu]" Title
++ "%mini.xterm.xpm%&T. XTerm" Exec exec xterm
++ "%mini.telnet.xpm%&R. $[gt.Remote Logins]" Popup MenuFvwmLogins
++ "" Nop
++ "%mini.gnu.xpm%&E. emacsclient" Exec exec emacsclient --alternate-editor='' -c
++ "" Nop
++ "%mini.x2.xpm%&A. $[gt.Applications]" Popup MenuFvwmUtilities
++ "%mini.run.xpm%&U. $[gt.Run...]" Module FvwmForm AppLauncher
++ "" Nop
++ "%mini.fvwm.xpm%&F. $[gt.FVWM]" Popup MenuFvwmFvwm
++ "%mini.windows.xpm%&W. $[gt.Window Ops]" Popup MenuFvwmWindowOps
++ "" Nop
++ "%mini.stop.xpm%&X. $[gt.Leave]" Popup MenuGTFO
+
+# Remote Logins Menu (Disclaimer: This menu is esoteric to my personal LAN.)
+DestroyMenu MenuFvwmLogins
+AddToMenu MenuFvwmLogins "$[gt.Remote Logins]" Title
++ "%mini.ball.xpm%&rofldell.local" Exec exec \
+  xterm -title rofldell -n rofldell -e ssh xoddf2@rofldell.local
++ "%mini.ball.xpm%&tesseract.hackerhaven.net" Exec exec \
+  xterm -title tesseract -n tesseract -e ssh woddf2@tesseract.hackerhaven.net
++ "%mini.ball.xpm%is.not.a.&hax0r.se" Exec exec \
+  xterm -title elisabeth -n elisabeth -e ssh xoddf2@is.not.a.hax0r.se
++ "" Nop
++ "%mini.keys.xpm%&A. Add Key" Exec exec ssh-add
++ "%mini.keys.xpm%&D. Delete Key" Exec exec ssh-add -D
+
+# Applications Menu
+DestroyMenu MenuFvwmUtilities
+AddToMenu MenuFvwmUtilities "$[gt.Applications]" Title
++ "%mini.xterm.xpm%X&Term" Exec exec xterm
++ "%mini.term.xpm%&Rxvt" Exec exec rxvt
++ "" Nop
++ "%vim16x16.xpm%g&Vim" Exec exec gvim
++ "%mini.gnu.xpm%&Emacs" Exec exec emacs
++ "" Nop
++ "%mini.nscape.xpm%&Mozilla" Exec exec mozilla
++ "" Nop
++ "%mini.gimp.xpm%The &GIMP" Exec exec gimp
++ "%mini.pdf.xpm%Xp&df" Exec exec xpdf
++ "" Nop
++ "%mini.cd.xpm%&Audacious" Exec exec audacious
++ "" Nop
++ "%mini.xmag.xpm%&Xmag" Exec exec xmag
++ "%mini.happy.xpm%Game&s" Popup MenuFvwmGames
+
+# Games Menu
+DestroyMenu MenuFvwmGames
+AddToMenu MenuFvwmGames "$[gt.Games]" Title
++ "%mini.espada.xpm%&Spider" Exec exec spider
++ "%mini.bomb.xpm%XM&inesweep" Exec exec xminesweep
++ "&Micropolis" Exec exec micropolis
++ "%mini.xboing.xpm%L&Breakout2" Exec exec lbreakout2
++ "%mini.tetris.xpm%L&Tris" Exec exec ltris
+
+# FVWM Menu
+DestroyMenu MenuFvwmFvwm
+AddToMenu MenuFvwmFvwm "$[gt.FVWM]" Title
++ "%mini.term.xpm%Fvwm&Console" Module FvwmConsole
++ "%mini.edit.xpm%$[gt.&Edit Config]" Exec exec \
+	emacsclient --alternate-editor='' -c ~/.fvwm/.fvwm2rc
++ "%mini.book1.xpm%$[gt.&Manual]" Exec exec xterm -e man fvwm
+
+# Window Ops Menu
+DestroyMenu MenuFvwmWindowOps
+AddToMenu MenuFvwmWindowOps "$[gt.Window Ops]" Title
++ "%mini.move.xpm%$[gt.&Move]" Move
++ "%mini.resize.xpm%$[gt.&Resize]" Resize
++ "%mini.raise.xpm%$[gt.R&aise]" Raise
++ "%mini.lower.xpm%$[gt.&Lower]" Lower
++ "%mini.iconify.xpm%$[gt.(De)&Iconify]" Iconify
++ "%mini.shade1.xpm%$[gt.S&hade]" WindowShade
++ "%mini.stick.xpm%$[gt.(Un)&Stick]" Stick
++ "%mini.maximize.xpm%$[gt.(Un)Ma&ximize]" FuncFvwmMaximize
++ "%mini.ray.xpm%$[gt.&Place Again]" PlaceAgain
++ "" Nop
++ "%mini.question.xpm%$[gt.I&nformation]" FvwmIdent
++ "" Nop
++ "%mini.desktop.xpm%$[gt.Move to &Workspace...]" Popup MenuMoveToWorkspace
++ "" Nop
++ "%mini.delete.xpm%$[gt.&Delete]" Delete
++ "%mini.destroy.xpm%$[gt.Destroy]" Destroy
+
+# "Move to Workspace..." menu
+DestroyMenu MenuMoveToWorkspace
+AddToMenu MenuMoveToWorkspace "$[gt.Move to...]" Title
++ "&1. $[gt.Northwest]" MoveToPage 0 0
++ "&2. $[gt.North]" MoveToPage 1 0
++ "&3. $[gt.Northeast]" MoveToPage 2 0
++ "&4. $[gt.West]" MoveToPage 0 1
++ "&5. $[gt.Central]" MoveToPage 1 1
++ "&6. $[gt.East]" MoveToPage 2 1
++ "&7. $[gt.Southwest]" MoveToPage 0 2
++ "&8. $[gt.South]" MoveToPage 1 2
++ "&9. $[gt.Southeast]" MoveToPage 2 2
+
+# Leave Menu
+DestroyMenu MenuGTFO
+AddToMenu MenuGTFO "$[gt.Leave]" Title
++ "%mini.lock.xpm%&X. $[gt.XScreenSaver]" Exec exec xscreensaver-command -lock
++ "%mini.xlock.xpm%&L. $[gt.xlock]" Exec exec xlock
++ "" Nop
++ "%mini.turn.xpm%&R. $[gt.Restart FVWM]" Restart
++ "%mini.exclam.xpm%&Q. $[gt.Exit FVWM]" Popup MenuGTFOExit
+
+# Exit FVWM Menu
+DestroyMenu MenuGTFOExit
+AddToMenu MenuGTFOExit
++ "%mini.exclam2.xpm%$[gt.Really Exit]" Module FvwmForm QuitVerify
+
+# StartFunction ################################################################
+
+AddToFunc StartFunction
++ I Module FvwmCommandS
++ I Module FvwmAnimate
++ I Module FvwmBanner
++ I Module FvwmButtons
++ I Module FvwmPager 0 0

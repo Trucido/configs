@@ -1,12 +1,6 @@
-# woddfellow2's zsh Config
-# by woddfellow2 | http://wlair.us.to/
+# $Id: .zshrc,v 1.0 2013/08/07 02:25:20 xoddf2 Exp $
 
 zstyle :compinstall filename '~/.zshrc'
-
-# History
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
 
 # Report background job status immediately
 setopt notify
@@ -23,8 +17,8 @@ autoload -U colors && colors
 local cmdstatus="%(?,%{$fg_bold[blue]%}%#%{$reset_color%},%{$fg_bold[red]%}%#%{$reset_color%})"
 export PS1="%{$fg_bold[green]%}%c%{$reset_color%} ${cmdstatus} "
 
-# vi Keybindings
-bindkey -v
+# Emacs Keybindings
+bindkey -e
 
 # Make Exiting Difficult
 if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
@@ -33,20 +27,11 @@ if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
 fi
 
 # Default Applications
-export EDITOR="vim"
+export EDITOR="emacsclient --alternate-editor='' -nw"
 
 # Aliases
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias p3="ping -c 3"
 alias mp="mplayer"
-alias mp-overscan="mplayer -vf scale=320:240,crop=288:216 -aspect 4:3"
-alias mp-monaural="mplayer -af pan=1:0.5:0.5"
-alias elinks-porn="elinks -config-file ~/.elinks/elinks.conf -no-home"
-alias dRR="screen -dRR"
 alias sprunge="curl -F sprunge=@- http://sprunge.us/"
-alias rot13="tr a-zA-Z n-za-m-N-ZA-M"
-
-if [[ -z "$DISPLAY" ]] && [[ -z "$TMUX" ]]; then
-	alias x="startx &! exit"
-fi

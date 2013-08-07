@@ -1,20 +1,14 @@
 #!/bin/sh
+# $id: .xsession,v 1.1 2013/08/07 02:31:45 xoddf2 Exp $
 
-# woddfellow2's ~/.xinitrc (oldbox)
-# by woddfellow2 | http://wlair.us.to/
-
-# Screen saver
-xset s 60 &
-xsidle.sh slock &
+# XScreenSaver
+xscreensaver -no-splash &
 
 # Make CAPS LOCK another ESC key
 setxkbmap -option caps:escape &
 
 # Set wallpaper
-xsetroot -solid black &
-
-# rxvt-unicode daemon
-urxvtd -q -o -f
+xsetroot -solid DarkGrey &
 
 # ssh-agent (Inspired by and stolen from OpenBSD)
 id1=$HOME/.ssh/identity
@@ -27,14 +21,8 @@ then
 	ssh-add < /dev/null
 fi
 
-# Banish the pointer
-banish &
-
-# Start a terminal
-urxvtc &
-
 # Start the WM
-conky | dwm
+fvwm
 
 # Kill ssh-agent upon exiting
 if [ "$SSH_AGENT_PID" ]; then
