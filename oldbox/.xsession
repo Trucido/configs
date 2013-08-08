@@ -1,5 +1,5 @@
 #!/bin/sh
-# $id: .xsession,v 1.1 2013/08/07 02:31:45 xoddf2 Exp $
+# $Id: .xsession,v 1.1 2013/08/07 02:31:45 xoddf2 Exp $
 
 # XScreenSaver
 xscreensaver -no-splash &
