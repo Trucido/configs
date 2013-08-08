@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.0 2013/08/06 23:29:00 xoddf2 Exp $
+;;; $Id: .emacs,v 1.1 2013/08/07 23:18:10 xoddf2 Exp $
 
 ;; Packages
 (require 'epa-file)
@@ -30,6 +30,7 @@
       x-stretch-cursor t
       visible-bell t)
 (iswitchb-mode 1)
+(setq indent-tabs-mode t)
 
 ;; Backup and autosave directory
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
@@ -37,8 +38,21 @@
 
 ;; C
 (setq c-default-style "bsd"
-      indent-tabs-mode t
       c-basic-offset 8)
+
+;; Shell
+(setq sh-basic-offset 8)
+
+;; Perl
+(defalias 'perl-mode 'cperl-mode)
+(setq cperl-indent-level 8
+      cperl-continued-statement-offset 0)
+
+;; WWW languages
+(add-hook 'html-mode-hook
+	  (lambda ()
+	    (setq sgml-basic-offset 8)))
+(setq css-indent-offset 8)
 
 ;; Keybindings
 (global-set-key (kbd "C-x C-b") 'ibuffer)
