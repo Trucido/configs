@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 1.8 2013/08/07 02:21:55 xoddf2 Exp $
+# $Id: .fvwm2rc,v 1.8.1 2013/08/08 19:53:15 xoddf2 Exp $
 
 # This config is recommended for use with stock Slackware 14.0, with
 # fvwm_icons <http://www.fvwm.org/download/icons.php>.
@@ -64,6 +64,7 @@ ImagePath /usr/share/pixmaps:/usr/share/icons:/usr/include/X11/pixmaps
 ImagePath +:$[FVWM_USERDIR]/icons
 
 # Application-specific Style
+Style * Icon unknown1.xpm
 Style XTerm Icon xterm.xpm, MiniIcon mini.term.xpm
 Style *rxvt Icon term.xpm, MiniIcon mini.term.xpm, \
 	MWMBorder, MWMButtons
