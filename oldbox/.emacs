@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.1 2013/08/07 23:18:10 xoddf2 Exp $
+;;; $Id: .emacs,v 1.2 2013/08/11 22:40:40 xoddf2 Exp $
 
 ;; Packages
 (require 'epa-file)
@@ -63,6 +63,11 @@
       mail-user-agent 'gnus-user-agent)
 
 (setq user-mail-address "woddfellow2@gmail.com") ; Kludge for C-x m
+
+;; ERC
+(setq erc-timestamp-format "[%H:%M:%S] "
+      erc-auto-set-away t
+      erc-autoaway-idle-seconds 300)
 
 ;; Emacs Lisp packages
 (add-to-list 'package-archives
