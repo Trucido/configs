@@ -33,6 +33,9 @@ set imap_keepalive = 150
 set include
 set sort = "threads"
 
+# X-Face
+my_hdr X-Face: +@FXO@ZIFJ;<M.tf<W4[R(5%E:]K:Uv\T5Y#EUd:JQ^*PQ$+XxR,3w>=/+)#"]=\mvUKNMHWc*aa-a]VA5T|roXtqmgVP~(ID=A!J+^n>4;+OrPTZ|jiRKdbI7VJ&OmElCGa8$as;NDX=]5{f[mC3i#R~xvQ^`2vAw>ZrG'sH^ciF_
+
 # PGP
 set pgp_decode_command = "gpg2 %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
 set pgp_verify_command = "gpg2 --no-verbose --batch --output - --verify %s %f"
