@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.2.1 2013/08/11 22:45:30 xoddf2 Exp $
+;;; $Id: .emacs,v 1.3 2013/08/14 23:27:56 xoddf2 Exp $
 
 ;; Packages
 (require 'epa-file)
@@ -70,6 +70,10 @@
       erc-insert-timestamp-function 'erc-insert-timestamp-left)
 (setq erc-auto-set-away t
       erc-autoaway-idle-seconds 300)
+
+;; Emacs-w3m
+(require 'w3m)
+(setq w3m-use-cookies t)
 
 ;; Emacs Lisp packages
 (add-to-list 'package-archives
