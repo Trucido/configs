@@ -1,8 +1,9 @@
-;;; $Id: .emacs,v 1.3 2013/08/14 23:27:56 xoddf2 Exp $
+;;; $Id: .emacs,v 1.3.1 2013/08/14 23:29:32 xoddf2 Exp $
 
 ;; Packages
 (require 'epa-file)
 (require 'package)
+(require 'w3m)
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -72,7 +73,6 @@
       erc-autoaway-idle-seconds 300)
 
 ;; Emacs-w3m
-(require 'w3m)
 (setq w3m-use-cookies t)
 
 ;; Emacs Lisp packages
