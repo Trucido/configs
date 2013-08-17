@@ -2,7 +2,7 @@
 # by woddfellow2 | http://wlair.us.to/
 
 # Prompt
-export PS1="\e[1;33m\w\e[0m \e[1;34m\$\e[0m "
+export PS1="\w \$ "
 
 # Editor
 set -o vi
