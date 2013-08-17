@@ -1,10 +1,8 @@
-;;; $Id: .emacs,v 1.3.3 2013/08/17 12:20:17 xoddf2 Exp $
+;;; $Id: .emacs,v 1.4 2013/08/17 13:18:40 xoddf2 Exp $
 
-;; Packages
-(require 'epa-file)
-(require 'package)
-(require 'w3m)
-(require 'mediawiki)
+;; TODO:
+;; - Lisp: Stop mixing tabs and spaces.
+;; - Python: PEP-8 compliance
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -60,7 +58,16 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
 
+;; ELPA
+(require 'package)
+
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.milkbox.net/packages/"))
+(package-initialize)
+
 ;; Gnus
+(require 'epa-file)
+
 (setq read-mail-command 'gnus
       mail-user-agent 'gnus-user-agent)
 
@@ -74,20 +81,18 @@
       erc-autoaway-idle-seconds 300)
 
 ;; Emacs-w3m
+(require 'w3m)
 (setq w3m-use-cookies t)
 
 ;; mediawiki.el
-(add-to-list' mediawiki-site-alist
-	      '("Wikipedia" "http://en.wikipedia.org/w/"
-		"Xoddf2" "" "Main Page"))
+(require 'mediawiki)
 
-;; Emacs Lisp packages
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/"))
-(package-initialize)
+(eval-after-load "mediawiki"
+  '(add-to-list 'mediawiki-site-alist
+		'("Wikipedia" "http://en.wikipedia.org/w/"
+		  "Xoddf2" "" "Main Page")))
 
 ;; Calendar
 (setq calendar-latitude 40.57667
       calendar-longitude -122.37028
       calendar-location-name "Redding, CA")
-
