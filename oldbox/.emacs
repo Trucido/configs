@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.3.1 2013/08/14 23:29:32 xoddf2 Exp $
+;;; $Id: .emacs,v 1.3.2 2013/08/17 11:35:34 xoddf2 Exp $
 
 ;; Packages
 (require 'epa-file)
