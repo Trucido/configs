@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.3.2 2013/08/17 11:35:34 xoddf2 Exp $
+;;; $Id: .emacs,v 1.3.3 2013/08/17 12:20:17 xoddf2 Exp $
 
 ;; Packages
 (require 'epa-file)
@@ -76,6 +76,11 @@
 ;; Emacs-w3m
 (setq w3m-use-cookies t)
 
+;; mediawiki.el
+(add-to-list' mediawiki-site-alist
+	      '("Wikipedia" "http://en.wikipedia.org/w/"
+		"Xoddf2" "" "Main Page"))
+
 ;; Emacs Lisp packages
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.milkbox.net/packages/"))
@@ -85,3 +90,4 @@
 (setq calendar-latitude 40.57667
       calendar-longitude -122.37028
       calendar-location-name "Redding, CA")
+
