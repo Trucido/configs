@@ -18,15 +18,15 @@ ignore xload
 ignore xbiff
 
 # Applications #################################################################
-command term urxvtc
+command term xterm
 command lock "xscreensaver-command -lock"
 command www xombrero
-command vi gvim
 
 # Groups #######################################################################
-autogroup 1 URxvt
+autogroup 1 XTerm
 autogroup 2 Xombrero
-autogroup 3 Gvim
+autogroup 3 feh
+autogroup 3 MPlayer
 
 # Keybindings ##################################################################
 
