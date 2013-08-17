@@ -4,6 +4,7 @@
 (require 'epa-file)
 (require 'package)
 (require 'w3m)
+(require 'mediawiki)
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp")
