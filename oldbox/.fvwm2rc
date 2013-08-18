@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 1.8.1 2013/08/08 19:53:15 xoddf2 Exp $
+# $Id: .fvwm2rc,v 1.9 2013/08/18 15:55:41 xoddf2 Exp $
 
 # This config is recommended for use with stock Slackware 14.0, with
 # fvwm_icons <http://www.fvwm.org/download/icons.php>.
@@ -229,6 +229,7 @@ AddToMenu MenuFvwmRoot "$[gt.Root Menu]" Title
 + "%mini.run.xpm%&U. $[gt.Run...]" Module FvwmForm AppLauncher
 + "" Nop
 + "%mini.fvwm.xpm%&F. $[gt.FVWM]" Popup MenuFvwmFvwm
++ "%mini.keyboard.xpm%&K. $[gt.Keyboard Layouts]" Popup MenuKeyboardLayouts
 + "%mini.windows.xpm%&W. $[gt.Window Ops]" Popup MenuFvwmWindowOps
 + "" Nop
 + "%mini.stop.xpm%&X. $[gt.Leave]" Popup MenuGTFO
@@ -264,6 +265,12 @@ AddToMenu MenuFvwmUtilities "$[gt.Applications]" Title
 + "" Nop
 + "%mini.xmag.xpm%&Xmag" Exec exec xmag
 + "%mini.happy.xpm%Game&s" Popup MenuFvwmGames
+
+# Keyboard Layouts Menu
+DestroyMenu MenuKeyboardLayouts
+AddToMenu MenuKeyboardLayouts
++ "%mini.keyboard.xpm%&QWERTY" Exec exec setxkbmap -layout us
++ "%mini.keyboard.xpm%&Dvorak" Exec exec setxkbmap -layout us -variant dvorak
 
 # Games Menu
 DestroyMenu MenuFvwmGames
