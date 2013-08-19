@@ -1,0 +1,18 @@
+clear Lock
+clear Control
+clear Mod1
+clear Mod4
+
+keycode 37 = Super_L
+keycode 133 = Alt_L Meta_L
+keycode 64 = Control_L
+
+keycode 108 = Control_R
+keycode 134 = Alt_R
+keycode 105 = Super_R
+
+keycode 135 = Multi_key
+
+add Mod1 = Alt_L Meta_L Alt_R Meta_R
+add Mod4 = Super_L Super_R
+add Control = Control_L Control_R
