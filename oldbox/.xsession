@@ -1,11 +1,14 @@
 #!/bin/sh
-# $Id: .xsession,v 1.1 2013/08/07 02:31:45 xoddf2 Exp $
+# $Id: .xsession,v 1.2 2013/08/18 23:39:15 xoddf2 Exp $
 
 # XScreenSaver
 xscreensaver -no-splash &
 
-# Make CAPS LOCK another ESC key
-setxkbmap -option caps:escape &
+# Set layout to Dvorak (must run just before xmodmap to avoid race condition)
+setxkbmap -layout us -variant dvorak
+
+# Make CAPS LOCK another ESC key and shuffle the modifiers
+xmodmap ~/.Xmodmap &
 
 # Set wallpaper
 xsetroot -solid DarkGrey &
