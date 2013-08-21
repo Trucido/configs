@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.4 2013/08/17 13:18:40 xoddf2 Exp $
+;;; $Id: .emacs,v 1.4.1 2013/08/20 21:39:48 xoddf2 Exp $
 
 ;; TODO:
 ;; - Lisp: Stop mixing tabs and spaces.
@@ -83,6 +83,9 @@
 ;; Emacs-w3m
 (require 'w3m)
 (setq w3m-use-cookies t)
+
+;; Twittering Mode
+(setq twittering-use-master-password t)
 
 ;; mediawiki.el
 (require 'mediawiki)
