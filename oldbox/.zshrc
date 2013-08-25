@@ -1,4 +1,4 @@
-# $Id: .zshrc,v 1.0.1 2013/08/23 19:34:08 xoddf2 Exp $
+# $Id: .zshrc,v 1.0.2 2013/08/24 21:03:13 xoddf2 Exp $
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -35,3 +35,7 @@ alias grep="grep --color=auto"
 alias p3="ping -c 3"
 alias mp="mplayer"
 alias sprunge="curl -F sprunge=@- http://sprunge.us/"
+alias tuneraudio="aplay -f dat < /dev/video24"
+alias tunervideo="mplayer /dev/video32 -demuxer rawvideo -rawvideo w=720:h=480:format=hm12:ntsc"
+alias mp-overscan="mplayer -vf scale=320:240,crop=288:216 -aspect 4:3"
+alias mp-monaural="mplayer -af pan=1:0.5:0.5"
