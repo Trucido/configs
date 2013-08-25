@@ -1,4 +1,4 @@
-# $Id: .zshrc,v 1.0 2013/08/07 02:25:20 xoddf2 Exp $
+# $Id: .zshrc,v 1.0.1 2013/08/23 19:34:08 xoddf2 Exp $
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -21,7 +21,7 @@ export PS1="%{$fg_bold[green]%}%c%{$reset_color%} ${cmdstatus} "
 bindkey -e
 
 # Make Exiting Difficult
-if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
+if [[ -n "$STY" ]] && [[ "$WINDOW" == "0" ]]; then
 	alias exit="false"
 	setopt ignoreeof
 fi
