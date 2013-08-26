@@ -1,7 +1,6 @@
-;;; $Id: .emacs,v 1.4.1 2013/08/20 21:39:48 xoddf2 Exp $
+;;; $Id: .emacs,v 1.5 2013/08/26 10:45:20 xoddf2 Exp $
 
 ;; TODO:
-;; - Lisp: Stop mixing tabs and spaces.
 ;; - Python: PEP-8 compliance
 
 ;; load-path
@@ -35,6 +34,14 @@
 ;; Backup and autosave directory
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
+;; Lisp
+(add-hook 'lisp-mode-hook
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (setq indent-tabs-mode nil)))
 
 ;; C
 (setq c-default-style "bsd"
