@@ -1,7 +1,4 @@
-;;; $Id: .emacs,v 1.5.1 2013/08/26 10:50:21 xoddf2 Exp $
-
-;; TODO:
-;; - Python: PEP-8 compliance
+;;; $Id: .emacs,v 1.5.2 2013/08/26 11:03:01 xoddf2 Exp $
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -54,6 +51,14 @@
 (defalias 'perl-mode 'cperl-mode)
 (setq cperl-indent-level 8
       cperl-continued-statement-offset 0)
+
+;; Python
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq python-indent-offset 4)
+            (set-fill-column 79)
+            (auto-fill-mode 1)))
 
 ;; WWW languages
 (add-hook 'html-mode-hook
