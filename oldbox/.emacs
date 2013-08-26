@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.5 2013/08/26 10:45:20 xoddf2 Exp $
+;;; $Id: .emacs,v 1.5.1 2013/08/26 10:50:21 xoddf2 Exp $
 
 ;; TODO:
 ;; - Python: PEP-8 compliance
@@ -37,11 +37,11 @@
 
 ;; Lisp
 (add-hook 'lisp-mode-hook
-	  (lambda ()
-	    (setq indent-tabs-mode nil)))
+          (lambda ()
+            (setq indent-tabs-mode nil)))
 (add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (setq indent-tabs-mode nil)))
+          (lambda ()
+            (setq indent-tabs-mode nil)))
 
 ;; C
 (setq c-default-style "bsd"
@@ -57,8 +57,8 @@
 
 ;; WWW languages
 (add-hook 'html-mode-hook
-	  (lambda ()
-	    (setq sgml-basic-offset 8)))
+          (lambda ()
+            (setq sgml-basic-offset 8)))
 (setq css-indent-offset 8)
 
 ;; Keybindings
@@ -69,7 +69,7 @@
 (require 'package)
 
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/"))
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
 ;; Gnus
@@ -99,8 +99,8 @@
 
 (eval-after-load "mediawiki"
   '(add-to-list 'mediawiki-site-alist
-		'("Wikipedia" "http://en.wikipedia.org/w/"
-		  "Xoddf2" "" "Main Page")))
+                '("Wikipedia" "http://en.wikipedia.org/w/"
+                  "Xoddf2" "" "Main Page")))
 
 ;; Calendar
 (setq calendar-latitude 40.57667
