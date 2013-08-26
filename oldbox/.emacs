@@ -1,7 +1,14 @@
-;;; $Id: .emacs,v 1.5.2 2013/08/26 11:03:01 xoddf2 Exp $
+;;; $Id: .emacs,v 1.6 2013/08/26 11:36:50 xoddf2 Exp $
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp")
+
+;; ELPA
+(require 'package)
+
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
+(package-initialize)
 
 ;; Simplify the interface:
 (tool-bar-mode -1)
@@ -66,16 +73,33 @@
             (setq sgml-basic-offset 8)))
 (setq css-indent-offset 8)
 
+;; BBCode
+(require 'bbcode-mode)
+
+;; Custom functions
+(defun insert-timestamp (id version)
+  "Insert a timestamp into the buffer, like this:
+
+// $Id: foo.c,v 1.0 2007/07/07 13:37:42 someperson Exp $"
+  (interactive
+   (list
+    (read-from-minibuffer "Id (default Id): " "Id")
+    (read-from-minibuffer "Version: ")))
+  (insert (concat "$" id ": " (buffer-name) ",v " version " "
+                  (format-time-string "%Y/%m/%d %H:%M:%S") " " user-login-name
+                  " Exp $")))
+
+(defun post-update ()
+  "This inserts a timestamp and the bold text 'Update:', useful for
+editing forum posts."
+  (interactive)
+  (insert (format-time-string "[%a %b %d %H:%M:%S %Z %Y] [b]Update:[/b] ")))
+
 ;; Keybindings
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
-
-;; ELPA
-(require 'package)
-
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
-(package-initialize)
+(global-set-key (kbd "C-x t") 'insert-timestamp)
+(define-key bbcode-mode-map (kbd "C-c C-u") 'post-update)
 
 ;; Gnus
 (require 'epa-file)
