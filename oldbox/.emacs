@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.6 2013/08/26 11:36:50 xoddf2 Exp $
+;;; $Id: .emacs,v 1.6.1 2013/09/01 20:21:15 xoddf2 Exp $
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -95,10 +95,21 @@ editing forum posts."
   (interactive)
   (insert (format-time-string "[%a %b %d %H:%M:%S %Z %Y] [b]Update:[/b] ")))
 
+(defun full-screen ()
+  "Borrowed from <http://mikerowecode.com/2009/05/emacs-full-screen.html>.
+Toggles the Emacs frame full-screen, if running in X.  Requires a
+standards-compliant window manager."
+  (interactive)
+  (if (eq window-system 'x)
+      (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
+                                               nil
+                                             'fullboth))))
+
 ;; Keybindings
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x t") 'insert-timestamp)
+(global-set-key (kbd "<f11>") 'full-screen)
 (define-key bbcode-mode-map (kbd "C-c C-u") 'post-update)
 
 ;; Gnus
