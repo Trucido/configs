@@ -1,4 +1,4 @@
-! $Id: .Xdefaults,v 1.2 2013/08/08 13:39:05 xoddf2 Exp $
+! $Id: .Xdefaults,v 1.2.1 2013/09/06 21:11:37 xoddf2 Exp $
 
 Xft.dpi: 96
 
@@ -12,6 +12,7 @@ XTerm.vt100.altIsNotMeta: true
 XTerm.vt100.altSendsEscape: true
 XTerm.vt100.scrollBar: true
 XTerm.vt100.bellIsUrgent: true
+XTerm.vt100.backarrowKey: false
 
 ! Emacs
 emacs.font: -adobe-courier-medium-r-*-*-14-*-*-*-*-*-*-*
