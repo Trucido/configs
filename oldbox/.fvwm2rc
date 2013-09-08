@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 1.9.2 2013/09/07 20:53:07 xoddf2 Exp $
+# $Id: .fvwm2rc,v 1.10 2013/09/07 21:56:38 xoddf2 Exp $
 
 # This config is recommended for use with stock Slackware 14.0, with
 # fvwm_icons <http://www.fvwm.org/download/icons.php>.
@@ -76,6 +76,50 @@ Style Emacs IconOverride, EWMHMiniIconOverride, \
 Style MPlayer Icon hicolor/48x48/apps/mplayer.png
 Style Xpdf MiniIcon mini.pdf.xpm
 
+# Functions ####################################################################
+
+# Iconify function
+DestroyFunc FuncFvwmMoveOrIconify
+AddToFunc FuncFvwmMoveOrIconify
++ I Raise
++ M Move
++ D Iconify
+
+DestroyFunc FuncFvwmMaximize
+AddToFunc FuncFvwmMaximize
++ M Maximize 0 100
++ H Maximize 0 100
++ C Maximize 0 80
++ D Maximize 100 100
+
+# Urgency (This raises the window and turns its border yellow.)
+DestroyFunc UrgencyFunc
+AddToFunc UrgencyFunc
++ I ThisWindow (!Focused) WindowStyle HilightColorset 2
++ I ThisWindow (!Focused) WindowStyle Colorset 2
++ I ThisWindow (!Focused) Raise
+
+DestroyFunc UrgencyDoneFunc
+AddToFunc UrgencyDoneFunc
++ I WindowStyle Colorset 0
++ I WindowStyle HilightColorset 1
+
+# SelectWindow (Needed for RunOrRaise)
+DestroyFunc SelectWindow
+AddToFunc SelectWindow
++ I Focus
++ I Iconify false
++ I Raise
++ I WarpToWindow 5p 5p
+
+# Run or raise
+DestroyFunc RunOrRaise
+AddToFunc RunOrRaise
++ I Next ($0) SelectWindow
++ I TestRc (NoMatch) Exec exec $1
+
+# Module Config ################################################################
+
 # FvwmIdent
 *FvwmIdent: Back navy
 *FvwmIdent: Fore yellow
@@ -107,8 +151,8 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 *FvwmButtons: xterm xterm.xpm Exec exec xterm
 *FvwmButtons: Emacs gnu-animal.xpm \
-	Exec exec emacsclient --alternate-editor='' -c
-*FvwmButtons: Mozilla nscape.xpm Exec exec mozilla
+	RunOrRaise "Emacs" "emacsclient --alternate-editor='' -c"
+*FvwmButtons: Mozilla nscape.xpm RunOrRaise Seamonkey mozilla
 *FvwmButtons: Lock xscreensaver.xpm Exec exec xscreensaver-command -lock
 *FvwmButtons: (Swallow "xclock" \
 	`Exec exec xclock -update 1 -norender -bg Grey -fg Black`)
@@ -152,35 +196,7 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 Style FvwmBanner StaysOnTop, !Title
 *FvwmBanner: Pixmap fvwm2_big.xpm
 
-# Functions ####################################################################
-
-# Iconify function
-DestroyFunc FuncFvwmMoveOrIconify
-AddToFunc FuncFvwmMoveOrIconify
-+ I Raise
-+ M Move
-+ D Iconify
-
-DestroyFunc FuncFvwmMaximize
-AddToFunc FuncFvwmMaximize
-+ M Maximize 0 100
-+ H Maximize 0 100
-+ C Maximize 0 80
-+ D Maximize 100 100
-
-# Urgency (This raises the window and turns its border yellow.)
-DestroyFunc UrgencyFunc
-AddToFunc UrgencyFunc
-+ I ThisWindow (!Focused) WindowStyle HilightColorset 2
-+ I ThisWindow (!Focused) WindowStyle Colorset 2
-+ I ThisWindow (!Focused) Raise
-
-DestroyFunc UrgencyDoneFunc
-AddToFunc UrgencyDoneFunc
-+ I WindowStyle Colorset 0
-+ I WindowStyle HilightColorset 1
-
-# Keybindings (CUA-inspired) ###################################################
+# Keybindings ##################################################################
 
 Key F1 A M Menu MenuFvwmRoot
 Key F2 A M Module FvwmForm AppLauncher
@@ -189,7 +205,7 @@ Key F4 A M Close
 Key F7 A M Move
 Key F8 A M Resize
 Key F9 A M Iconify
-Key F10 A M FuncFvwmMaximize
+Key F10 A M Maximize
 Key F12 A M WindowShade
 
 Key Space A M Menu MenuFvwmWindowOps
@@ -302,10 +318,10 @@ AddToMenu MenuFvwmWindowOps "$[gt.Window Ops]" Title
 + "%mini.iconify.xpm%$[gt.(De)&Iconify]" Iconify
 + "%mini.shade1.xpm%$[gt.S&hade]" WindowShade
 + "%mini.stick.xpm%$[gt.(Un)&Stick]" Stick
-+ "%mini.maximize.xpm%$[gt.(Un)Ma&ximize]" FuncFvwmMaximize
++ "%mini.maximize.xpm%$[gt.(Un)Ma&ximize]" Maximize
 + "%mini.ray.xpm%$[gt.&Place Again]" PlaceAgain
 + "" Nop
-+ "%mini.question.xpm%$[gt.I&nformation]" FvwmIdent
++ "%mini.question.xpm%$[gt.Ide&ntify]" FvwmIdent
 + "" Nop
 + "%mini.desktop.xpm%$[gt.Move to &Workspace...]" Popup MenuMoveToWorkspace
 + "" Nop
