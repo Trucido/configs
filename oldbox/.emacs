@@ -1,4 +1,7 @@
-;;; $Id: .emacs,v 1.6.1 2013/09/01 20:21:15 xoddf2 Exp $
+;;; $Id: .emacs,v 1.6.2 2013/09/07 20:47:57 xoddf2 Exp $
+
+;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
+;; (Slackware 14.0).
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -75,6 +78,10 @@
 
 ;; BBCode
 (require 'bbcode-mode)
+
+;; FVWM
+(require 'fvwm-mode)
+(add-to-list 'auto-mode-alist '(".fvwm2rc" . fvwm-mode))
 
 ;; Custom functions
 (defun insert-timestamp (id version)

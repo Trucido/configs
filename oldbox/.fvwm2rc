@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 1.9.1 2013/08/19 18:51:39 xoddf2 Exp $
+# $Id: .fvwm2rc,v 1.9.2 2013/09/07 20:53:07 xoddf2 Exp $
 
 # This config is recommended for use with stock Slackware 14.0, with
 # fvwm_icons <http://www.fvwm.org/download/icons.php>.
@@ -63,8 +63,9 @@ MenuStyle WindowList MenuColorset 3
 ImagePath /usr/share/pixmaps:/usr/share/icons:/usr/include/X11/pixmaps
 ImagePath +:$[FVWM_USERDIR]/icons
 
+DefaultIcon unknown1.xpm
+
 # Application-specific Style
-Style * Icon unknown1.xpm
 Style XTerm Icon xterm.xpm, MiniIcon mini.term.xpm
 Style *rxvt Icon term.xpm, MiniIcon mini.term.xpm, \
 	MWMBorder, MWMButtons
@@ -331,12 +332,7 @@ AddToMenu MenuGTFO "$[gt.Leave]" Title
 + "%mini.xlock.xpm%&L. $[gt.xlock]" Exec exec xlock
 + "" Nop
 + "%mini.turn.xpm%&R. $[gt.Restart FVWM]" Restart
-+ "%mini.exclam.xpm%&Q. $[gt.Exit FVWM]" Popup MenuGTFOExit
-
-# Exit FVWM Menu
-DestroyMenu MenuGTFOExit
-AddToMenu MenuGTFOExit
-+ "%mini.exclam2.xpm%$[gt.Really Exit]" Module FvwmForm QuitVerify
++ "%mini.exclam.xpm%&Q. $[gt.Exit FVWM]" Module FvwmForm QuitVerify
 
 # StartFunction ################################################################
 
