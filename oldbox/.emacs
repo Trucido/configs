@@ -1,12 +1,11 @@
-;;; $Id: .emacs,v 1.6.2.1 2013/09/10 01:13:25 xoddf2 Exp $
+;;; $Id: .emacs,v 1.7 2013/09/10 01:24:01 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
-;; (Slackware 14.0).  The following packages should be present:
-;; - Emacs-w3m
-;; - bbcode-mode
-;; - twittering-mode
-;; - mediawiki-mode
-;; - fvwm-mode
+;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
+;; modification.
+;;
+;; Dependencies: Emacs-w3m, bbcode-mode, twittering-mode,
+;;               mediawiki-mode, fvwm-mode
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -108,7 +107,7 @@ editing forum posts."
   (insert (format-time-string "[%a %b %d %H:%M:%S %Z %Y] [b]Update:[/b] ")))
 
 (defun full-screen ()
-  "Borrowed from <http://mikerowecode.com/2009/05/emacs-full-screen.html>.
+  "Borrowed from URL `http://mikerowecode.com/2009/05/emacs-full-screen.html'.
 Toggles the Emacs frame full-screen, if running in X.  Requires a
 standards-compliant window manager."
   (interactive)
@@ -117,12 +116,84 @@ standards-compliant window manager."
                                                nil
                                              'fullboth))))
 
+(defun lookup-duckduckgo ()
+  "From URL `http://ergoemacs.org/emacs/emacs_lookup_ref.html'.
+Searches for the region (or word at point) at DuckDuckGo.
+Requires Emacs-w3m."
+  (interactive)
+  (let (word url)
+    (setq word
+          (if (region-active-p)
+              (buffer-substring-no-properties (region-beginning) (region-end))
+            (thing-at-point 'symbol)))
+    (setq word (replace-regexp-in-string " " "+" word))
+    (setq url
+          (concat "https://duckduckgo.com/lite/?q=" word))
+    (w3m-browse-url url)))
+
+(defun lookup-wikipedia ()
+  "From URL `http://ergoemacs.org/emacs/emacs_lookup_ref.html'.
+Searches for the region (or word at point) at Wikipedia.
+Requires Emacs-w3m."
+  (interactive)
+  (let (word url)
+    (setq word
+          (if (region-active-p)
+              (buffer-substring-no-properties (region-beginning) (region-end))
+            (thing-at-point 'symbol)))
+    (setq word (replace-regexp-in-string " " "+" word))
+    (setq url
+          (concat "https://en.wikipedia.org/wiki/Special:Search?search=" word))
+    (w3m-browse-url url)))
+
+(defun lookup-wiktionary ()
+  "From URL `http://ergoemacs.org/emacs/emacs_lookup_ref.html'.
+Searches for the region (or word at point) at Wiktionary.
+Requires Emacs-w3m."
+  (interactive)
+  (let (word url)
+    (setq word
+          (if (region-active-p)
+              (buffer-substring-no-properties (region-beginning) (region-end))
+            (thing-at-point 'symbol)))
+    (setq word (replace-regexp-in-string " " "+" word))
+    (setq url
+          (concat "https://en.wiktionary.org/wiki/Special:Search?search=" word))
+    (w3m-browse-url url)))
+
+(defun lookup-emacswiki ()
+  "From URL `http://ergoemacs.org/emacs/emacs_lookup_ref.html'.
+Searches for the region (or word at point) at EmacsWiki.
+Requires Emacs-w3m."
+  (interactive)
+  (let (word url)
+    (setq word
+          (if (region-active-p)
+              (buffer-substring-no-properties (region-beginning) (region-end))
+            (thing-at-point 'symbol)))
+    (setq word (replace-regexp-in-string " " "+" word))
+    (setq url
+          (concat
+           "https://duckduckgo.com/lite/?q=" word "+site%3Aemacswiki.org"))
+    (w3m-browse-url url)))
+
 ;; Keybindings
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x t") 'insert-timestamp)
 (global-set-key (kbd "<f11>") 'full-screen)
+
 (define-key bbcode-mode-map (kbd "C-c C-u") 'post-update)
+
+(defvar lookup-map (make-sparse-keymap)
+  "Keymap for subcommands of C-x w.")
+(defalias 'lookup-prefix lookup-map)
+(define-key ctl-x-map "w" 'lookup-prefix)
+
+(define-key lookup-map "g" 'lookup-duckduckgo)
+(define-key lookup-map "w" 'lookup-wikipedia)
+(define-key lookup-map "d" 'lookup-wiktionary)
+(define-key lookup-map "e" 'lookup-emacswiki)
 
 ;; Gnus
 (require 'epa-file)
