@@ -1,10 +1,15 @@
-;;; $Id: .emacs,v 1.6.2 2013/09/07 20:47:57 xoddf2 Exp $
+;;; $Id: .emacs,v 1.6.2.1 2013/09/10 01:13:25 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
-;; (Slackware 14.0).
+;; (Slackware 14.0).  The following packages should be present:
+;; - Emacs-w3m
+;; - bbcode-mode
+;; - twittering-mode
+;; - mediawiki-mode
+;; - fvwm-mode
 
 ;; load-path
-(add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; ELPA
 (require 'package)
