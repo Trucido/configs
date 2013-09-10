@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.7 2013/09/10 01:24:01 xoddf2 Exp $
+;;; $Id: .emacs,v 1.7.1 2013/09/10 01:43:31 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -6,6 +6,13 @@
 ;;
 ;; Dependencies: Emacs-w3m, bbcode-mode, twittering-mode,
 ;;               mediawiki-mode, fvwm-mode
+;;
+;; TODO:
+;; - Make Emacs-w3m the default browser.
+;; - Put backup and auto-save files somewhere in ~/.emacs.d.
+;; - Reduce the redundancy in lookup-*.
+;; - Organise it better.
+;; - Add a key map for frequently-used M-x commands.
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
