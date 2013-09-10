@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.8 2013/09/10 13:55:08 xoddf2 Exp $
+;;; $Id: .emacs,v 1.8.1 2013/09/10 14:09:27 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -11,7 +11,8 @@
 ;; - Make Emacs-w3m the default browser.
 ;; - Put backup and auto-save files somewhere in ~/.emacs.d.
 ;; - Reduce the redundancy in lookup-*.
-;; - Organise it better.
+
+;; General ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -52,48 +53,8 @@
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
-;; Lisp
-(add-hook 'lisp-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil)))
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil)))
+;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; C
-(setq c-default-style "bsd"
-      c-basic-offset 8)
-
-;; Shell
-(setq sh-basic-offset 8)
-
-;; Perl
-(defalias 'perl-mode 'cperl-mode)
-(setq cperl-indent-level 8
-      cperl-continued-statement-offset 0)
-
-;; Python
-(add-hook 'python-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil)
-            (setq python-indent-offset 4)
-            (set-fill-column 79)
-            (auto-fill-mode 1)))
-
-;; WWW languages
-(add-hook 'html-mode-hook
-          (lambda ()
-            (setq sgml-basic-offset 8)))
-(setq css-indent-offset 8)
-
-;; BBCode
-(require 'bbcode-mode)
-
-; FVWM
-(require 'fvwm-mode)
-(add-to-list 'auto-mode-alist '(".fvwm2rc" . fvwm-mode))
-
-;; Custom functions
 (defun insert-timestamp (id version)
   "Insert a timestamp into the buffer, like this:
 
@@ -183,48 +144,50 @@ Requires Emacs-w3m."
            "https://duckduckgo.com/lite/?q=" word "+site%3Aemacswiki.org"))
     (w3m-browse-url url)))
 
-;; Keybindings
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
-(global-set-key (kbd "C-x 4 v") 'view-file-other-window)
-(global-set-key (kbd "C-x 5 v") 'view-file-other-frame)
-(global-set-key (kbd "C-x t") 'insert-timestamp)
-(global-set-key (kbd "<f11>") 'full-screen)
+;; Editing Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define-key bbcode-mode-map (kbd "C-c C-u") 'post-update)
+;; Lisp
+(add-hook 'lisp-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
 
-(defvar apps-map (make-sparse-keymap)
-  "Keymap for frequently-used commands.")
-(defalias 'apps-prefix apps-map)
-(define-key ctl-x-map "x" 'apps-prefix)
+;; C
+(setq c-default-style "bsd"
+      c-basic-offset 8)
 
-(define-key apps-map "!" 'shell)
-(define-key apps-map "/" 'grep)
-(define-key apps-map "a" 'calendar)
-(define-key apps-map "c" 'compile)
-(define-key apps-map "d" 'image-dired)
-(define-key apps-map "e" 'eval-region)
-(define-key apps-map "f" 'auto-fill-mode)
-(define-key apps-map "h" 'man)
-(define-key apps-map "i" 'whitespace-mode)
-(define-key apps-map "l" 'lunar-phases)
-(define-key apps-map "m" 'gnus)
-(define-key apps-map "n" 'calc)
-(define-key apps-map "r" 'rainbow-mone)
-(define-key apps-map "s" 'sunrise-sunset)
-(define-key apps-map "t" 'twit)
-(define-key apps-map "v" 'view-file)
-(define-key apps-map "w" 'w3m)
+;; Shell
+(setq sh-basic-offset 8)
 
-(defvar lookup-map (make-sparse-keymap)
-  "Keymap for subcommands of C-x w.")
-(defalias 'lookup-prefix lookup-map)
-(define-key ctl-x-map "w" 'lookup-prefix)
+;; Perl
+(defalias 'perl-mode 'cperl-mode)
+(setq cperl-indent-level 8
+      cperl-continued-statement-offset 0)
 
-(define-key lookup-map "g" 'lookup-duckduckgo)
-(define-key lookup-map "w" 'lookup-wikipedia)
-(define-key lookup-map "d" 'lookup-wiktionary)
-(define-key lookup-map "e" 'lookup-emacswiki)
+;; Python
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq python-indent-offset 4)
+            (set-fill-column 79)
+            (auto-fill-mode 1)))
+
+;; WWW languages
+(add-hook 'html-mode-hook
+          (lambda ()
+            (setq sgml-basic-offset 8)))
+(setq css-indent-offset 8)
+
+;; BBCode
+(require 'bbcode-mode)
+
+;; FVWM
+(require 'fvwm-mode)
+(add-to-list 'auto-mode-alist '(".fvwm2rc" . fvwm-mode))
+
+;; Other Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Gnus
 (require 'epa-file)
@@ -260,3 +223,51 @@ Requires Emacs-w3m."
 (setq calendar-latitude 40.57667
       calendar-longitude -122.37028
       calendar-location-name "Redding, CA")
+
+;; Keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; General
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
+(global-set-key (kbd "C-x 4 v") 'view-file-other-window)
+(global-set-key (kbd "C-x 5 v") 'view-file-other-frame)
+(global-set-key (kbd "C-x t") 'insert-timestamp)
+(global-set-key (kbd "<f11>") 'full-screen)
+
+;; Mode-specific
+(define-key bbcode-mode-map (kbd "C-c C-u") 'post-update)
+
+;; Frequently-used commands
+(defvar apps-map (make-sparse-keymap)
+  "Keymap for frequently-used commands.")
+(defalias 'apps-prefix apps-map)
+(define-key ctl-x-map "x" 'apps-prefix)
+
+(define-key apps-map "!" 'shell)
+(define-key apps-map "/" 'grep)
+(define-key apps-map "a" 'calendar)
+(define-key apps-map "c" 'compile)
+(define-key apps-map "d" 'image-dired)
+(define-key apps-map "e" 'eval-region)
+(define-key apps-map "f" 'auto-fill-mode)
+(define-key apps-map "h" 'man)
+(define-key apps-map "i" 'whitespace-mode)
+(define-key apps-map "l" 'lunar-phases)
+(define-key apps-map "m" 'gnus)
+(define-key apps-map "n" 'calc)
+(define-key apps-map "r" 'rainbow-mone)
+(define-key apps-map "s" 'sunrise-sunset)
+(define-key apps-map "t" 'twit)
+(define-key apps-map "v" 'view-file)
+(define-key apps-map "w" 'w3m)
+
+(defvar lookup-map (make-sparse-keymap)
+  "Keymap for subcommands of C-x w.")
+(defalias 'lookup-prefix lookup-map)
+(define-key ctl-x-map "w" 'lookup-prefix)
+
+;; Look up region or word at point
+(define-key lookup-map "g" 'lookup-duckduckgo)
+(define-key lookup-map "w" 'lookup-wikipedia)
+(define-key lookup-map "d" 'lookup-wiktionary)
+(define-key lookup-map "e" 'lookup-emacswiki)
