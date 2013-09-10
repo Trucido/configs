@@ -1,18 +1,17 @@
-;;; $Id: .emacs,v 1.7.1 2013/09/10 01:43:31 xoddf2 Exp $
+;;; $Id: .emacs,v 1.8 2013/09/10 13:55:08 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
 ;; modification.
 ;;
-;; Dependencies: Emacs-w3m, bbcode-mode, twittering-mode,
-;;               mediawiki-mode, fvwm-mode
+;; Dependencies: Emacs-w3m, bbcode-mode, twittering-mode, mediawiki-mode,
+;;               rainbow-mode, fvwm-mode
 ;;
 ;; TODO:
 ;; - Make Emacs-w3m the default browser.
 ;; - Put backup and auto-save files somewhere in ~/.emacs.d.
 ;; - Reduce the redundancy in lookup-*.
 ;; - Organise it better.
-;; - Add a key map for frequently-used M-x commands.
 
 ;; load-path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -90,7 +89,7 @@
 ;; BBCode
 (require 'bbcode-mode)
 
-;; FVWM
+; FVWM
 (require 'fvwm-mode)
 (add-to-list 'auto-mode-alist '(".fvwm2rc" . fvwm-mode))
 
@@ -187,10 +186,35 @@ Requires Emacs-w3m."
 ;; Keybindings
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
+(global-set-key (kbd "C-x 4 v") 'view-file-other-window)
+(global-set-key (kbd "C-x 5 v") 'view-file-other-frame)
 (global-set-key (kbd "C-x t") 'insert-timestamp)
 (global-set-key (kbd "<f11>") 'full-screen)
 
 (define-key bbcode-mode-map (kbd "C-c C-u") 'post-update)
+
+(defvar apps-map (make-sparse-keymap)
+  "Keymap for frequently-used commands.")
+(defalias 'apps-prefix apps-map)
+(define-key ctl-x-map "x" 'apps-prefix)
+
+(define-key apps-map "!" 'shell)
+(define-key apps-map "/" 'grep)
+(define-key apps-map "a" 'calendar)
+(define-key apps-map "c" 'compile)
+(define-key apps-map "d" 'image-dired)
+(define-key apps-map "e" 'eval-region)
+(define-key apps-map "f" 'auto-fill-mode)
+(define-key apps-map "h" 'man)
+(define-key apps-map "i" 'whitespace-mode)
+(define-key apps-map "l" 'lunar-phases)
+(define-key apps-map "m" 'gnus)
+(define-key apps-map "n" 'calc)
+(define-key apps-map "r" 'rainbow-mone)
+(define-key apps-map "s" 'sunrise-sunset)
+(define-key apps-map "t" 'twit)
+(define-key apps-map "v" 'view-file)
+(define-key apps-map "w" 'w3m)
 
 (defvar lookup-map (make-sparse-keymap)
   "Keymap for subcommands of C-x w.")
