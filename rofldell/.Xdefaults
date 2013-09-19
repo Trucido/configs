@@ -22,6 +22,21 @@ XTerm.vt100.background: black
 XTerm.vt100.foreground: white
 XTerm.vt100.scrollBar: false
 
+! xclock -----------------------------------------------------------------------
+XClock.Clock.background: black
+XClock.Clock.foreground: green
+XClock.Clock.analog: false
+XClock.Clock.update: 1
+XClock.Clock.face: Fixed-13:foundry=misc:weight=bold:slant=roman
+XClock.Clock.render: true
+
+! xload ------------------------------------------------------------------------
+XLoad*background: black
+XLoad*foreground: green
+XLoad*highlight: blue
+
 ! xbiff ------------------------------------------------------------------------
-XBiff*checkCommand: fetchmail -d0 -csk
-XBiff*update: 300
+XBiff.Mailbox.checkCommand: fetchmail -d0 -csk
+XBiff.Mailbox.update: 300
+XBiff.Mailbox.background: black
+XBiff.Mailbox.foreground: green

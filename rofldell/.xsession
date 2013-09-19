@@ -6,9 +6,9 @@ export LC_CTYPE="en_US.UTF-8"
 xscreensaver -no-splash &
 setxkbmap -option "caps:escape" -option "compose:ralt" &
 
-xsetroot -solid Grey20 &
+xsetroot -solid rgb:00/00/33 &
 
-xclock -digital -update 1 -geometry -0+0 -render -face Fixed-12 &
+xclock -geometry -0+0 &
 xload -geometry -0+40 &
 xbiff -geometry -0+190 &
 

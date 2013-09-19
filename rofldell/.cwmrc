@@ -4,9 +4,12 @@
 # Appearance ###################################################################
 fontname "Fixed:pixelsize=15:bold"
 
+color activeborder green
+color inactiveborder darkgreen
+
 color menubg black
-color menufg white
-color font white
+color menufg green
+color font green
 
 # Misc #########################################################################
 snapdist 8
