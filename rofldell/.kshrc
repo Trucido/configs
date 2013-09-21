@@ -19,6 +19,7 @@ fi
 alias mp="mplayer"
 alias p3="ping -c 3"
 alias sprunge="curl -F sprunge=@- http://sprunge.us/"
+alias ix="curl -n -F 'f:1=<-' http://ix.io"
 alias hhbackup="rsync -avz -e ssh --delete tesseract.hackerhaven.net:/home/woddf2/ ~/backup/tesseract/"
 alias wlbackup="rsync -avz -e ssh --delete tesseract.hackerhaven.net:/srv/vhosts/wlair.us.to/public/ ~/backup/wlair/"
 alias elisabethbackup="rsync -avz -e ssh --delete is.not.a.hax0r.se:/home/xoddf2/ ~/backup/elisabeth/"
