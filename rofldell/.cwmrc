@@ -23,6 +23,7 @@ ignore xbiff
 # Applications #################################################################
 command term xterm
 command lock "xscreensaver-command -lock"
+command tmux "xterm -geometry 80x50 -e tmux attach-session -d"
 command www xombrero
 
 # Groups #######################################################################

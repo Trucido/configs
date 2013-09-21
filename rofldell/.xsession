@@ -12,6 +12,6 @@ xclock -geometry -0+0 &
 xload -geometry -0+40 &
 xbiff -geometry -0+190 &
 
-xterm -geometry 80x50+0+0 &
+xterm -geometry 80x50+0+0 -e tmux attach-session -d &
 
 exec cwm
