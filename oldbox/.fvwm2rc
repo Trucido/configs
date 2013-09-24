@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 1.10 2013/09/07 21:56:38 xoddf2 Exp $
+# $Id: .fvwm2rc,v 1.10.1 2013/09/23 19:38:54 xoddf2 Exp $
 
 # This config is recommended for use with stock Slackware 14.0, with
 # fvwm_icons <http://www.fvwm.org/download/icons.php>.
@@ -215,7 +215,7 @@ Key Down A CM GotoPage 0p 1p
 Key Left A CM GotoPage -1p 0p
 Key Right A CM GotoPage 1p 0p
 
-Key l A CM Exec exec xscreensaver-command -lock
+Key Escape A CM Exec exec xscreensaver-command -lock
 Key Delete A CM Module FvwmForm QuitVerify
 
 # Mouse Bindings ###############################################################
@@ -255,11 +255,11 @@ AddToMenu MenuFvwmRoot "$[gt.Root Menu]" Title
 DestroyMenu MenuFvwmLogins
 AddToMenu MenuFvwmLogins "$[gt.Remote Logins]" Title
 + "%mini.ball.xpm%&rofldell.local" Exec exec \
-  xterm -title rofldell -n rofldell -e ssh xoddf2@rofldell.local
+  xterm -title rofldell -n rofldell -e ssh rofldell.local
 + "%mini.ball.xpm%&tesseract.hackerhaven.net" Exec exec \
-  xterm -title tesseract -n tesseract -e ssh woddf2@tesseract.hackerhaven.net
+  xterm -title tesseract -n tesseract -e ssh tesseract.hackerhaven.net
 + "%mini.ball.xpm%is.not.a.&hax0r.se" Exec exec \
-  xterm -title elisabeth -n elisabeth -e ssh xoddf2@is.not.a.hax0r.se
+  xterm -title elisabeth -n elisabeth -e ssh is.not.a.hax0r.se
 + "" Nop
 + "%mini.keys.xpm%&A. Add Key" Exec exec ssh-add
 + "%mini.keys.xpm%&D. Delete Key" Exec exec ssh-add -D
@@ -288,8 +288,6 @@ DestroyMenu MenuKeyboardLayouts
 AddToMenu MenuKeyboardLayouts "$[gt.Keyboard]" Title
 + "%mini.keyboard.xpm%&QWERTY" Exec exec setxkbmap -layout us
 + "%mini.keyboard.xpm%&Dvorak" Exec exec setxkbmap -layout us -variant dvorak
-+ "" Nop
-+ "%mini.keyboard.xpm%Rehash &xmodmap" Exec exec xmodmap ~/.Xmodmap
 
 # Games Menu
 DestroyMenu MenuFvwmGames

@@ -1,4 +1,4 @@
-! $Id: .Xdefaults,v 1.2.1 2013/09/06 21:11:37 xoddf2 Exp $
+! $Id: .Xdefaults,v 1.2.2 2013/09/23 19:58:56 xoddf2 Exp $
 
 Xft.dpi: 96
 
@@ -23,6 +23,9 @@ emacs.menuBar: off
 emacs.verticalScrollBars: off
 emacs.toolBar: off
 emacs.internalBorder: 0
+
+! xload
+XLoad*font: -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*
 
 ! xbiff
 XBiff*checkCommand: fetchmail -d0 -csk
