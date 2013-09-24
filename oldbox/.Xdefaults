@@ -1,4 +1,4 @@
-! $Id: .Xdefaults,v 1.3 2013/09/23 22:54:39 xoddf2 Exp $
+! $Id: .Xdefaults,v 1.3.1 2013/09/23 23:07:45 xoddf2 Exp $
 
 Xft.dpi: 96
 
@@ -30,8 +30,8 @@ XClock.Clock.foreground: green
 XClock.Clock.analog: false
 XClock.Clock.update: 1
 XClock.Clock.strftime: %a %b %d %H:%M:%S %Z %Y
-XClock.Clock.font: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
-XClock.Clock.render: false
+XClock.Clock.face: Fixed-13:foundry=misc:weight=regular:slant=roman
+XClock.Clock.render: true
 
 ! xload ------------------------------------------------------------------------
 XLoad*font: -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*
