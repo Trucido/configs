@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 1.10.1 2013/09/23 19:38:54 xoddf2 Exp $
+# $Id: .fvwm2rc,v 1.10.1.2 2013/09/23 22:55:22 xoddf2 Exp $
 
 # This config is recommended for use with stock Slackware 14.0, with
 # fvwm_icons <http://www.fvwm.org/download/icons.php>.
@@ -155,10 +155,13 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *FvwmButtons: Mozilla nscape.xpm RunOrRaise Seamonkey mozilla
 *FvwmButtons: Lock xscreensaver.xpm Exec exec xscreensaver-command -lock
 *FvwmButtons: (Swallow "xclock" \
-	`Exec exec xclock -update 1 -norender -bg Grey -fg Black`)
-*FvwmButtons: (2x1, Swallow "xload" `Exec exec \
-	xload -bg Grey -fg Black -fn -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*`)
-*FvwmButtons: (Swallow "xbiff" `Exec exec xbiff -bg Grey -fg Black`)
+	`Exec exec xclock -analog -update 1 -norender -bg Grey -fg Black`)
+*FvwmButtons: (2x1, Swallow "xload" `Exec exec xload -bg Grey -fg Black \
+	-hl Black -fn -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*`)
+*FvwmButtons: (Swallow "xbiff" `Exec exec xbiff -bg Grey -fg Black \
+	-xrm 'XBiff.Mailbox.fullPixmap: mailfull' \
+	-xrm 'XBiff.Mailbox.emptyPixmap: mailempty' \
+	-xrm 'XBiff.Mailbox.flip: false'`)
 
 # QuitVerify
 *QuitVerify: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
