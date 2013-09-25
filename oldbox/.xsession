@@ -1,12 +1,12 @@
 #!/bin/sh
-# $Id: .xsession,v 1.2.2 2013/09/23 23:11:50 xoddf2 Exp $
+# $Id: .xsession,v 1.2.2.1 2013/09/24 23:45:28 xoddf2 Exp $
 
 # XScreenSaver
 xscreensaver -no-splash &
 
 # Dvorak, CAPS LOCK as ESC, and Compose
-setxkbmap -layout us -variant dvorak  # Must run before next line
-setxkbmap -option "compose:ralt" -option "caps:escape" &
+setxkbmap -layout us -variant dvorak \
+          -option "compose:ralt" -option "caps:escape" &
 
 # Set wallpaper
 xsetroot -solid DarkGrey &
