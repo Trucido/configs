@@ -32,8 +32,8 @@ XClock.Clock.render: true
 
 ! xload ------------------------------------------------------------------------
 XLoad*background: black
-XLoad*foreground: green
-XLoad*highlight: blue
+XLoad*foreground: white
+XLoad*highlight: red
 
 ! xbiff ------------------------------------------------------------------------
 XBiff.Mailbox.checkCommand: fetchmail -d0 -csk
