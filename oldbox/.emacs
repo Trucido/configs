@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.8.2.1 2013/09/12 12:14:38 xoddf2 Exp $
+;;; $Id: .emacs,v 1.8.3 2013/09/29 14:31:40 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -163,8 +163,11 @@ Requires Emacs-w3m."
 
 ;; Perl
 (defalias 'perl-mode 'cperl-mode)
-(setq cperl-indent-level 8
-      cperl-continued-statement-offset 0)
+(add-hook 'cperl-mode-hook
+          (lambda ()
+            (setq cperl-indent-level 8)
+            (setq cperl-continued-statement-offset 0)
+            (setq indent-tabs-mode nil)))
 
 ;; Python
 (add-hook 'python-mode-hook
@@ -262,12 +265,12 @@ Requires Emacs-w3m."
 (define-key apps-map "v" 'view-file)
 (define-key apps-map "w" 'w3m)
 
+;; Look up region or word at point
 (defvar lookup-map (make-sparse-keymap)
   "Keymap for subcommands of C-x w.")
 (defalias 'lookup-prefix lookup-map)
 (define-key ctl-x-map "w" 'lookup-prefix)
 
-;; Look up region or word at point
 (define-key lookup-map "g" 'lookup-duckduckgo)
 (define-key lookup-map "w" 'lookup-wikipedia)
 (define-key lookup-map "d" 'lookup-wiktionary)
