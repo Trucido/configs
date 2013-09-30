@@ -1,11 +1,13 @@
-;;; $Id: .emacs,v 1.8.4 2013/09/29 23:29:37 xoddf2 Exp $
+;;; $Id: .emacs,v 1.8.5 2013/09/30 16:35:31 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
 ;; modification.
 ;;
-;; Dependencies: Emacs-w3m, bbcode-mode, twittering-mode, mediawiki-mode,
-;;               rainbow-mode, fvwm-mode
+;; Dependencies:
+;; - From ELPA: Emacs-w3m, bbcode-mode, twittering-mode, mediawiki-mode,
+;;              rainbow-mode
+;; - Other: fvwm-mode, magit
 ;;
 ;; TODO:
 ;; - Make Emacs-w3m the default browser.
@@ -15,6 +17,7 @@
 ;; General ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; load-path
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/")
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; ELPA
@@ -229,6 +232,9 @@ Requires Emacs-w3m."
 (setq calendar-latitude 40.57667
       calendar-longitude -122.37028
       calendar-location-name "Redding, CA")
+
+;; Magit
+(require 'magit)
 
 ;; Keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
