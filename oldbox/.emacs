@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.8.3 2013/09/29 14:31:40 xoddf2 Exp $
+;;; $Id: .emacs,v 1.8.4 2013/09/29 23:29:37 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -165,9 +165,12 @@ Requires Emacs-w3m."
 (defalias 'perl-mode 'cperl-mode)
 (add-hook 'cperl-mode-hook
           (lambda ()
-            (setq cperl-indent-level 8)
-            (setq cperl-continued-statement-offset 0)
-            (setq indent-tabs-mode nil)))
+            (setq indent-tabs-mode nil)
+            (setq cperl-close-paren-offset -4)
+            (setq cperl-continued-statement-offset 4)
+            (setq cperl-indent-level 4)
+            (setq cperl-indent-parens-as-block t)
+            (setq cperl-tab-always-indent t)))
 
 ;; Python
 (add-hook 'python-mode-hook
