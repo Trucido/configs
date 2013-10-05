@@ -1,4 +1,4 @@
-# $Id: .screenrc,v 1.0 2013/08/07 02:26:30 xoddf2 Exp $
+# $Id: .screenrc,v 1.1 2013/10/05 12:37:51 xoddf2 Exp $
 
 # Disable visual bell
 vbell off
@@ -13,8 +13,7 @@ startup_message off
 defscrollback 1000
 
 # Status line
-hardstatus off
-hardstatus string "screen@%H: %n %t (%h)"
+hardstatus alwayslastline "%{= G}%w%{= d}%=%{= C}%l%{= d} %{= Y}%H%{= d}"
 
 # This way, if a background window beeps, I will not miss it;
 # note the ^G at the beginning
