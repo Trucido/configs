@@ -1,4 +1,4 @@
-# $Id: .screenrc,v 1.1 2013/10/05 12:37:51 xoddf2 Exp $
+# $Id: .screenrc,v 1.2 2013/10/05 12:44:36 xoddf2 Exp $
 
 # Disable visual bell
 vbell off
@@ -22,3 +22,7 @@ activity "^GActivity in window %n"
 
 # Add day of week and change date to ISO 8601 format
 time "%D %Y-%m-%d %c:%s %H%? %l%?"
+
+# Startup Applications
+screen -t shell 0
+screen -t emacs 1 emacsclient --alternate-editor='' -nw
