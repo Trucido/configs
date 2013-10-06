@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 1.10.1.2 2013/09/23 22:55:22 xoddf2 Exp $
+# $Id: .fvwm2rc,v 1.11 2013/10/06 14:45:45 xoddf2 Exp $
 
 # This config is recommended for use with stock Slackware 14.0, with
 # fvwm_icons <http://www.fvwm.org/download/icons.php>.
@@ -18,6 +18,10 @@
 # - FvwmAnimate
 # - FvwmBanner
 # - FvwmForm-powered application launcher
+# - FvwmForm-powered screen-shot taker
+#
+# The MenuFvwmLogins menu and FvwmForm ScreenShooter's wlshot and sprungecap
+# buttons are site-specific.
 #
 # This config is recommended with the following lines in ~/.xinitrc or 
 # ~/.xsession:
@@ -195,6 +199,25 @@ Style FvwmButtons !Title, Sticky, WindowListSkip, CirculateSkipIcon, \
 *AppLauncher: Button quit "Cancel" ^[
 *AppLauncher: Command Nop
 
+# ScreenShooter
+*ScreenShooter: Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+*ScreenShooter: ButtonFont -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+*ScreenShooter: Fore Black
+*ScreenShooter: Back LightGrey
+*ScreenShooter: ItemFore White
+*ScreenShooter: ItemBack Grey50
+*ScreenShooter: Line center
+*ScreenShooter: Text "Take a screen shot?"
+*ScreenShooter: Line expand
+*ScreenShooter: Button quit "W. wlshot" ^W
+*ScreenShooter: Command Exec exec wlshot
+*ScreenShooter: Button quit "S. sprungecap" ^S
+*ScreenShooter: Command Exec exec sprungecap
+*ScreenShooter: Button quit "L. Save locally" ^L
+*ScreenShooter: Command Exec import -window root ~/img/shots/`date '+%s'`.png
+*ScreenShooter: Button quit "Cancel" ^[
+*ScreenShooter: Command Nop
+
 # FvwmBanner
 Style FvwmBanner StaysOnTop, !Title
 *FvwmBanner: Pixmap fvwm2_big.xpm
@@ -220,6 +243,8 @@ Key Right A CM GotoPage 1p 0p
 
 Key Escape A CM Exec exec xscreensaver-command -lock
 Key Delete A CM Module FvwmForm QuitVerify
+
+Key Print A N Module FvwmForm ScreenShooter
 
 # Mouse Bindings ###############################################################
 
