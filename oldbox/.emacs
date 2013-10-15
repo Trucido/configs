@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.8.6 2013/10/14 23:36:46 xoddf2 Exp $
+;;; $Id: .emacs,v 1.8.7 2013/10/14 23:52:55 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -10,7 +10,6 @@
 ;; - Other: fvwm-mode, magit
 ;;
 ;; TODO:
-;; - Make Emacs-w3m the default browser.
 ;; - Reduce the redundancy in lookup-*.
 
 ;; General ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -216,6 +215,7 @@ Requires Emacs-w3m."
 ;; Emacs-w3m
 (require 'w3m)
 (setq w3m-use-cookies t)
+(setq browse-url-browser-function 'w3m-browse-url)
 
 ;; Twittering Mode
 (setq twittering-use-master-password t)
