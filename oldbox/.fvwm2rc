@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 1.11 2013/10/06 14:45:45 xoddf2 Exp $
+# $Id: .fvwm2rc,v 1.11.1 2013/10/15 13:35:13 xoddf2 Exp $
 
 # This config is recommended for use with stock Slackware 14.0, with
 # fvwm_icons <http://www.fvwm.org/download/icons.php>.
@@ -288,6 +288,8 @@ AddToMenu MenuFvwmLogins "$[gt.Remote Logins]" Title
   xterm -title tesseract -n tesseract -e ssh tesseract.hackerhaven.net
 + "%mini.ball.xpm%is.not.a.&hax0r.se" Exec exec \
   xterm -title elisabeth -n elisabeth -e ssh is.not.a.hax0r.se
++ "%mini.ball.xpm%t&urtil.net" Exec exec \
+  xterm -title archon -n archon -e ssh turtil.net
 + "" Nop
 + "%mini.keys.xpm%&A. Add Key" Exec exec ssh-add
 + "%mini.keys.xpm%&D. Delete Key" Exec exec ssh-add -D
