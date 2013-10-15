@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.8.5 2013/09/30 16:35:31 xoddf2 Exp $
+;;; $Id: .emacs,v 1.8.6 2013/10/14 23:36:46 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -11,7 +11,6 @@
 ;;
 ;; TODO:
 ;; - Make Emacs-w3m the default browser.
-;; - Put backup and auto-save files somewhere in ~/.emacs.d.
 ;; - Reduce the redundancy in lookup-*.
 
 ;; General ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53,6 +52,7 @@
 (setq indent-tabs-mode t)
 
 ;; Backup and autosave directory
+(setq temporary-file-directory "~/.emacs.d/tmp/")
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
