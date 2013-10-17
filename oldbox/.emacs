@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.8.8 2013/10/16 18:55:02 xoddf2 Exp $
+;;; $Id: .emacs,v 1.8.8.1 2013/10/16 19:21:39 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -257,6 +257,7 @@ Requires Emacs-w3m."
 (defalias 'apps-prefix apps-map)
 (define-key ctl-x-map "x" 'apps-prefix)
 
+(define-key apps-map " " 'whitespace-mode)
 (define-key apps-map "!" 'shell)
 (define-key apps-map "#" 'calc)
 (define-key apps-map "$" 'eshell)
@@ -267,7 +268,7 @@ Requires Emacs-w3m."
 (define-key apps-map "e" 'eval-region)
 (define-key apps-map "f" 'auto-fill-mode)
 (define-key apps-map "h" 'man)
-(define-key apps-map "i" 'whitespace-mode)
+(define-key apps-map "i" 'znc-all)
 (define-key apps-map "l" 'lunar-phases)
 (define-key apps-map "m" 'gnus)
 (define-key apps-map "r" 'rainbow-mode)
