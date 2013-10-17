@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.8.7 2013/10/14 23:52:55 xoddf2 Exp $
+;;; $Id: .emacs,v 1.8.8 2013/10/16 18:55:02 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -206,6 +206,8 @@ Requires Emacs-w3m."
 (setq user-mail-address "woddfellow2@gmail.com") ; Kludge for C-x m
 
 ;; ERC
+(require 'znc)
+(require 'xoddf2-znc)
 (setq erc-timestamp-format "[%H:%M:%S] "
       erc-fill-prefix "           "
       erc-insert-timestamp-function 'erc-insert-timestamp-left)
