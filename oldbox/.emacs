@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.8.8.1 2013/10/16 19:21:39 xoddf2 Exp $
+;;; $Id: .emacs,v 1.9 2013/10/16 19:33:39 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -84,6 +84,37 @@ standards-compliant window manager."
       (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
                                                nil
                                              'fullboth))))
+
+(defun erc-supybot-quotegrabs-grab ()
+  "Inserts the grab command.  Intended for use in channels
+that contain a Supybot with the QuoteGrabs module.
+
+TODO: Use (equal) instead of (string-match)."
+  (interactive)
+  (cond
+   ((string-match (buffer-name) "#archlinux-offtopic")
+       (insert "!grab "))
+   ((string-match (buffer-name) "#archlinux")
+       (insert "!grab "))
+   ((string-match (buffer-name) "#wlair")
+       (insert "!grab "))
+   ((string-match (buffer-name) "##slackware-offtopic")
+       (insert "@grab "))
+   ((string-match (buffer-name) "#main")
+       (insert "%grab "))))
+
+(defun erc-showoff ()
+  "Show off your uptime and system information.
+
+TODO: Use read-from-minibuffer to get a hostname,
+      and if it is remote, run uptime and uname over SSH."
+  (interactive)
+  (shell-command "uptime | tr -d '\n'" t)
+  (move-end-of-line 1)
+  (insert " | ")
+  (move-end-of-line 1)
+  (shell-command "uname -a | tr -d '\n'" t)
+  (move-end-of-line 1))
 
 (defun lookup-duckduckgo ()
   "From URL `http://ergoemacs.org/emacs/emacs_lookup_ref.html'.
@@ -206,6 +237,7 @@ Requires Emacs-w3m."
 (setq user-mail-address "woddfellow2@gmail.com") ; Kludge for C-x m
 
 ;; ERC
+(require 'erc)
 (require 'znc)
 (require 'xoddf2-znc)
 (setq erc-timestamp-format "[%H:%M:%S] "
@@ -250,6 +282,8 @@ Requires Emacs-w3m."
 
 ;; Mode-specific
 (define-key bbcode-mode-map (kbd "C-c C-u") 'post-update)
+(define-key erc-mode-map (kbd "C-c C-g") 'erc-supybot-quotegrabs-grab)
+(define-key erc-mode-map (kbd "C-c C-v") 'erc-showoff)
 
 ;; Frequently-used commands
 (defvar apps-map (make-sparse-keymap)
