@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.9 2013/10/16 19:33:39 xoddf2 Exp $
+;;; $Id: .emacs,v 1.9.1 2013/10/27 15:11:10 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -245,6 +245,8 @@ Requires Emacs-w3m."
       erc-insert-timestamp-function 'erc-insert-timestamp-left)
 (setq erc-auto-set-away t
       erc-autoaway-idle-seconds 300)
+(setq erc-keywords
+      '("woddf2" "wodd" "woodf" "woof2" "jbqqs2" "2fddow" "xoddf2"))
 
 ;; Emacs-w3m
 (require 'w3m)
