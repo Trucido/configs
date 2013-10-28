@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.9.2 2013/10/28 13:38:25 xoddf2 Exp $
+;;; $Id: .emacs,v 1.9.3 2013/10/28 14:58:40 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -83,7 +83,8 @@ standards-compliant window manager."
   (if (eq window-system 'x)
       (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
                                                nil
-                                             'fullboth))))
+                                             'fullboth))
+    (message "This is not X.  You cannot full-screen here.")))
 
 (defun erc-supybot-quotegrabs-grab ()
   "Inserts the grab command.  Intended for use in channels
