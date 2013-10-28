@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.9.1 2013/10/27 15:11:10 xoddf2 Exp $
+;;; $Id: .emacs,v 1.9.2 2013/10/28 13:38:25 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
@@ -7,7 +7,7 @@
 ;; Dependencies:
 ;; - From ELPA: Emacs-w3m, bbcode-mode, twittering-mode, mediawiki-mode,
 ;;              rainbow-mode
-;; - Other: fvwm-mode, magit
+;; - Other: fvwm-mode, magit, znc
 ;;
 ;; TODO:
 ;; - Reduce the redundancy in lookup-*.
@@ -239,7 +239,7 @@ Requires Emacs-w3m."
 ;; ERC
 (require 'erc)
 (require 'znc)
-(require 'xoddf2-znc)
+(require 'xoddf2-znc) ; This points to a private file containing passwords.
 (setq erc-timestamp-format "[%H:%M:%S] "
       erc-fill-prefix "           "
       erc-insert-timestamp-function 'erc-insert-timestamp-left)
@@ -279,6 +279,7 @@ Requires Emacs-w3m."
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x 4 v") 'view-file-other-window)
 (global-set-key (kbd "C-x 5 v") 'view-file-other-frame)
+(global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x t") 'insert-timestamp)
 (global-set-key (kbd "<f11>") 'full-screen)
 
