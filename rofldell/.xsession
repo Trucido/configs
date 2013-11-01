@@ -3,6 +3,8 @@
 
 export LC_CTYPE="en_US.UTF-8"
 
+xcompmgr -a &
+
 xscreensaver -no-splash &
 setxkbmap -option "caps:escape" -option "compose:ralt" &
 
