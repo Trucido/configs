@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0 2013/11/13 18:53:29 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.1 2013/11/13 19:43:49 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -55,6 +55,15 @@ AddToFunc WindowListFunc
 + I Iconify off
 + I FlipFocus
 + I Raise
+
+# For modifier+click moving and resizing
+DestroyFunc DragMove
+AddToFunc DragMove
++ M Move
+
+DestroyFunc DragResize
+AddToFunc DragResize
++ M Resize
 
 # SelectWindow (Needed for RunOrRaise)
 DestroyFunc SelectWindow
@@ -123,12 +132,16 @@ Key 9 A 4S MoveToPage 2 2
 # Without this one, iconified windows do not re-iconify when clicked:
 Mouse 1 I A FuncFvwmMoveOrIconify
 
-# Raise or lower window by right-clicking the border
-Mouse 3 TSIF A RaiseLower
-
 # What to do when clicking the root window
 Mouse 2 R A Menu MenuFvwmWindowOps Nop
 Mouse 3 R A WindowList
+
+# Move or resize window with SUPER+mouse
+Mouse 1 TSIFW 4 DragMove
+Mouse 3 TSIFW 4 DragResize
+
+# Raise or lower window by right-clicking the border
+Mouse 3 TSIF A RaiseLower
 
 # Menus ########################################################################
 
