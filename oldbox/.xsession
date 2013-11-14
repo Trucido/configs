@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: .xsession,v 2.0 2013/11/13 18:46:14 xoddf2 Exp $
+# $Id: .xsession,v 2.0.1 2013/11/14 06:22:20 xoddf2 Exp $
 
 # XScreenSaver
 xscreensaver -no-splash &
@@ -24,8 +24,8 @@ fi
 
 # Start some nice programs
 xclock -geometry -0-0 &
-xload -geometry -0-34 &
-xbiff -geometry -120-34 &
+xload -geometry 184x48-0-34 &
+xbiff -geometry -184-34 &
 
 # Start the WM
 fvwm
