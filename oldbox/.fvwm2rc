@@ -217,7 +217,7 @@ AddToMenu MenuLeave "Leave" Title
 
 DestroyModuleConfig FvwmPager: *
 Style FvwmPager !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
-*FvwmPager: Geometry 125x125-0+0
+*FvwmPager: Geometry 120x120-0+0
 *FvwmPager: Font none
 *FvwmPager: Back Grey5
 *FvwmPager: Fore Grey25
@@ -229,8 +229,8 @@ Style FvwmPager !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, Cli
 
 DestroyModuleConfig FvwmIconMan: *
 Style FvwmIconMan !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, ClickToFocus
-*FvwmIconMan: ManagerGeometry 1x0-0+125
-*FvwmIconMan: ButtonGeometry 125x16
+*FvwmIconMan: ManagerGeometry 1x0-0+120
+*FvwmIconMan: ButtonGeometry 120x16
 *FvwmIconMan: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
 *FvwmIconMan: Shape true
 *FvwmIconMan: ShowOnlyIcons true
