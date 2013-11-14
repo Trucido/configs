@@ -1,11 +1,17 @@
-# $Id: .fvwm2rc,v 2.0.2 2013/11/13 22:45:56 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.3 2013/11/13 23:44:15 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
 
+# Disable changing pages by moving the pointer to the edge of the screen:
+EdgeScroll 0 0
+
 # Style ########################################################################
 
+# Focus
 Style * SloppyFocus
+Style * FPGrabFocus
+
 Style * SnapAttraction 16 Screen
 
 # Place the windows better
@@ -13,9 +19,6 @@ Style * MinOverlapPercentPlacement
 
 # This line makes XMMS, Audacious, mplayer -noborder, and similar work properly:
 Style * MWMDecor
-
-# Disable changing pages by moving the pointer to the edge of the screen:
-EdgeScroll 0 0
 
 # Disable title bars and make the borders slightly thinner:
 Style * !Title
