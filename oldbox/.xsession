@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: .xsession,v 1.2.2.1 2013/09/24 23:45:28 xoddf2 Exp $
+# $Id: .xsession,v 2.0 2013/11/13 18:46:14 xoddf2 Exp $
 
 # XScreenSaver
 xscreensaver -no-splash &
@@ -9,7 +9,7 @@ setxkbmap -layout us -variant dvorak \
           -option "compose:ralt" -option "caps:escape" &
 
 # Set wallpaper
-xsetroot -solid DarkGrey &
+xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
 
 # ssh-agent (Inspired by and stolen from OpenBSD)
 id1=$HOME/.ssh/identity
@@ -21,6 +21,11 @@ then
 	eval $(ssh-agent -s)
 	ssh-add < /dev/null
 fi
+
+# Start some nice programs
+xclock -geometry -0-0 &
+xload -geometry -0-34 &
+xbiff -geometry -120-34 &
 
 # Start the WM
 fvwm

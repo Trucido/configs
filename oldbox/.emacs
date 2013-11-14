@@ -1,13 +1,13 @@
-;;; $Id: .emacs,v 1.9.3 2013/10/28 14:58:40 xoddf2 Exp $
+;;; $Id: .emacs,v 1.9.4 2013/11/13 18:56:38 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
-;; (Slackware 14.0).  It is not guaranteed to work elsewhere without
+;; (Slackware 14.1).  It is not guaranteed to work elsewhere without
 ;; modification.
 ;;
 ;; Dependencies:
-;; - From ELPA: Emacs-w3m, bbcode-mode, twittering-mode, mediawiki-mode,
+;; - From ELPA: bbcode-mode, twittering-mode, mediawiki-mode,
 ;;              rainbow-mode
-;; - Other: fvwm-mode, magit, znc
+;; - Other: Emacs-w3m, magit, znc, fvwm-mode
 ;;
 ;; TODO:
 ;; - Reduce the redundancy in lookup-*.
