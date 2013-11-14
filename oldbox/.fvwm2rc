@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.1 2013/11/13 19:43:49 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.2 2013/11/13 22:45:56 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -7,6 +7,9 @@ IgnoreModifiers L25
 
 Style * SloppyFocus
 Style * SnapAttraction 16 Screen
+
+# Place the windows better
+Style * MinOverlapPercentPlacement
 
 # This line makes XMMS, Audacious, mplayer -noborder, and similar work properly:
 Style * MWMDecor
