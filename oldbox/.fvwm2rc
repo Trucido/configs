@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.3 2013/11/13 23:44:15 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.4 2013/11/14 00:06:59 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -27,9 +27,9 @@ Style * BorderWidth 5, HandleWidth 5
 DefaultFont -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
 
 # Make xclock, xload, and xbiff more like the FVWM modules
-Style XClock !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
-Style XLoad !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
-Style XBiff !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
+Style XClock !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize, NeverFocus
+Style XLoad !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize, NeverFocus
+Style XBiff !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize, NeverFocus
 
 # Application-specific style
 Style XTerm MiniIcon mini.xterm.xpm
@@ -222,7 +222,7 @@ AddToMenu MenuLeave "Leave" Title
 # Modules ######################################################################
 
 DestroyModuleConfig FvwmPager: *
-Style FvwmPager !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
+Style FvwmPager !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
 *FvwmPager: Geometry 120x120-0+0
 *FvwmPager: Font none
 *FvwmPager: Back Grey5
@@ -243,7 +243,7 @@ Style FvwmIconMan !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, ClickT
 *FvwmIconMan: Format "%i"
 
 DestroyModuleConfig FvwmButtons: *
-Style FvwmButtons !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
+Style FvwmButtons !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
 *FvwmButtons: Back DimGrey
 *FvwmButtons: Rows 1
 *FvwmButtons: Columns 4
