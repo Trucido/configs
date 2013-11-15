@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.4 2013/11/14 00:06:59 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.5 2013/11/14 15:53:51 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -223,7 +223,7 @@ AddToMenu MenuLeave "Leave" Title
 
 DestroyModuleConfig FvwmPager: *
 Style FvwmPager !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
-*FvwmPager: Geometry 120x120-0+0
+*FvwmPager: Geometry 120x120-0+24
 *FvwmPager: Font none
 *FvwmPager: Back Grey5
 *FvwmPager: Fore Grey25
@@ -235,7 +235,7 @@ Style FvwmPager !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, Circulat
 
 DestroyModuleConfig FvwmIconMan: *
 Style FvwmIconMan !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, ClickToFocus
-*FvwmIconMan: ManagerGeometry 1x0-0+120
+*FvwmIconMan: ManagerGeometry 1x0-0+144
 *FvwmIconMan: ButtonGeometry 120x16
 *FvwmIconMan: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
 *FvwmIconMan: Shape true
@@ -247,13 +247,14 @@ Style FvwmButtons !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, Circul
 *FvwmButtons: Back DimGrey
 *FvwmButtons: Rows 1
 *FvwmButtons: Columns 4
-*FvwmButtons: Geometry 96x24+0-0
+*FvwmButtons: Geometry 120x24-0+0
 *FvwmButtons: Padding 2 2
 *FvwmButtons: Font -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
 *FvwmButtons: "" mini.xterm.xpm Exec exec xterm
 *FvwmButtons: "" mini.gnu.xpm RunOrRaise Emacs "emacsclient --alternate-editor='' -c"
 *FvwmButtons: "" mini.nscape.xpm RunOrRaise Seamonkey mozilla
 *FvwmButtons: "" mini.lock.xpm Exec exec xscreensaver-command -lock
+*FvwmButtons: "" mini.stop.xpm Quit
 
 # StartFunction ################################################################
 
