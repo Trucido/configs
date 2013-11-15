@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.5 2013/11/14 15:53:51 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.7 2013/11/14 18:18:04 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -86,10 +86,11 @@ AddToFunc RunOrRaise
 
 # Keybindings ##################################################################
 
-# Move WindowList to SUPER+TAB and list windows in the current page only
+# WindowList
 Key Tab A M -
-Key Tab A 4 WindowList (CurrentPage) Root c c NoIcons
-Key Slash A 4 WindowList (CurrentPage) Root c c OnlyIcons
+Key Tab A 4 WindowList (CurrentPage) Root c c NoIcons, CurrentAtEnd
+Key Return A 4 WindowList (CurrentPage) Root c c OnlyIcons
+Key Slash A 4 WindowList (CurrentPage) Root c c
 MenuStyle WindowList SelectOnRelease Super_L
 
 # Menus
@@ -97,11 +98,15 @@ Key Grave A 4 Popup MenuFvwmRoot
 Key o A 4 Popup MenuFvwmWindowOps
 Key Period A 4 Popup MenuFvwmLogins
 
-# Run or raise certain applications
+# Launch, run, or raise certain applications
+Key c A 4 Exec exec xterm
 Key e A 4 RunOrRaise Emacs "emacsclient --alternate-editor='' -c"
 Key w A 4 RunOrRaise Seamonkey mozilla
 
+# Lock screen
 Key Escape A 4 Exec exec xscreensaver-command -lock
+
+# FvwmConsole
 Key Colon A 4 Module FvwmConsole
 
 # Window ops
@@ -109,6 +114,8 @@ Key Return A 4 Iconify
 Key k A 4S Close
 Key m A 4 Move
 Key r A 4 Resize
+Key Space A 4 RaiseLower
+Key p A 4 PlaceAgain
 Key Question A 4 FvwmIdent
 
 # Switch to page...
@@ -121,6 +128,7 @@ Key 6 A 4 GotoPage 2 1
 Key 7 A 4 GotoPage 0 2
 Key 8 A 4 GotoPage 1 2
 Key 9 A 4 GotoPage 2 2
+Key 0 A 4 GotoPage Prev
 
 # Move window to page...
 Key 1 A 4S MoveToPage 0 0
@@ -132,6 +140,7 @@ Key 6 A 4S MoveToPage 2 1
 Key 7 A 4S MoveToPage 0 2
 Key 8 A 4S MoveToPage 1 2
 Key 9 A 4S MoveToPage 2 2
+Key 0 A 4S MoveToPage Prev
 
 # Mouse Bindings ###############################################################
 
