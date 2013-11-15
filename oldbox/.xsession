@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: .xsession,v 2.0.1 2013/11/14 06:22:20 xoddf2 Exp $
+# $Id: .xsession,v 2.1 2013/11/14 16:19:04 xoddf2 Exp $
 
 # XScreenSaver
 xscreensaver -no-splash &
@@ -26,6 +26,9 @@ fi
 xclock -geometry -0-0 &
 xload -geometry 184x48-0-34 &
 xbiff -geometry -184-34 &
+
+# ...and an emacsclient frame:
+emacsclient --alternate-editor="" -c &
 
 # Start the WM
 fvwm

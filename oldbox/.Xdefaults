@@ -1,11 +1,11 @@
-! $Id: .Xdefaults,v 1.3.2 2013/11/14 06:21:54 xoddf2 Exp $
+! $Id: .Xdefaults,v 1.3.4 2013/11/14 16:18:38 xoddf2 Exp $
 
 Xft.dpi: 96
 
 ! xterm ------------------------------------------------------------------------
 XTerm.vt100.locale: UTF-8
-XTerm.vt100.font: -misc-fixed-medium-r-normal--15-*-*-*-*-*-iso10646-1
-XTerm.vt100.utf8Fonts.font: -misc-fixed-medium-r-normal--15-*-*-*-*-*-iso10646-1
+XTerm.vt100.font: -misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1
+XTerm.vt100.utf8Fonts.font: -misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1
 XTerm.vt100.wideFont: -*-*-*-*-*-ja-*-*-*-*-*-*-*-*
 XTerm.vt100.reverseVideo: true
 XTerm.vt100.altIsNotMeta: true
@@ -16,7 +16,7 @@ XTerm.vt100.backarrowKey: false
 
 ! Emacs  -----------------------------------------------------------------------
 emacs.font: -adobe-courier-medium-r-*-*-14-*-*-*-*-*-*-*
-emacs.geometry: 80x50
+emacs.geometry: 80x69
 emacs.background: black
 emacs.foreground: grey
 emacs.menuBar: off
