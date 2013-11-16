@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.9 2013/11/15 16:28:31 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.10 2013/11/15 17:34:59 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -165,6 +165,8 @@ AddToMenu MenuFvwmRoot "Root Menu" Title
 + "X&Term" Exec exec xterm
 + "&Emacs" Exec exec emacsclient --alternate-editor='' -c
 + "&Mozilla" Exec exec mozilla
++ "" Nop
++ "The &GIMP" Exec exec gimp
 + "" Nop
 + "&SSH" Popup MenuFvwmLogins
 + "" Nop
