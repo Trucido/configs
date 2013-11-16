@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.10 2013/11/15 17:34:59 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.11 2013/11/15 18:10:41 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -33,8 +33,9 @@ Style XBiff !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSki
 
 # Application-specific style
 Style XTerm MiniIcon mini.xterm.xpm
-Style Seamonkey EWMHMiniIconOverride, MiniIcon mini.nscape.xpm
+Style Seamonkey EWMHMiniIconOverride, MiniIcon mini.nscape.xpm, StartsOnPage 0 0
 Style Emacs EWMHMiniIconOverride, MiniIcon mini.gnu.xpm,
+Style gimp EWMHMiniIconOverride, MiniIcon mini.gimp.xpm, StartsOnPage 1 0
 
 # Disable icons
 Style * NoIcon
@@ -218,8 +219,8 @@ AddToMenu MenuFvwmLogins "Logins" Title
 + "" Nop
 + "Mount ssh&fs" Exec exec sshfs-mount
 + "" Nop
-+ "&A. Add Key" Exec exec ssh-add
-+ "&D. Delete Key" Exec exec ssh-add -D
++ "&Add Key" Exec exec ssh-add
++ "&Delete Key" Exec exec ssh-add -D
 
 DestroyMenu MenuLeave
 AddToMenu MenuLeave "Leave" Title
