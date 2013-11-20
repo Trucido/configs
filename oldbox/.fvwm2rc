@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.11 2013/11/15 18:10:41 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.12 2013/11/19 17:40:14 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -89,9 +89,7 @@ AddToFunc RunOrRaise
 
 # WindowList
 Key Tab A M -
-Key Tab A 4 WindowList (CurrentPage) Root c c NoIcons, CurrentAtEnd
-Key Return A 4S WindowList (CurrentPage) Root c c OnlyIcons
-Key Slash A 4 WindowList (CurrentPage) Root c c
+Key Tab A 4 WindowList (CurrentPage) Root c c CurrentAtEnd
 MenuStyle WindowList SelectOnRelease Super_L
 
 # Menus
@@ -275,7 +273,3 @@ AddToFunc StartFunction
 + I Module FvwmPager 0 0
 + I Module FvwmIconMan
 + I Module FvwmButtons
-
-# This focuses Emacs at the beginning:
-AddToFunc InitFunction
-+ I Next ("Emacs") SelectWindow
