@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.12 2013/11/19 17:40:14 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.12.1 2013/11/19 18:03:17 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -266,7 +266,7 @@ Style FvwmButtons !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, Circul
 *FvwmButtons: "" mini.lock.xpm Exec exec xscreensaver-command -lock
 *FvwmButtons: "" mini.stop.xpm Quit
 
-# StartFunction and InitFunction ###############################################
+# StartFunction ################################################################
 
 AddToFunc StartFunction
 + I Module FvwmCommandS
