@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.12.1 2013/11/19 18:03:17 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.13 2013/11/19 19:16:38 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -89,7 +89,7 @@ AddToFunc RunOrRaise
 
 # WindowList
 Key Tab A M -
-Key Tab A 4 WindowList (CurrentPage) Root c c CurrentAtEnd
+Key Tab A 4 WindowList (CurrentPage) Root c c CurrentAtEnd, IconifiedAtEnd
 MenuStyle WindowList SelectOnRelease Super_L
 
 # Menus
