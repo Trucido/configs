@@ -8,7 +8,7 @@ xcompmgr &
 xscreensaver -no-splash &
 setxkbmap -option "caps:escape" -option "compose:ralt" &
 
-feh --bg-center ~/img/wallpaper/01347_colorfast_1440x900.jpg &
+feh --bg-center ~/img/wallpaper/01737_elemental_1440x900.jpg &
 
 xclock -geometry -0+0 &
 xload -geometry -0+40 &
