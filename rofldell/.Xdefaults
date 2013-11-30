@@ -22,6 +22,27 @@ XTerm.vt100.background: black
 XTerm.vt100.foreground: white
 XTerm.vt100.scrollBar: false
 
+! rxvt-unicode -----------------------------------------------------------------
+URxvt.loginShell: true
+URxvt.locale: UTF-8
+URxvt.termName: xterm
+
+URxvt.urgentOnBell: true
+
+URxvt.perl-ext-common: keyboard-select
+URxvt.keysym.Menu: perl:keyboard-select:activate
+
+URxvt.scrollBar: false
+URxvt.pointerBlank: true
+
+URxvt.depth: 32
+URxvt.foreground: grey
+URxvt.background: rgba:0000/0000/0000/CCCC
+
+URxvt.font: -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt.boldFont: -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
+URxvt.colorBD: white
+
 ! xclock -----------------------------------------------------------------------
 XClock.Clock.background: black
 XClock.Clock.foreground: green

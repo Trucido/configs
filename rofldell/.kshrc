@@ -6,7 +6,7 @@ export PS1="\e[1;33m\w\e[0m \e[1;34m\$\e[0m "
 
 # Editor
 set -o vi
-export EDITOR="vi"
+export EDITOR="vim"
 export FCEDIT="$EDITOR"
 
 # Make exiting difficult in tmux

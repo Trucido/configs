@@ -3,17 +3,17 @@
 
 export LC_CTYPE="en_US.UTF-8"
 
-xcompmgr -a &
+xcompmgr &
 
 xscreensaver -no-splash &
 setxkbmap -option "caps:escape" -option "compose:ralt" &
 
-xsetroot -solid rgb:00/00/33 &
+feh --bg-center ~/img/wallpaper/01347_colorfast_1440x900.jpg &
 
 xclock -geometry -0+0 &
 xload -geometry -0+40 &
 xbiff -geometry -0+190 &
 
-xterm -geometry 80x50+0+0 -e tmux attach-session -d &
+urxvt -geometry 80x50+0+0 -e tmux attach-session -d &
 
 exec cwm

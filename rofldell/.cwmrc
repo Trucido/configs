@@ -21,9 +21,9 @@ ignore xload
 ignore xbiff
 
 # Applications #################################################################
-command term xterm
+command term urxvt
 command lock "xscreensaver-command -lock"
-command tmux "xterm -geometry 80x50 -e tmux attach-session -d"
+command tmux "urxvt -geometry 80x50 -e tmux attach-session -d"
 command www xombrero
 
 # Groups #######################################################################
