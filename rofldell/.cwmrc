@@ -27,7 +27,7 @@ command tmux "urxvt -geometry 80x50 -e tmux attach-session -d"
 command www xombrero
 
 # Groups #######################################################################
-autogroup 1 XTerm
+autogroup 1 URxvt
 autogroup 2 Xombrero
 autogroup 3 feh
 autogroup 3 MPlayer
