@@ -8,7 +8,7 @@ xcompmgr &
 xscreensaver -no-splash &
 setxkbmap -option "caps:escape" -option "compose:ralt" &
 
-feh --bg-center ~/img/wallpaper/01737_elemental_1440x900.jpg &
+feh --bg-max ~/img/wallpaper/DNA\ -1920\ x\ 1200-597050.jpeg &
 
 xclock -geometry -0+0 &
 xload -geometry -0+40 &
