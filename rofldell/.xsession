@@ -3,17 +3,23 @@
 
 export LC_CTYPE="en_US.UTF-8"
 
+# To speed up window moving and to facilitate eye candy
 xcompmgr &
 
+# Start XScreenSaver and change some keys
 xscreensaver -no-splash &
 setxkbmap -option "caps:escape" -option "compose:ralt" &
 
-feh --bg-max ~/img/wallpaper/DNA\ -1920\ x\ 1200-597050.jpeg &
+# Pointless eye candy (wallpaper)
+feh --bg-tile ~/img/wallpaper/pixelbox_tile.gif &
 
+# Start some nice programs
 xclock -geometry -0+0 &
-xload -geometry -0+40 &
-xbiff -geometry -0+190 &
+xload -geometry 184x48-0+31 &
+xbiff -geometry -184+31 &
 
+# ...and attach tmux:
 urxvt -geometry 80x50+0+0 -e tmux attach-session -d &
 
+# Finally, start the WM:
 exec cwm
