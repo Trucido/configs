@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.13 2013/11/19 19:16:38 xoddf2 Exp $
+# $Id: .fvwm2rc,v 2.0.14 2013/11/27 10:19:10 xoddf2 Exp $
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -270,6 +270,7 @@ Style FvwmButtons !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, Circul
 
 AddToFunc StartFunction
 + I Module FvwmCommandS
++ I Module FvwmAuto 0
 + I Module FvwmPager 0 0
 + I Module FvwmIconMan
 + I Module FvwmButtons

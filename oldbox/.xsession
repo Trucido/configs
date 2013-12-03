@@ -1,12 +1,11 @@
 #!/bin/sh
-# $Id: .xsession,v 2.1 2013/11/14 16:19:04 xoddf2 Exp $
+# $Id: .xsession,v 2.2 2013/12/02 19:34:35 xoddf2 Exp $
 
 # XScreenSaver
 xscreensaver -no-splash &
 
-# Dvorak, CAPS LOCK as ESC, and Compose
-setxkbmap -layout us -variant dvorak \
-          -option "compose:ralt" -option "caps:escape" &
+# Dvorak, CAPS LOCK as Compose (for vi, I recommend QWERTY with caps:escape.)
+setxkbmap -layout us -variant dvorak -option "compose:caps" &
 
 # Set wallpaper
 xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
