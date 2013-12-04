@@ -11,7 +11,7 @@ xscreensaver -no-splash &
 setxkbmap -option "caps:escape" -option "compose:ralt" &
 
 # Pointless eye candy (wallpaper)
-feh --bg-tile ~/img/wallpaper/pixelbox_tile.gif &
+feh --bg-tile ~/img/wallpaper/grid.xpm &
 
 # Start some nice programs
 xclock -geometry -0+0 &
