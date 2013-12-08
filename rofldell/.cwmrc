@@ -24,10 +24,10 @@ ignore xbiff
 command term urxvt
 command lock "xscreensaver-command -lock"
 command tmux "urxvt -geometry 80x50 -e tmux attach-session -d"
-command www xombrero
+command www "conkeror"
 
 # Groups #######################################################################
 autogroup 1 URxvt
-autogroup 2 Xombrero
+autogroup 2 Conkeror
 autogroup 3 feh
 autogroup 3 MPlayer

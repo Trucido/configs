@@ -2,6 +2,7 @@
 # by woddfellow2 | http://wlair.us.to/
 
 export LC_CTYPE="en_US.UTF-8"
+. ~/.profile
 
 # To speed up window moving and to facilitate eye candy
 xcompmgr &
