@@ -1,4 +1,4 @@
-// $Id: .conkerorrc,v 1.1 2013/12/07 20:24:28 xoddf2 Exp $
+// $Id: .conkerorrc,v 1.1.1 2013/12/07 23:20:08 xoddf2 Exp $
 
 // Proxy
 session_pref('network.proxy.http', "localhost");
@@ -67,6 +67,11 @@ external_content_handlers.set("video/*", "urxvt -e mplayer");
 external_content_handlers.set("audio/*", "urxvt -e mplayer");
 external_content_handlers.set("application/ogg", "urxvt -e mplayer");
 external_content_handlers.set("img/*", "feh");
+
+// Favicon
+require("favicon");
+add_hook("mode_line_hook", mode_line_adder(buffer_icon_widget), true);
+read_buffer_show_icons = true;
 
 // Options specific to certain Web sites
 xkcd_add_title = true;
