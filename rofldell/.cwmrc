@@ -11,6 +11,10 @@ color menubg black
 color menufg green
 color font green
 
+# Keybindings ##################################################################
+bind C-slash unmap
+bind CM-slash menusearch
+
 # Misc #########################################################################
 snapdist 8
 
