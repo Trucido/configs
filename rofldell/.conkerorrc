@@ -1,4 +1,9 @@
-// $Id: .conkerorrc,v 1.1.1 2013/12/07 23:20:08 xoddf2 Exp $
+/* -*- JavaScript -*-
+   $Id: .conkerorrc,v 1.1.2 2013/12/08 12:31:10 xoddf2 Exp $ */
+
+// Crash recovery
+require("session.js");
+session_auto_save_auto_load = true;
 
 // Proxy
 session_pref('network.proxy.http', "localhost");
