@@ -68,9 +68,9 @@ view_source_use_external_editor = true;
 // Downloads
 download_buffer_automatic_open_target = OPEN_NEW_BUFFER_BACKGROUND;
 
-external_content_handlers.set("video/*", "urxvt -e mplayer");
-external_content_handlers.set("audio/*", "urxvt -e mplayer");
-external_content_handlers.set("application/ogg", "urxvt -e mplayer");
+external_content_handlers.set("video/*", "urxvtc -e mplayer");
+external_content_handlers.set("audio/*", "urxvtc -e mplayer");
+external_content_handlers.set("application/ogg", "urxvtc -e mplayer");
 external_content_handlers.set("img/*", "feh");
 
 // Favicon

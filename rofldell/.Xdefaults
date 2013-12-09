@@ -48,16 +48,6 @@ XClock.Clock.background: black
 XClock.Clock.foreground: green
 XClock.Clock.analog: false
 XClock.Clock.update: 1
-XClock.Clock.face: Fixed-13:foundry=misc:weight=bold:slant=roman
+XClock.Clock.face: Fixed-8:foundry=misc:weight=normal:slant=roman
+XClock.Clock.padding: 1
 XClock.Clock.render: true
-
-! xload ------------------------------------------------------------------------
-XLoad*background: black
-XLoad*foreground: white
-XLoad*highlight: red
-
-! xbiff ------------------------------------------------------------------------
-XBiff.Mailbox.checkCommand: fetchmail -d0 -csk
-XBiff.Mailbox.update: 300
-XBiff.Mailbox.background: black
-XBiff.Mailbox.foreground: green

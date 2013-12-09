@@ -25,9 +25,9 @@ ignore xload
 ignore xbiff
 
 # Applications #################################################################
-command term urxvt
+command term urxvtc
 command lock "xscreensaver-command -lock"
-command tmux "urxvt -geometry 80x50 -e tmux attach-session -d"
+command tmux "urxvtc -geometry 80x50 -e tmux attach-session -d"
 command www "conkeror"
 
 # Groups #######################################################################
