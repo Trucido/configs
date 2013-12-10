@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.1 2013/12/06 21:21:18 xoddf2 Exp $
+;;; $Id: .emacs,v 1.1.1 2013/12/10 00:25:07 xoddf2 Exp $
 
 ;; TODO: Merge this with the init file from oldbox.
 
@@ -133,6 +133,7 @@ standards-compliant window manager."
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x 4 v") 'view-file-other-window)
 (global-set-key (kbd "C-x 5 v") 'view-file-other-frame)
+(global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x t") 'insert-timestamp)
 (global-set-key (kbd "<f11>") 'full-screen)
 
