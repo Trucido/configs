@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.1.1 2013/12/10 00:25:07 xoddf2 Exp $
+;;; $Id: .emacs,v 1.1.2 2013/12/10 14:36:46 xoddf2 Exp $
 
 ;; TODO: Merge this with the init file from oldbox.
 
@@ -150,7 +150,6 @@ standards-compliant window manager."
 (define-key apps-map "/" 'grep)
 (define-key apps-map "a" 'calendar)
 (define-key apps-map "c" 'compile)
-(define-key apps-map "d" 'image-dired)
 (define-key apps-map "e" 'eval-region)
 (define-key apps-map "f" 'auto-fill-mode)
 (define-key apps-map "h" 'man)
