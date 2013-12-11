@@ -1,0 +1,36 @@
+# $Id: .ratpoisonrc,v 1.0 2013/12/11 04:31:48 xoddf2 Exp $
+
+# Change prefix key to CTRL+;  (Chosen because Emacs appears not to use it.)
+escape C-semicolon
+unbind a
+unbind C-a
+bind t time
+bind C-t time
+
+# How to display the windows
+set border 0
+set wingravity c
+
+# Display window sizes in the window list
+set winfmt %n%s%t (%WX%H)
+
+# Appearance
+set font Fixed-11
+set bargravity c
+set bgcolor black
+set fgcolor green
+
+startup_message off
+
+# Keybindings
+bind x exec xscreensaver-command -lock
+bind o focus
+bind O focusprev
+
+bind L colon exec xterm -e ssh 
+
+bind E exec emacsclient --alternate-editor='' -c
+bind W exec mozilla
+bind G exec gimp
+
+banish

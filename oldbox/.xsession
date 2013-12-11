@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: .xsession,v 2.2 2013/12/02 19:34:35 xoddf2 Exp $
+# $Id: .xsession,v 3.0 2013/12/11 04:18:10 xoddf2 Exp $
 
 # XScreenSaver
 xscreensaver -no-splash &
@@ -8,7 +8,7 @@ xscreensaver -no-splash &
 setxkbmap -layout us -variant dvorak -option "compose:caps" &
 
 # Set wallpaper
-xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
+xsetroot -solid black &
 
 # ssh-agent (Inspired by and stolen from OpenBSD)
 id1=$HOME/.ssh/identity
@@ -21,16 +21,11 @@ then
 	ssh-add < /dev/null
 fi
 
-# Start some nice programs
-xclock -geometry -0-0 &
-xload -geometry 184x48-0-34 &
-xbiff -geometry -184-34 &
-
-# ...and an emacsclient frame:
+# Open an emacsclient frame:
 emacsclient --alternate-editor="" -c &
 
-# Start the WM
-fvwm
+# Start a WM, or, failing that, an xterm
+ratpoison || fvwm || twm || xterm
 
 # Kill ssh-agent upon exiting
 if [ "$SSH_AGENT_PID" ]; then
