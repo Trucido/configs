@@ -1,4 +1,4 @@
-# $Id: .ratpoisonrc,v 1.0 2013/12/11 04:31:48 xoddf2 Exp $
+# $Id: .ratpoisonrc,v 1.0.1 2013/12/11 04:38:08 xoddf2 Exp $
 
 # Change prefix key to CTRL+;  (Chosen because Emacs appears not to use it.)
 escape C-semicolon
@@ -12,7 +12,7 @@ set border 0
 set wingravity c
 
 # Display window sizes in the window list
-set winfmt %n%s%t (%WX%H)
+set winfmt %n%s%t (%Wx%H)
 
 # Appearance
 set font Fixed-11
