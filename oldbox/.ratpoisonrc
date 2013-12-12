@@ -1,4 +1,4 @@
-# $Id: .ratpoisonrc,v 1.1 2013/12/11 07:12:07 xoddf2 Exp $
+# $Id: .ratpoisonrc,v 1.1.2 2013/12/11 19:56:43 xoddf2 Exp $
 
 # Change prefix key to CTRL+;  (Chosen because Emacs appears not to use it.)
 escape C-semicolon
@@ -25,6 +25,7 @@ startup_message off
 # Keybindings
 bind x exec xscreensaver-command -lock
 bind o focus
+bind C-o focus
 bind O focusprev
 
 newkmap logins
@@ -32,7 +33,7 @@ definekey logins r exec xterm -e ssh rofldell.local
 definekey logins m exec xterm -e ssh tesseract.hackerhaven.net
 definekey logins d exec xterm -e ssh is.not.a.hax0r.se
 definekey logins t exec xterm -e ssh turtil.net
-bind L readkey logins
+bind l readkey logins
 
 newkmap apps
 definekey apps e exec emacsclient --alternate-editor='' -c
