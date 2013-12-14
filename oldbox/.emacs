@@ -1,13 +1,13 @@
-;;; $Id: .emacs,v 1.9.4 2013/11/13 18:56:38 xoddf2 Exp $
+;;; $Id: .emacs,v 1.10 2013/12/13 16:23:14 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
-;; (Slackware 14.1).  It is not guaranteed to work elsewhere without
-;; modification.
+;; (Slackware 14.1) and OpenBSD 5.4.  It is not guaranteed to work elsewhere
+;; without modification.
 ;;
 ;; Dependencies:
 ;; - From ELPA: bbcode-mode, twittering-mode, mediawiki-mode,
 ;;              rainbow-mode
-;; - Other: Emacs-w3m, magit, znc, fvwm-mode
+;; - Other: Emacs-w3m, magit, znc, fvwm-mode, ratpoison.el
 ;;
 ;; TODO:
 ;; - Reduce the redundancy in lookup-*.
@@ -26,8 +26,6 @@
 (package-initialize)
 
 ;; Simplify the interface:
-(tool-bar-mode -1)
-(toggle-scroll-bar -1)
 (menu-bar-mode -1)
 
 (setq use-dialog-box nil)
@@ -224,10 +222,24 @@ Requires Emacs-w3m."
 (require 'bbcode-mode)
 
 ;; FVWM
-(require 'fvwm-mode)
-(add-to-list 'auto-mode-alist '(".fvwm2rc" . fvwm-mode))
+(if (string-equal system-name "oldbox.local")
+    (progn
+      (require 'fvwm-mode)
+      (add-to-list 'auto-mode-alist '(".fvwm2rc" . fvwm-mode))))
+
+;; ratpoison
+(if (string-equal system-name "oldbox.local")
+    (progn
+      (load "/usr/X11/share/ratpoison/ratpoison.el")
+      (require 'ratpoison)))
 
 ;; Other Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; dired
+(if (eq system-type 'berkeley-unix)
+    (progn
+      (setq ls-lisp-use-insert-directory-program nil)
+      (require 'ls-lisp)))
 
 ;; Gnus
 (require 'epa-file)
@@ -238,16 +250,18 @@ Requires Emacs-w3m."
 (setq user-mail-address "woddfellow2@gmail.com") ; Kludge for C-x m
 
 ;; ERC
-(require 'erc)
-(require 'znc)
-(require 'xoddf2-znc) ; This points to a private file containing passwords.
-(setq erc-timestamp-format "[%H:%M:%S] "
-      erc-fill-prefix "           "
-      erc-insert-timestamp-function 'erc-insert-timestamp-left)
-(setq erc-auto-set-away t
-      erc-autoaway-idle-seconds 300)
-(setq erc-keywords
-      '("woddf2" "wodd" "woodf" "woof2" "jbqqs2" "2fddow" "xoddf2"))
+(if (string-equal system-name "oldbox.local")
+    (progn
+      (require 'erc)
+      (require 'znc)
+      (require 'xoddf2-znc) ; This points to a private file with passwords.
+      (setq erc-timestamp-format "[%H:%M:%S] "
+            erc-fill-prefix "           "
+            erc-insert-timestamp-function 'erc-insert-timestamp-left)
+      (setq erc-auto-set-away t
+            erc-autoaway-idle-seconds 300)
+      (setq erc-keywords
+            '("woddf2" "wodd" "woodf" "woof2" "jbqqs2" "2fddow" "xoddf2"))))
 
 ;; Emacs-w3m
 (require 'w3m)
@@ -255,7 +269,9 @@ Requires Emacs-w3m."
 (setq browse-url-browser-function 'w3m-browse-url)
 
 ;; Twittering Mode
-(setq twittering-use-master-password t)
+(if (string-equal system-name "oldbox.local")
+    (progn
+      (setq twittering-use-master-password t)))
 
 ;; mediawiki.el
 (require 'mediawiki)
@@ -286,8 +302,11 @@ Requires Emacs-w3m."
 
 ;; Mode-specific
 (define-key bbcode-mode-map (kbd "C-c C-u") 'post-update)
-(define-key erc-mode-map (kbd "C-c C-g") 'erc-supybot-quotegrabs-grab)
-(define-key erc-mode-map (kbd "C-c C-v") 'erc-showoff)
+
+(if (string-equal system-name "oldbox.local")
+    (progn
+      (define-key erc-mode-map (kbd "C-c C-g") 'erc-supybot-quotegrabs-grab)
+      (define-key erc-mode-map (kbd "C-c C-v") 'erc-showoff)))
 
 ;; Frequently-used commands
 (defvar apps-map (make-sparse-keymap)
@@ -295,22 +314,16 @@ Requires Emacs-w3m."
 (defalias 'apps-prefix apps-map)
 (define-key ctl-x-map "x" 'apps-prefix)
 
-(define-key apps-map " " 'whitespace-mode)
 (define-key apps-map "!" 'shell)
 (define-key apps-map "#" 'calc)
 (define-key apps-map "$" 'eshell)
 (define-key apps-map "/" 'grep)
 (define-key apps-map "a" 'calendar)
 (define-key apps-map "c" 'compile)
-(define-key apps-map "d" 'image-dired)
 (define-key apps-map "e" 'eval-region)
-(define-key apps-map "f" 'auto-fill-mode)
 (define-key apps-map "h" 'man)
 (define-key apps-map "i" 'znc-all)
-(define-key apps-map "l" 'lunar-phases)
 (define-key apps-map "m" 'gnus)
-(define-key apps-map "r" 'rainbow-mode)
-(define-key apps-map "s" 'sunrise-sunset)
 (define-key apps-map "t" 'twit)
 (define-key apps-map "v" 'view-file)
 (define-key apps-map "w" 'w3m)
