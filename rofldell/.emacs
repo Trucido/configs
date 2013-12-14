@@ -1,4 +1,4 @@
-;;; $Id: .emacs,v 1.10 2013/12/13 16:23:14 xoddf2 Exp $
+;;; $Id: .emacs,v 1.10.1 2013/12/13 17:18:46 xoddf2 Exp $
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
 ;; (Slackware 14.1) and OpenBSD 5.4.  It is not guaranteed to work elsewhere
@@ -230,7 +230,7 @@ Requires Emacs-w3m."
 ;; ratpoison
 (if (string-equal system-name "oldbox.local")
     (progn
-      (load "/usr/X11/share/ratpoison/ratpoison.el")
+      (load-file "/usr/X11/share/ratpoison/ratpoison.el")
       (require 'ratpoison)))
 
 ;; Other Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
