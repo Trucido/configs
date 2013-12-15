@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 1.11
-;; Time-stamp: <2013-12-14 19:25:10 xoddf2>
+;; Version: 1.11.1
+;; Time-stamp: <2013-12-14 19:41:21 xoddf2>
 
 ;;; Commentary:
 
@@ -241,16 +241,5 @@ Requires TRAMP, scp, and ImageMagick."
 (define-key apps-map "t" 'twit)
 (define-key apps-map "v" 'view-file)
 (define-key apps-map "w" 'w3m)
-
-;; Look up region or word at point
-(defvar lookup-map (make-sparse-keymap)
-  "Keymap for subcommands of C-x w.")
-(defalias 'lookup-prefix lookup-map)
-(define-key ctl-x-map "w" 'lookup-prefix)
-
-(define-key lookup-map "g" 'lookup-duckduckgo)
-(define-key lookup-map "w" 'lookup-wikipedia)
-(define-key lookup-map "d" 'lookup-wiktionary)
-(define-key lookup-map "e" 'lookup-emacswiki)
 
 ;;; .emacs ends here
