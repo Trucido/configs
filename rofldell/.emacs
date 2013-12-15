@@ -1,16 +1,16 @@
-;;; $Id: .emacs,v 1.10.1 2013/12/13 17:18:46 xoddf2 Exp $
+;;; .emacs --- xoddf2's Emacs init file
+
+;; Author: xoddf2 <woddfellow2@gmail.com>
+;; Keywords: local
+;; Version: 1.11
+;; Time-stamp: <2013-12-14 19:25:10 xoddf2>
+
+;;; Commentary:
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
-;; (Slackware 14.1) and OpenBSD 5.4.  It is not guaranteed to work elsewhere
-;; without modification.
-;;
-;; Dependencies:
-;; - From ELPA: bbcode-mode, twittering-mode, mediawiki-mode,
-;;              rainbow-mode
-;; - Other: Emacs-w3m, magit, znc, fvwm-mode, ratpoison.el
-;;
-;; TODO:
-;; - Reduce the redundancy in lookup-*.
+;; (Slackware 14.1) and OpenBSD 5.4.
+
+;;; Code:
 
 ;; General ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -48,6 +48,9 @@
 (iswitchb-mode 1)
 (setq indent-tabs-mode t)
 
+;; Update time stamp when saving
+(add-hook 'before-save-hook 'time-stamp)
+
 ;; Backup and autosave directory
 (setq temporary-file-directory "~/.emacs.d/tmp/")
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
@@ -55,126 +58,41 @@
 
 ;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun insert-timestamp (id version)
-  "Insert a timestamp into the buffer, like this:
-
-// $Id: foo.c,v 1.0 2007/07/07 13:37:42 someperson Exp $"
-  (interactive
-   (list
-    (read-from-minibuffer "Id (default Id): " "Id")
-    (read-from-minibuffer "Version: ")))
-  (insert (concat "$" id ": " (buffer-name) ",v " version " "
-                  (format-time-string "%Y/%m/%d %H:%M:%S") " " user-login-name
-                  " Exp $")))
-
-(defun post-update ()
-  "This inserts a timestamp and the bold text 'Update:', useful for
-editing forum posts."
-  (interactive)
-  (insert (format-time-string "[%a %b %d %H:%M:%S %Z %Y] [b]Update:[/b] ")))
-
-(defun full-screen ()
-  "Borrowed from URL `http://mikerowecode.com/2009/05/emacs-full-screen.html'.
-Toggles the Emacs frame full-screen, if running in X.  Requires a
-standards-compliant window manager."
-  (interactive)
-  (if (eq window-system 'x)
-      (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
-                                               nil
-                                             'fullboth))
-    (message "This is not X.  You cannot full-screen here.")))
-
 (defun erc-supybot-quotegrabs-grab ()
   "Inserts the grab command.  Intended for use in channels
-that contain a Supybot with the QuoteGrabs module.
-
-TODO: Use (equal) instead of (string-match)."
+that contain a Supybot with the QuoteGrabs module."
   (interactive)
   (cond
-   ((string-match (buffer-name) "#archlinux-offtopic")
+   ((string-equal (buffer-name) "#archlinux-offtopic")
        (insert "!grab "))
-   ((string-match (buffer-name) "#archlinux")
+   ((string-equal (buffer-name) "#archlinux")
        (insert "!grab "))
-   ((string-match (buffer-name) "#wlair")
+   ((string-equal (buffer-name) "#wlair")
        (insert "!grab "))
-   ((string-match (buffer-name) "##slackware-offtopic")
+   ((string-equal (buffer-name) "##slackware-offtopic")
        (insert "@grab "))
-   ((string-match (buffer-name) "#main")
+   ((string-equal (buffer-name) "#main")
        (insert "%grab "))))
 
-(defun erc-showoff ()
-  "Show off your uptime and system information.
-
-TODO: Use read-from-minibuffer to get a hostname,
-      and if it is remote, run uptime and uname over SSH."
-  (interactive)
-  (shell-command "uptime | tr -d '\n'" t)
-  (move-end-of-line 1)
-  (insert " | ")
-  (move-end-of-line 1)
-  (shell-command "uname -a | tr -d '\n'" t)
-  (move-end-of-line 1))
-
-(defun lookup-duckduckgo ()
-  "From URL `http://ergoemacs.org/emacs/emacs_lookup_ref.html'.
-Searches for the region (or word at point) at DuckDuckGo.
-Requires Emacs-w3m."
-  (interactive)
-  (let (word url)
-    (setq word
-          (if (region-active-p)
-              (buffer-substring-no-properties (region-beginning) (region-end))
-            (thing-at-point 'symbol)))
-    (setq word (replace-regexp-in-string " " "+" word))
-    (setq url
-          (concat "https://duckduckgo.com/lite/?q=" word))
-    (w3m-browse-url url)))
-
-(defun lookup-wikipedia ()
-  "From URL `http://ergoemacs.org/emacs/emacs_lookup_ref.html'.
-Searches for the region (or word at point) at Wikipedia.
-Requires Emacs-w3m."
-  (interactive)
-  (let (word url)
-    (setq word
-          (if (region-active-p)
-              (buffer-substring-no-properties (region-beginning) (region-end))
-            (thing-at-point 'symbol)))
-    (setq word (replace-regexp-in-string " " "+" word))
-    (setq url
-          (concat "https://en.wikipedia.org/wiki/Special:Search?search=" word))
-    (w3m-browse-url url)))
-
-(defun lookup-wiktionary ()
-  "From URL `http://ergoemacs.org/emacs/emacs_lookup_ref.html'.
-Searches for the region (or word at point) at Wiktionary.
-Requires Emacs-w3m."
-  (interactive)
-  (let (word url)
-    (setq word
-          (if (region-active-p)
-              (buffer-substring-no-properties (region-beginning) (region-end))
-            (thing-at-point 'symbol)))
-    (setq word (replace-regexp-in-string " " "+" word))
-    (setq url
-          (concat "https://en.wiktionary.org/wiki/Special:Search?search=" word))
-    (w3m-browse-url url)))
-
-(defun lookup-emacswiki ()
-  "From URL `http://ergoemacs.org/emacs/emacs_lookup_ref.html'.
-Searches for the region (or word at point) at EmacsWiki.
-Requires Emacs-w3m."
-  (interactive)
-  (let (word url)
-    (setq word
-          (if (region-active-p)
-              (buffer-substring-no-properties (region-beginning) (region-end))
-            (thing-at-point 'symbol)))
-    (setq word (replace-regexp-in-string " " "+" word))
-    (setq url
-          (concat
-           "https://duckduckgo.com/lite/?q=" word "+site%3Aemacswiki.org"))
-    (w3m-browse-url url)))
+(defun wlshot (&optional name-shot-p)
+  "Takes a screen shot and then uploads it to wlair.us.to.
+If `universal-argument' is called, it asks for a filename.
+Requires TRAMP, scp, and ImageMagick."
+  (interactive "P")
+  (if (eq window-system 'x)
+      (when (yes-or-no-p "Take a screen shot? ")
+        (let (filename url)
+          (if (equal name-shot-p nil)
+              (setq filename (concat (format-time-string "%s") ".png"))
+            (setq filename (read-from-minibuffer "Filename: ")))
+          (shell-command (concat "import -window root ~/img/shots/" filename))
+          (copy-file
+           (concat "~/img/shots/" filename)
+           "/scp:turtil.net:/srv/vhosts/wlair.us.to/public/remote/img/shots/")
+          (setq url (concat "http://wlair.us.to/remote/img/shots/" filename))
+          (kill-new url)
+          (message url)))
+    (message "This is not X.  You cannot take a screen shot here.")))
 
 ;; Editing Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -263,6 +181,22 @@ Requires Emacs-w3m."
       (setq erc-keywords
             '("woddf2" "wodd" "woodf" "woof2" "jbqqs2" "2fddow" "xoddf2"))))
 
+;; Calendar
+(setq calendar-latitude 40.57667
+      calendar-longitude -122.37028
+      calendar-location-name "Redding, CA")
+
+;; Magit
+(require 'magit)
+
+;; mediawiki.el
+(require 'mediawiki)
+
+(eval-after-load "mediawiki"
+  '(add-to-list 'mediawiki-site-alist
+                '("Wikipedia" "http://en.wikipedia.org/w/"
+                  "Xoddf2" "" "Main Page")))
+
 ;; Emacs-w3m
 (require 'w3m)
 (setq w3m-use-cookies t)
@@ -273,22 +207,6 @@ Requires Emacs-w3m."
     (progn
       (setq twittering-use-master-password t)))
 
-;; mediawiki.el
-(require 'mediawiki)
-
-(eval-after-load "mediawiki"
-  '(add-to-list 'mediawiki-site-alist
-                '("Wikipedia" "http://en.wikipedia.org/w/"
-                  "Xoddf2" "" "Main Page")))
-
-;; Calendar
-(setq calendar-latitude 40.57667
-      calendar-longitude -122.37028
-      calendar-location-name "Redding, CA")
-
-;; Magit
-(require 'magit)
-
 ;; Keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; General
@@ -297,16 +215,12 @@ Requires Emacs-w3m."
 (global-set-key (kbd "C-x 4 v") 'view-file-other-window)
 (global-set-key (kbd "C-x 5 v") 'view-file-other-frame)
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x t") 'insert-timestamp)
-(global-set-key (kbd "<f11>") 'full-screen)
+(global-set-key (kbd "C-x p") 'wlshot)
 
 ;; Mode-specific
-(define-key bbcode-mode-map (kbd "C-c C-u") 'post-update)
-
 (if (string-equal system-name "oldbox.local")
     (progn
-      (define-key erc-mode-map (kbd "C-c C-g") 'erc-supybot-quotegrabs-grab)
-      (define-key erc-mode-map (kbd "C-c C-v") 'erc-showoff)))
+      (define-key erc-mode-map (kbd "C-c C-g") 'erc-supybot-quotegrabs-grab)))
 
 ;; Frequently-used commands
 (defvar apps-map (make-sparse-keymap)
@@ -338,3 +252,5 @@ Requires Emacs-w3m."
 (define-key lookup-map "w" 'lookup-wikipedia)
 (define-key lookup-map "d" 'lookup-wiktionary)
 (define-key lookup-map "e" 'lookup-emacswiki)
+
+;;; .emacs ends here
