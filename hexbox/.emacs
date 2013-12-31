@@ -2,13 +2,13 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 1.11.1
-;; Time-stamp: <2013-12-14 19:41:21 xoddf2>
+;; Version: 1.12
+;; Time-stamp: <2013-12-30 20:09:08 xoddf2>
 
 ;;; Commentary:
 
 ;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
-;; (Slackware 14.1) and OpenBSD 5.4.
+;; (Slackware 14.1).
 
 ;;; Code:
 
@@ -46,7 +46,6 @@
       x-stretch-cursor t
       visible-bell t)
 (iswitchb-mode 1)
-(setq indent-tabs-mode t)
 
 ;; Update time stamp when saving
 (add-hook 'before-save-hook 'time-stamp)
@@ -57,22 +56,6 @@
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 ;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defun erc-supybot-quotegrabs-grab ()
-  "Inserts the grab command.  Intended for use in channels
-that contain a Supybot with the QuoteGrabs module."
-  (interactive)
-  (cond
-   ((string-equal (buffer-name) "#archlinux-offtopic")
-       (insert "!grab "))
-   ((string-equal (buffer-name) "#archlinux")
-       (insert "!grab "))
-   ((string-equal (buffer-name) "#wlair")
-       (insert "!grab "))
-   ((string-equal (buffer-name) "##slackware-offtopic")
-       (insert "@grab "))
-   ((string-equal (buffer-name) "#main")
-       (insert "%grab "))))
 
 (defun wlshot (&optional name-shot-p)
   "Takes a screen shot and then uploads it to wlair.us.to.
@@ -94,6 +77,22 @@ Requires TRAMP, scp, and ImageMagick."
           (message url)))
     (message "This is not X.  You cannot take a screen shot here.")))
 
+(defun erc-supybot-quotegrabs-grab ()
+  "Inserts the grab command.  Intended for use in channels
+that contain a Supybot with the QuoteGrabs module."
+  (interactive)
+  (cond
+   ((string-equal (buffer-name) "#archlinux-offtopic")
+       (insert "!grab "))
+   ((string-equal (buffer-name) "#archlinux")
+       (insert "!grab "))
+   ((string-equal (buffer-name) "#wlair")
+       (insert "!grab "))
+   ((string-equal (buffer-name) "##slackware-offtopic")
+       (insert "@grab "))
+   ((string-equal (buffer-name) "#main")
+       (insert "%grab "))))
+
 ;; Editing Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Lisp
@@ -105,11 +104,17 @@ Requires TRAMP, scp, and ImageMagick."
             (setq indent-tabs-mode nil)))
 
 ;; C
-(setq c-default-style "bsd"
-      c-basic-offset 8)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (setq c-default-style "bsd")
+            (setq c-basic-offset 8)
+            (setq indent-tabs-mode t)))
 
 ;; Shell
-(setq sh-basic-offset 8)
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (setq sh-basic-offset 8)
+            (setq indent-tabs-mode t)))
 
 ;; Perl
 (defalias 'perl-mode 'cperl-mode)
@@ -133,31 +138,23 @@ Requires TRAMP, scp, and ImageMagick."
 ;; WWW languages
 (add-hook 'html-mode-hook
           (lambda ()
-            (setq sgml-basic-offset 8)))
-(setq css-indent-offset 8)
+            (setq sgml-basic-offset 8)
+            (setq indent-tabs-mode t)))
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq css-indent-offset 8)
+            (setq indent-tabs-mode t)))
 
 ;; BBCode
 (require 'bbcode-mode)
 
 ;; FVWM
-(if (string-equal system-name "oldbox.local")
+(if (string-equal system-name "hexbox.local")
     (progn
       (require 'fvwm-mode)
       (add-to-list 'auto-mode-alist '(".fvwm2rc" . fvwm-mode))))
 
-;; ratpoison
-(if (string-equal system-name "oldbox.local")
-    (progn
-      (load-file "/usr/X11/share/ratpoison/ratpoison.el")
-      (require 'ratpoison)))
-
 ;; Other Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; dired
-(if (eq system-type 'berkeley-unix)
-    (progn
-      (setq ls-lisp-use-insert-directory-program nil)
-      (require 'ls-lisp)))
 
 ;; Gnus
 (require 'epa-file)
@@ -168,18 +165,21 @@ Requires TRAMP, scp, and ImageMagick."
 (setq user-mail-address "woddfellow2@gmail.com") ; Kludge for C-x m
 
 ;; ERC
-(if (string-equal system-name "oldbox.local")
+(if (string-equal system-name "hexbox.local")
     (progn
       (require 'erc)
       (require 'znc)
-      (require 'xoddf2-znc) ; This points to a private file with passwords.
+      (require 'xoddf2-erc) ; This points to a private file.
       (setq erc-timestamp-format "[%H:%M:%S] "
             erc-fill-prefix "           "
             erc-insert-timestamp-function 'erc-insert-timestamp-left)
       (setq erc-auto-set-away t
             erc-autoaway-idle-seconds 300)
       (setq erc-keywords
-            '("woddf2" "wodd" "woodf" "woof2" "jbqqs2" "2fddow" "xoddf2"))))
+            '("woddf2" "wodd" "woodf" "woof2" "jbqqs2" "2fddow" "xoddf2"))
+      (setq erc-track-exclude-types
+            '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "324" "329" "332" "333"
+              "353" "477"))))
 
 ;; Calendar
 (setq calendar-latitude 40.57667
@@ -188,6 +188,13 @@ Requires TRAMP, scp, and ImageMagick."
 
 ;; Magit
 (require 'magit)
+
+;; SLIME
+(if (string-equal system-name "hexbox.local")
+    (progn
+      (require 'slime)
+      (load "~/src/quicklisp/slime-helper.el")
+      (setq inferior-lisp-program "sbcl")))
 
 ;; mediawiki.el
 (require 'mediawiki)
@@ -203,43 +210,32 @@ Requires TRAMP, scp, and ImageMagick."
 (setq browse-url-browser-function 'w3m-browse-url)
 
 ;; Twittering Mode
-(if (string-equal system-name "oldbox.local")
+(if (string-equal system-name "hexbox.local")
     (progn
       (setq twittering-use-master-password t)))
 
 ;; Keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; General
+(global-set-key (kbd "C-x C-a") 'calendar)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x 4 v") 'view-file-other-window)
 (global-set-key (kbd "C-x 5 v") 'view-file-other-frame)
+(global-set-key (kbd "C-x !") 'shell)
+(global-set-key (kbd "C-x /") 'grep)
+(global-set-key (kbd "C-x M") 'gnus)
+(global-set-key (kbd "C-x c") 'compile)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x j") 'eval-region)
 (global-set-key (kbd "C-x p") 'wlshot)
+(global-set-key (kbd "C-x V") 'view-file)
+(global-set-key (kbd "C-x w") 'w3m)
+(global-set-key (kbd "M-+") 'calc)
+
+(define-key help-map "M" 'man)
 
 ;; Mode-specific
-(if (string-equal system-name "oldbox.local")
+(if (string-equal system-name "hexbox.local")
     (progn
       (define-key erc-mode-map (kbd "C-c C-g") 'erc-supybot-quotegrabs-grab)))
-
-;; Frequently-used commands
-(defvar apps-map (make-sparse-keymap)
-  "Keymap for frequently-used commands.")
-(defalias 'apps-prefix apps-map)
-(define-key ctl-x-map "x" 'apps-prefix)
-
-(define-key apps-map "!" 'shell)
-(define-key apps-map "#" 'calc)
-(define-key apps-map "$" 'eshell)
-(define-key apps-map "/" 'grep)
-(define-key apps-map "a" 'calendar)
-(define-key apps-map "c" 'compile)
-(define-key apps-map "e" 'eval-region)
-(define-key apps-map "h" 'man)
-(define-key apps-map "i" 'znc-all)
-(define-key apps-map "m" 'gnus)
-(define-key apps-map "t" 'twit)
-(define-key apps-map "v" 'view-file)
-(define-key apps-map "w" 'w3m)
-
-;;; .emacs ends here

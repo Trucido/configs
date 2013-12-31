@@ -14,10 +14,11 @@ XTerm.vt100.scrollBar: false
 XTerm.vt100.bellIsUrgent: true
 XTerm.vt100.backarrowKey: false
 
-! Emacs  -----------------------------------------------------------------------
-emacs.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
+! Emacs ------------------------------------------------------------------------
+emacs.font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 emacs.background: black
 emacs.foreground: grey
+emacs.geometry: 80x50
 emacs.menuBar: off
 emacs.verticalScrollBars: off
 emacs.toolBar: off

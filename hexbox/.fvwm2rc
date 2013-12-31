@@ -1,4 +1,4 @@
-# $Id: .fvwm2rc,v 2.0.14 2013/11/27 10:19:10 xoddf2 Exp $
+# .fvwm2rc 2.1   Time-stamp: <2013-12-30 19:59:35 xoddf2>
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -20,37 +20,25 @@ Style * MinOverlapPercentPlacement
 # This line makes XMMS, Audacious, mplayer -noborder, and similar work properly:
 Style * MWMDecor
 
-# Disable title bars and make the borders slightly thinner:
+# Reduce the window decorations to a 1-pixel border:
 Style * !Title
-Style * BorderWidth 5, HandleWidth 5
+Style * BorderWidth 1, HandleWidth 1
 
-DefaultFont -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
-
-# Make xclock, xload, and xbiff more like the FVWM modules
-Style XClock !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize, NeverFocus
-Style XLoad !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize, NeverFocus
-Style XBiff !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize, NeverFocus
+# Colour the window borders:
+Style * Color bg DarkBlue
+Style * HilightBack DarkRed
 
 # Application-specific style
-Style XTerm MiniIcon mini.xterm.xpm
-Style Seamonkey EWMHMiniIconOverride, MiniIcon mini.nscape.xpm, StartsOnPage 0 0
-Style Emacs EWMHMiniIconOverride, MiniIcon mini.gnu.xpm,
-Style gimp EWMHMiniIconOverride, MiniIcon mini.gimp.xpm, StartsOnPage 1 0
+Style XTerm StartsOnScreen 0
+Style Emacs StartsOnPage 0 0, StartsOnScreen 0
+Style Firefox StartsOnPage 0 0, StartsOnScreen 1
+Style gimp StartsOnPage 1 0
+Style VirtualBox StartsOnPage 2 0
 
 # Disable icons
 Style * NoIcon
 
-# Where are the images?:
-ImagePath +:$[FVWM_USERDIR]/icons:/usr/share/pixmaps
-
 # Functions ####################################################################
-
-# Iconify function
-DestroyFunc FuncFvwmMoveOrIconify
-AddToFunc FuncFvwmMoveOrIconify
-+ I Raise
-+ M Move
-+ D Iconify
 
 # Do nothing at urgency and don't steal focus
 DestroyFunc UrgencyFunc
@@ -89,18 +77,18 @@ AddToFunc RunOrRaise
 
 # WindowList
 Key Tab A M -
-Key Tab A 4 WindowList (CurrentPage) Root c c CurrentAtEnd, IconifiedAtEnd
+Key Tab A 4 WindowList Root c c CurrentAtEnd, IconifiedAtEnd
 MenuStyle WindowList SelectOnRelease Super_L
 
 # Menus
 Key Grave A 4 Popup MenuFvwmRoot
 Key o A 4 Popup MenuFvwmWindowOps
-Key Period A 4 Popup MenuFvwmLogins
+Key l A 4 Popup MenuFvwmLogins
 
 # Launch, run, or raise certain applications
 Key c A 4 Exec exec xterm
 Key e A 4 RunOrRaise Emacs "emacsclient --alternate-editor='' -c"
-Key w A 4 RunOrRaise Seamonkey mozilla
+Key w A 4 RunOrRaise Firefox firefox
 
 # Lock screen
 Key Escape A 4 Exec exec xscreensaver-command -lock
@@ -143,9 +131,6 @@ Key 0 A 4S MoveToPage Prev
 
 # Mouse Bindings ###############################################################
 
-# Without this one, iconified windows do not re-iconify when clicked:
-Mouse 1 I A FuncFvwmMoveOrIconify
-
 # What to do when clicking the root window
 Mouse 2 R A Menu MenuFvwmWindowOps Nop
 Mouse 3 R A WindowList
@@ -154,22 +139,20 @@ Mouse 3 R A WindowList
 Mouse 1 TSIFW 4 DragMove
 Mouse 3 TSIFW 4 DragResize
 
-# Raise or lower window by right-clicking the border
-Mouse 3 TSIF A RaiseLower
-
 # Menus ########################################################################
 
 DestroyMenu MenuFvwmRoot
 AddToMenu MenuFvwmRoot "Root Menu" Title
 + "X&Term" Exec exec xterm
 + "&Emacs" Exec exec emacsclient --alternate-editor='' -c
-+ "&Mozilla" Exec exec mozilla
++ "&Firefox" Exec exec firefox
 + "" Nop
 + "The &GIMP" Exec exec gimp
++ "&VirtualBox" Exec exec VirtualBox
 + "" Nop
 + "&SSH" Popup MenuFvwmLogins
 + "" Nop
-+ "&FvwmConsole" Module FvwmConsole
++ "Fvwm&Console" Module FvwmConsole
 + "" Nop
 + "&Lock" Exec exec xscreensaver-command -lock
 + "Leave" Popup MenuLeave
@@ -206,13 +189,11 @@ AddToMenu MenuMoveToPage "Move to..." Title
 
 DestroyMenu MenuFvwmLogins
 AddToMenu MenuFvwmLogins "Logins" Title
-+ "&rofldell.local" Exec exec \
-  xterm -title rofldell -n rofldell -e ssh rofldell.local
-+ "&tesseract.hackerhaven.net" Exec exec \
++ "&M. tesseract.hackerhaven.net" Exec exec \
   xterm -title tesseract -n tesseract -e ssh tesseract.hackerhaven.net
-+ "is.not.a.&hax0r.se" Exec exec \
++ "&U. is.not.a.hax0r.se" Exec exec \
   xterm -title elisabeth -n elisabeth -e ssh is.not.a.hax0r.se
-+ "t&urtil.net" Exec exec \
++ "&T. turtil.net" Exec exec \
   xterm -title archon -n archon -e ssh turtil.net
 + "" Nop
 + "Mount ssh&fs" Exec exec sshfs-mount
@@ -233,44 +214,18 @@ AddToMenu MenuLeave "Leave" Title
 
 DestroyModuleConfig FvwmPager: *
 Style FvwmPager !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
-*FvwmPager: Geometry 120x120-0+24
+*FvwmPager: Geometry 120x120-0+0
 *FvwmPager: Font none
 *FvwmPager: Back Grey5
 *FvwmPager: Fore Grey25
 *FvwmPager: MiniIcons
 *FvwmPager: Balloons
 *FvwmPager: BalloonFore White
-*FvwmPager: BalloonBack DimGrey
-*FvwmPager: BalloonBorderColor Black
-
-DestroyModuleConfig FvwmIconMan: *
-Style FvwmIconMan !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, ClickToFocus
-*FvwmIconMan: ManagerGeometry 1x0-0+144
-*FvwmIconMan: ButtonGeometry 120x16
-*FvwmIconMan: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
-*FvwmIconMan: Shape true
-*FvwmIconMan: ShowOnlyIcons true
-*FvwmIconMan: Format "%i"
-
-DestroyModuleConfig FvwmButtons: *
-Style FvwmButtons !Title, !Borders, !Iconifiable, Sticky, WindowListSkip, CirculateSkipIcon, ClickToFocus, FixedPosition, FixedSize
-*FvwmButtons: Back DimGrey
-*FvwmButtons: Rows 1
-*FvwmButtons: Columns 4
-*FvwmButtons: Geometry 120x24-0+0
-*FvwmButtons: Padding 2 2
-*FvwmButtons: Font -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
-*FvwmButtons: "" mini.xterm.xpm Exec exec xterm
-*FvwmButtons: "" mini.gnu.xpm RunOrRaise Emacs "emacsclient --alternate-editor='' -c"
-*FvwmButtons: "" mini.nscape.xpm RunOrRaise Seamonkey mozilla
-*FvwmButtons: "" mini.lock.xpm Exec exec xscreensaver-command -lock
-*FvwmButtons: "" mini.stop.xpm Quit
+*FvwmPager: BalloonBack Black
+*FvwmPager: BalloonBorderColor White
 
 # StartFunction ################################################################
 
 AddToFunc StartFunction
 + I Module FvwmCommandS
-+ I Module FvwmAuto 0
 + I Module FvwmPager 0 0
-+ I Module FvwmIconMan
-+ I Module FvwmButtons

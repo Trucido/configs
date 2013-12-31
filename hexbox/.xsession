@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: .xsession,v 3.0 2013/12/11 04:18:10 xoddf2 Exp $
+# .xsession 2.3   Time-stamp: <2013-12-30 20:04:31 xoddf2>
 
 # XScreenSaver
 xscreensaver -no-splash &
@@ -8,7 +8,7 @@ xscreensaver -no-splash &
 setxkbmap -layout us -variant dvorak -option "compose:caps" &
 
 # Set wallpaper
-xsetroot -solid black &
+xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
 
 # ssh-agent (Inspired by and stolen from OpenBSD)
 id1=$HOME/.ssh/identity
@@ -25,7 +25,7 @@ fi
 emacsclient --alternate-editor="" -c &
 
 # Start a WM, or, failing that, an xterm
-ratpoison || fvwm || twm || xterm
+fvwm || twm || xterm
 
 # Kill ssh-agent upon exiting
 if [ "$SSH_AGENT_PID" ]; then
