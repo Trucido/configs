@@ -1,4 +1,4 @@
-# .fvwm2rc 2.1.1   Time-stamp: <2013-12-30 22:36:46 xoddf2>
+# .fvwm2rc 2.1.1.1   Time-stamp: <2013-12-31 00:37:07 xoddf2>
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -25,8 +25,8 @@ Style * !Title
 Style * BorderWidth 1, HandleWidth 1
 
 # Colour the window borders:
-Style * Color bg DarkBlue
-Style * HilightBack DarkRed
+Style * Color White/DarkBlue
+Style * HilightBack DarkRed, HilightFore White
 
 # Application-specific style
 Style XTerm StartsOnScreen 0
@@ -130,8 +130,8 @@ Key 9 A 4S MoveToPage 2 2
 Key 0 A 4S MoveToPage Prev
 
 # Tiling
-Key t A 4 FvwmRearrange -tile -h -u -m
-Key T A 4S FvwmRearrange -tile -u -m
+Key t A 4 FvwmRearrange -tile -h -u -m -maximize
+Key T A 4S FvwmRearrange -tile -u -m -maximize
 
 # Mouse Bindings ###############################################################
 
@@ -156,8 +156,8 @@ AddToMenu MenuFvwmRoot "Root Menu" Title
 + "" Nop
 + "&SSH" Popup MenuFvwmLogins
 + "" Nop
-+ "Tile Horizontally" FvwmRearrange -tile -h -u -m
-+ "Tile Vertically" FvwmRearrange -tile -u -m
++ "Tile Horizontally" FvwmRearrange -tile -h -u -m -maximize
++ "Tile Vertically" FvwmRearrange -tile -u -m -maximize
 + "" Nop
 + "Fvwm&Console" Module FvwmConsole
 + "" Nop
