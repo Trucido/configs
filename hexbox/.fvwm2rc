@@ -1,4 +1,4 @@
-# .fvwm2rc 2.1   Time-stamp: <2013-12-30 19:59:35 xoddf2>
+# .fvwm2rc 2.1.1   Time-stamp: <2013-12-30 22:36:46 xoddf2>
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -129,6 +129,10 @@ Key 8 A 4S MoveToPage 1 2
 Key 9 A 4S MoveToPage 2 2
 Key 0 A 4S MoveToPage Prev
 
+# Tiling
+Key t A 4 FvwmRearrange -tile -h -u -m
+Key T A 4S FvwmRearrange -tile -u -m
+
 # Mouse Bindings ###############################################################
 
 # What to do when clicking the root window
@@ -151,6 +155,9 @@ AddToMenu MenuFvwmRoot "Root Menu" Title
 + "&VirtualBox" Exec exec VirtualBox
 + "" Nop
 + "&SSH" Popup MenuFvwmLogins
++ "" Nop
++ "Tile Horizontally" FvwmRearrange -tile -h -u -m
++ "Tile Vertically" FvwmRearrange -tile -u -m
 + "" Nop
 + "Fvwm&Console" Module FvwmConsole
 + "" Nop

@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 1.12
-;; Time-stamp: <2013-12-30 20:09:08 xoddf2>
+;; Version: 1.12.1
+;; Time-stamp: <2013-12-30 22:41:46 xoddf2>
 
 ;;; Commentary:
 
@@ -188,13 +188,6 @@ that contain a Supybot with the QuoteGrabs module."
 
 ;; Magit
 (require 'magit)
-
-;; SLIME
-(if (string-equal system-name "hexbox.local")
-    (progn
-      (require 'slime)
-      (load "~/src/quicklisp/slime-helper.el")
-      (setq inferior-lisp-program "sbcl")))
 
 ;; mediawiki.el
 (require 'mediawiki)
