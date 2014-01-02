@@ -1,4 +1,26 @@
-# .fvwm2rc 2.1.1.1   Time-stamp: <2013-12-31 00:37:07 xoddf2>
+# .fvwm2rc 2.1.2   Time-stamp: <2014-01-01 17:31:17 xoddf2>
+
+# This is a somewhat minimalist .fvwm2rc.  It has only one module, no icons,
+# no title bars, and thin borders.
+#
+# Most actions are available via both the keyboard and the mouse.  Keybindings
+# use the Mod4 key to avoid conflicting with other applications.  Certain
+# applications can be raised if they are already running, or started if not.
+# Windows can be moved or resized by holding Mod4 and dragging with the mouse.
+#
+# Window decorations are DarkRed for active and DarkBlue for inactive to make
+# them easier to see.
+#
+# Certain applications start in specific pages and screens.  Emacs and xterm
+# start on the left monitor.  Firefox starts on the right monitor.
+# The GIMP and VirtualBox start on their own pages.
+#
+# Due to MinOverlapPercentPlacement, FVWM puts windows in sane positions.
+#
+# The only module is FvwmPager.  Icons are disabled, and there is no
+# FvwmIconMan.  Iconified windows are accessible from the WindowList menu.
+
+# General ######################################################################
 
 # See FVWM FAQ entry 5.5 <http://fvwm.org/documentation/faq/#toc_5.5>
 IgnoreModifiers L25
@@ -12,6 +34,7 @@ EdgeScroll 0 0
 Style * SloppyFocus
 Style * FPGrabFocus
 
+# Snap
 Style * SnapAttraction 16 Screen
 
 # Place the windows better
@@ -34,6 +57,8 @@ Style Emacs StartsOnPage 0 0, StartsOnScreen 0
 Style Firefox StartsOnPage 0 0, StartsOnScreen 1
 Style gimp StartsOnPage 1 0
 Style VirtualBox StartsOnPage 2 0
+Style Display StartsOnScreen 1
+Style MPlayer StartsOnScreen 1
 
 # Disable icons
 Style * NoIcon
@@ -87,6 +112,7 @@ Key l A 4 Popup MenuFvwmLogins
 
 # Launch, run, or raise certain applications
 Key c A 4 Exec exec xterm
+Key C A 4S RunOrRaise screen "xterm -name screen -sl 0 -e screen -dRR"
 Key e A 4 RunOrRaise Emacs "emacsclient --alternate-editor='' -c"
 Key w A 4 RunOrRaise Firefox firefox
 
@@ -101,6 +127,9 @@ Key Return A 4 Iconify
 Key k A 4S Close
 Key m A 4 Move
 Key r A 4 Resize
+Key z A 4 Maximize
+Key equal A 4 Maximize 0 100
+Key plus A 4S Maximize 100 0
 Key Space A 4 RaiseLower
 Key p A 4 PlaceAgain
 Key Question A 4 FvwmIdent
@@ -148,18 +177,19 @@ Mouse 3 TSIFW 4 DragResize
 DestroyMenu MenuFvwmRoot
 AddToMenu MenuFvwmRoot "Root Menu" Title
 + "X&Term" Exec exec xterm
++ "- GNU S&creen" Exec exec xterm -name screen -sl 0 -e screen -dRR
 + "&Emacs" Exec exec emacsclient --alternate-editor='' -c
 + "&Firefox" Exec exec firefox
 + "" Nop
 + "The &GIMP" Exec exec gimp
-+ "&VirtualBox" Exec exec VirtualBox
++ "V&irtualBox" Exec exec VirtualBox
 + "" Nop
 + "&SSH" Popup MenuFvwmLogins
 + "" Nop
-+ "Tile Horizontally" FvwmRearrange -tile -h -u -m -maximize
-+ "Tile Vertically" FvwmRearrange -tile -u -m -maximize
++ "Tile &Horiz" FvwmRearrange -tile -h -u -m -maximize
++ "Tile &Vert" FvwmRearrange -tile -u -m -maximize
 + "" Nop
-+ "Fvwm&Console" Module FvwmConsole
++ "Fv&wmConsole" Module FvwmConsole
 + "" Nop
 + "&Lock" Exec exec xscreensaver-command -lock
 + "Leave" Popup MenuLeave
@@ -173,6 +203,8 @@ AddToMenu MenuFvwmWindowOps "Window Ops" Title
 + "(De)&Iconify" Iconify
 + "(Un)&Stick" Stick
 + "(Un)Ma&ximize" Maximize
++ "- &Horiz" Maximize 100 0
++ "- &Vert" Maximize 0 100
 + "Pla&ce Again" PlaceAgain
 + "" Nop
 + "Ide&ntify" FvwmIdent
@@ -194,6 +226,7 @@ AddToMenu MenuMoveToPage "Move to..." Title
 + "&8. $[gt.South]" MoveToPage 1 2
 + "&9. $[gt.Southeast]" MoveToPage 2 2
 
+# This menu is site-specific:
 DestroyMenu MenuFvwmLogins
 AddToMenu MenuFvwmLogins "Logins" Title
 + "&M. tesseract.hackerhaven.net" Exec exec \

@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 1.12.1
-;; Time-stamp: <2013-12-30 22:41:46 xoddf2>
+;; Version: 1.12.2
+;; Time-stamp: <2014-01-01 17:38:37 xoddf2>
 
 ;;; Commentary:
 
@@ -179,7 +179,8 @@ that contain a Supybot with the QuoteGrabs module."
             '("woddf2" "wodd" "woodf" "woof2" "jbqqs2" "2fddow" "xoddf2"))
       (setq erc-track-exclude-types
             '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "324" "329" "332" "333"
-              "353" "477"))))
+              "353" "477")
+            erc-track-position-in-mode-line t)))
 
 ;; Calendar
 (setq calendar-latitude 40.57667
