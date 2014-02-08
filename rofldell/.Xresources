@@ -1,0 +1,40 @@
+! .Xresources 2.1   Time-stamp: <2014-01-28 23:20:48 xoddf2>
+
+Xft.dpi: 96
+
+! xterm ------------------------------------------------------------------------
+XTerm*locale: UTF-8
+XTerm*font: -misc-fixed-medium-r-normal--13-*-*-*-*-*-iso10646-1
+XTerm*utf8Fonts.font: -misc-fixed-medium-r-normal--13-*-*-*-*-*-iso10646-1
+XTerm*wideFont: -*-*-*-*-*-ja-*-*-*-*-*-*-*-*
+XTerm*background: black
+XTerm*foreground: white
+XTerm*altIsNotMeta: true
+XTerm*altSendsEscape: true
+XTerm*scrollBar: false
+XTerm*bellIsUrgent: true
+XTerm*backarrowKey: false
+
+! Emacs ------------------------------------------------------------------------
+emacs*font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
+emacs*geometry: 80x55
+emacs*background: black
+emacs*foreground: grey
+emacs*menuBar: off
+emacs*verticalScrollBars: off
+emacs*toolBar: off
+emacs*internalBorder: 0
+
+! xclock -----------------------------------------------------------------------
+XClock.Clock.update: 1
+XClock.Clock.analog: true
+XClock.Clock.background: black
+XClock.Clock.foreground: white
+XClock.Clock.highlight: green
+XClock.Clock.render: false
+
+! xload ------------------------------------------------------------------------
+XLoad*font: -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*
+XLoad*background: black
+XLoad*foreground: white
+XLoad*highlight: red

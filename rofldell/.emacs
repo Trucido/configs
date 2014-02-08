@@ -2,13 +2,13 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 1.12.2
-;; Time-stamp: <2014-01-01 17:38:37 xoddf2>
+;; Version: 1.13
+;; Time-stamp: <2014-02-07 18:13:41 xoddf2>
 
 ;;; Commentary:
 
-;; This Emacs init file is intended for use with GNU Emacs 24.3 under GNU/Linux
-;; (Slackware 14.1).
+;; This Emacs init file has been tested with GNU Emacs 24.3, snapshot, and 23.4
+;; under GNU/Linux and FreeBSD.
 
 ;;; Code:
 
@@ -19,11 +19,13 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; ELPA
-(require 'package)
+(if (eq emacs-major-version '24)
+    (progn
+      (require 'package)
 
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
-(package-initialize)
+      (add-to-list 'package-archives
+		   '("melpa" . "http://melpa.milkbox.net/packages/"))
+      (package-initialize)))
 
 ;; Simplify the interface:
 (menu-bar-mode -1)
@@ -76,22 +78,6 @@ Requires TRAMP, scp, and ImageMagick."
           (kill-new url)
           (message url)))
     (message "This is not X.  You cannot take a screen shot here.")))
-
-(defun erc-supybot-quotegrabs-grab ()
-  "Inserts the grab command.  Intended for use in channels
-that contain a Supybot with the QuoteGrabs module."
-  (interactive)
-  (cond
-   ((string-equal (buffer-name) "#archlinux-offtopic")
-       (insert "!grab "))
-   ((string-equal (buffer-name) "#archlinux")
-       (insert "!grab "))
-   ((string-equal (buffer-name) "#wlair")
-       (insert "!grab "))
-   ((string-equal (buffer-name) "##slackware-offtopic")
-       (insert "@grab "))
-   ((string-equal (buffer-name) "#main")
-       (insert "%grab "))))
 
 ;; Editing Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -146,15 +132,23 @@ that contain a Supybot with the QuoteGrabs module."
             (setq indent-tabs-mode t)))
 
 ;; BBCode
-(require 'bbcode-mode)
+(if (string-equal system-name "rofldell.local")
+    (progn
+      (require 'bbcode-mode)))
 
 ;; FVWM
-(if (string-equal system-name "hexbox.local")
+(if (string-equal system-name "rofldell.local")
     (progn
       (require 'fvwm-mode)
       (add-to-list 'auto-mode-alist '(".fvwm2rc" . fvwm-mode))))
 
 ;; Other Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; dired
+(if (eq system-type 'berkeley-unix)
+    (progn
+      (setq ls-lisp-use-insert-directory-program nil)
+      (require 'ls-lisp)))
 
 ;; Gnus
 (require 'epa-file)
@@ -164,47 +158,34 @@ that contain a Supybot with the QuoteGrabs module."
 
 (setq user-mail-address "woddfellow2@gmail.com") ; Kludge for C-x m
 
-;; ERC
-(if (string-equal system-name "hexbox.local")
-    (progn
-      (require 'erc)
-      (require 'znc)
-      (require 'xoddf2-erc) ; This points to a private file.
-      (setq erc-timestamp-format "[%H:%M:%S] "
-            erc-fill-prefix "           "
-            erc-insert-timestamp-function 'erc-insert-timestamp-left)
-      (setq erc-auto-set-away t
-            erc-autoaway-idle-seconds 300)
-      (setq erc-keywords
-            '("woddf2" "wodd" "woodf" "woof2" "jbqqs2" "2fddow" "xoddf2"))
-      (setq erc-track-exclude-types
-            '("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE" "324" "329" "332" "333"
-              "353" "477")
-            erc-track-position-in-mode-line t)))
-
 ;; Calendar
 (setq calendar-latitude 40.57667
       calendar-longitude -122.37028
       calendar-location-name "Redding, CA")
 
 ;; Magit
-(require 'magit)
+(if (string-equal system-name "rofldell.local")
+    (require 'magit))
 
 ;; mediawiki.el
-(require 'mediawiki)
+(if (string-equal system-name "rofldell.local")
+    (progn
+      (require 'mediawiki)
 
-(eval-after-load "mediawiki"
-  '(add-to-list 'mediawiki-site-alist
-                '("Wikipedia" "http://en.wikipedia.org/w/"
-                  "Xoddf2" "" "Main Page")))
+      (eval-after-load "mediawiki"
+        '(add-to-list 'mediawiki-site-alist
+                      '("Wikipedia" "http://en.wikipedia.org/w/"
+                        "Xoddf2" "" "Main Page")))))
 
 ;; Emacs-w3m
-(require 'w3m)
-(setq w3m-use-cookies t)
-(setq browse-url-browser-function 'w3m-browse-url)
+(if (string-equal system-name "rofldell.local")
+    (progn
+      (require 'w3m)
+      (setq w3m-use-cookies t)
+      (setq browse-url-browser-function 'w3m-browse-url)))
 
 ;; Twittering Mode
-(if (string-equal system-name "hexbox.local")
+(if (string-equal system-name "rofldell.local")
     (progn
       (setq twittering-use-master-password t)))
 
@@ -229,7 +210,4 @@ that contain a Supybot with the QuoteGrabs module."
 
 (define-key help-map "M" 'man)
 
-;; Mode-specific
-(if (string-equal system-name "hexbox.local")
-    (progn
-      (define-key erc-mode-map (kbd "C-c C-g") 'erc-supybot-quotegrabs-grab)))
+;;; .emacs ends here

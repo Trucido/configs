@@ -1,5 +1,8 @@
 #!/bin/sh
-# .xsession 2.3   Time-stamp: <2013-12-30 20:04:31 xoddf2>
+# .xsession 2.3   Time-stamp: <2014-02-02 13:21:35 xoddf2>
+
+# ~/.Xresources
+xrdb -merge ~/.Xresources &
 
 # XScreenSaver
 xscreensaver -no-splash &
@@ -18,7 +21,7 @@ id4=$HOME/.ssh/id_ecdsa
 if [ -x /usr/bin/ssh-agent ] && [ -f $id1 -o -f $id2 -o -f $id3 -o -f $id4 ];
 then
 	eval $(ssh-agent -s)
-	ssh-add < /dev/null
+	# ssh-add < /dev/null
 fi
 
 # Open an emacsclient frame:
