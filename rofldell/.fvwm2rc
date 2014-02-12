@@ -1,4 +1,4 @@
-# .fvwm2rc 2.3   Time-stamp: <2014-02-12 00:50:24 xoddf2>
+# .fvwm2rc 2.3.1   Time-stamp: <2014-02-12 02:19:02 xoddf2>
 
 # Most actions are available via both the keyboard and the mouse.  Keybindings
 # use the Mod4 key to avoid conflicting with other applications.  Certain
@@ -198,6 +198,9 @@ Key Right A 4CS Resize w+10c w0c
 # Tiling
 Key t A 4 FvwmRearrange -tile -h -u -m -maximize
 Key T A 4S FvwmRearrange -tile -u -m -maximize
+
+# Banish pointer
+Key b A 4 WindowId root 1 WarpToWindow 100 100
 
 # Exit
 Key F11 A 4S Restart
