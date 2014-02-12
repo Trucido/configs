@@ -1,11 +1,11 @@
-! .Xresources 2.1   Time-stamp: <2014-01-28 23:20:48 xoddf2>
+! .Xresources 2.1   Time-stamp: <2014-02-11 23:01:40 xoddf2>
 
 Xft.dpi: 96
 
 ! xterm ------------------------------------------------------------------------
 XTerm*locale: UTF-8
-XTerm*font: -misc-fixed-medium-r-normal--13-*-*-*-*-*-iso10646-1
-XTerm*utf8Fonts.font: -misc-fixed-medium-r-normal--13-*-*-*-*-*-iso10646-1
+XTerm*font: -misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1
+XTerm*utf8Fonts.font: -misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1
 XTerm*wideFont: -*-*-*-*-*-ja-*-*-*-*-*-*-*-*
 XTerm*background: black
 XTerm*foreground: white

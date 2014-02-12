@@ -1,24 +1,27 @@
-# .fvwm2rc 2.2   Time-stamp: <2014-02-02 15:20:08 xoddf2>
+# .fvwm2rc 2.3   Time-stamp: <2014-02-12 00:50:24 xoddf2>
 
-# This is a somewhat minimalist .fvwm2rc.  It has only two modules, no icons,
-# no title bars, and thin borders.
-#
 # Most actions are available via both the keyboard and the mouse.  Keybindings
 # use the Mod4 key to avoid conflicting with other applications.  Certain
 # applications can be raised if they are already running, or started if not.
 # Windows can be moved or resized by holding Mod4 and dragging with the mouse.
 #
-# Window decorations are DarkRed for active and DarkBlue for inactive to make
-# them easier to see.
+# Window decorations are FireBrick for active and DarkGrey for inactive.
+# Certain applications (xterm, Emacs) have thin borders and no title bars.
+# Others, such as MPlayer and ImageMagick, have no borders.
+# fvwm_icons <http://www.fvwm.org/download/icons.php> is recommended.
 #
-# Certain applications (Emacs, Iceweasel, The GIMP, QEMU) start in specific
+# Certain applications (Emacs, Firefox, The GIMP, QEMU) start in specific
 # pages.
 #
 # Due to MinOverlapPercentPlacement, FVWM puts windows in sane positions.
 #
-# There is an FvwmButtons at the bottom right with FvwmPager, xclock, and xload
-# swallowed.  Icons are disabled, and there is no FvwmIconMan.  Iconified
-# windows are accessible from the WindowList menu.
+# There is an FvwmButtons at the top right with FvwmPager, FvwmIconMan, xclock, 
+# and xload swallowed.
+#
+# These lines are recommended in ~/.xinitrc or ~/.xsession:
+#
+# xscreensaver -no-splash &
+# xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
 
 # General ######################################################################
 
@@ -37,6 +40,9 @@ EdgeScroll 0 0
 Style * SloppyFocus
 Style * FPGrabFocus
 
+# Raise window when clicked
+Style * MouseFocusClickRaises
+
 # Snap
 Style * SnapAttraction 16 Screen
 
@@ -46,22 +52,38 @@ Style * MinOverlapPercentPlacement
 # This line makes XMMS, Audacious, mplayer -noborder, and similar work properly:
 Style * MWMDecor
 
-# Reduce the window decorations to a 1-pixel border:
-Style * !Title
-Style * BorderWidth 1, HandleWidth 1
+# Font
+DefaultFont -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
+Style * Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+
+# Where to find the icons:
+ImagePath $[FVWM_USERDIR]/icons
+
+# Colours
+Colorset 0 fg White, bg DimGrey
+Colorset 1 fg Yellow, bg FireBrick
+Colorset 2 fg Maroon, bg Grey
 
 # Colour the window borders:
-Style * Color White/DarkBlue
-Style * HilightBack DarkRed, HilightFore White
+Style * Colorset 0, HilightColorset 1
+
+# Menu colours:
+MenuStyle * fvwm, MenuColorset 2
+MenuStyle WindowList MenuColorset 2
 
 # Module style
 Style FvwmButtons !Title, !Borders, NeverFocus, !Iconifiable, !Maximizable, !Closable, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize
+Style FvwmIdent !Title
 
 # Application-specific style
-Style Emacs StartsOnPage 0 0
-Style Iceweasel StartsOnPage 1 0
+Style XTerm !Title, BorderWidth 1, HandleWidth 1, Icon xterm.xpm, MiniIcon mini.xterm.xpm
+Style Emacs StartsOnPage 0 0, !Title, BorderWidth 1, HandleWidth 1, IconOverride, EWMHMiniIconOverride, Icon gnu-animal.xpm, MiniIcon mini.gnu.xpm
+Style Firefox StartsOnPage 1 0, Icon nscape.xpm, MiniIcon mini.nscape.xpm
 Style gimp StartsOnPage 0 1
-Style qemu* StartsOnPage 1 1
+Style qemu* StartsOnPage 1 1, !Borders
+Style MPlayer !Borders
+Style Display !Borders
+Style Xephyr !Borders
 
 # Disable icons
 Style * NoIcon
@@ -105,18 +127,19 @@ AddToFunc RunOrRaise
 
 # WindowList
 Key Tab A M -
-Key Tab A 4 WindowList Root c c CurrentAtEnd, IconifiedAtEnd
+Key Tab A 4 WindowList Root c c CurrentAtEnd, NoIcons
+Key Return A 4S WindowList Root c c OnlyIcons
 MenuStyle WindowList SelectOnRelease Super_L
 
 # Menus
-Key Grave A 4 Popup MenuFvwmRoot
-Key o A 4 Popup MenuFvwmWindowOps
+Key F1 A 4 Popup MenuFvwmRoot
+Key F2 A 4 Popup MenuFvwmWindowOps
 
 # Launch, run, or raise certain applications
 Key c A 4 Exec exec xterm
 Key C A 4S RunOrRaise tmux "xterm -name tmux -sl 0 -e tmux attach-session -d"
 Key e A 4 RunOrRaise Emacs "emacsclient --alternate-editor='' -c"
-Key w A 4 RunOrRaise Iceweasel iceweasel
+Key w A 4 RunOrRaise Firefox firefox
 
 # Lock screen
 Key Escape A 4 Exec exec xscreensaver-command -lock
@@ -139,14 +162,14 @@ Key 1 A 4 GotoPage 0 0
 Key 2 A 4 GotoPage 1 0
 Key 3 A 4 GotoPage 0 1
 Key 4 A 4 GotoPage 1 1
-Key 0 A 4 GotoPage Prev
+Key Grave A 4 GotoPage Prev
 
 # Move window to page...
 Key 1 A 4S MoveToPage 0 0
 Key 2 A 4S MoveToPage 1 0
 Key 3 A 4S MoveToPage 0 1
 Key 4 A 4S MoveToPage 1 1
-Key 0 A 4S MoveToPage Prev
+Key Grave A 4S MoveToPage Prev
 
 # Move window
 Key Up A 4 Move w0p w-1p
@@ -176,6 +199,10 @@ Key Right A 4CS Resize w+10c w0c
 Key t A 4 FvwmRearrange -tile -h -u -m -maximize
 Key T A 4S FvwmRearrange -tile -u -m -maximize
 
+# Exit
+Key F11 A 4S Restart
+Key F12 A 4S Quit
+
 # Mouse Bindings ###############################################################
 
 # What to do when clicking the root window
@@ -186,60 +213,65 @@ Mouse 3 R A WindowList
 Mouse 1 TSIFW 4 DragMove
 Mouse 3 TSIFW 4 DragResize
 
+# Title bar
+Mouse 0 1 A Menu MenuFvwmWindowOps Close
+Mouse 0 2 A Iconify
+Mouse 3 TSIF A RaiseLower
+
 # Menus ########################################################################
 
 DestroyMenu MenuFvwmRoot
-AddToMenu MenuFvwmRoot "Root Menu" Title
-+ "X&Term" Exec exec xterm
-+ "- tmu&x" Exec exec xterm -name tmux -sl 0 -e tmux attach-session -d
-+ "&Emacs" Exec exec emacsclient --alternate-editor='' -c
-+ "&Iceweasel" Exec exec iceweasel
+AddToMenu MenuFvwmRoot@side.fvwm2.xpm@^black^ "Root Menu" Title
++ "%mini.xterm.xpm%X&Term" Exec exec xterm
++ "%mini.term.xpm%- tmu&x" Exec exec xterm -name tmux -sl 0 -e tmux attach-session -d
++ "%mini.gnu.xpm%&Emacs" Exec exec emacsclient --alternate-editor='' -c
++ "%mini.nscape.xpm%&Firefox" Exec exec firefox
 + "" Nop
-+ "The &GIMP" Exec exec gimp
++ "%mini.gimp.xpm%The &GIMP" Exec exec gimp
 + "" Nop
-+ "Tile &Horiz" FvwmRearrange -tile -h -u -m -maximize
-+ "Tile &Vert" FvwmRearrange -tile -u -m -maximize
++ "%button-horiz.xpm%Tile &Horiz" FvwmRearrange -tile -h -u -m -maximize
++ "%button-vert.xpm%Tile &Vert" FvwmRearrange -tile -u -m -maximize
 + "" Nop
-+ "Fv&wmConsole" Module FvwmConsole
++ "%mini.fvwm.xpm%Fv&wmConsole" Module FvwmConsole
 + "" Nop
-+ "&Lock" Exec exec xscreensaver-command -lock
-+ "Leave" Popup MenuLeave
++ "%mini.lock.xpm%&Lock" Exec exec xscreensaver-command -lock
++ "%mini.stop.xpm%Leave" Popup MenuLeave
 
 DestroyMenu MenuFvwmWindowOps
 AddToMenu MenuFvwmWindowOps "Window Ops" Title
-+ "&Move" Move
-+ "&Resize" Resize
-+ "R&aise" Raise
-+ "&Lower" Lower
-+ "(De)&Iconify" Iconify
-+ "(Un)&Stick" Stick
-+ "(Un)Ma&ximize" Maximize
-+ "- &Horiz" Maximize 100 0
-+ "- &Vert" Maximize 0 100
-+ "Pla&ce Again" PlaceAgain
++ "%mini.move.xpm%&Move" Move
++ "%mini.resize.xpm%&Resize" Resize
++ "%mini.raise.xpm%R&aise" Raise
++ "%mini.lower.xpm%&Lower" Lower
++ "%mini.iconify.xpm%(De)&Iconify" Iconify
++ "%mini.stick.xpm%(Un)&Stick" Stick
++ "%mini.maximize.xpm%(Un)Ma&ximize" Maximize
++ "%mini.maximize-horiz.xpm%- &Horiz" Maximize 100 0
++ "%mini.maximize-vert.xpm%- &Vert" Maximize 0 100
++ "%mini.ray.xpm%Pla&ce Again" PlaceAgain
 + "" Nop
-+ "Ide&ntify" FvwmIdent
++ "%mini.question.xpm%Ide&ntify" FvwmIdent
 + "" Nop
-+ "Move to &Page..." Popup MenuMoveToPage
++ "%mini.pager.xpm%Move to &Page..." Popup MenuMoveToPage
 + "" Nop
-+ "&Delete" Delete
-+ "Destroy" Destroy
++ "%mini.delete.xpm%&Delete" Delete
++ "%mini.destroy.xpm%Destroy" Destroy
 
 DestroyMenu MenuMoveToPage
 AddToMenu MenuMoveToPage "Move to..." Title
-+ "&1. $[gt.Northwest]" MoveToPage 0 0
-+ "&2. $[gt.Northeast]" MoveToPage 1 0
-+ "&3. $[gt.Southwest]" MoveToPage 0 1
-+ "&4. $[gt.Southeast]" MoveToPage 1 1
++ "&1. Northwest" MoveToPage 0 0
++ "&2. Northeast" MoveToPage 1 0
++ "&3. Southwest" MoveToPage 0 1
++ "&4. Southeast" MoveToPage 1 1
 
 DestroyMenu MenuLeave
 AddToMenu MenuLeave "Leave" Title
-+ "&Restart FVWM" Restart
++ "%mini.turn.xpm%&Restart FVWM" Restart
 + "" Nop
-+ "Restart &twm" Restart twm
-+ "Restart &xterm" Restart xterm
++ "%mini.twm.xpm%Restart &twm" Restart twm
++ "%mini.xterm.xpm%Restart &xterm" Restart xterm
 + "" Nop
-+ "Exit" Quit
++ "%mini.exclam.xpm%Exit" Quit
 
 # Modules ######################################################################
 
@@ -253,16 +285,39 @@ DestroyModuleConfig FvwmPager: *
 *FvwmPager: BalloonBack Black
 *FvwmPager: BalloonBorderColor White
 
+DestroyModuleConfig FvwmIconMan: *
+*FvwmIconMan: ManagerGeometry 2x3
+*FvwmIconMan: ButtonGeometry 128x16
+*FvwmIconMan: Action Mouse 1 N sendcommand Focus
+*FvwmIconMan: Action Mouse 2 N sendcommand Iconify
+*FvwmIconMan: Action Mouse 3 N sendcommand FvwmIdent
+*FvwmIconMan: Format "%i"
+*FvwmIconMan: Background Grey10
+*FvwmIconMan: Foreground white
+*FvwmIconMan: IconButton up white DimGrey
+*FvwmIconMan: PlainButton up black DarkGrey
+*FvwmIconMan: SelectButton down black DarkGrey
+*FvwmIconMan: FocusButton up yellow FireBrick
+*FvwmIconMan: FocusAndSelectButton down yellow FireBrick
+*FvwmIconMan: Font -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*
+
 DestroyModuleConfig FvwmButtons: *
-*FvwmButtons: Rows 1
-*FvwmButtons: Columns 5
-*FvwmButtons: Padding 2 2
-*FvwmButtons: Frame 1
-*FvwmButtons: Back Grey10
-*FvwmButtons: Geometry 320x64-0-0
-*FvwmButtons: (3x1, Swallow "xload" `Exec exec xload`)
-*FvwmButtons: (Swallow "xclock" `Exec exec xclock`)
-*FvwmButtons: (Frame 0, Swallow "FvwmPager" `Module FvwmPager 0 0`)
+*FvwmButtons: Rows 6
+*FvwmButtons: Columns 2
+*FvwmButtons: Back Grey20
+*FvwmButtons: Geometry 128x384-0+0
+*FvwmButtons: (2x2, Frame 0, Back Grey10, Swallow "FvwmPager" `Module FvwmPager 0 0`)
+*FvwmButtons: (2x1, Frame 0, Swallow "xload" `Exec exec xload`)
+*FvwmButtons: (Frame 0, Swallow "xclock" `Exec exec xclock`)
+*FvwmButtons: "" rterm.xpm RunOrRaise tmux "xterm -name tmux -sl 0 -e tmux attach-session -d"
+*FvwmButtons: "" gnu-animal.xpm RunOrRaise "Emacs" "emacsclient --alternate-editor='' -c"
+*FvwmButtons: "" nscape.xpm RunOrRaise Firefox firefox
+*FvwmButtons: (2x1, Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
+
+DestroyModuleConfig FvwmIdent: *
+*FvwmIdent: Back navy
+*FvwmIdent: Fore yellow
+*FvwmIdent: Font -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
 
 # StartFunction ################################################################
 
