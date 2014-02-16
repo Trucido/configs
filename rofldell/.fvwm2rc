@@ -1,4 +1,4 @@
-# .fvwm2rc 2.3.1   Time-stamp: <2014-02-12 02:19:02 xoddf2>
+# .fvwm2rc 2.3.2   Time-stamp: <2014-02-15 19:48:49 xoddf2>
 
 # Most actions are available via both the keyboard and the mouse.  Keybindings
 # use the Mod4 key to avoid conflicting with other applications.  Certain
@@ -137,7 +137,7 @@ Key F2 A 4 Popup MenuFvwmWindowOps
 
 # Launch, run, or raise certain applications
 Key c A 4 Exec exec xterm
-Key C A 4S RunOrRaise tmux "xterm -name tmux -sl 0 -e tmux attach-session -d"
+Key C A 4S RunOrRaise tmux "xterm -name tmux -sl 0 -geometry 80x50 -e tmux attach-session -d"
 Key e A 4 RunOrRaise Emacs "emacsclient --alternate-editor='' -c"
 Key w A 4 RunOrRaise Firefox firefox
 
@@ -226,7 +226,7 @@ Mouse 3 TSIF A RaiseLower
 DestroyMenu MenuFvwmRoot
 AddToMenu MenuFvwmRoot@side.fvwm2.xpm@^black^ "Root Menu" Title
 + "%mini.xterm.xpm%X&Term" Exec exec xterm
-+ "%mini.term.xpm%- tmu&x" Exec exec xterm -name tmux -sl 0 -e tmux attach-session -d
++ "%mini.term.xpm%- tmu&x" Exec exec xterm -name tmux -sl 0 -geometry 80x50 -e tmux attach-session -d
 + "%mini.gnu.xpm%&Emacs" Exec exec emacsclient --alternate-editor='' -c
 + "%mini.nscape.xpm%&Firefox" Exec exec firefox
 + "" Nop
@@ -312,7 +312,7 @@ DestroyModuleConfig FvwmButtons: *
 *FvwmButtons: (2x2, Frame 0, Back Grey10, Swallow "FvwmPager" `Module FvwmPager 0 0`)
 *FvwmButtons: (2x1, Frame 0, Swallow "xload" `Exec exec xload`)
 *FvwmButtons: (Frame 0, Swallow "xclock" `Exec exec xclock`)
-*FvwmButtons: "" rterm.xpm RunOrRaise tmux "xterm -name tmux -sl 0 -e tmux attach-session -d"
+*FvwmButtons: "" rterm.xpm RunOrRaise tmux "xterm -name tmux -sl 0 -geometry 80x50 -e tmux attach-session -d"
 *FvwmButtons: "" gnu-animal.xpm RunOrRaise "Emacs" "emacsclient --alternate-editor='' -c"
 *FvwmButtons: "" nscape.xpm RunOrRaise Firefox firefox
 *FvwmButtons: (2x1, Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
