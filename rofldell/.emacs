@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 1.13
-;; Time-stamp: <2014-02-07 18:13:41 xoddf2>
+;; Version: 1.13.1
+;; Time-stamp: <2014-02-17 04:12:17 PST xoddf2>
 
 ;;; Commentary:
 
@@ -49,8 +49,9 @@
       visible-bell t)
 (iswitchb-mode 1)
 
-;; Update time stamp when saving
+;; Time-stamp
 (add-hook 'before-save-hook 'time-stamp)
+(setq time-stamp-format "%:y-%02m-%02d %02H:%02M:%02S %Z %u")
 
 ;; Backup and autosave directory
 (setq temporary-file-directory "~/.emacs.d/tmp/")
