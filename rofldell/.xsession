@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 2.3   Time-stamp: <2014-02-02 13:21:35 xoddf2>
+# .xsession 2.3.1   Time-stamp: <2014-02-23 17:32:10 PST xoddf2>
 
 # ~/.Xresources
 xrdb -merge ~/.Xresources &
@@ -10,8 +10,8 @@ xscreensaver -no-splash &
 # Dvorak, CAPS LOCK as Compose (for vi, I recommend QWERTY with caps:escape.)
 setxkbmap -layout us -variant dvorak -option "compose:caps" &
 
-# Set wallpaper
-xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
+# xearth or set wallpaper
+xearth || xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
 
 # ssh-agent (Inspired by and stolen from OpenBSD)
 id1=$HOME/.ssh/identity

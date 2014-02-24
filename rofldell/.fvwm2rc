@@ -1,4 +1,4 @@
-# .fvwm2rc 2.3.2   Time-stamp: <2014-02-15 19:48:49 xoddf2>
+# .fvwm2rc 2.4   Time-stamp: <2014-02-23 17:34:33 PST xoddf2>
 
 # Most actions are available via both the keyboard and the mouse.  Keybindings
 # use the Mod4 key to avoid conflicting with other applications.  Certain
@@ -6,8 +6,8 @@
 # Windows can be moved or resized by holding Mod4 and dragging with the mouse.
 #
 # Window decorations are FireBrick for active and DarkGrey for inactive.
-# Certain applications (xterm, Emacs) have thin borders and no title bars.
-# Others, such as MPlayer and ImageMagick, have no borders.
+# Certain applications (xterm, Emacs) have no title bars.  Others, such as
+# MPlayer and ImageMagick, have no borders.
 # fvwm_icons <http://www.fvwm.org/download/icons.php> is recommended.
 #
 # Certain applications (Emacs, Firefox, The GIMP, QEMU) start in specific
@@ -15,13 +15,14 @@
 #
 # Due to MinOverlapPercentPlacement, FVWM puts windows in sane positions.
 #
-# There is an FvwmButtons at the top right with FvwmPager, FvwmIconMan, xclock, 
-# and xload swallowed.
+# There is an FvwmButtons at the top right with FvwmPager and FvwmIconMan
+# swallowed and another FvwmButtons at the bottom right with xclock and xload
+# swallowed.
 #
 # These lines are recommended in ~/.xinitrc or ~/.xsession:
 #
 # xscreensaver -no-splash &
-# xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
+# xearth || xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
 
 # General ######################################################################
 
@@ -76,14 +77,14 @@ Style FvwmButtons !Title, !Borders, NeverFocus, !Iconifiable, !Maximizable, !Clo
 Style FvwmIdent !Title
 
 # Application-specific style
-Style XTerm !Title, BorderWidth 1, HandleWidth 1, Icon xterm.xpm, MiniIcon mini.xterm.xpm
-Style Emacs StartsOnPage 0 0, !Title, BorderWidth 1, HandleWidth 1, IconOverride, EWMHMiniIconOverride, Icon gnu-animal.xpm, MiniIcon mini.gnu.xpm
+Style XTerm !Title, Icon xterm.xpm, MiniIcon mini.xterm.xpm
+Style Emacs StartsOnPage 0 0, !Title, IconOverride, EWMHMiniIconOverride, Icon gnu-animal.xpm, MiniIcon mini.gnu.xpm
 Style Firefox StartsOnPage 1 0, Icon nscape.xpm, MiniIcon mini.nscape.xpm
 Style gimp StartsOnPage 0 1
 Style qemu* StartsOnPage 1 1, !Borders
 Style MPlayer !Borders
 Style Display !Borders
-Style Xephyr !Borders
+Style Xephyr StartsOnPage 1 1, !Borders
 
 # Disable icons
 Style * NoIcon
@@ -305,17 +306,22 @@ DestroyModuleConfig FvwmIconMan: *
 *FvwmIconMan: Font -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*
 
 DestroyModuleConfig FvwmButtons: *
-*FvwmButtons: Rows 6
-*FvwmButtons: Columns 2
+*FvwmButtons: Rows 3
+*FvwmButtons: Columns 1
+*FvwmButtons: Frame 0
 *FvwmButtons: Back Grey20
-*FvwmButtons: Geometry 128x384-0+0
-*FvwmButtons: (2x2, Frame 0, Back Grey10, Swallow "FvwmPager" `Module FvwmPager 0 0`)
-*FvwmButtons: (2x1, Frame 0, Swallow "xload" `Exec exec xload`)
-*FvwmButtons: (Frame 0, Swallow "xclock" `Exec exec xclock`)
-*FvwmButtons: "" rterm.xpm RunOrRaise tmux "xterm -name tmux -sl 0 -geometry 80x50 -e tmux attach-session -d"
-*FvwmButtons: "" gnu-animal.xpm RunOrRaise "Emacs" "emacsclient --alternate-editor='' -c"
-*FvwmButtons: "" nscape.xpm RunOrRaise Firefox firefox
-*FvwmButtons: (2x1, Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
+*FvwmButtons: Geometry 128x192-0+0
+*FvwmButtons: (1x2, Back Grey10, Swallow "FvwmPager" `Module FvwmPager 0 0`)
+*FvwmButtons: (Swallow "FvwmIconMan" `Module FvwmIconMan`)
+
+DestroyModuleConfig StatusBox: *
+*StatusBox: Rows 1
+*StatusBox: Columns 4
+*StatusBox: Geometry 256x64-0-0
+*StatusBox: Back Grey20
+*StatusBox: Frame 1
+*StatusBox: (3x1, Swallow "xload" `Exec exec xload`)
+*StatusBox: (Swallow "xclock" `Exec exec xclock`)
 
 DestroyModuleConfig FvwmIdent: *
 *FvwmIdent: Back navy
@@ -327,3 +333,4 @@ DestroyModuleConfig FvwmIdent: *
 AddToFunc StartFunction
 + I Module FvwmCommandS
 + I Module FvwmButtons
++ I Module FvwmButtons StatusBox
