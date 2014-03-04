@@ -1,4 +1,4 @@
-# .fvwm2rc 2.4   Time-stamp: <2014-02-23 17:34:33 PST xoddf2>
+# .fvwm2rc 2.4.1   Time-stamp: <2014-03-03 22:41:12 PST xoddf2>
 
 # Most actions are available via both the keyboard and the mouse.  Keybindings
 # use the Mod4 key to avoid conflicting with other applications.  Certain
@@ -219,7 +219,10 @@ Mouse 3 TSIFW 4 DragResize
 
 # Title bar
 Mouse 0 1 A Menu MenuFvwmWindowOps Close
-Mouse 0 2 A Iconify
+Mouse 0 4 A Iconify
+Mouse 1 2 A Maximize
+Mouse 2 2 A Maximize 100 0
+Mouse 3 2 A Maximize 0 100
 Mouse 3 TSIF A RaiseLower
 
 # Menus ########################################################################
