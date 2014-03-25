@@ -1,4 +1,4 @@
-# .fvwm2rc 2.4.1   Time-stamp: <2014-03-03 22:41:12 PST xoddf2>
+# .fvwm2rc 2.5   Time-stamp: <2014-03-25 12:41:24 PDT xoddf2>
 
 # Most actions are available via both the keyboard and the mouse.  Keybindings
 # use the Mod4 key to avoid conflicting with other applications.  Certain
@@ -128,8 +128,7 @@ AddToFunc RunOrRaise
 
 # WindowList
 Key Tab A M -
-Key Tab A 4 WindowList Root c c CurrentAtEnd, NoIcons
-Key Return A 4S WindowList Root c c OnlyIcons
+Key Tab A 4 WindowList Root c c CurrentAtEnd,
 MenuStyle WindowList SelectOnRelease Super_L
 
 # Menus
@@ -137,8 +136,8 @@ Key F1 A 4 Popup MenuFvwmRoot
 Key F2 A 4 Popup MenuFvwmWindowOps
 
 # Launch, run, or raise certain applications
-Key c A 4 Exec exec xterm
-Key C A 4S RunOrRaise tmux "xterm -name tmux -sl 0 -geometry 80x50 -e tmux attach-session -d"
+Key Return A 4 Exec exec xterm
+Key q A 4 RunOrRaise tmux "xterm -name tmux -sl 0 -geometry 80x50 -e tmux attach-session -d"
 Key e A 4 RunOrRaise Emacs "emacsclient --alternate-editor='' -c"
 Key w A 4 RunOrRaise Firefox firefox
 
@@ -149,12 +148,12 @@ Key Escape A 4 Exec exec xscreensaver-command -lock
 Key Colon A 4 Module FvwmConsole
 
 # Window ops
-Key Return A 4 Iconify
-Key k A 4S Close
-Key z A 4 Maximize
-Key equal A 4 Maximize 0 100
-Key plus A 4S Maximize 100 0
-Key Space A 4 RaiseLower
+Key i A 4 Iconify
+Key C A 4S Close
+Key x A 4 Maximize
+Key m A 4 Maximize 0 100
+Key M A 4S Maximize 100 0
+Key r A 4 RaiseLower
 Key p A 4 PlaceAgain
 Key Question A 4 FvwmIdent
 
@@ -173,35 +172,26 @@ Key 4 A 4S MoveToPage 1 1
 Key Grave A 4S MoveToPage Prev
 
 # Move window
-Key Up A 4 Move w0p w-1p
-Key Down A 4 Move w0p w+1p
-Key Left A 4 Move w-1p w0p
-Key Right A 4 Move w+1p w0p
+Key h A 4 Move w-10p w0p
+Key j A 4 Move w0p w+10p
+Key k A 4 Move w0p w-10p
+Key l A 4 Move w+10p w0p
 
-# Move window by 10 pixels
-Key Up A 4S Move w0p w-10p
-Key Down A 4S Move w0p w+10p
-Key Left A 4S Move w-10p w0p
-Key Right A 4S Move w+10p w0p
+# Move window to corners
+Key y A 4 Move 0p 0p
+Key u A 4 Move -0p 0p
+Key b A 4 Move 0p -0p
+Key n A 4 Move -0p -0p
 
 # Resize window
-Key Up A 4C Resize w0c w-1c
-Key Down A 4C Resize w0c w+1c
-Key Left A 4C Resize w-1c w0c
-Key Right A 4C Resize w+1c w0c
-
-# Resize window by 10 pixels
-Key Up A 4CS Resize w0c w-10c
-Key Down A 4CS Resize w0c w+10c
-Key Left A 4CS Resize w-10c w0c
-Key Right A 4CS Resize w+10c w0c
+Key H A 4S Resize w-1c w0c
+Key J A 4S Resize w0c w+1c
+Key K A 4S Resize w0c w-1c
+Key L A 4S Resize w+1c w0c
 
 # Tiling
 Key t A 4 FvwmRearrange -tile -h -u -m -maximize
 Key T A 4S FvwmRearrange -tile -u -m -maximize
-
-# Banish pointer
-Key b A 4 WindowId root 1 WarpToWindow 100 100
 
 # Exit
 Key F11 A 4S Restart
