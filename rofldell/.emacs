@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 1.13.1
-;; Time-stamp: <2014-02-17 04:12:17 PST xoddf2>
+;; Version: 1.13.2
+;; Time-stamp: <2014-03-25 22:30:22 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -35,9 +35,8 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain
       ediff-grab-mouse nil)
 
-;; Disable splash buffer and change *scratch* buffer message
-(setq inhibit-startup-screen t
-      initial-scratch-message ";; *scratch*\n\n")
+;; Disable splash buffer
+(setq inhibit-startup-screen t)
 
 ;; Make C-x C-c less dangerous
 (setq confirm-kill-emacs 'yes-or-no-p)
