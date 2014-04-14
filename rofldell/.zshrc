@@ -1,4 +1,4 @@
-# .zshrc 1.1   Time-stamp: <2014-02-05 00:59:12 xoddf2>
+# .zshrc 1.1   Time-stamp: <2014-04-13 17:55:24 PDT xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -20,7 +20,7 @@ autoload -U colors && colors
 
 # Different prompt colour per box
 case "$(hostname)" in
-	"rofldell") local prompt_color="green" ;;
+	"rofldell.local") local prompt_color="green" ;;
 	"tesseract") local prompt_color="magenta" ;;
 	"elisabeth") local prompt_color="cyan" ;;
 	"archon") local prompt_color="blue" ;;
@@ -57,8 +57,3 @@ alias ix="curl -n -F 'f:1=<-' http://ix.io"
 alias mp="mplayer"
 alias mp-overscan="mplayer -vf scale=320:240,crop=288:216 -aspect 4:3"
 alias mp-monaural="mplayer -af pan=1:0.5:0.5"
-
-if [[ $(hostname) == "oldbox" ]]; then
-	alias tuneraudio="aplay -f dat < /dev/video24"
-	alias tunervideo="mplayer /dev/video32 -demuxer rawvideo -rawvideo w=720:h=480:format=hm12:ntsc"
-fi

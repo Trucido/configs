@@ -1,0 +1,162 @@
+# .cwmrc 1.1  Time-stamp: <2014-04-11 15:43:50 PDT xoddf2>
+
+# Appearance ###################################################################
+
+fontname "Fixed:pixelsize=15:bold"
+
+# Misc #########################################################################
+
+snapdist 8
+
+# Ignored Windows ##############################################################
+
+ignore xconsole
+ignore xclock
+ignore xload
+ignore xbiff
+
+# Applications #################################################################
+
+command term xterm
+command lock "xscreensaver-command -lock"
+command tmux "xterm -sl 0 -geometry 80x50 -e tmux attach-session -d"
+command www firefox
+command gimp gimp
+
+# Groups #######################################################################
+
+autogroup 1 XTerm
+autogroup 2 Firefox
+autogroup 3 Display
+autogroup 3 MPlayer
+autogroup 4 Gimp
+autogroup 5 qemu-system-i386
+autogroup 5 qemu-system-x86_64
+autogroup 5 qemu-system-arm
+autogroup 6 Xephyr
+
+# Keybindings ##################################################################
+
+# First, unbind everything:
+bind CM-Return unmap
+bind CM-Delete unmap
+bind M-Return unmap
+bind M-Down unmap
+bind M-Up unmap
+bind M-slash unmap
+bind CM-n unmap
+bind M-Tab unmap
+bind MS-Tab unmap
+bind CM-x unmap
+bind CM-1 unmap
+bind CM-2 unmap
+bind CM-3 unmap
+bind CM-4 unmap
+bind CM-5 unmap
+bind CM-6 unmap
+bind CM-7 unmap
+bind CM-8 unmap
+bind CM-9 unmap
+bind CM-0 unmap
+bind CM-g unmap
+bind M-Right unmap
+bind M-Left unmap
+bind CMS-f unmap
+bind CM-f unmap
+bind CM-m unmap
+bind CM-equal unmap
+bind CMS-equal unmap
+bind M-question unmap
+bind M-period unmap
+bind CM-w unmap
+bind CMS-r unmap
+bind CMS-q unmap
+bind M-h unmap
+bind M-j unmap
+bind M-k unmap
+bind M-l unmap
+bind M-H unmap
+bind M-J unmap
+bind M-K unmap
+bind M-L unmap
+bind CM-h unmap
+bind CM-j unmap
+bind CM-k unmap
+bind CM-l unmap
+bind CM-H unmap
+bind CM-J unmap
+bind CM-K unmap
+bind CM-L unmap
+
+# ...then re-define them with Mod4 instead of META:
+bind C4-Return terminal
+bind 4-Escape lock
+bind 4-Return hide
+bind 4-Down lower
+bind 4-Up raise
+bind 4-slash search
+bind C4-n label
+bind 4-Tab cycle
+bind 4S-Tab rcycle
+bind C4-x delete
+bind 4-0 nogroup
+bind C4-g grouptoggle
+bind 4-Right cyclegroup
+bind 4-Left rcyclegroup
+bind C4S-f freeze
+bind C4-f fullscreen
+bind C4-m maximize
+bind C4-equal vmaximize
+bind C4S-equal hmaximize
+bind 4-question exec
+bind 4-period ssh
+bind C4-w exec_wm
+bind C4S-r restart
+bind C4S-q quit
+bind 4-h moveleft
+bind 4-j movedown
+bind 4-k moveup
+bind 4-l moveright
+bind 4S-h bigmoveleft
+bind 4S-j bigmovedown
+bind 4S-k bigmoveup
+bind 4S-l bigmoveright
+bind C4-h resizeleft
+bind C4-j resizedown
+bind C4-k resizeup
+bind C4-l resizeright
+bind C4S-h bigresizeleft
+bind C4S-j bigresizedown
+bind C4S-k bigresizeup
+bind C4S-l bigresizeright
+
+# ...except for the group bindings, which we will treat differently:
+bind C4-1 grouponly1
+bind C4-2 grouponly2
+bind C4-3 grouponly3
+bind C4-4 grouponly4
+bind C4-5 grouponly5
+bind C4-6 grouponly6
+bind C4-7 grouponly7
+bind C4-8 grouponly8
+bind C4-9 grouponly9
+
+bind 4-1 group1
+bind 4-2 group2
+bind 4-3 group3
+bind 4-4 group4
+bind 4-5 group5
+bind 4-6 group6
+bind 4-7 group7
+bind 4-8 group8
+bind 4-9 group9
+
+# To avoid conflicting with undo in Emacs:
+bind C-slash unmap
+bind C4-slash menusearch
+
+# Kill SSH connections or MPlayer
+bind 4-grave "pkill -x ssh"
+bind 4-backslash "ssh-add -D"
+bind 4S-backslash "ssh-add"
+bind 4S-grave "pkill -x mplayer"

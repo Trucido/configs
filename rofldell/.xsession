@@ -1,8 +1,19 @@
 #!/bin/sh
-# .xsession 2.4   Time-stamp: <2014-03-24 01:04:03 PDT xoddf2>
+# .xsession 2.5   Time-stamp: <2014-04-07 17:37:50 PDT xoddf2>
+
+# ssh-agent (Under FreeBSD, this requires ports/security/openssh-askpass.)
+id1=$HOME/.ssh/identity
+id2=$HOME/.ssh/id_dsa
+id3=$HOME/.ssh/id_rsa
+id4=$HOME/.ssh/id_ecdsa
+if [ -x "$(which ssh-agent)" ] && [ -f $id1 -o -f $id2 -o -f $id3 -o -f $id4 ];
+then
+	eval $(ssh-agent -s)
+	ssh-add < /dev/null
+fi
 
 # ~/.Xresources
-xrdb -merge ~/.Xresources &
+xrdb -merge ~/.Xresources
 
 # XScreenSaver
 xscreensaver -no-splash &
@@ -10,11 +21,21 @@ xscreensaver -no-splash &
 # CAPS LOCK as Compose
 setxkbmap -option "compose:caps" &
 
-# xearth or set wallpaper
-xearth || xsetroot -mod 2 2 -bg Grey5 -fg Grey10 &
+# Set background colour
+xsetroot -solid Grey20 &
 
-# Open an emacsclient frame:
-emacsclient --alternate-editor="" -c &
+# xclock and xload
+xclock -geometry -0+0 &
+xload -geometry 184x48-0+40 &
+
+# tmux
+xterm -sl 0 -geometry 80x50+0+0 -e tmux attach-session &
 
 # Start a WM, or, failing that, an xterm
-fvwm || twm || xterm
+cwm || fvwm || twm || xterm
+
+# Kill ssh-agent at the end of the session
+if [ "$SSH_AGENT_PID" ]; then
+	ssh-add -D < /dev/null
+	eval $(ssh-agent -s -k)
+fi

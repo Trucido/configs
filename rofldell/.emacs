@@ -2,13 +2,13 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 1.13.2
-;; Time-stamp: <2014-03-25 22:30:22 PDT xoddf2>
+;; Version: 1.14
+;; Time-stamp: <2014-04-07 19:59:47 PDT xoddf2>
 
 ;;; Commentary:
 
-;; This Emacs init file has been tested with GNU Emacs 24.3, snapshot, and 23.4
-;; under GNU/Linux and FreeBSD.
+;; This Emacs init file has been tested with GNU Emacs 24.3 and 23.4 under
+;; GNU/Linux and FreeBSD.
 
 ;;; Code:
 
@@ -59,25 +59,7 @@
 
 ;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun wlshot (&optional name-shot-p)
-  "Takes a screen shot and then uploads it to wlair.us.to.
-If `universal-argument' is called, it asks for a filename.
-Requires TRAMP, scp, and ImageMagick."
-  (interactive "P")
-  (if (eq window-system 'x)
-      (when (yes-or-no-p "Take a screen shot? ")
-        (let (filename url)
-          (if (equal name-shot-p nil)
-              (setq filename (concat (format-time-string "%s") ".png"))
-            (setq filename (read-from-minibuffer "Filename: ")))
-          (shell-command (concat "import -window root ~/img/shots/" filename))
-          (copy-file
-           (concat "~/img/shots/" filename)
-           "/scp:turtil.net:/srv/vhosts/wlair.us.to/public/remote/img/shots/")
-          (setq url (concat "http://wlair.us.to/remote/img/shots/" filename))
-          (kill-new url)
-          (message url)))
-    (message "This is not X.  You cannot take a screen shot here.")))
+; There is nothing here at the moment.
 
 ;; Editing Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -136,12 +118,6 @@ Requires TRAMP, scp, and ImageMagick."
     (progn
       (require 'bbcode-mode)))
 
-;; FVWM
-(if (string-equal system-name "rofldell.local")
-    (progn
-      (require 'fvwm-mode)
-      (add-to-list 'auto-mode-alist '(".fvwm2rc" . fvwm-mode))))
-
 ;; Other Modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; dired
@@ -179,15 +155,9 @@ Requires TRAMP, scp, and ImageMagick."
 
 ;; Emacs-w3m
 (if (string-equal system-name "rofldell.local")
-    (progn
-      (require 'w3m)
-      (setq w3m-use-cookies t)
-      (setq browse-url-browser-function 'w3m-browse-url)))
-
-;; Twittering Mode
-(if (string-equal system-name "rofldell.local")
-    (progn
-      (setq twittering-use-master-password t)))
+    (require 'w3m))
+(setq w3m-use-cookies t)
+(setq browse-url-browser-function 'w3m-browse-url)
 
 ;; Keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
