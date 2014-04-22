@@ -1,0 +1,20 @@
+# .conkyrc 1.0   Time-stamp: <2014-04-22 15:34:25 PDT xoddf2>
+
+background yes
+
+# I wouldn't have used xft here, but UTF-8 requires it:
+use_xft yes
+override_utf8_locale yes
+xftfont Fixed:pixelsize=10
+
+alignment top_left
+gap_x 0
+gap_y 0
+
+update_interval 1
+
+# Mainly for weather
+temperature_unit fahrenheit
+
+TEXT
+${nodename}: CPU: $cpu% ${cpugraph 6,50} | Load: ${loadavg 1} ${loadavg 2} ${loadavg 3} | Uptime: ${uptime} | RAM: $mem ${membar 6,50}${if_up nfe0} | Net: ${addr nfe0} (Up: ${upspeed nfe0}kb/s, Down: ${downspeed nfe0}kb/s) (Total: ${totaldown nfe0} down, ${totalup nfe0} up) | ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD temperature}°F ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}}clear$endif$endif$endif
