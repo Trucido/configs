@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 2.5   Time-stamp: <2014-04-07 17:37:50 PDT xoddf2>
+# .xsession 2.5.1   Time-stamp: <2014-04-21 20:56:22 PDT xoddf2>
 
 # ssh-agent (Under FreeBSD, this requires ports/security/openssh-askpass.)
 id1=$HOME/.ssh/identity
@@ -23,10 +23,6 @@ setxkbmap -option "compose:caps" &
 
 # Set background colour
 xsetroot -solid Grey20 &
-
-# xclock and xload
-xclock -geometry -0+0 &
-xload -geometry 184x48-0+40 &
 
 # tmux
 xterm -sl 0 -geometry 80x50+0+0 -e tmux attach-session &

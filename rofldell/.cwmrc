@@ -1,8 +1,14 @@
-# .cwmrc 1.1  Time-stamp: <2014-04-11 15:43:50 PDT xoddf2>
+# .cwmrc 1.2  Time-stamp: <2014-04-21 20:41:21 PDT xoddf2>
 
 # Appearance ###################################################################
 
 fontname "Fixed:pixelsize=15:bold"
+
+color activeborder Goldenrod1
+color inactiveborder Grey40
+color groupborder Green
+color ungroupborder Blue
+color urgencyborder Red
 
 # Misc #########################################################################
 

@@ -1,4 +1,4 @@
-! .Xresources 2.2   Time-stamp: <2014-04-07 18:57:25 PDT xoddf2>
+! .Xresources 2.2.1   Time-stamp: <2014-04-21 20:56:33 PDT xoddf2>
 
 Xft.dpi: 96
 
@@ -27,16 +27,3 @@ emacs*menuBar: off
 emacs*verticalScrollBars: off
 emacs*toolBar: off
 emacs*internalBorder: 0
-
-! xclock -----------------------------------------------------------------------
-XClock.Clock.update: 1
-XClock.Clock.analog: false
-XClock.Clock.background: black
-XClock.Clock.foreground: white
-XClock.Clock.render: false
-
-! xload ------------------------------------------------------------------------
-XLoad*font: -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*
-XLoad*background: black
-XLoad*foreground: white
-XLoad*highlight: red
