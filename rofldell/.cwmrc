@@ -1,4 +1,4 @@
-# .cwmrc 1.2.1  Time-stamp: <2014-04-22 15:11:52 PDT xoddf2>
+# .cwmrc 1.2.2  Time-stamp: <2014-04-22 21:05:28 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -161,6 +161,10 @@ bind 4-9 group9
 # To avoid conflicting with undo in Emacs:
 bind C-slash unmap
 bind C4-slash menusearch
+
+# Change volume (FreeBSD-specific)
+bind 4-bracketleft "mixer vol -1"
+bind 4-bracketright "mixer vol +1"
 
 # Kill SSH connections or MPlayer
 bind 4-grave "pkill -x ssh"
