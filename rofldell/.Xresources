@@ -1,22 +1,6 @@
-! .Xresources 2.3   Time-stamp: <2014-04-24 01:52:45 PDT xoddf2>
+! .Xresources 2.3.1   Time-stamp: <2014-04-24 16:18:19 PDT xoddf2>
 
 Xft.dpi: 96
-
-! xterm ------------------------------------------------------------------------
-XTerm*locale: UTF-8
-XTerm*font: -misc-fixed-medium-r-normal--13-*-*-*-*-*-iso10646-1
-XTerm*utf8Fonts.font: -misc-fixed-medium-r-normal--13-*-*-*-*-*-iso10646-1
-XTerm*wideFont: -*-*-*-*-*-ja-*-*-*-*-*-*-*-*
-XTerm*background: black
-XTerm*foreground: white
-XTerm*termName: xterm-256color
-XTerm*altIsNotMeta: true
-XTerm*altSendsEscape: true
-XTerm*scrollBar: false
-XTerm*bellIsUrgent: true
-XTerm*backarrowKey: false
-XTerm*ttyModes: erase ^?
-XTerm*Translations: #override <Key>BackSpace: string (0x7f) \n<Key>Delete: string (0x1b) string("[3~")
 
 ! rxvt-unicode -----------------------------------------------------------------
 Rxvt.termName: xterm-256color
