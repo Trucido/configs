@@ -1,4 +1,4 @@
-! .Xresources 2.2.1   Time-stamp: <2014-04-22 15:27:21 PDT xoddf2>
+! .Xresources 2.3   Time-stamp: <2014-04-24 01:52:45 PDT xoddf2>
 
 Xft.dpi: 96
 
@@ -18,15 +18,38 @@ XTerm*backarrowKey: false
 XTerm*ttyModes: erase ^?
 XTerm*Translations: #override <Key>BackSpace: string (0x7f) \n<Key>Delete: string (0x1b) string("[3~")
 
-! Emacs ------------------------------------------------------------------------
-emacs*font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
-emacs*geometry: 80x55
-emacs*background: black
-emacs*foreground: grey
-emacs*menuBar: off
-emacs*verticalScrollBars: off
-emacs*toolBar: off
-emacs*internalBorder: 0
+! rxvt-unicode -----------------------------------------------------------------
+Rxvt.termName: xterm-256color
+
+URxvt.urgentOnBell: true
+
+Rxvt.scrollBar: false
+URxvt.pointerBlank: true
+
+Rxvt.background: black
+Rxvt.foreground: white
+
+Rxvt.color0: #000000
+Rxvt.color1: #CD0000
+Rxvt.color2: #00CD00
+Rxvt.color3: #CDCD00
+Rxvt.color4: #0000EE
+Rxvt.color5: #CD00CD
+Rxvt.color6: #00CDCD
+Rxvt.color7: #E5E5E5
+Rxvt.color8: #7F7F7F
+Rxvt.color9: #FF0000
+Rxvt.color10: #00FF00
+Rxvt.color11: #FFFF00
+Rxvt.color12: #5C5CFF
+Rxvt.color13: #FF00FF
+Rxvt.color14: #00FFFF
+Rxvt.color15: #FFFFFF
+
+Rxvt.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
+
+URxvt.perl-ext-common: keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 ! xclock -----------------------------------------------------------------------
 XClock.Clock.background: black

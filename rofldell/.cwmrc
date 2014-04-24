@@ -1,4 +1,4 @@
-# .cwmrc 1.2.2  Time-stamp: <2014-04-22 21:05:28 PDT xoddf2>
+# .cwmrc 1.3  Time-stamp: <2014-04-24 02:35:26 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -24,15 +24,15 @@ ignore xbiff
 
 # Applications #################################################################
 
-command term xterm
+command term urxvtc
 command lock "xscreensaver-command -lock"
-command tmux "xterm -sl 0 -geometry 80x50 -e tmux attach-session -d"
+command tmux "urxvtc -sl 0 -geometry 80x50 -e tmux attach-session -d"
 command www firefox
 command gimp gimp
 
 # Groups #######################################################################
 
-autogroup 1 XTerm
+autogroup 1 URxvt
 autogroup 2 Firefox
 autogroup 3 Display
 autogroup 3 MPlayer

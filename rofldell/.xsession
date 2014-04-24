@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 2.5.2   Time-stamp: <2014-04-22 15:35:57 PDT xoddf2>
+# .xsession 2.6   Time-stamp: <2014-04-24 02:34:25 PDT xoddf2>
 
 # ssh-agent (Under FreeBSD, this requires ports/security/openssh-askpass.)
 id1=$HOME/.ssh/identity
@@ -24,12 +24,15 @@ setxkbmap -option "compose:caps" &
 # Set background colour
 xsetroot -solid Grey20 &
 
+# rxvt-unicode daemon
+urxvtd -q -o -f
+
 # xclock and Conky
 xclock -geometry -0+0 &
 conky &
 
 # tmux
-xterm -sl 0 -geometry 80x50+0+11 -e tmux attach-session &
+urxvtc -sl 0 -geometry 80x50+0+11 -e tmux attach-session &
 
 # Start a WM, or, failing that, an xterm
 cwm || fvwm || twm || xterm
