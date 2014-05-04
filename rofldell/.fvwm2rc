@@ -1,12 +1,12 @@
-# .fvwm2rc 3.0   Time-stamp: <2014-05-03 19:55:06 PDT xoddf2>
+# .fvwm2rc 3.0   Time-stamp: <2014-05-03 20:08:35 PDT xoddf2>
 
-# This .fvwm2rc is minimalist, with almost no modules and no eye candy.  Window
-# decorations consist of just a 1-pixel border.  The mouse can be used only to
-# move, resize, focus, and raise windows.  Those actions and everything else can
-# be done with the keyboard.  Keybindings were inspired by mcwm
-# <http://hack.org/mc/projects/mcwm/>.
+# This .fvwm2rc has thin, button-less window decorations, dozens of keybindings,
+# sloppy focus, a pager, an icon manager, and other features.  Keybindings were
+# inspired by mcwm <http://hack.org/mc/projects/mcwm/> and cwm.  There is an
+# 11-pixel-tall gap at the top of the screen to make room for a status bar.  It
+# has been tested under FreeBSD 10.0.
 #
-# UPDATE: The above no longer applies.
+# The MenuLogins menu is site-specific.  Replace the items in it with your own.
 
 # Virtual Desktops #############################################################
 
@@ -320,5 +320,6 @@ AddToFunc StartFunction
 + I Module FvwmCommandS
 + I Module FvwmButtons
 
+# To make sure Emacs and tmux end up in the correct places:
 AddToFunc InitFunction
 + I All PlaceAgain
