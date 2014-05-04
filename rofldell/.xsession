@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 2.6   Time-stamp: <2014-04-24 02:34:25 PDT xoddf2>
+# .xsession 2.7   Time-stamp: <2014-05-03 19:33:44 PDT xoddf2>
 
 # ssh-agent (Under FreeBSD, this requires ports/security/openssh-askpass.)
 id1=$HOME/.ssh/identity
@@ -31,11 +31,12 @@ urxvtd -q -o -f
 xclock -geometry -0+0 &
 conky &
 
-# tmux
-urxvtc -sl 0 -geometry 80x50+0+11 -e tmux attach-session &
+# Emacs and tmux
+emacsclient --alternate-editor="" -c &
+urxvtc -sl 0 -e tmux attach-session &
 
 # Start a WM, or, failing that, an xterm
-cwm || fvwm || twm || xterm
+fvwm || twm || xterm
 
 # Kill ssh-agent at the end of the session
 if [ "$SSH_AGENT_PID" ]; then

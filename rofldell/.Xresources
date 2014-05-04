@@ -1,4 +1,4 @@
-! .Xresources 2.3.1   Time-stamp: <2014-04-24 16:18:19 PDT xoddf2>
+! .Xresources 2.4   Time-stamp: <2014-05-03 19:31:28 PDT xoddf2>
 
 Xft.dpi: 96
 
@@ -35,12 +35,22 @@ Rxvt.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
 URxvt.perl-ext-common: keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
+! Emacs ------------------------------------------------------------------------
+Emacs.geometry: 80x50
+Emacs.menuBar: off
+Emacs.toolBar: off
+Emacs.verticalScrollBars: off
+Emacs.internalBorder: 0
+Emacs.background: black
+Emacs.foreground: white
+Emacs.font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
+
 ! xclock -----------------------------------------------------------------------
 XClock.Clock.background: black
 XClock.Clock.foreground: green
 XClock.Clock.analog: false
 XClock.Clock.update: 1
 XClock.Clock.face: Fixed-8:foundry=misc:weight=normal:slant=roman
-XClock.Clock.padding: 1
+XClock.Clock.padding: 0
 XClock.Clock.render: true
 XClock.Clock.strftime: %a %b %d %H:%M:%S %Z %Y
