@@ -1,4 +1,4 @@
-# .fvwm2rc 3.0   Time-stamp: <2014-05-03 20:08:35 PDT xoddf2>
+# .fvwm2rc 3.0.1   Time-stamp: <2014-05-03 20:58:25 PDT xoddf2>
 
 # This .fvwm2rc has thin, button-less window decorations, dozens of keybindings,
 # sloppy focus, a pager, an icon manager, and other features.  Keybindings were
@@ -168,14 +168,14 @@ Key Return A 4 Iconify
 # Switch to another page
 Key 1 A 4 GotoPage 0 0
 Key 2 A 4 GotoPage 1 0
-Key 3 A 4 GotoPage 2 0
-Key 4 A 4 GotoPage 3 0
+Key 3 A 4 GotoPage 0 1
+Key 4 A 4 GotoPage 1 1
 
 # Move window to another page
 Key 1 A 4S MoveToPage 0 0
 Key 2 A 4S MoveToPage 1 0
-Key 3 A 4S MoveToPage 2 0
-Key 4 A 4S MoveToPage 3 0
+Key 3 A 4S MoveToPage 0 1
+Key 4 A 4S MoveToPage 1 1
 
 # Close
 Key C A 4S Close
