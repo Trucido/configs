@@ -1,4 +1,4 @@
-# .fvwm2rc 3.1   Time-stamp: <2014-05-06 17:18:42 PDT xoddf2>
+# .fvwm2rc 3.1.1   Time-stamp: <2014-05-06 17:21:52 PDT xoddf2>
 
 # This .fvwm2rc has thin, button-less window decorations, dozens of keybindings,
 # sloppy focus, a pager, an icon manager, and other features.  Keybindings were
@@ -256,7 +256,7 @@ AddToMenu MenuEnvOptions
 + "%mini.keyboard.xpm%&CAPS LOCK as Compose" Exec exec setxkbmap -option "compose:caps"
 + "" Nop
 + "%mini.lock.xpm%Start X&ScreenSaver" Exec exec xscreensaver -no-splash
-+ "%mini.term.xpm%URxvtd" Exec exec urxvtd -q -o -f
++ "%mini.term.xpm%URxv&td" Exec exec urxvtd -q -o -f
 
 DestroyMenu MenuMoveToPage
 AddToMenu MenuMoveToPage "Move to..." Title
