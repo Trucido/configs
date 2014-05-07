@@ -1,4 +1,4 @@
-# .fvwm2rc 3.2   Time-stamp: <2014-05-06 20:10:10 PDT xoddf2>
+# .fvwm2rc 3.2.1   Time-stamp: <2014-05-06 20:41:14 PDT xoddf2>
 
 # This .fvwm2rc has thin, button-less window decorations, dozens of keybindings,
 # sloppy focus, a pager, an icon manager, and other features.  Keybindings were
@@ -75,7 +75,7 @@ Style FvwmIdent !Title
 
 # Window styles
 Style URxvt StartsOnPage 0 0 0, !Title, Icon term.xpm, MiniIcon mini.term.xpm
-Style Emacs StartsOnPage 0 1 0, !Title, IconOverride, EWMHMiniIconOverride, Icon gnu-animal.xpm, MiniIcon mini.gnu.xpm
+Style Emacs StartsOnPage 0 1 0, MinOverlapPlacement, !Title, IconOverride, EWMHMiniIconOverride, Icon gnu-animal.xpm, MiniIcon mini.gnu.xpm
 Style Firefox StartsOnPage 0 2 0
 Style feh StartsOnPage 1 0 0
 Style mpv StartsOnPage 1 1 0
