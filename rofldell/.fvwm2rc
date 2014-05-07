@@ -1,4 +1,4 @@
-# .fvwm2rc 3.2.1   Time-stamp: <2014-05-06 20:41:14 PDT xoddf2>
+# .fvwm2rc 3.2.2   Time-stamp: <2014-05-06 22:13:45 PDT xoddf2>
 
 # This .fvwm2rc has thin, button-less window decorations, dozens of keybindings,
 # sloppy focus, a pager, an icon manager, and other features.  Keybindings were
@@ -24,7 +24,7 @@ EdgeScroll 0 0
 # Other ########################################################################
 
 # Make room for Conky and xclock
-EwmhBaseStruts 0 0 10 0
+EwmhBaseStruts 0 0 12 0
 
 # Style ########################################################################
 
@@ -68,7 +68,7 @@ MenuStyle * MenuColorset 2
 MenuStyle WindowList MenuColorset 2
 
 # XClock and modules
-Style XClock !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize, NeverFocus, !Iconifiable, !Maximizable, !Closable
+Style XClock !Title, HandleWidth 1, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize, NeverFocus, !Iconifiable, !Maximizable, !Closable
 Style FvwmPager !Title, HandleWidth 1, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize, NeverFocus, !Iconifiable, !Maximizable, !Closable
 Style FvwmIconMan !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize, NeverFocus, !Iconifiable, !Maximizable, !Closable
 Style FvwmIdent !Title
@@ -311,7 +311,7 @@ AddToMenu MenuLogins "Remote Logins" Title
 
 DestroyModuleConfig FvwmPager: *
 *FvwmPager: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
-*FvwmPager: Geometry 125x175-0+10
+*FvwmPager: Geometry 125x175-0+12
 *FvwmPager: Rows 3
 *FvwmPager: Columns 1
 *FvwmPager: Back Grey10

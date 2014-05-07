@@ -1,4 +1,4 @@
-# .conkyrc 1.0   Time-stamp: <2014-04-22 15:34:25 PDT xoddf2>
+# .conkyrc 1.0.1   Time-stamp: <2014-05-06 22:13:29 PDT xoddf2>
 
 background yes
 
@@ -8,8 +8,8 @@ override_utf8_locale yes
 xftfont Fixed:pixelsize=10
 
 alignment top_left
-gap_x 0
-gap_y 0
+gap_x 1
+gap_y 1
 
 update_interval 1
 
