@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 1.14
-;; Time-stamp: <2014-04-07 19:59:47 PDT xoddf2>
+;; Version: 1.14.1
+;; Time-stamp: <2014-05-06 17:41:22 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -162,7 +162,6 @@
 ;; Keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; General
-(global-set-key (kbd "C-x C-a") 'calendar)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-c") 'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x 4 v") 'view-file-other-window)
