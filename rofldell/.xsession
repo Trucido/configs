@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 2.7.1   Time-stamp: <2014-05-04 01:17:06 PDT xoddf2>
+# .xsession 2.7.2   Time-stamp: <2014-05-06 20:09:49 PDT xoddf2>
 
 # ssh-agent (Under FreeBSD, this requires ports/security/openssh-askpass.)
 id1=$HOME/.ssh/identity
@@ -33,7 +33,7 @@ conky &
 
 # Emacs and tmux
 emacsclient --alternate-editor="" -c &
-urxvtc -name tmux -sl 0 -e tmux attach-session &
+urxvtc -name tmux -sl 0 -geometry 80x50 -e tmux attach-session &
 
 # Start a WM, or, failing that, an xterm
 fvwm || twm || xterm
