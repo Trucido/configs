@@ -1,4 +1,4 @@
-# .fvwm2rc 3.0.1   Time-stamp: <2014-05-03 20:58:25 PDT xoddf2>
+# .fvwm2rc 3.1   Time-stamp: <2014-05-06 17:18:42 PDT xoddf2>
 
 # This .fvwm2rc has thin, button-less window decorations, dozens of keybindings,
 # sloppy focus, a pager, an icon manager, and other features.  Keybindings were
@@ -17,7 +17,7 @@ DesktopSize 2x2
 EdgeScroll 0 0
 
 # Make room for Conky and xclock
-EwmhBaseStruts 0 0 11 0
+EwmhBaseStruts 0 0 10 0
 
 # Style ########################################################################
 
@@ -225,6 +225,8 @@ AddToMenu MenuFvwmRoot@side.fvwm2.xpm@^Black^ "Root Menu" Title
 + "" Nop
 + "%mini.fvwm.xpm%Fv&wmConsole" Module FvwmConsole -terminal urxvtc
 + "" Nop
++ "%mini.hammer.xpm%E&nv/Options" Popup MenuEnvOptions
++ "" Nop
 + "%mini.lock.xpm%&Lock" Exec exec xscreensaver-command -lock
 + "%mini.stop.xpm%Leave" Popup MenuLeave
 
@@ -248,6 +250,14 @@ AddToMenu MenuFvwmWindowOps
 + "%mini.delete.xpm%&Delete" Delete
 + "%mini.destroy.xpm%Destroy" Destroy
 
+DestroyMenu MenuEnvOptions
+AddToMenu MenuEnvOptions
++ "%mini.x.xpm%Reset X &Resources" Exec exec xrdb -merge ~/.Xresources
++ "%mini.keyboard.xpm%&CAPS LOCK as Compose" Exec exec setxkbmap -option "compose:caps"
++ "" Nop
++ "%mini.lock.xpm%Start X&ScreenSaver" Exec exec xscreensaver -no-splash
++ "%mini.term.xpm%URxvtd" Exec exec urxvtd -q -o -f
+
 DestroyMenu MenuMoveToPage
 AddToMenu MenuMoveToPage "Move to..." Title
 + "&1. Northwest" MoveToPage 0 0
@@ -263,13 +273,15 @@ AddToMenu MenuLeave "Leave" Title
 + "%mini.xterm.xpm%Restart &xterm" Restart xterm
 + "" Nop
 + "%mini.exclam.xpm%Exit" Quit
-w
 
 DestroyMenu MenuLogins
 AddToMenu MenuLogins "Remote Logins" Title
-+ "%mini.ball.xpm%&archon.darkfox.id.au" Exec exec urxvtc -name ssh -e ssh archon.darkfox.id.au
++ "%mini.ball.xpm%archon.darkfox.id.a&u" Exec exec urxvtc -name ssh -e ssh archon.darkfox.id.au
 + "%mini.ball.xpm%&is.not.a.haxor.se" Exec exec urxvtc -name ssh -e ssh is.not.a.hax0r.se
 + "%mini.ball.xpm%&sunnyday.alisonc.net" Exec exec urxvtc -name ssh -e ssh sunnyday.alisonc.net
++ "" Nop
++ "%mini.keys.xpm%&Add Key" Exec exec ssh-add
++ "%mini.keys.xpm%&Delete Key" Exec exec ssh-add -D
 
 # Modules ######################################################################
 
