@@ -1,9 +1,9 @@
-# .fvwm2rc 3.2.2   Time-stamp: <2014-05-06 22:13:45 PDT xoddf2>
+# .fvwm2rc 3.3   Time-stamp: <2014-06-06 22:21:35 PDT xoddf2>
 
 # This .fvwm2rc has thin, button-less window decorations, dozens of keybindings,
 # sloppy focus, a pager, an icon manager, and other features.  Keybindings were
-# inspired by mcwm <http://hack.org/mc/projects/mcwm/> and cwm.  There is an
-# 11-pixel-tall gap at the top of the screen to make room for a status bar.  It
+# inspired by mcwm <http://hack.org/mc/projects/mcwm/> and cwm.  There is a
+# 12-pixel-tall gap at the top of the screen to make room for a status bar.  It
 # has been tested under FreeBSD 10.0.
 #
 # The MenuLogins menu is site-specific.  Replace the items in it with your own.
@@ -11,7 +11,7 @@
 # Virtual Desktops #############################################################
 
 # 3 desks, each with 3 pages
-DesktopSize 3x1
+DesktopSize 2x2
 
 # Their names
 DesktopName 0 Main
@@ -73,16 +73,22 @@ Style FvwmPager !Title, HandleWidth 1, Sticky, WindowListSkip, CirculateSkipIcon
 Style FvwmIconMan !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize, NeverFocus, !Iconifiable, !Maximizable, !Closable
 Style FvwmIdent !Title
 
+# Default icon for windows without their own:
+DefaultIcon unknown1.xpm
+
 # Window styles
 Style URxvt StartsOnPage 0 0 0, !Title, Icon term.xpm, MiniIcon mini.term.xpm
 Style Emacs StartsOnPage 0 1 0, MinOverlapPlacement, !Title, IconOverride, EWMHMiniIconOverride, Icon gnu-animal.xpm, MiniIcon mini.gnu.xpm
-Style Firefox StartsOnPage 0 2 0
-Style feh StartsOnPage 1 0 0
+Style Firefox StartsOnPage 0 0 1, MiniIcon mini.nscape.xpm
+Style feh StartsOnPage 1 0 0, MiniIcon mini.picture.xpm
 Style mpv StartsOnPage 1 1 0
-Style gimp StartsOnPage 1 2 0
-Style QEMU StartsOnPage 2 0 0
-Style UAE StartsOnPage 2 1 0
-Style Xephyr StartsOnPage 2 2 0
+Style gimp StartsOnPage 1 0 1, MiniIcon mini.gimp.xpm
+Style Xpdf StartsOnPage 1 1 1, MiniIcon mini.pdf.xpm
+Style QEMU StartsOnPage 2 0 0, MiniIcon mini.display.xpm
+Style VirtualBox StartsOnPage 2 0 0, MiniIcon mini.display.xpm
+Style Mednafen StartsOnPage 2 1 0, MiniIcon mini.happy.xpm
+Style UAE StartsOnPage 2 0 1
+Style Xephyr StartsOnPage 2 1 1, MiniIcon mini.x.xpm
 
 # No iconified windows
 Style * NoIcon
@@ -188,12 +194,14 @@ Key 3 A 4S MoveToDesk 0 2
 # Switch to another page
 Key a A 4 GotoPage 0 0
 Key s A 4 GotoPage 1 0
-Key d A 4 GotoPage 2 0
+Key d A 4 GotoPage 0 1
+Key f A 4 GotoPage 1 1
 
 # Move window to another page
 Key A A 4S MoveToPage 0 0
 Key S A 4S MoveToPage 1 0
-Key D A 4S MoveToPage 2 0
+Key D A 4S MoveToPage 0 1
+Key F A 4S MoveToPage 1 1
 
 # Close
 Key C A 4S Close
@@ -235,6 +243,9 @@ AddToMenu MenuFvwmRoot@side.fvwm2.xpm@^Black^ "Root Menu" Title
 + "%mini.nscape.xpm%&Firefox" Exec exec firefox
 + "" Nop
 + "%mini.gimp.xpm%The &GIMP" Exec exec gimp
++ "%mini.pdf.xpm%X&pdf" Exec exec xpdf
++ "%mini.display.xpm%V&irtualBox" Exec exec VirtualBox
++ "%mini.display.xpm%&UAE" Exec exec uae
 + "" Nop
 + "%mini.windows.xpm%Window &Ops" Popup MenuFvwmWindowOps
 + "" Nop
@@ -277,9 +288,10 @@ AddToMenu MenuMoveToDesk
 
 DestroyMenu MenuMoveToPage
 AddToMenu MenuMoveToPage
-+ "&a. Left" MoveToPage 0 0
-+ "&s. Central" MoveToPage 1 0
-+ "&d. Right" MoveToPage 2 0
++ "&a. Northwest" MoveToPage 0 0
++ "&s. Northeast" MoveToPage 1 0
++ "&d. Southwest" MoveToPage 0 1
++ "&f. Southeast" MoveToPage 1 1
 
 DestroyMenu MenuEnvOptions
 AddToMenu MenuEnvOptions
@@ -311,7 +323,7 @@ AddToMenu MenuLogins "Remote Logins" Title
 
 DestroyModuleConfig FvwmPager: *
 *FvwmPager: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
-*FvwmPager: Geometry 125x175-0+12
+*FvwmPager: Geometry 125x350-0+12
 *FvwmPager: Rows 3
 *FvwmPager: Columns 1
 *FvwmPager: Back Grey10
