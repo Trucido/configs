@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 3.0   Time-stamp: <2014-06-13 15:46:03 PDT xoddf2>
+# .xsession 3.0.1   Time-stamp: <2014-06-14 13:58:20 PDT xoddf2>
 
 # ssh-agent (Under FreeBSD, this requires ports/security/openssh-askpass.)
 id1=$HOME/.ssh/identity
@@ -27,8 +27,7 @@ xsetroot -solid black -cursor_name left_ptr &
 # rxvt-unicode daemon
 urxvtd -q -o -f
 
-# Emacs and tmux
-emacsclient --alternate-editor="" -c &
+# Attach tmux
 urxvtc -name tmux -sl 0 -e tmux attach-session &
 
 # Start a WM, or, failing that, an xterm
