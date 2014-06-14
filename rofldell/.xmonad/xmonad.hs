@@ -1,4 +1,4 @@
--- xmonad.hs 1.0   Time-stamp: <2014-06-13 15:49:33 PDT xoddf2>
+-- xmonad.hs 1.0.1   Time-stamp: <2014-06-13 18:53:39 PDT xoddf2>
 
 -- Features:
 -- - Spiral and Grid layouts
@@ -6,7 +6,7 @@
 -- - Hides border if there is only 1 window visible
 -- - Keybindings to cycle through and toggle between workspaces
 -- - ratpoison-style banish keybinding
--- - Keybinding to run or raise Firefox
+-- - Keybinding to run or raise tmux, Emacs, Firefox
 -- - SSH menu
 -- - Shell menu
 -- - Window menu
@@ -41,6 +41,7 @@ import XMonad.Layout.Grid
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
+import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Spiral
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -65,7 +66,7 @@ myManageHook = composeAll . concat $
         myClassMainShifts  = ["URxvt","XTerm","Emacs"]
         myClassWWWShifts   = ["Firefox"]
         myClassMediaShifts = ["feh","mpv"]
-        myClassGIMPShifts  = ["gimp"]
+        myClassGIMPShifts  = ["Gimp"]
         myClassVMShifts    = ["QEMU","VirtualBox"]
         myClassEmulShifts  = ["Mednafen","UAE","Xnest","Xephyr"]
         myClassOtherShifts = ["XConsole","XClock","XLoad","XBiff","Xmessage"]
