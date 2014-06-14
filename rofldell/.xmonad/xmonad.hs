@@ -1,4 +1,4 @@
--- xmonad.hs 1.1   Time-stamp: <2014-06-14 00:30:49 PDT xoddf2>
+-- xmonad.hs 1.2   Time-stamp: <2014-06-14 16:25:30 PDT xoddf2>
 
 -- Features:
 -- - Spiral and Grid layouts
@@ -6,7 +6,7 @@
 -- - Hides border if there is only 1 window visible
 -- - Keybindings to cycle through and toggle between workspaces
 -- - ratpoison-style banish keybinding
--- - Keybinding to run or raise tmux, Emacs, Firefox
+-- - Keybinding to run or raise tmux, Emacs, Conkeror
 -- - SSH menu
 -- - Shell menu
 -- - Window menu
@@ -17,6 +17,10 @@
 --
 -- xscreensaver -no-splash &
 -- urxvtd -q -o -f &
+--
+-- TODO:
+-- - Obey resize hints
+-- - Different default layout per workspace
 
 -- Imports
 import XMonad
@@ -31,7 +35,6 @@ import System.IO
 
 -- xmonad-contrib
 import XMonad.Actions.CycleWS
-import XMonad.Actions.FloatKeys
 import XMonad.Actions.Warp
 import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
@@ -125,6 +128,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_Tab),          toggleWS)
     , ((modMask,               xK_bracketleft),  prevWS)
     , ((modMask,               xK_bracketright), nextWS)
+
+    -- Volume (FreeBSD-specific)
+    , ((modMask,               xK_comma),        spawn "mixer vol -1")
+    , ((modMask,               xK_period),       spawn "mixer vol +1")
     ]
     ++
 
