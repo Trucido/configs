@@ -1,4 +1,4 @@
--- xmonad.hs 1.0.1   Time-stamp: <2014-06-13 18:53:39 PDT xoddf2>
+-- xmonad.hs 1.1   Time-stamp: <2014-06-14 00:30:49 PDT xoddf2>
 
 -- Features:
 -- - Spiral and Grid layouts
@@ -23,7 +23,7 @@ import XMonad
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.Run
 import Control.Monad
 import Data.Monoid
 import System.Exit
@@ -64,7 +64,7 @@ myManageHook = composeAll . concat $
     where
         viewShift = doF . liftM2 (.) W.greedyView W.shift
         myClassMainShifts  = ["URxvt","XTerm","Emacs"]
-        myClassWWWShifts   = ["Firefox"]
+        myClassWWWShifts   = ["Conkeror","Firefox"]
         myClassMediaShifts = ["feh","mpv"]
         myClassGIMPShifts  = ["Gimp"]
         myClassVMShifts    = ["QEMU","VirtualBox"]
@@ -109,9 +109,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_Escape),       spawn "xscreensaver-command -lock")
 
     -- Applications
-    , ((modMask,               xK_a),            runOrRaise "urxvtc -name tmux -sl 0 -e tmux attach-session" (resource =? "tmux"))
-    , ((modMask,               xK_s),            runOrRaise "emacsclient --alternate-editor='' -c" (className =? "Emacs"))
-    , ((modMask,               xK_d),            runOrRaise "firefox" (className =? "Firefox"))
+    , ((modMask,               xK_a),            raiseMaybe (spawn "urxvtc -name tmux -sl 0 -e tmux attach-session") (resource =? "tmux"))
+    , ((modMask,               xK_s),            raiseMaybe (spawn "emacsclient --alternate-editor='' -c") (className =? "Emacs"))
+    , ((modMask,               xK_d),            raiseMaybe (spawn "conkeror -no-remote -P default") (title =? "Conkeror - default"))
+    , ((modMask .|. shiftMask, xK_d),            raiseMaybe (spawn "conkeror -no-remote -P private") (title =? "Conkeror - private"))
 
     -- Banish Pointer
     , ((modMask,               xK_x),            banishScreen LowerRight)
