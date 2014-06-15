@@ -1,4 +1,4 @@
--- xmonad.hs 1.3   Time-stamp: <2014-06-14 21:53:16 PDT xoddf2>
+-- xmonad.hs 1.3.1   Time-stamp: <2014-06-14 23:50:51 PDT xoddf2>
 
 -- Features:
 -- - Spiral, Grid, Circle, and Roledexlayouts
@@ -195,4 +195,6 @@ main = do
         , terminal           = "urxvtc" -- Requires "urxvtd -q -o -f &" in ~/.xinitrc or ~/.xsession
         , focusFollowsMouse  = False
         , clickJustFocuses   = False
+        , normalBorderColor  = "gray"
+        , focusedBorderColor = "red"
         }
