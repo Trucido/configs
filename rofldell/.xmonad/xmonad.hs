@@ -1,7 +1,7 @@
--- xmonad.hs 1.2   Time-stamp: <2014-06-14 16:25:30 PDT xoddf2>
+-- xmonad.hs 1.3   Time-stamp: <2014-06-14 21:53:16 PDT xoddf2>
 
 -- Features:
--- - Spiral and Grid layouts
+-- - Spiral, Grid, Circle, and Roledexlayouts
 -- - Zoom keybinding
 -- - Hides border if there is only 1 window visible
 -- - Keybindings to cycle through and toggle between workspaces
@@ -19,7 +19,6 @@
 -- urxvtd -q -o -f &
 --
 -- TODO:
--- - Obey resize hints
 -- - Different default layout per workspace
 
 -- Imports
@@ -40,11 +39,14 @@ import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
+import XMonad.Layout.Circle
 import XMonad.Layout.Grid
+import XMonad.Layout.LayoutHints
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Roledex
 import XMonad.Layout.Spiral
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -158,14 +160,17 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 myStartupHook = do
     banishScreen LowerRight
 
--- Layouts (Tall, Mirror Tall, Full, Grid, Spiral)
+-- Layouts (Tall, Mirror Tall, Full, Grid, Spiral, Circle, Roledex)
 myLayoutHook = smartBorders
              $ mkToggle (NOBORDERS ?? FULL ?? EOT)
-             $ tiled
-           ||| Mirror tiled
+             $ layoutHints tiled
+           ||| layoutHints (Mirror tiled)
            ||| Full
-           ||| Grid
-           ||| spiral (6/7)
+           ||| layoutHints Grid
+           ||| layoutHints (spiral (6/7))
+           ||| layoutHints Circle
+           ||| layoutHints Roledex
+
     where
         tiled   = Tall nmaster delta ratio
         nmaster = 1
