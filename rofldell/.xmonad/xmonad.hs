@@ -1,7 +1,7 @@
--- xmonad.hs 1.3.1   Time-stamp: <2014-06-14 23:50:51 PDT xoddf2>
+-- xmonad.hs 1.3.1.1   Time-stamp: <2014-06-14 23:57:26 PDT xoddf2>
 
 -- Features:
--- - Spiral, Grid, Circle, and Roledexlayouts
+-- - Spiral, Grid, Circle, and Roledex layouts
 -- - Zoom keybinding
 -- - Hides border if there is only 1 window visible
 -- - Keybindings to cycle through and toggle between workspaces
