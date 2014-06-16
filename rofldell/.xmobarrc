@@ -1,7 +1,8 @@
--- -*- Haskell -*-
+-- ~/.xmobarrc 1.0.1   -*- Haskell -*-
+-- Time-stamp: <2014-06-15 23:26:31 PDT xoddf2>
 
 Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
-       , bgColor = "black"
+       , bgColor = "#0C0C38"
        , fgColor = "grey"
        , position = TopW L 100
        , hideOnStart = False
