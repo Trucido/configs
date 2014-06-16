@@ -1,4 +1,4 @@
--- xmonad.hs 1.3.1.1   Time-stamp: <2014-06-14 23:57:26 PDT xoddf2>
+-- xmonad.hs 1.3.2   Time-stamp: <2014-06-15 23:01:40 PDT xoddf2>
 
 -- Features:
 -- - Spiral, Grid, Circle, and Roledex layouts
@@ -41,7 +41,6 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
 import XMonad.Layout.Circle
 import XMonad.Layout.Grid
-import XMonad.Layout.LayoutHints
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
@@ -163,13 +162,13 @@ myStartupHook = do
 -- Layouts (Tall, Mirror Tall, Full, Grid, Spiral, Circle, Roledex)
 myLayoutHook = smartBorders
              $ mkToggle (NOBORDERS ?? FULL ?? EOT)
-             $ layoutHints tiled
-           ||| layoutHints (Mirror tiled)
+             $ tiled
+           ||| (Mirror tiled)
            ||| Full
-           ||| layoutHints Grid
-           ||| layoutHints (spiral (6/7))
-           ||| layoutHints Circle
-           ||| layoutHints Roledex
+           ||| Grid
+           ||| (spiral (6/7))
+           ||| Circle
+           ||| Roledex
 
     where
         tiled   = Tall nmaster delta ratio
