@@ -1,4 +1,4 @@
-! .Xresources 2.4   Time-stamp: <2014-06-13 15:40:18 PDT xoddf2>
+! .Xresources 2.4.1   Time-stamp: <2014-06-15 21:33:00 PDT xoddf2>
 
 Xft.dpi: 96
 
@@ -40,7 +40,7 @@ Emacs.geometry: 80x50
 Emacs.menuBar: off
 Emacs.toolBar: off
 Emacs.verticalScrollBars: off
-Emacs.internalBorder: 0
+Emacs.internalBorder: 2
 Emacs.background: black
 Emacs.foreground: white
 Emacs.font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
