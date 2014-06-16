@@ -1,4 +1,4 @@
--- xmonad.hs 1.3.2   Time-stamp: <2014-06-15 23:01:40 PDT xoddf2>
+-- xmonad.hs 1.3.2.1   Time-stamp: <2014-06-15 23:10:54 PDT xoddf2>
 
 -- Features:
 -- - Spiral, Grid, Circle, and Roledex layouts
@@ -20,6 +20,7 @@
 --
 -- TODO:
 -- - Different default layout per workspace
+-- - Switch to previous workspace if current one becomes empty.
 
 -- Imports
 import XMonad
