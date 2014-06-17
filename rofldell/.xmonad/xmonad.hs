@@ -1,4 +1,4 @@
--- xmonad.hs 1.3.2.1   Time-stamp: <2014-06-15 23:10:54 PDT xoddf2>
+-- xmonad.hs 1.3.3   Time-stamp: <2014-06-17 14:06:15 PDT xoddf2>
 
 -- Features:
 -- - Spiral, Grid, Circle, and Roledex layouts
@@ -21,6 +21,7 @@
 -- TODO:
 -- - Different default layout per workspace
 -- - Switch to previous workspace if current one becomes empty.
+-- - additionalKeysP
 
 -- Imports
 import XMonad
@@ -119,6 +120,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_d),            raiseMaybe (spawn "conkeror -no-remote -P default") (title =? "Conkeror - default"))
     , ((modMask .|. shiftMask, xK_d),            raiseMaybe (spawn "conkeror -no-remote -P private") (title =? "Conkeror - private"))
 
+    -- Open things
+    , ((modMask,               xK_i),            spawn "xclip -o | xargs feh")
+
     -- Banish Pointer
     , ((modMask,               xK_x),            banishScreen LowerRight)
 
@@ -170,7 +174,6 @@ myLayoutHook = smartBorders
            ||| (spiral (6/7))
            ||| Circle
            ||| Roledex
-
     where
         tiled   = Tall nmaster delta ratio
         nmaster = 1
@@ -193,7 +196,6 @@ main = do
         , startupHook        = myStartupHook
         , modMask            = mod4Mask
         , terminal           = "urxvtc" -- Requires "urxvtd -q -o -f &" in ~/.xinitrc or ~/.xsession
-        , focusFollowsMouse  = False
         , clickJustFocuses   = False
         , normalBorderColor  = "gray"
         , focusedBorderColor = "red"
