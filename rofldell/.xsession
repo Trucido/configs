@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 3.0   Time-stamp: <2014-06-13 15:46:03 PDT xoddf2>
+# .xsession 3.1   Time-stamp: <2014-06-17 13:10:14 PDT xoddf2>
 
 # ssh-agent (Under FreeBSD, this requires ports/security/openssh-askpass.)
 id1=$HOME/.ssh/identity
@@ -21,8 +21,10 @@ xscreensaver -no-splash &
 # CAPS LOCK as Compose
 setxkbmap -option "compose:caps" &
 
-# Set background colour and pointer
-xsetroot -solid black -cursor_name left_ptr &
+# Eye candy
+compton -b
+set-wallpaper & # This is a script in ~/bin/ that sets a random root window image.
+xsetroot -cursor_name left_ptr &
 
 # rxvt-unicode daemon
 urxvtd -q -o -f
