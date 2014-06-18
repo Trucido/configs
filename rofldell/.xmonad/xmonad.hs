@@ -1,4 +1,4 @@
--- xmonad.hs 1.3.3   Time-stamp: <2014-06-17 14:06:15 PDT xoddf2>
+-- xmonad.hs 1.3.4   Time-stamp: <2014-06-18 11:32:31 PDT xoddf2>
 
 -- Features:
 -- - Spiral, Grid, Circle, and Roledex layouts
@@ -106,7 +106,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_t),            withFocused $ windows . W.sink)
     , ((modMask .|. shiftMask, xK_h),            sendMessage (IncMasterN 1))
     , ((modMask .|. shiftMask, xK_l),            sendMessage (IncMasterN (-1)))
-    , ((modMask .|. shiftMask, xK_equal),        sendMessage $ Toggle FULL)
+    , ((modMask,               xK_z),            sendMessage $ Toggle FULL)
 
     -- Leave
     , ((modMask .|. shiftMask, xK_backslash),    io (exitWith ExitSuccess))
