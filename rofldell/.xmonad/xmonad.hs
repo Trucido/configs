@@ -1,4 +1,4 @@
--- xmonad.hs 1.3.4   Time-stamp: <2014-06-17 17:10:37 PDT xoddf2>
+-- xmonad.hs 1.3.4   Time-stamp: <2014-06-17 19:29:53 PDT xoddf2>
 
 -- Features:
 -- - Spiral, Grid, Circle, and Roledex layouts
@@ -39,8 +39,8 @@ import XMonad.Actions.CycleWS
 import XMonad.Actions.Warp
 import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.UrgencyHook 
 import XMonad.Layout.Circle
 import XMonad.Layout.Grid
@@ -184,7 +184,7 @@ myLayoutHook = smartBorders
 main = do
     xmproc <- spawnPipe "xmobar" -- For xmobar
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
-        { manageHook         = insertPosition End Newer <+> manageDocks <+> myManageHook
+        { manageHook         = isDialog --> doF W.shiftMaster <+> doF W.swapDown <+> manageDocks <+> myManageHook
         , keys               = myKeys
         , mouseBindings      = myMouseBindings
         , workspaces         = myWorkspaces
