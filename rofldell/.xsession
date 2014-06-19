@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 3.1   Time-stamp: <2014-06-17 13:10:14 PDT xoddf2>
+# .xsession 3.1.1   Time-stamp: <2014-06-18 23:54:29 PDT xoddf2>
 
 # ssh-agent (Under FreeBSD, this requires ports/security/openssh-askpass.)
 id1=$HOME/.ssh/identity
@@ -23,7 +23,7 @@ setxkbmap -option "compose:caps" &
 
 # Eye candy
 compton -b
-set-wallpaper & # This is a script in ~/bin/ that sets a random root window image.
+feh --bg-center -z ~/img/wallpaper/ &
 xsetroot -cursor_name left_ptr &
 
 # rxvt-unicode daemon
