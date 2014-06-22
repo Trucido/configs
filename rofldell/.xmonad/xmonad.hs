@@ -1,4 +1,4 @@
--- xmonad.hs 1.3.4   Time-stamp: <2014-06-18 11:32:31 PDT xoddf2>
+-- xmonad.hs 1.3.5   Time-stamp: <2014-06-21 20:12:27 PDT xoddf2>
 
 -- Features:
 -- - Spiral, Grid, Circle, and Roledex layouts
@@ -6,7 +6,7 @@
 -- - Hides border if there is only 1 window visible
 -- - Keybindings to cycle through and toggle between workspaces
 -- - ratpoison-style banish keybinding
--- - Keybinding to run or raise tmux, Emacs, Conkeror
+-- - Keybinding to run or raise tmux, Emacs, Firefox
 -- - SSH menu
 -- - Shell menu
 -- - Window menu
@@ -22,6 +22,7 @@
 -- - Different default layout per workspace
 -- - Switch to previous workspace if current one becomes empty.
 -- - additionalKeysP
+-- - Remember cursor position per workspace
 
 -- Imports
 import XMonad
@@ -70,7 +71,7 @@ myManageHook = composeAll . concat $
     where
         viewShift = doF . liftM2 (.) W.greedyView W.shift
         myClassMainShifts  = ["URxvt","XTerm","Emacs"]
-        myClassWWWShifts   = ["Conkeror","Firefox"]
+        myClassWWWShifts   = ["Firefox"]
         myClassMediaShifts = ["feh","mpv"]
         myClassGIMPShifts  = ["Gimp"]
         myClassVMShifts    = ["QEMU","VirtualBox"]
@@ -117,8 +118,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Applications
     , ((modMask,               xK_a),            raiseMaybe (spawn "urxvtc -name tmux -sl 0 -e tmux attach-session") (resource =? "tmux"))
     , ((modMask,               xK_s),            raiseMaybe (spawn "emacsclient --alternate-editor='' -c") (className =? "Emacs"))
-    , ((modMask,               xK_d),            raiseMaybe (spawn "conkeror -no-remote -P default") (title =? "Conkeror - default"))
-    , ((modMask .|. shiftMask, xK_d),            raiseMaybe (spawn "conkeror -no-remote -P private") (title =? "Conkeror - private"))
+    , ((modMask,               xK_d),            raiseMaybe (spawn "firefox") (className =? "Firefox"))
 
     -- Open things
     , ((modMask,               xK_i),            spawn "xclip -o | xargs feh")
