@@ -1,4 +1,4 @@
-# .fvwm2rc 4.0.1   Time-stamp: <2014-06-22 22:37:49 PDT xoddf2>
+# .fvwm2rc 4.0.2   Time-stamp: <2014-06-22 22:58:02 PDT xoddf2>
 
 # This config is intended for use under FreeBSD 10.0.  Some icons require the
 # x11-themes/fvwm-themes port to be installed.  The MenuFvwmLogins menu is
@@ -153,6 +153,9 @@ Key C A 4S Close
 # FvwmConsole
 Key Colon A 4 Module FvwmConsole -terminal urxvtc
 
+# Raise or lower FvwmButtons
+Key b A 4 Next ("FvwmButtons") RaiseLower
+
 # Menus
 Key Question A 4S Menu MenuFvwmRoot
 Key Period A 4 Menu MenuLogins
@@ -198,6 +201,8 @@ AddToMenu MenuFvwmRoot@side.fvwm2.xpm@^Black^ "Root Menu" Title
 + "%mini.pdf.xpm%X&pdf" Exec exec xpdf
 + "%menu/display.xpm%&VirtualBox" Exec exec VirtualBox
 + "%menu/display.xpm%&UAE" Exec exec uae
++ "" Nop
++ "%mini.run.xpm%&Run..." Exec exec dmenu_run
 + "" Nop
 + "%mini.windows.xpm%Window &Ops" Popup MenuFvwmWindowOps
 + "" Nop
@@ -280,10 +285,10 @@ DestroyModuleConfig FvwmButtons: *
 *FvwmButtons: Frame 1
 *FvwmButtons: Back Grey10
 *FvwmButtons: Geometry 500x115-0-0
-*FvwmButtons: (4x1, Frame 0, Swallow "xclock" `Exec exec xclock`)
+*FvwmButtons: (4x3, Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
 *FvwmButtons: (3x4, Swallow "xload" `Exec exec xload`)
 *FvwmButtons: (2x4, Frame 0, Swallow "FvwmPager" `Module FvwmPager * *`)
-*FvwmButtons: (4x3, Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
+*FvwmButtons: (4x1, Frame 0, Swallow "xclock" `Exec exec xclock`)
 
 DestroyModuleConfig FvwmPager: *
 *FvwmPager: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
