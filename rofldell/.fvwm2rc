@@ -1,4 +1,4 @@
-# .fvwm2rc 4.0   Time-stamp: <2014-06-22 22:24:28 PDT xoddf2>
+# .fvwm2rc 4.0.1   Time-stamp: <2014-06-22 22:37:49 PDT xoddf2>
 
 # This config is intended for use under FreeBSD 10.0.  Some icons require the
 # x11-themes/fvwm-themes port to be installed.  The MenuFvwmLogins menu is
@@ -100,9 +100,9 @@ AddToFunc MoveOrIconify
 
 # Keybindings ##################################################################
 
-# Window list should appear when pressing SUPER+TAB instead of ALT+TAB.
+# Window list should appear when pressing SUPER+SHIFT+' instead of ALT+TAB.
 Key Tab A M -
-Key Tab A 4 WindowList Root c c
+Key Quotedbl A 4S WindowList Root c c
 
 # Raise or lower
 Key r A 4 RaiseLower
@@ -156,6 +156,7 @@ Key Colon A 4 Module FvwmConsole -terminal urxvtc
 # Menus
 Key Question A 4S Menu MenuFvwmRoot
 Key Period A 4 Menu MenuLogins
+Key o A 4 Menu MenuOpenThings
 
 # Raise or lower volume (FreeBSD-specific)
 Key Bracketleft A 4 Exec exec mixer vol -1
@@ -265,6 +266,11 @@ AddToMenu MenuLogins "Remote Logins" Title
 + "" Nop
 + "%mini.keys.xpm%&Add Key" Exec exec ssh-add
 + "%mini.keys.xpm%&Delete Key" Exec exec ssh-add -D
+
+DestroyMenu MenuOpenThings
+AddToMenu MenuOpenThings "Open Something" Title
++ "%16x16/image-viewer.xpm%&Image" Exec exec xclip -o | xargs feh
++ "%16x16/video.xpm%&Video" Exec exec xclip -o | xargs mpv
 
 # Modules ######################################################################
 
