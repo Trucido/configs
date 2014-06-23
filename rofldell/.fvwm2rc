@@ -1,4 +1,4 @@
-# .fvwm2rc 4.0.3   Time-stamp: <2014-06-22 23:16:39 PDT xoddf2>
+# .fvwm2rc 4.0.4   Time-stamp: <2014-06-23 12:59:40 PDT xoddf2>
 
 # This config is intended for use under FreeBSD 10.0.  Some icons require the
 # x11-themes/fvwm-themes port to be installed.  The MenuFvwmLogins menu is
@@ -56,7 +56,7 @@ MenuStyle * MenuColorset 2
 MenuStyle WindowList MenuColorset 2
 
 # FvwmButtons style
-Style FvwmButtons !Title, HandleWidth 1, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize, NeverFocus, !Iconifiable, !Maximizable, !Closable
+Style FvwmButtons !Title, HandleWidth 1, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize, NeverFocus, !Iconifiable, !Maximizable, !Closable, !MouseFocusClickRaises
 
 # Application styles
 Style URxvt StartsOnPage 0 0 0, !Title, Icon term.xpm, MiniIcon 16x16/terminal.xpm
@@ -189,8 +189,9 @@ Mouse 3 TSIF A RaiseLower
 # What to do when clicking an iconified window (again)
 Mouse 1 I A MoveOrIconify
 
-# Root window should do nothing when clicked
-Mouse 1 R A -
+# Root window
+Mouse 2 R A Menu MenuFvwmWindowOps Nop
+Mouse 3 R A WindowList
 
 # Menus ########################################################################
 
