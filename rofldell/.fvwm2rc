@@ -1,4 +1,4 @@
-# .fvwm2rc 4.0.4   Time-stamp: <2014-06-23 12:59:40 PDT xoddf2>
+# .fvwm2rc 4.0.5   Time-stamp: <2014-06-23 13:52:00 PDT xoddf2>
 
 # This config is intended for use under FreeBSD 10.0.  Some icons require the
 # x11-themes/fvwm-themes port to be installed.  The MenuFvwmLogins menu is
@@ -100,9 +100,10 @@ AddToFunc MoveOrIconify
 
 # Keybindings ##################################################################
 
-# Window list should appear when pressing SUPER+SHIFT+' instead of ALT+TAB.
+# Window list
 Key Tab A M -
-Key Quotedbl A 4S WindowList Root c c
+Key Tab A 4 WindowList Root c c CurrentAtEnd
+MenuStyle WindowList SelectOnRelease Super_L
 
 # Raise or lower
 Key r A 4 RaiseLower
