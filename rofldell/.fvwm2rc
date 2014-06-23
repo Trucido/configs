@@ -1,4 +1,4 @@
-# .fvwm2rc 4.0.2   Time-stamp: <2014-06-22 22:58:02 PDT xoddf2>
+# .fvwm2rc 4.0.3   Time-stamp: <2014-06-22 23:16:39 PDT xoddf2>
 
 # This config is intended for use under FreeBSD 10.0.  Some icons require the
 # x11-themes/fvwm-themes port to be installed.  The MenuFvwmLogins menu is
@@ -164,6 +164,10 @@ Key o A 4 Menu MenuOpenThings
 # Raise or lower volume (FreeBSD-specific)
 Key Bracketleft A 4 Exec exec mixer vol -1
 Key Bracketright A 4 Exec exec mixer vol +1
+
+# Leave
+Key Escape A 4 Exec exec xscreensaver-command -lock
+Key Backslash A 4S Quit
 
 # Mouse Bindings ###############################################################
 
