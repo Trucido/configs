@@ -1,0 +1,319 @@
+# .fvwm2rc 4.0   Time-stamp: <2014-06-22 22:24:28 PDT xoddf2>
+
+# This config is intended for use under FreeBSD 10.0.  Some icons require the
+# x11-themes/fvwm-themes port to be installed.  The MenuFvwmLogins menu is
+# site-specific; replace the items in it with your own.
+#
+# The following lines are expected to be in your ~/.xinitrc or ~/.xsession:
+#
+# xscreensaver -no-splash &
+# urxvtd -q -o -f &
+
+# Virtual Desktops #############################################################
+
+DesktopSize 2x2
+
+DesktopName 0 Main
+DesktopName 1 Other
+
+# Disable edge scrolling
+EdgeScroll 0 0
+
+# Style ########################################################################
+
+# Focus
+Style * SloppyFocus
+Style * FPGrabFocus
+Style * MouseFocusClickRaises
+
+# Window snap
+Style * SnapAttraction 16 Screen, Windows
+
+# Placement
+Style * MinOverlapPercentPlacement
+
+# Lets certain applications (e.g., XMMS) work better
+Style * MWMDecor
+
+# Fonts
+DefaultFont -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
+Style * Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
+
+# Where to find the icons
+ImagePath /usr/local/share/fvwm/pixmaps:/usr/local/share/fvwm/images
+
+# Colours
+Colorset 0 fg White, bg RoyalBlue4
+Colorset 1 fg Yellow, bg FireBrick
+Colorset 2 fg White, bg SeaGreen
+Colorset 3 fg FireBrick, bg Yellow
+
+# Window decorations
+Style * Colorset 0, HilightColorset 1
+
+# Menu colours
+MenuStyle * MenuColorset 2
+MenuStyle WindowList MenuColorset 2
+
+# FvwmButtons style
+Style FvwmButtons !Title, HandleWidth 1, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize, NeverFocus, !Iconifiable, !Maximizable, !Closable
+
+# Application styles
+Style URxvt StartsOnPage 0 0 0, !Title, Icon term.xpm, MiniIcon 16x16/terminal.xpm
+Style Emacs StartsOnPage 0 1 0, !Title, IconOverride, EWMHMiniIconOverride, Icon gnu-animal.xpm, MiniIcon 16x16/gnu.xpm
+Style Firefox StartsOnPage 0 0 1, MiniIcon 16x16/www.xpm
+Style feh StartsOnPage 0 1 1, Icon 32x32/image-viewer.xpm, MiniIcon 16x16/image-viewer.xpm
+Style mpv StartsOnPage 0 1 1, MiniIcon 16x16/video.xpm
+Style Xpdf StartsOnPage 0 1 1, MiniIcon mini.pdf.xpm
+Style gimp StartsOnPage 1 0 0, MiniIcon mini.gimp.xpm
+Style QEMU StartsOnPage 1 0 1, MiniIcon 16x16/display.xpm
+Style VirtualBox StartsOnPage 1 1 0, MiniIcon 16x16/display.xpm
+Style Mednafen StartsOnPage 1 0 1, Icon mini.happy.xpm
+Style UAE StartsOnPage 1 0 1, MiniIcon 16x16/display.xpm
+Style Xephyr StartsOnPage 1 1 1, Icon mini.x.xpm
+Style tmux MiniIcon 16x16/terminal-special.xpm
+Style ssh MiniIcon 16x16/terminal-remote.xpm
+
+# Where to put iconified windows
+Style * IconBox 0 -0 -0 0
+
+# Functions ####################################################################
+
+# Do nothing at urgency (Maybe eventually this will do something again.)
+DestroyFunc UrgencyFunc
+
+# For moving and resizing with <modifier>+<click>
+DestroyFunc DragMove
+AddToFunc DragMove
++ M Move
+
+DestroyFunc DragResize
+AddToFunc DragResize
++ M Resize
+
+# What to do when clicking an iconified window
+DestroyFunc MoveOrIconify
+AddToFunc MoveOrIconify
++ I Raise
++ M Move
++ D Iconify
+
+# Keybindings ##################################################################
+
+# Window list should appear when pressing SUPER+TAB instead of ALT+TAB.
+Key Tab A M -
+Key Tab A 4 WindowList Root c c
+
+# Raise or lower
+Key r A 4 RaiseLower
+
+# Maximise
+Key m A 4 Maximize
+Key Equal A 4 Maximize 0 100
+Key Plus A 4S Maximize 100 0
+
+# Move
+Key h A 4 Move w-10p w0p
+Key j A 4 Move w0p w+10p
+Key k A 4 Move w0p w-10p
+Key l A 4 Move w+10p w0p
+
+# Resize
+Key H A 4S Resize w-10c w0c
+Key J A 4S Resize w0c w+10c
+Key K A 4S Resize w0c w-10c
+Key L A 4S Resize w+10c w0c
+
+# Place again
+Key p A 4 PlaceAgain
+
+# Iconify
+Key Return A 4 Iconify
+
+# Virtual desktops
+Key q A 4 GotoDesk 0 0
+Key w A 4 GotoDesk 0 1
+
+Key Q A 4S MoveToDesk 0 0
+Key W A 4S MoveToDesk 0 1
+
+Key 1 A 4 GotoPage 0 0
+Key 2 A 4 GotoPage 1 0
+Key 3 A 4 GotoPage 0 1
+Key 4 A 4 GotoPage 1 1
+
+Key 1 A 4S MoveToPage 0 0
+Key 2 A 4S MoveToPage 1 0
+Key 3 A 4S MoveToPage 0 1
+Key 4 A 4S MoveToPage 1 1
+
+# Close
+Key C A 4S Close
+
+# FvwmConsole
+Key Colon A 4 Module FvwmConsole -terminal urxvtc
+
+# Menus
+Key Question A 4S Menu MenuFvwmRoot
+Key Period A 4 Menu MenuLogins
+
+# Raise or lower volume (FreeBSD-specific)
+Key Bracketleft A 4 Exec exec mixer vol -1
+Key Bracketright A 4 Exec exec mixer vol +1
+
+# Mouse Bindings ###############################################################
+
+# Move or resize
+Mouse 1 TSIFW 4 DragMove
+Mouse 3 TSIFW 4 DragResize
+
+# Raise or lower window with right mouse button
+Mouse 3 FST A RaiseLower
+
+# Titie bar
+Mouse 0 1 A Menu MenuFvwmWindowOps Close
+Mouse 0 4 A Iconify
+Mouse 1 2 A Maximize
+Mouse 2 2 A Maximize 100 0
+Mouse 3 2 A Maximize 0 100
+Mouse 3 TSIF A RaiseLower
+
+# What to do when clicking an iconified window (again)
+Mouse 1 I A MoveOrIconify
+
+# Root window should do nothing when clicked
+Mouse 1 R A -
+
+# Menus ########################################################################
+
+DestroyMenu MenuFvwmRoot
+AddToMenu MenuFvwmRoot@side.fvwm2.xpm@^Black^ "Root Menu" Title
++ "%menu/terminal.xpm%URxv&tc" Exec exec urxvtc
++ "%menu/terminal-special.xpm%- tmu&x" Exec exec urxvtc -name tmux -sl 0 -geometry 80x50 -e tmux attach-session
++ "%menu/gnu.xpm%&Emacs" Exec exec emacsclient --alternate-editor='' -c
++ "%menu/www.xpm%&Firefox" Exec exec firefox
++ "" Nop
++ "%menu/gimp.xpm%The &GIMP" Exec exec gimp
++ "%mini.pdf.xpm%X&pdf" Exec exec xpdf
++ "%menu/display.xpm%&VirtualBox" Exec exec VirtualBox
++ "%menu/display.xpm%&UAE" Exec exec uae
++ "" Nop
++ "%mini.windows.xpm%Window &Ops" Popup MenuFvwmWindowOps
++ "" Nop
++ "%mini.fvwm.xpm%Fv&wmConsole" Module FvwmConsole -terminal urxvtc
++ "" Nop
++ "%menu/utility.xpm%E&nv/Options" Popup MenuEnvOptions
++ "" Nop
++ "%menu/lock.xpm%&Lock" Exec exec xscreensaver-command -lock
++ "%mini.stop.xpm%Leave" Popup MenuLeave
+
+DestroyMenu MenuFvwmWindowOps
+AddToMenu MenuFvwmWindowOps
++ "%mini.move.xpm%&Move" Move
++ "%mini.resize.xpm%&Resize" Resize
++ "%mini.raise.xpm%R&aise" Raise
++ "%mini.lower.xpm%&Lower" Lower
++ "%mini.iconify.xpm%(De)&Iconify" Iconify
++ "%mini.stick.xpm%(Un)&Stick" Stick
++ "%mini.maximize.xpm%(Un)Maximi&ze" Maximize
++ "%mini.maximize-horiz.xpm%- &Horiz" Maximize 100 0
++ "%mini.maximize-vert.xpm%- &Vert" Maximize 0 100
++ "%mini.ray.xpm%Pla&ce Again" PlaceAgain
++ "" Nop
++ "%mini.question.xpm%Ide&ntify" FvwmIdent
++ "" Nop
++ "%mini.pager.xpm%Move to &Desk..." Popup MenuMoveToDesk
++ "%mini.pager.xpm%Move to &Page..." Popup MenuMoveToPage
++ "" Nop
++ "%mini.delete.xpm%Delete (&X)" Delete
++ "%mini.destroy.xpm%Destroy" Destroy
+
+DestroyMenu MenuMoveToDesk
+AddToMenu MenuMoveToDesk
++ "&a. $[desk.name0]" MoveToDesk 0 0
++ "&s. $[desk.name1]" MoveToDesk 0 1
+
+DestroyMenu MenuMoveToPage
+AddToMenu MenuMoveToPage
++ "&1. Northwest" MoveToPage 0 0
++ "&2. Northeast" MoveToPage 1 0
++ "&3. Southwest" MoveToPage 0 1
++ "&4. Southeast" MoveToPage 1 1
+
+DestroyMenu MenuEnvOptions
+AddToMenu MenuEnvOptions
++ "%mini.x.xpm%Reset X &Resources" Exec exec xrdb -merge ~/.Xresources
++ "%menu/keyboard.xpm%&CAPS LOCK as Compose" Exec exec setxkbmap -option "compose:caps"
++ "" Nop
++ "%menu/lock.xpm%Start X&ScreenSaver" Exec exec xscreensaver -no-splash
++ "%menu/terminal.xpm%URxv&td" Exec exec urxvtd -q -o -f
+
+DestroyMenu MenuLeave
+AddToMenu MenuLeave "Leave" Title
++ "%mini.turn.xpm%&Restart FVWM" Restart
++ "" Nop
++ "%mini.twm.xpm%Restart &twm" Restart twm
++ "%mini.xterm.xpm%Restart &xterm" Restart xterm
++ "" Nop
++ "%mini.exclam.xpm%Exit" Quit
+
+DestroyMenu MenuLogins
+AddToMenu MenuLogins "Remote Logins" Title
++ "%menu/terminal-remote.xpm%archon.darkfox.id.a&u" Exec exec urxvtc -name ssh -e ssh archon.darkfox.id.au
++ "%menu/terminal-remote.xpm%&is.not.a.hax0r.se" Exec exec urxvtc -name ssh -e ssh is.not.a.hax0r.se
++ "%menu/terminal-remote.xpm%&sunnyday.alisonc.net" Exec exec urxvtc -name ssh -e ssh sunnyday.alisonc.net
++ "" Nop
++ "%mini.keys.xpm%&Add Key" Exec exec ssh-add
++ "%mini.keys.xpm%&Delete Key" Exec exec ssh-add -D
+
+# Modules ######################################################################
+
+DestroyModuleConfig FvwmButtons: *
+*FvwmButtons: Rows 4
+*FvwmButtons: Columns 9
+*FvwmButtons: Frame 1
+*FvwmButtons: Back Grey10
+*FvwmButtons: Geometry 500x115-0-0
+*FvwmButtons: (4x1, Frame 0, Swallow "xclock" `Exec exec xclock`)
+*FvwmButtons: (3x4, Swallow "xload" `Exec exec xload`)
+*FvwmButtons: (2x4, Frame 0, Swallow "FvwmPager" `Module FvwmPager * *`)
+*FvwmButtons: (4x3, Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
+
+DestroyModuleConfig FvwmPager: *
+*FvwmPager: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPager: Geometry 245x115-0-0
+*FvwmPager: Back Grey10
+*FvwmPager: Fore Grey75
+*FvwmPager: Hilight Grey25
+*FvwmPager: MiniIcons
+*FvwmPager: Balloons
+*FvwmPager: BalloonFont -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPager: BalloonBack Yellow
+*FvwmPager: BalloonFore Black
+*FvwmPager: BalloonBorderColor Black
+
+DestroyModuleConfig FvwmIconMan: *
+*FvwmIconMan: ManagerGeometry 1x5
+*FvwmIconMan: Action Mouse 1 N sendcommand Focus
+*FvwmIconMan: Action Mouse 2 N sencdommand Iconify
+*FvwmIconMan: Action Mouse 3 N sendcommand FvwmIdent
+*FvwmIconMan: Format "%i"
+*FvwmIconMan: Background Grey10
+*FvwmIconMan: Foreground White
+*FvwmIconMan: IconButton up White DimGrey
+*FvwmIconMan: PlainButton up White RoyalBlue4
+*FvwmIconMan: SelectButton down Black DarkGrey
+*FvwmIconMan: FocusButton up Yellow FireBrick
+*FvwmIconMan: FocusAndSelectButton down Yellow FireBrick
+*FvwmIconMan: Font -misc-fixed-bold-r-*-*-13-*-*-*-*-*-*-*
+
+DestroyModuleConfig FvwmIdent: *
+*FvwmIdent: Back Navy
+*FvwmIdent: Fore Yellow
+*FvwmIdent: Font -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
+
+# StartFunction and InitFunction ###############################################
+
+AddToFunc StartFunction
++ I Module FvwmCommandS
++ I Module FvwmButtons
