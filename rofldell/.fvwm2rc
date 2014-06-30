@@ -1,4 +1,4 @@
-# .fvwm2rc 4.0.5   Time-stamp: <2014-06-23 13:52:00 PDT xoddf2>
+# .fvwm2rc 4.0.6   Time-stamp: <2014-06-30 15:59:58 PDT xoddf2>
 
 # This config is intended for use under FreeBSD 10.0.  Some icons require the
 # x11-themes/fvwm-themes port to be installed.  The MenuFvwmLogins menu is
@@ -125,6 +125,11 @@ Key J A 4S Resize w0c w+10c
 Key K A 4S Resize w0c w-10c
 Key L A 4S Resize w+10c w0c
 
+Key y A 4 Resize 80c 24c
+Key b A 4 Resize 80c 50c
+Key u A 4 Resize 170c 24c
+Key n A 4 Resize 170c 50c
+
 # Place again
 Key p A 4 PlaceAgain
 
@@ -155,7 +160,7 @@ Key C A 4S Close
 Key Colon A 4 Module FvwmConsole -terminal urxvtc
 
 # Raise or lower FvwmButtons
-Key b A 4 Next ("FvwmButtons") RaiseLower
+Key x A 4 Next ("FvwmButtons") RaiseLower
 
 # Menus
 Key Question A 4S Menu MenuFvwmRoot
