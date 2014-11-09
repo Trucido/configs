@@ -1,15 +1,29 @@
-# .fvwm2rc 4.0.6   Time-stamp: <2014-06-30 15:59:58 PDT xoddf2>
+# .fvwm2rc 5.0   Time-stamp: <2014-11-08 22:19:27 PST xoddf2>
 
-# This config is intended for use under FreeBSD 10.0.  Some icons require the
-# x11-themes/fvwm-themes port to be installed.  The MenuFvwmLogins menu is
-# site-specific; replace the items in it with your own.
+# This .fvwm2rc is intended for use under Slackware 14.1.
+#
+# Most actions are available via both the keyboard and the mouse.  Keybindings
+# use the Mod4 key to avoid conflicting with other applications.  Certain
+# applications can be raised if they are already running, or started if not.
+# Windows can be moved or resized by holding Mod4 and dragging with the mouse.
+#
+# Most applications start in specific pages.  FVWM puts windows in sane
+# positions the first time thanks to MinOverlapPercentPlacement.
+#
+# There is an FvwmButtons at the top right with FvwmPager and FvwmIconMan
+# swallowed and another FvwmButtons at the bottom right with xclock and xload
+# swallowed.  Iconic windows appear in the bottom left corner of the screen.
+#
+# The MenuFvwmLogins menu is site-specific; replace the items in it with your
+# own.  There is also a PipeRead-generated menu for running video game ROMs in
+# Mednafen; it requires a separate script.
 #
 # The following lines are expected to be in your ~/.xinitrc or ~/.xsession:
 #
 # xscreensaver -no-splash &
 # urxvtd -q -o -f &
 
-# Virtual Desktops #############################################################
+## Virtual Desktops
 
 DesktopSize 2x2
 
@@ -19,7 +33,7 @@ DesktopName 1 Other
 # Disable edge scrolling
 EdgeScroll 0 0
 
-# Style ########################################################################
+## Style
 
 # Focus
 Style * SloppyFocus
@@ -29,10 +43,10 @@ Style * MouseFocusClickRaises
 # Window snap
 Style * SnapAttraction 16 Screen, Windows
 
-# Placement
+# Try to place windows right the _first_ time
 Style * MinOverlapPercentPlacement
 
-# Lets certain applications (e.g., XMMS) work better
+# Some applications such as XMMS work better with this
 Style * MWMDecor
 
 # Fonts
@@ -40,47 +54,83 @@ DefaultFont -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
 Style * Font -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 
 # Where to find the icons
-ImagePath /usr/local/share/fvwm/pixmaps:/usr/local/share/fvwm/images
+ImagePath /usr/share/icons
 
 # Colours
 Colorset 0 fg White, bg RoyalBlue4
 Colorset 1 fg Yellow, bg FireBrick
-Colorset 2 fg White, bg SeaGreen
-Colorset 3 fg FireBrick, bg Yellow
+Colorset 2 HGradient 16 Black FireBrick
+Colorset 3 HGradient 16 Black RoyalBlue4
+Colorset 4 fg FireBrick, bg Yellow
 
 # Window decorations
 Style * Colorset 0, HilightColorset 1
+Style * BorderWidth 4, HandleWidth 4
+TitleStyle LeftJustified -- Flat
+TitleStyle ActiveUp Colorset 2 -- Flat
+TitleStyle ActiveDown Colorset 2 -- Flat
+TitleStyle InactiveUp Colorset 3 -- Flat
+TitleStyle InactiveDown Colorset 3 -- Flat
+ButtonStyle 2 MiniIcon  -- Flat
+ButtonStyle 1 16 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
+ButtonStyle 3 4 50x75@1 25x25@1 75x25@1 50x75@0
+ButtonStyle 5 4 50x25@1 75x75@0 25x75@0 50x25@1
 
 # Menu colours
-MenuStyle * MenuColorset 2
-MenuStyle WindowList MenuColorset 2
+MenuStyle * Mwm
+MenuStyle * Foreground Yellow, Background ForestGreen
+MenuStyle * MenuFace DGradient 64 DarkGreen Green4
+MenuStyle WindowList Mwm
+MenuStyle WindowList Foreground Yellow, Background ForestGreen
+MenuStyle WindowList MenuFace DGradient 64 DarkGreen Green4
 
 # FvwmButtons style
 Style FvwmButtons !Title, HandleWidth 1, Sticky, WindowListSkip, CirculateSkipIcon, FixedPosition, FixedSize, NeverFocus, !Iconifiable, !Maximizable, !Closable, !MouseFocusClickRaises
 
+# If an application doesn't have its own icon, use this one:
+DefaultIcon Tango/scalable/apps/preferences-system-windows.svg
+
 # Application styles
-Style URxvt StartsOnPage 0 0 0, !Title, Icon term.xpm, MiniIcon 16x16/terminal.xpm
-Style Emacs StartsOnPage 0 1 0, !Title, IconOverride, EWMHMiniIconOverride, Icon gnu-animal.xpm, MiniIcon 16x16/gnu.xpm
-Style Firefox StartsOnPage 0 0 1, MiniIcon 16x16/www.xpm
-Style feh StartsOnPage 0 1 1, Icon 32x32/image-viewer.xpm, MiniIcon 16x16/image-viewer.xpm
-Style mpv StartsOnPage 0 1 1, MiniIcon 16x16/video.xpm
-Style Xpdf StartsOnPage 0 1 1, MiniIcon mini.pdf.xpm
-Style gimp StartsOnPage 1 0 0, MiniIcon mini.gimp.xpm
-Style QEMU StartsOnPage 1 0 1, MiniIcon 16x16/display.xpm
-Style VirtualBox StartsOnPage 1 1 0, MiniIcon 16x16/display.xpm
-Style Mednafen StartsOnPage 1 0 1, Icon mini.happy.xpm
-Style UAE StartsOnPage 1 0 1, MiniIcon 16x16/display.xpm
-Style Xephyr StartsOnPage 1 1 1, Icon mini.x.xpm
-Style tmux MiniIcon 16x16/terminal-special.xpm
-Style ssh MiniIcon 16x16/terminal-remote.xpm
+Style URxvt StartsOnPage 0 0 0, !Title, Icon Tango/scalable/apps/utilities-terminal.svg, MiniIcon Tango/16x16/apps/utilities-terminal.png
+Style Emacs StartsOnPage 0 1 0, !Title, Icon hicolor/48x48/apps/emacs.png, MiniIcon hicolor/16x16/apps/emacs.png
+Style Firefox StartsOnPage 0 0 1
+Style Audacious StartsOnPage 0 1 1
+Style feh StartsOnPage 0 1 1, Icon Tango/scalable/mimetypes/image-x-generic.svg, MiniIcon Tango/16x16/mimetypes/image-x-generic.png
+Style mpv StartsOnPage 0 1 1
+Style gimp StartsOnPage 1 0 0
+Style QEMU StartsOnPage 1 0 1, Icon Tango/scalable/devices/computer.svg, MiniIcon Tango/16x16/devices/computer.png
+Style Mednafen StartsOnPage 1 1 0, Icon Tango/scalable/devices/input-gaming.svg, MiniIcon Tango/16x16/devices/input-gaming.png
+Style Xephyr StartsOnPage 1 1 1
 
 # Where to put iconified windows
 Style * IconBox 0 -0 -0 0
 
-# Functions ####################################################################
+## Functions
 
-# Do nothing at urgency (Maybe eventually this will do something again.)
+# Urgency
 DestroyFunc UrgencyFunc
+
+# Borderless maximised windows
+DestroyFunc FvwmFullMaximize
+AddToFunc FvwmFullMaximize
++ I ThisWindow (!Maximized) WindowStyle !Borders
++ I TestRc WindowStyle Borders
++ I UpdateStyles
++ I Maximize
+
+# Leave the pointer alone
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
++ I Iconify off
++ I FlipFocus
++ I Raise
+
+# What to do when clicking an iconified window
+DestroyFunc MoveOrIconify
+AddToFunc MoveOrIconify
++ I Raise
++ M Move
++ D Iconify
 
 # For moving and resizing with <modifier>+<click>
 DestroyFunc DragMove
@@ -91,14 +141,20 @@ DestroyFunc DragResize
 AddToFunc DragResize
 + M Resize
 
-# What to do when clicking an iconified window
-DestroyFunc MoveOrIconify
-AddToFunc MoveOrIconify
+# SelectWindow (Needed for RunOrRaise)
+DestroyFunc SelectWindow
+AddToFunc SelectWindow
++ I Focus
++ I Iconify false
 + I Raise
-+ M Move
-+ D Iconify
 
-# Keybindings ##################################################################
+# Run or raise
+DestroyFunc RunOrRaise
+AddToFunc RunOrRaise
++ I Next ($0) SelectWindow
++ I TestRc (NoMatch) $1
+
+## Keybindings
 
 # Window list
 Key Tab A M -
@@ -109,9 +165,9 @@ MenuStyle WindowList SelectOnRelease Super_L
 Key r A 4 RaiseLower
 
 # Maximise
-Key m A 4 Maximize
-Key Equal A 4 Maximize 0 100
-Key Plus A 4S Maximize 100 0
+Key m A 4 FvwmFullMaximize
+Key m A 4C Maximize 0 100
+Key M A 4S Maximize 100 0
 
 # Move
 Key h A 4 Move w-10p w0p
@@ -160,22 +216,33 @@ Key C A 4S Close
 Key Colon A 4 Module FvwmConsole -terminal urxvtc
 
 # Raise or lower FvwmButtons
-Key x A 4 Next ("FvwmButtons") RaiseLower
+Key x A 4 All ("FvwmButtons") RaiseLower
+
+# Banish pointer
+Key v A 4 WindowId root 1 WarpToWindow 100 100
 
 # Menus
 Key Question A 4S Menu MenuFvwmRoot
 Key Period A 4 Menu MenuLogins
 Key o A 4 Menu MenuOpenThings
+Key Comma A 4 Menu MenuAudioControl
 
-# Raise or lower volume (FreeBSD-specific)
-Key Bracketleft A 4 Exec exec mixer vol -1
-Key Bracketright A 4 Exec exec mixer vol +1
+# Run or raise certain applications
+Key a A 4 RunOrRaise tmux "Exec exec urxvtc -name tmux -sl 0 -geometry 80x50 -e tmux attach-session"
+Key s A 4 RunOrRaise mosh "Popup MenuLogins"
+Key d A 4 RunOrRaise Emacs "Exec exec emacsclient --alternate-editor='' -c"
+Key f A 4 RunOrRaise Firefox "Exec exec firefox"
+Key g A 4 RunOrRaise Audacious "Exec exec audacious"
+
+# Raise or lower volume (GNU/Linux-specific)
+Key Bracketleft A 4 Exec exec amixer set Master 1-
+Key Bracketright A 4 Exec exec amixer set Master 1+
 
 # Leave
 Key Escape A 4 Exec exec xscreensaver-command -lock
 Key Backslash A 4S Quit
 
-# Mouse Bindings ###############################################################
+## Mouse Bindings
 
 # Move or resize
 Mouse 1 TSIFW 4 DragMove
@@ -184,71 +251,72 @@ Mouse 3 TSIFW 4 DragResize
 # Raise or lower window with right mouse button
 Mouse 3 FST A RaiseLower
 
-# Titie bar
-Mouse 0 1 A Menu MenuFvwmWindowOps Close
-Mouse 0 4 A Iconify
-Mouse 1 2 A Maximize
-Mouse 2 2 A Maximize 100 0
-Mouse 3 2 A Maximize 0 100
+# Title bar
+Mouse 0 2 A Menu MenuFvwmWindowOps FvwmIdent
+Mouse 0 1 A Close
+Mouse 0 3 A Iconify
+Mouse 1 5 A FvwmFullMaximize
+Mouse 2 5 A Maximize 100 0
+Mouse 3 5 A Maximize 0 100
 Mouse 3 TSIF A RaiseLower
 
-# What to do when clicking an iconified window (again)
 Mouse 1 I A MoveOrIconify
 
 # Root window
 Mouse 2 R A Menu MenuFvwmWindowOps Nop
 Mouse 3 R A WindowList
 
-# Menus ########################################################################
+## Menus
 
 DestroyMenu MenuFvwmRoot
-AddToMenu MenuFvwmRoot@side.fvwm2.xpm@^Black^ "Root Menu" Title
-+ "%menu/terminal.xpm%URxv&tc" Exec exec urxvtc
-+ "%menu/terminal-special.xpm%- tmu&x" Exec exec urxvtc -name tmux -sl 0 -geometry 80x50 -e tmux attach-session
-+ "%menu/gnu.xpm%&Emacs" Exec exec emacsclient --alternate-editor='' -c
-+ "%menu/www.xpm%&Firefox" Exec exec firefox
+AddToMenu MenuFvwmRoot "Root Menu" Title
++ "%Tango/16x16/apps/utilities-terminal.png%URxv&tc" Exec exec urxvtc
++ "- tmu&x" Exec exec urxvtc -name tmux -sl 0 -geometry 80x50 -e tmux attach-session
++ "%Tango/16x16/places/network-server.png%- Remote &Logins" Popup MenuLogins
++ "%hicolor/16x16/apps/emacs.png%&Emacs" Exec exec emacsclient --alternate-editor='' -c
++ "%hicolor/16x16/apps/firefox.png%&Firefox" Exec exec firefox
 + "" Nop
-+ "%menu/gimp.xpm%The &GIMP" Exec exec gimp
-+ "%mini.pdf.xpm%X&pdf" Exec exec xpdf
-+ "%menu/display.xpm%&VirtualBox" Exec exec VirtualBox
-+ "%menu/display.xpm%&UAE" Exec exec uae
++ "%hicolor/16x16/apps/gimp.png%The &GIMP" Exec exec gimp
++ "%Tango/16x16/mimetypes/audio-x-generic.png%&Audacious" Exec exec audacious
++ "%Tango/16x16/devices/multimedia-player.png%- A&udio Control" Popup MenuAudioControl
++ "%Tango/16x16/devices/input-gaming.png%&Mednafen" Popup MenuVideoGames
 + "" Nop
-+ "%mini.run.xpm%&Run..." Exec exec dmenu_run
++ "%Tango/16x16/actions/document-open.png%&Open Something" Popup MenuOpenThings
 + "" Nop
-+ "%mini.windows.xpm%Window &Ops" Popup MenuFvwmWindowOps
++ "%Tango/16x16/apps/preferences-system-windows.png%&Window Ops" Popup MenuFvwmWindowOps
 + "" Nop
-+ "%mini.fvwm.xpm%Fv&wmConsole" Module FvwmConsole -terminal urxvtc
++ "%Tango/16x16/places/start-here.png%F&vwmConsole" Module FvwmConsole -terminal urxvtc
 + "" Nop
-+ "%menu/utility.xpm%E&nv/Options" Popup MenuEnvOptions
++ "%Tango/16x16/places/user-desktop.png%E&nv/Options" Popup MenuEnvOptions
 + "" Nop
-+ "%menu/lock.xpm%&Lock" Exec exec xscreensaver-command -lock
-+ "%mini.stop.xpm%Leave" Popup MenuLeave
++ "%Tango/16x16/actions/system-lock-screen.png%&Lock" Exec exec xscreensaver-command -lock
++ "%Tango/16x16/actions/system-log-out.png%Leave" Popup MenuLeave
 
 DestroyMenu MenuFvwmWindowOps
-AddToMenu MenuFvwmWindowOps
-+ "%mini.move.xpm%&Move" Move
-+ "%mini.resize.xpm%&Resize" Resize
-+ "%mini.raise.xpm%R&aise" Raise
-+ "%mini.lower.xpm%&Lower" Lower
-+ "%mini.iconify.xpm%(De)&Iconify" Iconify
-+ "%mini.stick.xpm%(Un)&Stick" Stick
-+ "%mini.maximize.xpm%(Un)Maximi&ze" Maximize
-+ "%mini.maximize-horiz.xpm%- &Horiz" Maximize 100 0
-+ "%mini.maximize-vert.xpm%- &Vert" Maximize 0 100
-+ "%mini.ray.xpm%Pla&ce Again" PlaceAgain
+AddToMenu MenuFvwmWindowOps "Window Ops" Title
++ "&Move" Move
++ "&Resize" Resize
++ "R&aise" Raise
++ "&Lower" Lower
++ "(De)&Iconify" Iconify
++ "(Un)&Stick" Stick
++ "(Un)Maximi&ze" FvwmFullMaximize
++ "- &Horiz" Maximize 100 0
++ "- &Vert" Maximize 0 100
++ "Pla&ce Again" PlaceAgain
 + "" Nop
-+ "%mini.question.xpm%Ide&ntify" FvwmIdent
++ "Ide&ntify" FvwmIdent
 + "" Nop
-+ "%mini.pager.xpm%Move to &Desk..." Popup MenuMoveToDesk
-+ "%mini.pager.xpm%Move to &Page..." Popup MenuMoveToPage
++ "Move to &Desk..." Popup MenuMoveToDesk
++ "Move to &Page..." Popup MenuMoveToPage
 + "" Nop
-+ "%mini.delete.xpm%Delete (&X)" Delete
-+ "%mini.destroy.xpm%Destroy" Destroy
++ "Delete (&X)" Delete
++ "Destroy" Destroy
 
 DestroyMenu MenuMoveToDesk
 AddToMenu MenuMoveToDesk
-+ "&a. $[desk.name0]" MoveToDesk 0 0
-+ "&s. $[desk.name1]" MoveToDesk 0 1
++ "&q. $[desk.name0]" MoveToDesk 0 0
++ "&w. $[desk.name1]" MoveToDesk 0 1
 
 DestroyMenu MenuMoveToPage
 AddToMenu MenuMoveToPage
@@ -258,48 +326,67 @@ AddToMenu MenuMoveToPage
 + "&4. Southeast" MoveToPage 1 1
 
 DestroyMenu MenuEnvOptions
-AddToMenu MenuEnvOptions
-+ "%mini.x.xpm%Reset X &Resources" Exec exec xrdb -merge ~/.Xresources
-+ "%menu/keyboard.xpm%&CAPS LOCK as Compose" Exec exec setxkbmap -option "compose:caps"
+AddToMenu MenuEnvOptions "Env/Options" Title
++ "%Tango/16x16/places/start-here.png%Reset X &Resources" Exec exec xrdb -merge ~/.Xresources
++ "%Tango/16x16/devices/input-keyboard.png%&CAPS LOCK as Compose" Exec exec setxkbmap -option "compose:caps"
 + "" Nop
-+ "%menu/lock.xpm%Start X&ScreenSaver" Exec exec xscreensaver -no-splash
-+ "%menu/terminal.xpm%URxv&td" Exec exec urxvtd -q -o -f
++ "%Tango/16x16/actions/system-lock-screen.png%Start X&ScreenSaver" Exec exec xscreensaver -no-splash
++ "%Tango/16x16/apps/utilities-terminal.png%URxv&td" Exec exec urxvtd -q -o -f
++ "" Nop
++ "&Y. Bell On" Exec exec xset b on
++ "&N. Bell Off" Exec exec xset b off
 
 DestroyMenu MenuLeave
 AddToMenu MenuLeave "Leave" Title
-+ "%mini.turn.xpm%&Restart FVWM" Restart
++ "%Tango/16x16/actions/view-refresh.png%&Restart FVWM" Restart
 + "" Nop
-+ "%mini.twm.xpm%Restart &twm" Restart twm
-+ "%mini.xterm.xpm%Restart &xterm" Restart xterm
++ "%Tango/16x16/apps/preferences-system-windows.png%Restart &twm" Restart twm
++ "%Tango/16x16/apps/utilities-terminal.png%Restart &xterm" Restart xterm
 + "" Nop
-+ "%mini.exclam.xpm%Exit" Quit
++ "%Tango/16x16/actions/system-log-out.png%Exit" Quit
+
+DestroyMenu MenuAudioControl
+AddToMenu MenuAudioControl "Audio Control" Title
++ "%Tango/16x16/actions/media-skip-backward.png%&Z. Previous" Exec exec audacious --rew
++ "%Tango/16x16/actions/media-playback-start.png%&X. Play" Exec exec audacious --play
++ "%Tango/16x16/actions/media-playback-pause.png%&C. Pause" Exec exec audacious --pause
++ "%Tango/16x16/actions/media-playback-stop.png%&V. Stop" Exec exec audacious --stop
++ "%Tango/16x16/actions/media-skip-forward.png%&B. Next" Exec exec audacious --fwd
 
 DestroyMenu MenuLogins
 AddToMenu MenuLogins "Remote Logins" Title
-+ "%menu/terminal-remote.xpm%archon.darkfox.id.a&u" Exec exec urxvtc -name ssh -e ssh archon.darkfox.id.au
-+ "%menu/terminal-remote.xpm%&is.not.a.hax0r.se" Exec exec urxvtc -name ssh -e ssh is.not.a.hax0r.se
-+ "%menu/terminal-remote.xpm%&sunnyday.alisonc.net" Exec exec urxvtc -name ssh -e ssh sunnyday.alisonc.net
++ "%Tango/16x16/places/network-server.png%&t. archon.darkfox.id.au" Exec exec urxvtc -name mosh -e mosh archon.darkfox.id.au
++ "%Tango/16x16/places/network-server.png%&i. is.not.a.hax0r.se" Exec exec urxvtc -name mosh -e mosh is.not.a.hax0r.se
 + "" Nop
-+ "%mini.keys.xpm%&Add Key" Exec exec ssh-add
-+ "%mini.keys.xpm%&Delete Key" Exec exec ssh-add -D
++ "%Tango/16x16/actions/list-add.png%&Add Key" Exec exec ssh-add
++ "%Tango/16x16/actions/list-remove.png%&Delete Key" Exec exec ssh-add -D
+
+PipeRead $FVWM_USERDIR/scripts/mednafen-menu
 
 DestroyMenu MenuOpenThings
 AddToMenu MenuOpenThings "Open Something" Title
-+ "%16x16/image-viewer.xpm%&Image" Exec exec xclip -o | xargs feh
-+ "%16x16/video.xpm%&Video" Exec exec xclip -o | xargs mpv
++ "%Tango/16x16/mimetypes/image-x-generic.png%&Image" Exec exec xclip -o | xargs feh
++ "%Tango/16x16/mimetypes/video-x-generic.png%&Video" Exec exec xclip -o | xargs mpv
 
-# Modules ######################################################################
+## Modules
 
 DestroyModuleConfig FvwmButtons: *
-*FvwmButtons: Rows 4
-*FvwmButtons: Columns 9
+*FvwmButtons: Rows 3
+*FvwmButtons: Columns 1
 *FvwmButtons: Frame 1
 *FvwmButtons: Back Grey10
-*FvwmButtons: Geometry 500x115-0-0
-*FvwmButtons: (4x3, Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
-*FvwmButtons: (3x4, Swallow "xload" `Exec exec xload`)
-*FvwmButtons: (2x4, Frame 0, Swallow "FvwmPager" `Module FvwmPager * *`)
-*FvwmButtons: (4x1, Frame 0, Swallow "xclock" `Exec exec xclock`)
+*FvwmButtons: Geometry 150x225-0+0
+*FvwmButtons: (1x2, Frame 0, Swallow "FvwmPager" `Module FvwmPager * *`)
+*FvwmButtons: (Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
+
+DestroyModuleConfig StatusBox: *
+*StatusBox: Rows 1
+*StatusBox: Columns 4
+*StatusBox: Geometry 256x64-0-0
+*StatusBox: Back Grey20
+*StatusBox: Frame 1
+*StatusBox: (3x1, Swallow "xload" `Exec exec xload`)
+*StatusBox: (Swallow "xclock" `Exec exec xclock`)
 
 DestroyModuleConfig FvwmPager: *
 *FvwmPager: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
@@ -317,7 +404,7 @@ DestroyModuleConfig FvwmPager: *
 DestroyModuleConfig FvwmIconMan: *
 *FvwmIconMan: ManagerGeometry 1x5
 *FvwmIconMan: Action Mouse 1 N sendcommand Focus
-*FvwmIconMan: Action Mouse 2 N sencdommand Iconify
+*FvwmIconMan: Action Mouse 2 N sendcommand Iconify
 *FvwmIconMan: Action Mouse 3 N sendcommand FvwmIdent
 *FvwmIconMan: Format "%i"
 *FvwmIconMan: Background Grey10
@@ -334,8 +421,10 @@ DestroyModuleConfig FvwmIdent: *
 *FvwmIdent: Fore Yellow
 *FvwmIdent: Font -misc-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
 
-# StartFunction and InitFunction ###############################################
+## What to do when FVWM starts
 
 AddToFunc StartFunction
 + I Module FvwmCommandS
 + I Module FvwmButtons
++ I Module FvwmButtons StatusBox
++ I Test (Init) WindowId root 1 WarpToWindow 100 100

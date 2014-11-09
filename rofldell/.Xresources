@@ -1,4 +1,4 @@
-! .Xresources 2.6   Time-stamp: <2014-06-22 22:22:11 PDT xoddf2>
+! .Xresources 2.7.1   Time-stamp: <2014-11-01 22:04:20 PDT xoddf2>
 
 Xft.dpi: 96
 
@@ -30,10 +30,16 @@ Rxvt.color13: #FF00FF
 Rxvt.color14: #00FFFF
 Rxvt.color15: #FFFFFF
 
+URxvt.transparent: true
+URxvt.shading: 25
+
 Rxvt.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
 
 URxvt.perl-ext-common: keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+tmux.geometry: 80x50
+mosh.geometry: 80x50
 
 ! Emacs ------------------------------------------------------------------------
 Emacs.geometry: 80x50
@@ -47,13 +53,10 @@ Emacs.font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 
 ! xclock -----------------------------------------------------------------------
 XClock.Clock.background: black
-XClock.Clock.foreground: green
-XClock.Clock.analog: false
+XClock.Clock.foreground: white
+XClock.Clock.highlight: green
 XClock.Clock.update: 1
-XClock.Clock.face: Fixed-12:foundry=misc:weight=normal:slant=roman
-XClock.Clock.padding: 7
-XClock.Clock.render: true
-XClock.Clock.strftime: %a %Y-%m-%d %H:%M:%S
+XClock.Clock.render: false
 
 ! xload ------------------------------------------------------------------------
 XLoad*background: black

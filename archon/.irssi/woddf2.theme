@@ -252,6 +252,10 @@ abstracts = {
 # This prevents the Set away/Reset away spam in the status window.
 formats = {
   "Irssi::Script::screen_away" = { screen_away_crap = ""; };
+  "Irssi::Script::tmux_away" = { tmux_away_crap = ""; };
   "fe-common/irc" = { away = ""; unaway = ""; };
-  "fe-common/core" = { no_away_msgs = ""; };
+  "fe-common/core" = {
+    no_away_msgs = "";
+    pubmsg = "{pubmsgnick $2 {pubnick $nickcolor$0}}$1";
+  };
 };

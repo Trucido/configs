@@ -1,7 +1,7 @@
 #!/bin/sh
-# .xsession 3.2   Time-stamp: <2014-06-22 22:20:16 PDT xoddf2>
+# .xsession 3.3.1   Time-stamp: <2014-11-01 21:57:12 PDT xoddf2>
 
-# ssh-agent (Under FreeBSD, this requires ports/security/openssh-askpass.)
+# ssh-agent
 id1=$HOME/.ssh/identity
 id2=$HOME/.ssh/id_dsa
 id3=$HOME/.ssh/id_rsa
@@ -12,7 +12,7 @@ then
 	ssh-add < /dev/null
 fi
 
-# ~/.Xresources
+# X resources
 xrdb -merge ~/.Xresources
 
 # XScreenSaver
@@ -21,7 +21,7 @@ xscreensaver -no-splash &
 # CAPS LOCK as Compose
 setxkbmap -option "compose:caps" &
 
-# Eye candy
+# Root window
 feh --bg-center -z ~/img/wallpaper/ &
 
 # rxvt-unicode daemon
