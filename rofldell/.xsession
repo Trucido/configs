@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 3.3.1   Time-stamp: <2014-11-01 21:57:12 PDT xoddf2>
+# .xsession 3.3.2   Time-stamp: <2014-11-10 00:41:35 PST xoddf2>
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -23,6 +23,7 @@ setxkbmap -option "compose:caps" &
 
 # Root window
 feh --bg-center -z ~/img/wallpaper/ &
+conky &
 
 # rxvt-unicode daemon
 urxvtd -q -o -f

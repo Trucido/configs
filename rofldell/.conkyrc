@@ -1,0 +1,84 @@
+# .conkyrc 2.0   Time-stamp: <2014-11-10 00:43:20 PST xoddf2>   -*- Conf -*-
+
+# Where to appear
+out_to_console no
+own_window no
+
+# Font
+use_xft yes
+override_utf8_locale yes
+xftfont Fixed:pixelsize=10
+
+# Prevent flickering
+double_buffer yes
+
+# Position and size
+alignment top_left
+gap_x 8
+gap_y 8
+maximum_width 220
+
+# Readability
+draw_outline yes
+
+# How often to update
+update_interval 0.5
+
+# For weather and CPU
+temperature_unit celsius
+
+TEXT
+${color FFFF00}${sysname} ${machine}${alignr}${kernel}${color}
+${color FFFF00}${nodename}${color}${alignr}Up: ${color 00FF00}${uptime}${color}
+${hr}
+CPU: ${color 00FF00}${cpu}%${color} (${color 00FF00}${hwmon temp 1}°C${color})${alignr}${color 00FF00}${loadavg 1} ${loadavg 2} ${loadavg 3}${color}
+${color 00FF00}${cpugraph 20}${color}
+${hr}
+Memory:${alignr}${color 00FF00}${mem}${color} of ${color 00FF00}${memmax}${color} (${color 00FF00}${memperc}%${color})
+${membar 6}
+Swap:${alignr}${color 00FF00}${swap}${color} of ${color 00FF00}${swapmax}${color} (${color 00FF00}${swapperc}%${color})
+${swapbar 6}
+${hr}
+${alignc}Processes ${color FFFF00}${processes}${color} Running ${color FFFF00}${running_processes}${color}
+
+Highest CPU        PID   CPU%   MEM%
+${color FFFF00}${top name 1}${color} ${color 00FF00}${top pid 1} ${top cpu 1} ${top mem 1}${color}
+${color FFFF00}${top name 2}${color} ${color 00FF00}${top pid 2} ${top cpu 2} ${top mem 2}${color}
+${color FFFF00}${top name 3}${color} ${color 00FF00}${top pid 3} ${top cpu 3} ${top mem 3}${color}
+${color FFFF00}${top name 4}${color} ${color 00FF00}${top pid 4} ${top cpu 4} ${top mem 4}${color}
+${color FFFF00}${top name 5}${color} ${color 00FF00}${top pid 5} ${top cpu 5} ${top mem 5}${color}
+
+Highest Memory     PID   CPU%   MEM%
+${color FFFF00}${top_mem name 1}${color} ${color 00FF00}${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}${color}
+${color FFFF00}${top_mem name 2}${color} ${color 00FF00}${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}${color}
+${color FFFF00}${top_mem name 3}${color} ${color 00FF00}${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}${color}
+${color FFFF00}${top_mem name 4}${color} ${color 00FF00}${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}${color}
+${color FFFF00}${top_mem name 5}${color} ${color 00FF00}${top_mem pid 5} ${top_mem cpu 5} ${top_mem mem 5}${color}
+${hr}
+${alignc}Disk Usage
+
+${color FFFF00}/boot${color}: ${color 00FF00}${fs_used /boot}${color} of ${color 00FF00}${fs_size /boot}${color} (${color 00FF00}${fs_used_perc /boot}%${color})
+${fs_bar 6 /boot}
+
+${color FFFF00}/${color}: ${color 00FF00}${fs_used /}${color} of ${color 00FF00}${fs_size /}${color} (${color 00FF00}${fs_used_perc /}%${color})
+${fs_bar 6 /}
+
+${color FFFF00}/home${color}: ${color 00FF00}${fs_used /home}${color} of ${color 00FF00}${fs_size /home}${color} (${color 00FF00}${fs_used_perc /home}%${color})
+${fs_bar 6 /home}
+
+${color FFFF00}/tmp${color}: ${color 00FF00}${fs_used /tmp}${color} of ${color 00FF00}${fs_size /tmp}${color} (${color 00FF00}${fs_used_perc /tmp}%${color})
+${fs_bar 6 /tmp}
+${if_up eth0}${hr}
+${alignc}IP Address: ${color FFFF00}${addr eth0}${color}
+
+Up: ${color 00FF00}${upspeed eth0}kb/s${color}${alignr}Total: ${color 00FF00}${totalup eth0}${color}
+${color 00FF00}${upspeedgraph 20}${color}
+
+Down: ${color 00FF00}${downspeed eth0}kb/s${color}${alignr}Total: ${color 00FF00}${totaldown eth0}${color}
+${color 00FF00}${downspeedgraph 20}${color}
+${hr}
+Weather:${color 00FF00}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 cloud_cover}}clear${endif}${endif}${color} ${color FFFF00}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 temperature}°C${color}${endif}
+${hr}
+Music: ${color FFFF00}${audacious_status}${color}${alignr}${color 00FF00}${audacious_position}${color} / ${color 00FF00}${audacious_length}${color}
+${scroll 36 ${audacious_title 1024} }
+${audacious_bar 6}
