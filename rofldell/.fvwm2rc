@@ -1,4 +1,4 @@
-# .fvwm2rc 5.1   Time-stamp: <2014-11-10 01:42:30 PST xoddf2>
+# .fvwm2rc 5.1.1   Time-stamp: <2014-11-10 13:37:07 PST xoddf2>
 
 # This .fvwm2rc is intended for use under Slackware 14.1.
 #
@@ -334,7 +334,7 @@ AddToMenu MenuEnvOptions "Env/Options" Title
 + "%Tango/16x16/apps/utilities-terminal.png%URxv&td" Exec exec urxvtd -q -o -f
 + "" Nop
 + "%Tango/16x16/mimetypes/image-x-generic.png%Choose Random &Wallpaper" Exec exec feh --bg-center -z ~/img/wallpaper/
-+ "%Tango/16x16/apps/utilities-system-monitor.png%Conk&y" Exec exec conky
++ "%Tango/16x16/apps/utilities-system-monitor.png%Con&ky" Exec exec conky
 + "" Nop
 + "&Y. Bell On" Exec exec xset b on
 + "&N. Bell Off" Exec exec xset b off
