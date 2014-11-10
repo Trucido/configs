@@ -1,4 +1,4 @@
-# .conkyrc 2.0.3   Time-stamp: <2014-11-10 01:13:00 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.1   Time-stamp: <2014-11-10 01:22:57 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -78,7 +78,10 @@ ${color 00FF00}${upspeedgraph eth0 20}${color}
 Down: ${color 00FF00}${downspeed eth0}kb/s${color}${alignr}Total: ${color 00FF00}${totaldown eth0}${color}
 ${color 00FF00}${downspeedgraph eth0 20}${color}
 ${hr}
-Weather:${color 00FF00}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 cloud_cover}}clear${endif}${endif}${color} ${color FFFF00}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 temperature}°C${color}${endif}
+${alignc}Weather
+Redding${color 00FF00}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}}clear${endif}${endif}${color} ${color FFFF00}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD temperature}°C${color}
+Red Bluff${color 00FF00}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRBL weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRBL weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRBL cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRBL cloud_cover}}clear${endif}${endif}${color} ${color FFFF00}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRBL temperature}°C${color}
+Weaverville${color 00FF00}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 cloud_cover}}clear${endif}${endif}${color} ${color FFFF00}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 temperature}°C${color}${endif}
 ${hr}
 Music: ${color FFFF00}${audacious_status}${color}${alignr}${color 00FF00}${audacious_position}${color} / ${color 00FF00}${audacious_length}${color}
 ${scroll 36 ${audacious_title 1024}}
