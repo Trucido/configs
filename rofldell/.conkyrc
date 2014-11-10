@@ -1,4 +1,4 @@
-# .conkyrc 2.0.2   Time-stamp: <2014-11-10 01:10:01 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.0.3   Time-stamp: <2014-11-10 01:13:00 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -22,7 +22,7 @@ maximum_width 220
 draw_outline yes
 
 # How often to update
-update_interval 0.5
+update_interval 1
 
 # For weather and CPU
 temperature_unit celsius
