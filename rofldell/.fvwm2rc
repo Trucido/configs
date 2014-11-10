@@ -1,4 +1,4 @@
-# .fvwm2rc 5.1.1   Time-stamp: <2014-11-10 13:37:07 PST xoddf2>
+# .fvwm2rc 5.2   Time-stamp: <2014-11-10 15:35:17 PST xoddf2>
 
 # This .fvwm2rc is intended for use under Slackware 14.1.
 #
@@ -10,9 +10,9 @@
 # Most applications start in specific pages.  FVWM puts windows in sane
 # positions the first time thanks to MinOverlapPercentPlacement.
 #
-# There is an FvwmButtons at the top right with FvwmPager and FvwmIconMan
-# swallowed and another FvwmButtons at the bottom right with xclock and xload
-# swallowed.  Iconic windows appear in the bottom left corner of the screen.
+# There is an FvwmButtons at the bottom right with FvwmIconMan, xclock,
+# and FvwmPager swallowed.  Iconic windows appear in the bottom left corner of
+# the screen.
 #
 # The MenuFvwmLogins menu is site-specific; replace the items in it with your
 # own.  There is also a PipeRead-generated menu for running video game ROMs in
@@ -375,19 +375,17 @@ AddToMenu MenuOpenThings "Open Something" Title
 ## Modules
 
 DestroyModuleConfig FvwmButtons: *
-*FvwmButtons: Rows 4
-*FvwmButtons: Columns 9
-*FvwmButtons: Frame 1
+*FvwmButtons: Rows 1
+*FvwmButtons: Columns 5
+*FvwmButtons: Frame 0
 *FvwmButtons: Back Grey10
-*FvwmButtons: Geometry 500x115-0-0
-*FvwmButtons: (4x3, Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
-*FvwmButtons: (3x4, Swallow "xload" `Exec exec xload`)
-*FvwmButtons: (2x4, Frame 0, Swallow "FvwmPager" `Module FvwmPager * *`)
-*FvwmButtons: (4x1, Frame 0, Swallow "xclock" `Exec exec xclock`)
+*FvwmButtons: Geometry 500x100-0-0
+*FvwmButtons: (3x1, Swallow "FvwmIconMan" `Module FvwmIconMan`)
+*FvwmButtons: (Frame 1, Swallow "xclock" `Exec exec xclock`)
+*FvwmButtons: (Swallow "FvwmPager" `Module FvwmPager * *`)
 
 DestroyModuleConfig FvwmPager: *
 *FvwmPager: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
-*FvwmPager: Geometry 245x115-0-0
 *FvwmPager: Back Grey10
 *FvwmPager: Fore Grey75
 *FvwmPager: Hilight Grey25
