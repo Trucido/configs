@@ -1,4 +1,4 @@
-# .conkyrc 2.0.1   Time-stamp: <2014-11-10 00:58:15 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.0.2   Time-stamp: <2014-11-10 01:10:01 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -33,9 +33,10 @@ ${color FFFF00}${nodename}${color}${alignr}Up: ${color 00FF00}${uptime}${color}
 ${hr}
 CPU: ${color 00FF00}${cpu}%${color} (${color 00FF00}${hwmon temp 1}°C${color})${alignr}${color 00FF00}${loadavg 1} ${loadavg 2} ${loadavg 3}${color}
 ${color 00FF00}${cpugraph 20}${color}
-${hr}
+
 Memory:${alignr}${color 00FF00}${mem}${color} of ${color 00FF00}${memmax}${color} (${color 00FF00}${memperc}%${color})
 ${membar 6}
+
 Swap:${alignr}${color 00FF00}${swap}${color} of ${color 00FF00}${swapmax}${color} (${color 00FF00}${swapperc}%${color})
 ${swapbar 6}
 ${hr}
