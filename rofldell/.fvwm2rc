@@ -1,4 +1,4 @@
-# .fvwm2rc 5.0.2   Time-stamp: <2014-11-10 00:47:55 PST xoddf2>
+# .fvwm2rc 5.1   Time-stamp: <2014-11-10 01:42:30 PST xoddf2>
 
 # This .fvwm2rc is intended for use under Slackware 14.1.
 #
@@ -375,22 +375,15 @@ AddToMenu MenuOpenThings "Open Something" Title
 ## Modules
 
 DestroyModuleConfig FvwmButtons: *
-*FvwmButtons: Rows 3
-*FvwmButtons: Columns 1
+*FvwmButtons: Rows 4
+*FvwmButtons: Columns 9
 *FvwmButtons: Frame 1
 *FvwmButtons: Back Grey10
-*FvwmButtons: Geometry 150x225-0+0
-*FvwmButtons: (1x2, Frame 0, Swallow "FvwmPager" `Module FvwmPager * *`)
-*FvwmButtons: (Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
-
-DestroyModuleConfig StatusBox: *
-*StatusBox: Rows 1
-*StatusBox: Columns 4
-*StatusBox: Geometry 256x64-0-0
-*StatusBox: Back Grey20
-*StatusBox: Frame 1
-*StatusBox: (3x1, Swallow "xload" `Exec exec xload`)
-*StatusBox: (Swallow "xclock" `Exec exec xclock`)
+*FvwmButtons: Geometry 500x115-0-0
+*FvwmButtons: (4x3, Frame 0, Swallow "FvwmIconMan" `Module FvwmIconMan`)
+*FvwmButtons: (3x4, Swallow "xload" `Exec exec xload`)
+*FvwmButtons: (2x4, Frame 0, Swallow "FvwmPager" `Module FvwmPager * *`)
+*FvwmButtons: (4x1, Frame 0, Swallow "xclock" `Exec exec xclock`)
 
 DestroyModuleConfig FvwmPager: *
 *FvwmPager: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
@@ -430,5 +423,4 @@ DestroyModuleConfig FvwmIdent: *
 AddToFunc StartFunction
 + I Module FvwmCommandS
 + I Module FvwmButtons
-+ I Module FvwmButtons StatusBox
 + I Test (Init) WindowId root 1 WarpToWindow 100 100

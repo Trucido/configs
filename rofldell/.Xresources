@@ -1,4 +1,4 @@
-! .Xresources 2.7.1   Time-stamp: <2014-11-01 22:04:20 PDT xoddf2>
+! .Xresources 2.8   Time-stamp: <2014-11-10 01:43:07 PST xoddf2>
 
 Xft.dpi: 96
 
@@ -53,10 +53,13 @@ Emacs.font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 
 ! xclock -----------------------------------------------------------------------
 XClock.Clock.background: black
-XClock.Clock.foreground: white
-XClock.Clock.highlight: green
+XClock.Clock.foreground: green
+XClock.Clock.analog: false
 XClock.Clock.update: 1
-XClock.Clock.render: false
+XClock.Clock.face: Fixed-12:foundry=misc:weight=normal:slant=roman
+XClock.Clock.padding: 7
+XClock.Clock.render: true
+XClock.Clock.strftime: %a %Y-%m-%d %H:%M:%S
 
 ! xload ------------------------------------------------------------------------
 XLoad*background: black

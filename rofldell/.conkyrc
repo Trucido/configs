@@ -1,4 +1,4 @@
-# .conkyrc 2.1   Time-stamp: <2014-11-10 01:22:57 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.1.1   Time-stamp: <2014-11-10 01:43:52 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -13,7 +13,7 @@ xftfont Fixed:pixelsize=10
 double_buffer yes
 
 # Position and size
-alignment top_left
+alignment top_right
 gap_x 8
 gap_y 8
 maximum_width 220
