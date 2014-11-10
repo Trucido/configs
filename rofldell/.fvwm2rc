@@ -1,4 +1,4 @@
-# .fvwm2rc 5.0   Time-stamp: <2014-11-08 22:19:27 PST xoddf2>
+# .fvwm2rc 5.0.1   Time-stamp: <2014-11-09 19:24:54 PST xoddf2>
 
 # This .fvwm2rc is intended for use under Slackware 14.1.
 #
@@ -367,6 +367,7 @@ DestroyMenu MenuOpenThings
 AddToMenu MenuOpenThings "Open Something" Title
 + "%Tango/16x16/mimetypes/image-x-generic.png%&Image" Exec exec xclip -o | xargs feh
 + "%Tango/16x16/mimetypes/video-x-generic.png%&Video" Exec exec xclip -o | xargs mpv
++ "%Tango/16x16/mimetypes/text-html.png%&Web Page" Exec exec xclip -o | firefox
 
 ## Modules
 
