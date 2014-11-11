@@ -1,4 +1,4 @@
-# .conkyrc 2.2   Time-stamp: <2014-11-11 00:58:45 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.2.1   Time-stamp: <2014-11-11 01:14:28 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -89,5 +89,5 @@ Volume:${alignr}${color 00FF00}${mixer Vol}%${color}
 ${mixerbar Vol}
 
 Music: ${color FFFF00}${audacious_status}${color}${alignr}${color 00FF00}${audacious_position}${color} / ${color 00FF00}${audacious_length}${color}
-${scroll 36 ${audacious_title 1024}}
+${scroll 50 ${audacious_title 1024}}
 ${audacious_bar 6}
