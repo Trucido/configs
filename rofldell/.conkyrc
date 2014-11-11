@@ -1,4 +1,4 @@
-# .conkyrc 2.2.1   Time-stamp: <2014-11-11 01:14:28 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.2.2   Time-stamp: <2014-11-11 01:18:00 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -63,16 +63,16 @@ ${color 00FF00}${diskiograph_read sda 20}${color}
 Write I/O:${alignr}${color 00FF00}${diskio_write sda}${color}
 ${color 00FF00}${diskiograph_write sda 20}${color}
 
-${color FFFF00}/boot${color} (${color 00FF00}${fs_type /boot}${color}): ${color 00FF00}${fs_used /boot}${color} of ${color 00FF00}${fs_size /boot}${color} (${color 00FF00}${fs_used_perc /boot}%${color})
+${color FFFF00}/boot${color} (${color 00FF00}${fs_type /boot}${color}):${alignr}${color 00FF00}${fs_used /boot}${color} of ${color 00FF00}${fs_size /boot}${color} (${color 00FF00}${fs_used_perc /boot}%${color})
 ${fs_bar 6 /boot}
 
-${color FFFF00}/${color} (${color 00FF00}${fs_type /}${color}): ${color 00FF00}${fs_used /}${color} of ${color 00FF00}${fs_size /}${color} (${color 00FF00}${fs_used_perc /}%${color})
+${color FFFF00}/${color} (${color 00FF00}${fs_type /}${color}):${alignr}${color 00FF00}${fs_used /}${color} of ${color 00FF00}${fs_size /}${color} (${color 00FF00}${fs_used_perc /}%${color})
 ${fs_bar 6 /}
 
-${color FFFF00}/home${color} (${color 00FF00}${fs_type /home}${color}): ${color 00FF00}${fs_used /home}${color} of ${color 00FF00}${fs_size /home}${color} (${color 00FF00}${fs_used_perc /home}%${color})
+${color FFFF00}/home${color} (${color 00FF00}${fs_type /home}${color}):${alignr}${color 00FF00}${fs_used /home}${color} of ${color 00FF00}${fs_size /home}${color} (${color 00FF00}${fs_used_perc /home}%${color})
 ${fs_bar 6 /home}
 
-${color FFFF00}/tmp${color} (${color 00FF00}${fs_type /tmp}${color}): ${color 00FF00}${fs_used /tmp}${color} of ${color 00FF00}${fs_size /tmp}${color} (${color 00FF00}${fs_used_perc /tmp}%${color})
+${color FFFF00}/tmp${color} (${color 00FF00}${fs_type /tmp}${color}):${alignr}${color 00FF00}${fs_used /tmp}${color} of ${color 00FF00}${fs_size /tmp}${color} (${color 00FF00}${fs_used_perc /tmp}%${color})
 ${fs_bar 6 /tmp}
 ${if_up eth0}${hr}
 ${alignc}IP Address: ${color FFFF00}${addr eth0}${color}
