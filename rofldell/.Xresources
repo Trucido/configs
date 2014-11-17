@@ -1,45 +1,43 @@
-! .Xresources 2.8.1   Time-stamp: <2014-11-10 15:01:22 PST xoddf2>
+! .Xresources 2.9   Time-stamp: <2014-11-16 20:59:10 PST xoddf2>
 
 Xft.dpi: 96
 
 ! rxvt-unicode -----------------------------------------------------------------
-Rxvt.termName: xterm-256color
+URxvt.termName: xterm-256color
 
 URxvt.urgentOnBell: true
 
-Rxvt.scrollBar: false
+URxvt.scrollBar: false
 URxvt.pointerBlank: true
 
-Rxvt.background: black
-Rxvt.foreground: white
+URxvt.background: rgba:0000/0000/0000/C0C0
+URxvt.foreground: white
 
-Rxvt.color0: #000000
-Rxvt.color1: #CD0000
-Rxvt.color2: #00CD00
-Rxvt.color3: #CDCD00
-Rxvt.color4: #0000EE
-Rxvt.color5: #CD00CD
-Rxvt.color6: #00CDCD
-Rxvt.color7: #E5E5E5
-Rxvt.color8: #7F7F7F
-Rxvt.color9: #FF0000
-Rxvt.color10: #00FF00
-Rxvt.color11: #FFFF00
-Rxvt.color12: #5C5CFF
-Rxvt.color13: #FF00FF
-Rxvt.color14: #00FFFF
-Rxvt.color15: #FFFFFF
+URxvt.color0: #000000
+URxvt.color1: #CD0000
+URxvt.color2: #00CD00
+URxvt.color3: #CDCD00
+URxvt.color4: #0000EE
+URxvt.color5: #CD00CD
+URxvt.color6: #00CDCD
+URxvt.color7: #E5E5E5
+URxvt.color8: #7F7F7F
+URxvt.color9: #FF0000
+URxvt.color10: #00FF00
+URxvt.color11: #FFFF00
+URxvt.color12: #5C5CFF
+URxvt.color13: #FF00FF
+URxvt.color14: #00FFFF
+URxvt.color15: #FFFFFF
 
-URxvt.transparent: true
-URxvt.shading: 25
+URxvt.depth: 32
 
-Rxvt.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
+URxvt.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
 
 URxvt.perl-ext-common: keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
-tmux.geometry: 80x50
-mosh.geometry: 80x50
+URxvt.geometry: 80x50
 
 ! Emacs ------------------------------------------------------------------------
 Emacs.geometry: 80x50
@@ -53,10 +51,13 @@ Emacs.font: -xos4-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 
 ! xclock -----------------------------------------------------------------------
 XClock.Clock.background: black
-XClock.Clock.foreground: white
-XClock.Clock.highlight: green
+XClock.Clock.foreground: green
+XClock.Clock.analog: false
 XClock.Clock.update: 1
-XClock.Clock.render: false
+XClock.Clock.face: Fixed-12:foundry=misc:weight=normal:slant=roman
+XClock.Clock.padding: 7
+XClock.Clock.render: true
+XClock.Clock.strftime: %a %b %d %H:%M:%S %Z %Y
 
 ! xload ------------------------------------------------------------------------
 XLoad*background: black

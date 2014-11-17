@@ -1,4 +1,4 @@
-# .conkyrc 2.2.2   Time-stamp: <2014-11-11 01:18:00 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.3   Time-stamp: <2014-11-16 20:59:28 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -8,6 +8,13 @@ use_xft yes
 override_utf8_locale yes
 xftfont Fixed:pixelsize=10
 
+# Transparency
+own_window yes
+own_window_type override
+own_window_transparent no
+own_window_argb_visual yes
+own_window_argb_value 192
+
 # Prevent flickering
 double_buffer yes
 
@@ -16,9 +23,6 @@ alignment top_right
 gap_x 8
 gap_y 8
 maximum_width 274
-
-# Readability
-draw_outline yes
 
 # How often to update
 update_interval 0.5

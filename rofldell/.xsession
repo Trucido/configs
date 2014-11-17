@@ -1,5 +1,5 @@
 #!/bin/sh
-# .xsession 3.3.2   Time-stamp: <2014-11-10 00:41:35 PST xoddf2>
+# .xsession 3.4   Time-stamp: <2014-11-16 21:14:14 PST xoddf2>
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -21,15 +21,22 @@ xscreensaver -no-splash &
 # CAPS LOCK as Compose
 setxkbmap -option "compose:caps" &
 
-# Root window
+# Eye candy on the root window
+compton -b
 feh --bg-center -z ~/img/wallpaper/ &
 conky &
+
+# XClock
+xclock -geometry +0-0 &
 
 # rxvt-unicode daemon
 urxvtd -q -o -f
 
+# tmux
+urxvtc -sl 0 -geometry 80x50+0+0 -e tmux attach-session &
+
 # Start a WM, or, failing that, an xterm
-fvwm || twm || xterm
+cwm || fvwm || twm || xterm
 
 # Kill ssh-agent at the end of the session
 if [ "$SSH_AGENT_PID" ]; then
