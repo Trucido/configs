@@ -1,0 +1,76 @@
+# .cwmrc 1.2
+# Last Modified: Mon Nov 17 23:10:22 PST 2014
+
+# Appearance ###################################################################
+
+fontname "Fixed:pixelsize=15:bold"
+
+# Window decorations
+color activeborder goldenrod1
+color inactiveborder grey40
+
+color groupborder green
+color ungroupborder blue
+
+# Urgent windows
+color urgencyborder red
+
+# Menu
+color menubg black
+color menufg green
+color font green
+
+# Applications #################################################################
+
+command term urxvtc
+command lock "xscreensaver-command -lock"
+
+command tmux "urxvtc -sl 0 -e tmux attach-session"
+command vim gvim
+command www firefox
+command music audacious
+command gimp gimp
+command xpdf xpdf
+
+# "SSH to..." menu won't let me use mosh
+command mosh-archon "urxvtc -T '[mosh] archon.darkfox.id.au' -e mosh archon.darkfox.id.au"
+command mosh-elisabeth "urxvtc -T '[mosh] is.not.a.hax0r.se' -e mosh is.not.a.hax0r.se"
+
+# Keybindings ##################################################################
+bind 4-t htile
+bind 4-T vtile
+
+bind 4-Escape lock
+
+bind 4-bracketleft "amixer set Master 1-"
+bind 4-bracketright "amixer set Master 1+"
+
+bind 4-z "audacious --rew"
+bind 4-x "audacious --play"
+bind 4-c "audacious --pause"
+bind 4-v "audacious --stop"
+bind 4-z "audacious --fwd"
+
+# Other ########################################################################
+
+snapdist 8
+
+# Ignored Windows ##############################################################
+
+ignore xconsole
+ignore xclock
+
+# Groups #######################################################################
+
+autogroup 1 URxvt
+autogroup 1 Gvim
+autogroup 2 Firefox
+autogroup 3 Audacious
+autogroup 4 feh
+autogroup 4 mpv
+autogroup 5 gimp
+autogroup 6 Mednafen
+autogroup 6 qemu-system-i386
+autogroup 6 qemu-system-x86_64
+autogroup 6 qemu-system-arm
+autogroup 6 Xephyr

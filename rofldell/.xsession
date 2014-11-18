@@ -1,5 +1,6 @@
 #!/bin/sh
-# .xsession 3.4   Time-stamp: <2014-11-16 21:14:14 PST xoddf2>
+# .xsession 3.4
+# Last Modified: Mon Nov 17 23:10:23 PST 2014
 
 # ssh-agent
 id1=$HOME/.ssh/identity
