@@ -1,4 +1,5 @@
-" ~/.vimrc 2.0   Last Modified: Mon Nov 17 22:15:21 PST 2014
+" ~/.vimrc 2.0.1
+" Last Modified: Tue Nov 18 00:32:05 PST 2014
 
 " Facilitate some things:
 syntax on
@@ -33,6 +34,9 @@ set smartcase
 
 " Highlight margin
 set colorcolumn=80
+
+" Do that thing Emacs does with brackets
+set showmatch
 
 " Spelling
 set spell spelllang=en
@@ -79,6 +83,9 @@ endif
 if has("gui_running")
 	set guioptions=aic
 	set guifont=Terminus\ 11
+
+	set columns=80
+	set lines=50
 endif
 
 " Pathogen

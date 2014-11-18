@@ -1,5 +1,5 @@
-# .cwmrc 1.2
-# Last Modified: Mon Nov 17 23:10:22 PST 2014
+# .cwmrc 1.2.1
+# Last Modified: Tue Nov 18 00:31:37 PST 2014
 
 # Appearance ###################################################################
 
@@ -49,7 +49,7 @@ bind 4-z "audacious --rew"
 bind 4-x "audacious --play"
 bind 4-c "audacious --pause"
 bind 4-v "audacious --stop"
-bind 4-z "audacious --fwd"
+bind 4-b "audacious --fwd"
 
 # Other ########################################################################
 
