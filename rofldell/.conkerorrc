@@ -1,0 +1,95 @@
+/* ~/.conkerorrc 2.0   -*- JavaScript -*-
+   Time-stamp: <2014-12-26 21:55:09 PST xoddf2> */
+
+// Crash recovery
+require("session.js");
+session_auto_save_auto_load = true;
+
+// Functions
+function echo_message(window, message) {
+    window.minibuffer.message(message);
+}
+
+interactive("javascript-toggle", "Toggles JavaScript enabled and disabled.",
+	    function (I) {
+		var p = "javascript.enabled";
+		if (get_pref(p)) {
+		    session_pref(p, false);
+		    echo_message(I.window, "JavaScript disabled");
+		}
+		else {
+		    session_pref(p, true);
+		    echo_message(I.window, "JavaScript enabled");
+		}
+	    });
+
+// Make C-x C-c less dangerous
+add_hook("before_quit_hook",
+         function () {
+             var w = get_recent_conkeror_window();
+             var result = (w == null) ||
+                 "y" == (yield w.minibuffer.read_single_character_option(
+                     $prompt = "Quit Conkeror? (y/n)",
+                     $options = ["y", "n"]));
+             yield co_return(result);
+         });
+
+add_hook("window_before_close_hook",
+         function (w) {
+             var result = yield w.minibuffer.read_single_character_option(
+                 $prompt = "Close window? (y/n)",
+                 $options = ["y", "n"]);
+             yield co_return(result == "y");
+         });
+
+// History
+define_browser_object_class(
+    "history-url", null, 
+    function (I, prompt) {
+        check_buffer (I.buffer, content_buffer);
+        var result = yield I.buffer.window.minibuffer.read_url(
+            $prompt = prompt,  $use_webjumps = false, $use_history = true, $use_bookmarks = false);
+        yield co_return (result);
+    });
+
+interactive("find-url-from-history",
+            "Find a page from history in the current buffer",
+            "find-url",
+            $browser_object = browser_object_history_url);
+
+interactive("find-url-from-history-new-buffer",
+            "Find a page from history in the current buffer",
+            "find-url-new-buffer",
+            $browser_object = browser_object_history_url);
+
+define_key(content_buffer_normal_keymap, "h", "find-url-from-history-new-buffer");
+define_key(content_buffer_normal_keymap, "H", "find-url-from-history");
+
+// External editor
+editor_shell_command = "emacsclient";
+view_source_use_external_editor = true;
+
+// Downloads
+download_buffer_automatic_open_target = OPEN_NEW_BUFFER_BACKGROUND;
+
+external_content_handlers.set("video/*", "urxvtc -e mpv");
+external_content_handlers.set("audio/*", "urxvtc -e mpv");
+external_content_handlers.set("application/ogg", "urxvtc -e mpv");
+external_content_handlers.set("img/*", "feh");
+
+// Favicon
+require("favicon");
+add_hook("mode_line_hook", mode_line_adder(buffer_icon_widget), true);
+read_buffer_show_icons = true;
+
+// Options specific to certain Web sites
+xkcd_add_title = true;
+
+// Searches
+define_webjump("duckduckgo", "https://duckduckgo.com/?q=%s");
+
+// Disable clock
+remove_hook("mode_line_hook", mode_line_adder(clock_widget));
+
+// Keybindings
+define_key(content_buffer_normal_keymap, "C-x j", "javascript-toggle");

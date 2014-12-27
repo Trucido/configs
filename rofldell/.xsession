@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 3.4
-# Last Modified: Mon Nov 17 23:10:23 PST 2014
+# .xsession 3.5
+# Time-stamp: <2014-12-25 05:01:34 PST xoddf2>
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -33,8 +33,9 @@ xclock -geometry +0-0 &
 # rxvt-unicode daemon
 urxvtd -q -o -f
 
-# tmux
+# tmux and Emacs
 urxvtc -sl 0 -geometry 80x50+0+0 -e tmux attach-session &
+emacsclient -a '' -c -F "((top . 20) (left . 20))" &
 
 # Start a WM, or, failing that, an xterm
 cwm || fvwm || twm || xterm

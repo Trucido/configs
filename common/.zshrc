@@ -1,5 +1,5 @@
-# .zshrc 1.3
-# Last Modified: Mon Nov 17 23:10:22 PST 2014
+# .zshrc 1.4
+# Time-stamp: <2014-12-26 21:28:53 PST xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -13,8 +13,8 @@ unsetopt autocd beep
 autoload -Uz compinit
 compinit
 
-# vi keybindings
-bindkey -v
+# Emacs keybindings
+bindkey -e
 
 # What is a word?
 export WORDCHARS="*?.[]~=&;\!#\$%^(){}<>"
@@ -42,8 +42,8 @@ fi
 
 # Editor
 export EDITOR="ed"
-if [ -x "$(which vim)" ]; then
-	export VISUAL="vim"
+if [ -x "$(which emacs)" ]; then
+	export VISUAL="emacsclient"
 else
 	export VISUAL="vi"
 fi

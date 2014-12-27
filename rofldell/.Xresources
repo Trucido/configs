@@ -1,5 +1,5 @@
 ! .Xresources 2.10
-! Last Modified: Mon Nov 17 23:10:23 PST 2014
+! Time-stamp: <2014-12-26 21:29:10 PST xoddf2>
 
 Xft.dpi: 96
 
@@ -39,6 +39,16 @@ URxvt.perl-ext-common: keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 URxvt.geometry: 80x50
+
+! Emacs ------------------------------------------------------------------------
+Emacs.geometry: 80x50
+Emacs.menuBar: off
+Emacs.toolBar: off
+Emacs.verticalScrollBars: off
+Emacs.internalBorder: 2
+Emacs.background: black
+Emacs.foreground: white
+Emacs.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
 
 ! xclock -----------------------------------------------------------------------
 XClock.Clock.background: black

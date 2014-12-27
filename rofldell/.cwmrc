@@ -1,5 +1,5 @@
-# .cwmrc 1.2.1
-# Last Modified: Tue Nov 18 00:31:37 PST 2014
+# .cwmrc 1.2.2
+# Time-stamp: <2014-12-26 21:15:55 PST xoddf2>
 
 # Appearance ###################################################################
 
@@ -26,8 +26,8 @@ command term urxvtc
 command lock "xscreensaver-command -lock"
 
 command tmux "urxvtc -sl 0 -e tmux attach-session"
-command vim gvim
-command www firefox
+command emacs "emacsclient -a '' -c"
+command www conkeror
 command music audacious
 command gimp gimp
 command xpdf xpdf
@@ -51,6 +51,10 @@ bind 4-c "audacious --pause"
 bind 4-v "audacious --stop"
 bind 4-b "audacious --fwd"
 
+# To avoid conflicting with Emacs undo keybinding:
+bind C-slash unmap
+bind CM-slash menusearch
+
 # Other ########################################################################
 
 snapdist 8
@@ -63,8 +67,8 @@ ignore xclock
 # Groups #######################################################################
 
 autogroup 1 URxvt
-autogroup 1 Gvim
-autogroup 2 Firefox
+autogroup 1 Emacs
+autogroup 2 Conkeror
 autogroup 3 Audacious
 autogroup 4 feh
 autogroup 4 mpv
