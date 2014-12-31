@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.1
-;; Time-stamp: <2014-12-26 21:37:59 PST xoddf2>
+;; Version: 2.0.2
+;; Time-stamp: <2014-12-31 14:36:55 PST xoddf2>
 
 ;;; Commentary:
 
@@ -39,7 +39,9 @@
 
       (add-to-list 'w3m-search-engine-alist
                    '("duckduckgo" "https://duckduckgo.com/?q=%s"))
-      (setq w3m-search-default-engine "duckduckgo")))
+      (setq w3m-search-default-engine "duckduckgo")
+
+      (setq w3m-fill-column 80)))
 
 ;; Calendar
 (setq calendar-latitude 40.57667
