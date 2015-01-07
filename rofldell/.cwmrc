@@ -1,5 +1,5 @@
-# .cwmrc 1.2.2
-# Time-stamp: <2014-12-26 21:15:55 PST xoddf2>
+# .cwmrc 1.2.3
+# Time-stamp: <2015-01-06 21:24:54 PST xoddf2>
 
 # Appearance ###################################################################
 
@@ -31,10 +31,6 @@ command www conkeror
 command music audacious
 command gimp gimp
 command xpdf xpdf
-
-# "SSH to..." menu won't let me use mosh
-command mosh-archon "urxvtc -T '[mosh] archon.darkfox.id.au' -e mosh archon.darkfox.id.au"
-command mosh-elisabeth "urxvtc -T '[mosh] is.not.a.hax0r.se' -e mosh is.not.a.hax0r.se"
 
 # Keybindings ##################################################################
 bind 4-t htile
