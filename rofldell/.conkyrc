@@ -1,4 +1,4 @@
-# .conkyrc 2.3   Time-stamp: <2014-11-16 20:59:28 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.3.1   Time-stamp: <2015-01-06 21:33:18 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -87,7 +87,7 @@ ${color 00FF00}${upspeedgraph eth0 20}${color}
 Down: ${color 00FF00}${downspeed eth0}kb/s${color}${alignr}Total: ${color 00FF00}${totaldown eth0}${color}
 ${color 00FF00}${downspeedgraph eth0 20}${color}${endif}
 ${if_up eth0}${hr}
-Weather:${alignr}${color 00FF00}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 cloud_cover}}clear${endif}${endif}${color} ${color FFFF00}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KO54 temperature}°C${color}${endif}
+Weather:${alignr}${color 00FF00}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}}clear${endif}${endif}${color} ${color FFFF00}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD temperature}°C${color}${endif}
 ${hr}
 Volume:${alignr}${color 00FF00}${mixer Vol}%${color}
 ${mixerbar Vol}
