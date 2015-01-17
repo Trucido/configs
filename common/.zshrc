@@ -1,5 +1,5 @@
-# .zshrc 1.4
-# Time-stamp: <2014-12-26 21:28:53 PST xoddf2>
+# .zshrc 1.4.1
+# Time-stamp: <2015-01-15 18:25:56 PST xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -24,14 +24,14 @@ autoload -U colors && colors
 
 # Different prompt colour per box
 case "$(hostname)" in
-	"rofldell") local prompt_color="green" ;;
+	"rofldell.local") local prompt_color="green" ;;
 	"tesseract") local prompt_color="magenta" ;;
 	"archon") local prompt_color="yellow" ;;
 	"elisabeth") local prompt_color="cyan" ;;
 	*) local prompt_color="default" ;;
 esac
 
-local cmdstatus="%(?,%{$fg_bold[$prompt_color]%}%#%{$reset_color%},%{$fg_bold[red]%}%#%{$reset_color%})"
+local cmdstatus="%(?,%{$fg_bold[$prompt_color]%}%#%{$reset_color%},%{$fg_bold[red]%}%? %#%{$reset_color%})"
 export PS1="%{$fg_bold[${prompt_color}]%}%c%{$reset_color%} ${cmdstatus} "
 
 # Make exiting difficult in tmux

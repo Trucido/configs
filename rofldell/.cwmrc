@@ -1,5 +1,5 @@
-# .cwmrc 1.2.3
-# Time-stamp: <2015-01-06 21:24:54 PST xoddf2>
+# .cwmrc 1.2.4
+# Time-stamp: <2015-01-15 15:14:28 PST xoddf2>
 
 # Appearance ###################################################################
 
@@ -38,8 +38,8 @@ bind 4-T vtile
 
 bind 4-Escape lock
 
-bind 4-bracketleft "amixer set Master 1-"
-bind 4-bracketright "amixer set Master 1+"
+bind 4-bracketleft "mixer vol -1"
+bind 4-bracketright "mixer vol +1"
 
 bind 4-z "audacious --rew"
 bind 4-x "audacious --play"

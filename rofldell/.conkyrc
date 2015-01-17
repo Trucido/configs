@@ -1,4 +1,4 @@
-# .conkyrc 2.3.1   Time-stamp: <2015-01-06 21:33:18 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.4   Time-stamp: <2015-01-15 15:30:03 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -34,7 +34,7 @@ TEXT
 ${color FFFF00}${sysname} ${machine}${alignr}${kernel}${color}
 ${color FFFF00}${nodename}${color}${alignr}Up: ${color 00FF00}${uptime}${color}
 ${hr}
-CPU: ${color 00FF00}${cpu}%${color} (${color 00FF00}${hwmon temp 1}°C${color})${alignr}Frequency: ${color 00FF00}${freq_g} GHz${color}
+CPU: ${color 00FF00}${cpu}%${color}${alignr}Frequency: ${color 00FF00}${freq_g} GHz${color}
 ${color 00FF00}${cpugraph 20}${color}
 Load Averages:${alignr}${color 00FF00}${loadavg 1} ${loadavg 2} ${loadavg 3}${color}
 
@@ -62,36 +62,40 @@ ${color FFFF00}${top_mem name 5}${color}          ${color 00FF00}${top_mem pid 5
 ${hr}
 ${alignc}Disk Usage
 
-Read I/O:${alignr}${color 00FF00}${diskio_read sda}${color}
-${color 00FF00}${diskiograph_read sda 20}${color}
-Write I/O:${alignr}${color 00FF00}${diskio_write sda}${color}
-${color 00FF00}${diskiograph_write sda 20}${color}
-
-${color FFFF00}/boot${color} (${color 00FF00}${fs_type /boot}${color}):${alignr}${color 00FF00}${fs_used /boot}${color} of ${color 00FF00}${fs_size /boot}${color} (${color 00FF00}${fs_used_perc /boot}%${color})
-${fs_bar 6 /boot}
-
 ${color FFFF00}/${color} (${color 00FF00}${fs_type /}${color}):${alignr}${color 00FF00}${fs_used /}${color} of ${color 00FF00}${fs_size /}${color} (${color 00FF00}${fs_used_perc /}%${color})
 ${fs_bar 6 /}
 
-${color FFFF00}/home${color} (${color 00FF00}${fs_type /home}${color}):${alignr}${color 00FF00}${fs_used /home}${color} of ${color 00FF00}${fs_size /home}${color} (${color 00FF00}${fs_used_perc /home}%${color})
-${fs_bar 6 /home}
-
 ${color FFFF00}/tmp${color} (${color 00FF00}${fs_type /tmp}${color}):${alignr}${color 00FF00}${fs_used /tmp}${color} of ${color 00FF00}${fs_size /tmp}${color} (${color 00FF00}${fs_used_perc /tmp}%${color})
 ${fs_bar 6 /tmp}
-${if_up eth0}${hr}
-${alignc}IP Address: ${color FFFF00}${addr eth0}${color}
 
-Up: ${color 00FF00}${upspeed eth0}kb/s${color}${alignr}Total: ${color 00FF00}${totalup eth0}${color}
-${color 00FF00}${upspeedgraph eth0 20}${color}
+${color FFFF00}/usr/home${color} (${color 00FF00}${fs_type /usr/home}${color}):${alignr}${color 00FF00}${fs_used /usr/home}${color} of ${color 00FF00}${fs_size /usr/home}${color} (${color 00FF00}${fs_used_perc /usr/home}%${color})
+${fs_bar 6 /usr/home}
 
-Down: ${color 00FF00}${downspeed eth0}kb/s${color}${alignr}Total: ${color 00FF00}${totaldown eth0}${color}
-${color 00FF00}${downspeedgraph eth0 20}${color}${endif}
-${if_up eth0}${hr}
+${color FFFF00}/usr/ports${color} (${color 00FF00}${fs_type /usr/ports}${color}):${alignr}${color 00FF00}${fs_used /usr/ports}${color} of ${color 00FF00}${fs_size /usr/ports}${color} (${color 00FF00}${fs_used_perc /usr/ports}%${color})
+${fs_bar 6 /usr/ports}
+
+${color FFFF00}/usr/src${color} (${color 00FF00}${fs_type /usr/src}${color}):${alignr}${color 00FF00}${fs_used /usr/src}${color} of ${color 00FF00}${fs_size /usr/src}${color} (${color 00FF00}${fs_used_perc /usr/src}%${color})
+${fs_bar 6 /usr/src}
+
+${color FFFF00}/var/crash${color} (${color 00FF00}${fs_type /var/crash}${color}):${alignr}${color 00FF00}${fs_used /var/crash}${color} of ${color 00FF00}${fs_size /var/crash}${color} (${color 00FF00}${fs_used_perc /var/crash}%${color})
+${fs_bar 6 /var/crash}
+
+${color FFFF00}/var/log${color} (${color 00FF00}${fs_type /var/log}${color}):${alignr}${color 00FF00}${fs_used /var/log}${color} of ${color 00FF00}${fs_size /var/log}${color} (${color 00FF00}${fs_used_perc /var/log}%${color})
+${fs_bar 6 /var/log}
+
+${color FFFF00}/var/mail${color} (${color 00FF00}${fs_type /var/mail}${color}):${alignr}${color 00FF00}${fs_used /var/mail}${color} of ${color 00FF00}${fs_size /var/mail}${color} (${color 00FF00}${fs_used_perc /var/mail}%${color})
+${fs_bar 6 /var/mail}
+
+${color FFFF00}/var/tmp${color} (${color 00FF00}${fs_type /var/tmp}${color}):${alignr}${color 00FF00}${fs_used /var/tmp}${color} of ${color 00FF00}${fs_size /var/tmp}${color} (${color 00FF00}${fs_used_perc /var/tmp}%${color})
+${fs_bar 6 /var/tmp}
+${if_up nfe0}${hr}
+${alignc}IP Address: ${color FFFF00}${addr nfe0}${color}
+
+Up: ${color 00FF00}${upspeed nfe0}${color}${alignr}Down: ${color 00FF00}${downspeed nfe0}${color}
+${color 00FF00}${upspeedgraph nfe0 20,125}${color}${alignr}${color 00FF00}${downspeedgraph nfe0 20,125}${color}
+Total: ${color 00FF00}${totalup nfe0}${color}${alignr}Total: ${color 00FF00}${totaldown nfe0}${color}${endif}
+${if_up nfe0}${hr}
 Weather:${alignr}${color 00FF00}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}}clear${endif}${endif}${color} ${color FFFF00}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD temperature}°C${color}${endif}
 ${hr}
 Volume:${alignr}${color 00FF00}${mixer Vol}%${color}
 ${mixerbar Vol}
-
-Music: ${color FFFF00}${audacious_status}${color}${alignr}${color 00FF00}${audacious_position}${color} / ${color 00FF00}${audacious_length}${color}
-${scroll 50 ${audacious_title 1024}}
-${audacious_bar 6}
