@@ -1,5 +1,5 @@
-# .cwmrc 1.2.4
-# Time-stamp: <2015-01-15 15:14:28 PST xoddf2>
+# .cwmrc 1.2.5
+# Time-stamp: <2015-01-19 15:37:31 PST xoddf2>
 
 # Appearance ###################################################################
 
@@ -27,7 +27,7 @@ command lock "xscreensaver-command -lock"
 
 command tmux "urxvtc -sl 0 -e tmux attach-session"
 command emacs "emacsclient -a '' -c"
-command www conkeror
+command www firefox
 command music audacious
 command gimp gimp
 command xpdf xpdf
@@ -64,7 +64,7 @@ ignore xclock
 
 autogroup 1 URxvt
 autogroup 1 Emacs
-autogroup 2 Conkeror
+autogroup 2 Firefox
 autogroup 3 Audacious
 autogroup 4 feh
 autogroup 4 mpv
