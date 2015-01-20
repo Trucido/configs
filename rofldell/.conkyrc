@@ -1,4 +1,4 @@
-# .conkyrc 2.4   Time-stamp: <2015-01-15 15:30:03 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.4   Time-stamp: <2015-01-20 15:32:04 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -92,7 +92,7 @@ ${if_up nfe0}${hr}
 ${alignc}IP Address: ${color FFFF00}${addr nfe0}${color}
 
 Up: ${color 00FF00}${upspeed nfe0}${color}${alignr}Down: ${color 00FF00}${downspeed nfe0}${color}
-${color 00FF00}${upspeedgraph nfe0 20,125}${color}${alignr}${color 00FF00}${downspeedgraph nfe0 20,125}${color}
+${color 00FF00}${upspeedgraph nfe0 20,130}${color}${alignr}${color 00FF00}${downspeedgraph nfe0 20,130}${color}
 Total: ${color 00FF00}${totalup nfe0}${color}${alignr}Total: ${color 00FF00}${totaldown nfe0}${color}${endif}
 ${if_up nfe0}${hr}
 Weather:${alignr}${color 00FF00}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD weather}}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}${if_empty ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD cloud_cover}}clear${endif}${endif}${color} ${color FFFF00}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KRDD temperature}°C${color}${endif}
