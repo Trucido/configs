@@ -1,5 +1,5 @@
-# .zshrc 1.4.1
-# Time-stamp: <2015-01-15 18:25:56 PST xoddf2>
+# .zshrc 1.4.2
+# Time-stamp: <2015-01-23 00:01:34 PST xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -37,16 +37,13 @@ export PS1="%{$fg_bold[${prompt_color}]%}%c%{$reset_color%} ${cmdstatus} "
 # Make exiting difficult in tmux
 if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
 	alias exit="false"
+	alias logout="false"
 	setopt ignoreeof
 fi
 
 # Editor
 export EDITOR="ed"
-if [ -x "$(which emacs)" ]; then
-	export VISUAL="emacsclient"
-else
-	export VISUAL="vi"
-fi
+[ -x "$(which emacs)" ] && export VISUAL="emacsclient" || export VISUAL="vi"
 
 # Aliases
 if [[ "$(uname -o)" =~ "GNU" ]]; then
@@ -54,12 +51,14 @@ if [[ "$(uname -o)" =~ "GNU" ]]; then
 	alias grep="grep --color=auto"
 fi
 
-if [[ "$(uname)" == "Linux" ]]; then
-	alias adx="ps awwfux"
-	alias uC="ps wwu -C"
-elif [[ "$(uname)" == "FreeBSD" ]]; then
-	alias adx="ps adx"
-fi
+case "$(uname)" in
+	"FreeBSD")
+		alias adx="ps adx" ;;
+	"Linux")
+		alias adx="ps awwfux"
+		alias uC="ps wwu -C"
+		;;
+esac
 
 alias ta="tmux attach-session"
 alias tad="tmux attach-session -d"
