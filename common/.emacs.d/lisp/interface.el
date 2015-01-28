@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.1
-;; Time-stamp: <2014-12-26 19:36:42 PST xoddf2>
+;; Version: 2.0.2
+;; Time-stamp: <2015-01-27 15:24:37 PST xoddf2>
 
 ;;; Commentary:
 
@@ -50,6 +50,9 @@
       display-time-format "%H:%M:%S"
       display-time-mail-file t)
 (display-time-mode 1)
+
+;; In the GUI, resize more like a terminal emulator
+(setq frame-resize-pixelwise nil)
 
 ;; Eye candy (requires GUI)
 (add-to-list 'default-frame-alist '(alpha 100 85))

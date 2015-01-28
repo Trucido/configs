@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 3.5
-# Time-stamp: <2014-12-25 05:01:34 PST xoddf2>
+# .xsession 3.6
+# Time-stamp: <2015-01-27 19:06:19 PST xoddf2>
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -25,20 +25,13 @@ setxkbmap -option "compose:caps" &
 # Eye candy on the root window
 compton -b
 feh --bg-center -z ~/img/wallpaper/ &
-conky &
-
-# XClock
-xclock -geometry +0-0 &
+xsetroot -cursor_name left_ptr &
 
 # rxvt-unicode daemon
 urxvtd -q -o -f
 
-# tmux and Emacs
-urxvtc -sl 0 -geometry 80x50+0+0 -e tmux attach-session &
-emacsclient -a '' -c -F "((top . 20) (left . 20))" &
-
 # Start a WM, or, failing that, an xterm
-cwm || fvwm || twm || xterm
+xmonad || cwm || fvwm || twm || xterm
 
 # Kill ssh-agent at the end of the session
 if [ "$SSH_AGENT_PID" ]; then
