@@ -1,4 +1,4 @@
--- xmonad.hs 1.4   Time-stamp: <2015-01-27 23:00:46 PST xoddf2>
+-- xmonad.hs 1.4.1   Time-stamp: <2015-01-28 01:21:35 PST xoddf2>
 
 -- Features:
 -- - Grid and Roledex layouts
@@ -22,7 +22,6 @@
 -- - Switch to previous workspace if current one becomes empty.
 -- - additionalKeysP
 -- - Remember cursor position per workspace.  (Mainly for Firefox)
--- - Display workspace name, urgency, etc instead of xmobar.
 
 -- Imports
 import XMonad
@@ -44,6 +43,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
 import XMonad.Layout.Circle
+import XMonad.Layout.DwmStyle
 import XMonad.Layout.Grid
 import XMonad.Layout.IM
 import XMonad.Layout.LayoutHints
@@ -171,10 +171,11 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 myStartupHook = do
     banishScreen LowerRight
 
--- Layouts (Tall, Mirror Tall, Full, Grid, Spiral, Circle, Roledex)
-myLayoutHook = smartBorders
+-- Layouts (Tall, Mirror Tall, Full, Grid, ThreeColMid, Roledex)
+myLayoutHook = avoidStruts
+             $ smartBorders
              $ mkToggle (NOBORDERS ?? FULL ?? EOT)
-             $ onWorkspace "1:main"      (layoutHints tiled ||| layoutHints (Mirror tiled) ||| Full ||| layoutHints Grid ||| ThreeColMid 1 (3/100) (1/2) ||| layoutHints Roledex)
+             $ onWorkspace "1:main"      (layoutHints tiled ||| layoutHints (Mirror tiled) ||| Full ||| layoutHints Grid ||| layoutHints (ThreeColMid 1 (3/100) (1/2)) ||| layoutHints Roledex)
              $ onWorkspace "2:www"       (Full ||| (Mirror tiled) ||| Grid ||| Roledex)
              $ onWorkspace "3:media"     (Full ||| Grid ||| Roledex)
              $ onWorkspace "4:gimp"      (withIM (1/5) (Role "gimp-toolbox") Grid)
@@ -202,7 +203,7 @@ main = do
                                , ppTitle  = xmobarColor "green"  ""
                                , ppUrgent = xmobarColor "yellow" "red"
                                }
-        , layoutHook         = avoidStruts $ myLayoutHook
+        , layoutHook         = myLayoutHook
         , startupHook        = myStartupHook
         , modMask            = mod4Mask
         , terminal           = "urxvtcd"
