@@ -1,16 +1,10 @@
--- xmonad.hs 1.4.2   Time-stamp: <2015-01-28 17:55:22 PST xoddf2>
+-- xmonad.hs 1.4.3   Time-stamp: <2015-01-29 07:29:21 PST xoddf2>
 
 -- Features:
--- - Grid and Roledex layouts
--- - Zoom keybinding
--- - Hides border if there is only 1 window visible
--- - Keybindings to cycle through and toggle between workspaces
+-- - Grid, ThreeColMid, and Roledex layouts
 -- - ratpoison-style banish keybinding
--- - Keybinding to run or raise tmux, Emacs, Firefox
--- - SSH menu
--- - Shell menu
--- - Window menu
--- - xmobar
+-- - Keybindings to run or raise tmux, Emacs, Firefox
+-- - SSH, Shell, and Window menus
 --
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -21,7 +15,6 @@
 -- TODO:
 -- - Switch to previous workspace if current one becomes empty.
 -- - additionalKeysP
--- - Remember cursor position per workspace.  (Mainly for Firefox)
 
 -- Imports
 import XMonad
@@ -46,8 +39,6 @@ import XMonad.Layout.Circle
 import XMonad.Layout.DwmStyle
 import XMonad.Layout.Grid
 import XMonad.Layout.IM
-import XMonad.Layout.MultiToggle
-import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
@@ -111,7 +102,6 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_t),            withFocused $ windows . W.sink)
     , ((modMask .|. shiftMask, xK_h),            sendMessage (IncMasterN 1))
     , ((modMask .|. shiftMask, xK_l),            sendMessage (IncMasterN (-1)))
-    , ((modMask,               xK_z),            sendMessage $ Toggle FULL)
 
     -- Leave
     , ((modMask .|. shiftMask, xK_backslash),    io (exitWith ExitSuccess))
@@ -172,14 +162,12 @@ myStartupHook = do
 
 -- Layouts (Tall, Mirror Tall, Full, Grid, ThreeColMid, Roledex)
 myLayoutHook = avoidStruts
-             $ smartBorders
-             $ mkToggle (NOBORDERS ?? FULL ?? EOT)
              $ onWorkspace "1:main"      (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeColMid 1 (3/100) (1/2)) ||| Roledex)
-             $ onWorkspace "2:www"       (Full ||| (Mirror tiled) ||| Grid ||| Roledex)
-             $ onWorkspace "3:media"     (Full ||| Grid ||| Roledex)
+             $ onWorkspace "2:www"       ((noBorders Full) ||| (Mirror tiled) ||| Grid ||| Roledex)
+             $ onWorkspace "3:media"     ((noBorders Full) ||| Grid ||| Roledex)
              $ onWorkspace "4:gimp"      (withIM (1/5) (Role "gimp-toolbox") Grid)
-             $ onWorkspace "5:vm"        Full
-             $ onWorkspace "6:emulation" Full
+             $ onWorkspace "5:vm"        (noBorders Full)
+             $ onWorkspace "6:emulation" (noBorders Full)
              $ onWorkspace "7:other"     (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| ThreeColMid 1 (3/100) (1/2) ||| Roledex)
              $ tiled
            ||| (Mirror tiled)
