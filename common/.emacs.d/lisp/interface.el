@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.2
-;; Time-stamp: <2015-01-28 18:06:04 PST xoddf2>
+;; Version: 2.0.3
+;; Time-stamp: <2015-01-29 06:24:15 PST xoddf2>
 
 ;;; Commentary:
 
@@ -18,6 +18,10 @@
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain
       ediff-grab-mouse nil)
+
+;; Evil
+(require 'evil)
+(evil-mode 1)
 
 ;; Disable splash buffer
 (setq inhibit-startup-screen t)

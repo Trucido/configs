@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0
-;; Time-stamp: <2014-11-09 00:07:58 PST xoddf2>
+;; Version: 2.0.1
+;; Time-stamp: <2015-01-29 06:24:15 PST xoddf2>
 
 ;;; Commentary:
 
@@ -14,6 +14,9 @@
 ;; load-path
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/")
 (add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "lisp"))
+(if (string-equal system-name "elisabeth")
+    (add-to-list 'load-path
+                 (concat (expand-file-name user-emacs-directory) "evil")))
 
 (load-library "general")
 (load-library "interface")

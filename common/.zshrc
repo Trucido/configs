@@ -1,5 +1,5 @@
-# .zshrc 1.4.2
-# Time-stamp: <2015-01-23 00:01:34 PST xoddf2>
+# .zshrc 1.4.3
+# Time-stamp: <2015-01-29 06:30:18 PST xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -13,8 +13,8 @@ unsetopt autocd beep
 autoload -Uz compinit
 compinit
 
-# Emacs keybindings
-bindkey -e
+# Keybindings
+bindkey -v
 
 # What is a word?
 export WORDCHARS="*?.[]~=&;\!#\$%^(){}<>"
