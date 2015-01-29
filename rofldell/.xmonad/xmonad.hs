@@ -1,4 +1,4 @@
--- xmonad.hs 1.4.3   Time-stamp: <2015-01-29 07:29:21 PST xoddf2>
+-- xmonad.hs 1.4.4   Time-stamp: <2015-01-29 10:09:28 PST xoddf2>
 
 -- Features:
 -- - Grid, ThreeColMid, and Roledex layouts
@@ -16,7 +16,6 @@
 -- - Switch to previous workspace if current one becomes empty.
 -- - additionalKeysP
 
--- Imports
 import XMonad
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
@@ -35,15 +34,11 @@ import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
-import XMonad.Layout.Circle
-import XMonad.Layout.DwmStyle
 import XMonad.Layout.Grid
 import XMonad.Layout.IM
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
-import XMonad.Layout.Reflect
 import XMonad.Layout.Roledex
-import XMonad.Layout.Spiral
 import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -162,13 +157,13 @@ myStartupHook = do
 
 -- Layouts (Tall, Mirror Tall, Full, Grid, ThreeColMid, Roledex)
 myLayoutHook = avoidStruts
-             $ onWorkspace "1:main"      (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeColMid 1 (3/100) (1/2)) ||| Roledex)
+             $ onWorkspace "1:main"      (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)) ||| Roledex)
              $ onWorkspace "2:www"       ((noBorders Full) ||| (Mirror tiled) ||| Grid ||| Roledex)
              $ onWorkspace "3:media"     ((noBorders Full) ||| Grid ||| Roledex)
              $ onWorkspace "4:gimp"      (withIM (1/5) (Role "gimp-toolbox") Grid)
              $ onWorkspace "5:vm"        (noBorders Full)
              $ onWorkspace "6:emulation" (noBorders Full)
-             $ onWorkspace "7:other"     (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| ThreeColMid 1 (3/100) (1/2) ||| Roledex)
+             $ onWorkspace "7:other"     (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)) ||| Roledex)
              $ tiled
            ||| (Mirror tiled)
            ||| Full
