@@ -1,4 +1,4 @@
--- xmonad.hs 1.4.1   Time-stamp: <2015-01-28 01:21:35 PST xoddf2>
+-- xmonad.hs 1.4.2   Time-stamp: <2015-01-28 17:55:22 PST xoddf2>
 
 -- Features:
 -- - Grid and Roledex layouts
@@ -46,7 +46,6 @@ import XMonad.Layout.Circle
 import XMonad.Layout.DwmStyle
 import XMonad.Layout.Grid
 import XMonad.Layout.IM
-import XMonad.Layout.LayoutHints
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
@@ -175,7 +174,7 @@ myStartupHook = do
 myLayoutHook = avoidStruts
              $ smartBorders
              $ mkToggle (NOBORDERS ?? FULL ?? EOT)
-             $ onWorkspace "1:main"      (layoutHints tiled ||| layoutHints (Mirror tiled) ||| Full ||| layoutHints Grid ||| layoutHints (ThreeColMid 1 (3/100) (1/2)) ||| layoutHints Roledex)
+             $ onWorkspace "1:main"      (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeColMid 1 (3/100) (1/2)) ||| Roledex)
              $ onWorkspace "2:www"       (Full ||| (Mirror tiled) ||| Grid ||| Roledex)
              $ onWorkspace "3:media"     (Full ||| Grid ||| Roledex)
              $ onWorkspace "4:gimp"      (withIM (1/5) (Role "gimp-toolbox") Grid)

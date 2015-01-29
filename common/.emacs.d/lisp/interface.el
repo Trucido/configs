@@ -3,7 +3,7 @@
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
 ;; Version: 2.0.2
-;; Time-stamp: <2015-01-27 15:24:37 PST xoddf2>
+;; Time-stamp: <2015-01-28 18:06:04 PST xoddf2>
 
 ;;; Commentary:
 
@@ -25,9 +25,12 @@
 ;; Make C-x C-c less dangerous
 (setq confirm-kill-emacs 'yes-or-no-p)
 
-;; Misc interface settings
+;; Scrolling
 (setq scroll-conservatively most-positive-fixnum
-      visible-bell t)
+      scroll-preserve-screen-position t)
+
+;; Misc interface settings
+(setq visible-bell t)
 
 ;; Stretch cursor for tabs and indicate empty lines (requires GUI)
 (setq x-stretch-cursor t)
@@ -51,10 +54,11 @@
       display-time-mail-file t)
 (display-time-mode 1)
 
-;; In the GUI, resize more like a terminal emulator
-(setq frame-resize-pixelwise nil)
+;; No 3D effect on mode line (in GUI)
+(set-face-attribute 'mode-line nil :box nil)
+(set-face-attribute 'mode-line-inactive nil :box nil)
 
-;; Eye candy (requires GUI)
+;; Transparency in GUI (requires compositor)
 (add-to-list 'default-frame-alist '(alpha 100 85))
 
 ;;; interface.el ends here
