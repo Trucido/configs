@@ -1,11 +1,5 @@
--- xmonad.hs 1.4.4   Time-stamp: <2015-01-29 10:09:28 PST xoddf2>
+-- xmonad.hs 1.4.5   Time-stamp: <2015-01-29 10:22:59 PST xoddf2>
 
--- Features:
--- - Grid, ThreeColMid, and Roledex layouts
--- - ratpoison-style banish keybinding
--- - Keybindings to run or raise tmux, Emacs, Firefox
--- - SSH, Shell, and Window menus
---
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
 --
@@ -108,7 +102,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask,               xK_a),            raiseMaybe (runInTerm "-name tmux -sl 0" "tmux attach-session") (resource =? "tmux"))
     -- Placeholder (This line will bind mod+s to SSH eventually.)
     , ((modMask,               xK_d),            raiseMaybe (spawn "emacsclient --alternate-editor='' -c") (className =? "Emacs"))
-    , ((modMask,               xK_f),            raiseMaybe (spawn "firefox") (className =? "Firefox"))
+    , ((modMask,               xK_f),            raiseNextMaybe (spawn "firefox") (className =? "Firefox"))
 
     -- Open things
     , ((modMask,               xK_i),            spawn "xclip -o | xargs feh")

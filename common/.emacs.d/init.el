@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.1
-;; Time-stamp: <2015-01-29 06:24:15 PST xoddf2>
+;; Version: 2.0.2
+;; Time-stamp: <2015-01-30 16:28:51 PST xoddf2>
 
 ;;; Commentary:
 
@@ -14,9 +14,9 @@
 ;; load-path
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/")
 (add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "lisp"))
-(if (string-equal system-name "elisabeth")
-    (add-to-list 'load-path
-                 (concat (expand-file-name user-emacs-directory) "evil")))
+(unless (eq emacs-major-version '24)
+  (add-to-list 'load-path
+               (concat (expand-file-name user-emacs-directory) "evil")))
 
 (load-library "general")
 (load-library "interface")
@@ -24,5 +24,6 @@
 (load-library "editing")
 (load-library "applications")
 (load-library "bindings")
+(load-library "private")
 
 ;;; init.el ends here
