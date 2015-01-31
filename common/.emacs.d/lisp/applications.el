@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.2
-;; Time-stamp: <2014-12-31 14:36:55 PST xoddf2>
+;; Version: 2.0.3
+;; Time-stamp: <2015-01-30 16:53:42 PST xoddf2>
 
 ;;; Commentary:
 
@@ -44,10 +44,7 @@
       (setq w3m-fill-column 80)))
 
 ;; Calendar
-(setq calendar-latitude 40.57667
-      calendar-longitude -122.37028
-      calendar-location-name "Redding, CA"
-      calendar-time-display-form
+(setq calendar-time-display-form
       '(24-hours ":" minutes
                  (if time-zone " (") time-zone (if time-zone ")"))
       calendar-date-style 'iso)
