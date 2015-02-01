@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.2
-;; Time-stamp: <2015-01-31 18:09:07 PST xoddf2>
+;; Version: 2.0.3
+;; Time-stamp: <2015-01-31 23:49:31 PST xoddf2>
 
 ;;; Commentary:
 
@@ -40,6 +40,9 @@
     (yas-global-mode 1)
 
     (add-to-list 'yas/root-directory
-                 (concat (expand-file-name user-emacs-directory) "snippets"))))
+                 (concat (expand-file-name user-emacs-directory) "snippets"))
+    (setq yas-prompt-functions
+          (cons 'yas-ido-prompt
+                (remove 'yas-ido-prompt yas-prompt-functions)))))
 
 ;;; general.el ends here
