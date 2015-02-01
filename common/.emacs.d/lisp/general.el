@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.3
-;; Time-stamp: <2015-01-31 23:49:31 PST xoddf2>
+;; Version: 2.0.3.1
+;; Time-stamp: <2015-01-31 23:59:48 PST xoddf2>
 
 ;;; Commentary:
 
@@ -41,6 +41,8 @@
 
     (add-to-list 'yas/root-directory
                  (concat (expand-file-name user-emacs-directory) "snippets"))
+
+    ;; Do not use a GUI menu for yasnippet prompts in X
     (setq yas-prompt-functions
           (cons 'yas-ido-prompt
                 (remove 'yas-ido-prompt yas-prompt-functions)))))
