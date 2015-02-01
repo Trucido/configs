@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.1
-;; Time-stamp: <2015-01-30 16:20:30 PST xoddf2>
+;; Version: 2.0.2
+;; Time-stamp: <2015-01-31 18:09:07 PST xoddf2>
 
 ;;; Commentary:
 
@@ -32,5 +32,14 @@
 ;; Do not put M-x customize settings in the init file
 (setq custom-file "~/.emacs.d/lisp/custom.el")
 (load custom-file)
+
+;; YASnippet
+(if (eq emacs-major-version '24)
+  (progn
+    (require 'yasnippet)
+    (yas-global-mode 1)
+
+    (add-to-list 'yas/root-directory
+                 (concat (expand-file-name user-emacs-directory) "snippets"))))
 
 ;;; general.el ends here
