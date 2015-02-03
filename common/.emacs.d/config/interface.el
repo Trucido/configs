@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.3
-;; Time-stamp: <2015-01-29 06:24:15 PST xoddf2>
+;; Version: 2.0.4
+;; Time-stamp: <2015-02-02 18:47:44 PST xoddf2>
 
 ;;; Commentary:
 
@@ -57,6 +57,12 @@
       display-time-format "%H:%M:%S"
       display-time-mail-file t)
 (display-time-mode 1)
+
+;; Remove mode-line clutter
+(require 'diminish)
+(diminish 'magit-auto-revert-mode)
+(diminish 'undo-tree-mode)
+(diminish 'yas-minor-mode)
 
 ;; No 3D effect on mode line (in GUI)
 (set-face-attribute 'mode-line nil :box nil)

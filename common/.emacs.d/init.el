@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.3
-;; Time-stamp: <2015-01-31 18:09:22 PST xoddf2>
+;; Version: 2.0.4
+;; Time-stamp: <2015-02-02 19:02:51 PST xoddf2>
 
 ;;; Commentary:
 
@@ -13,19 +13,19 @@
 
 ;; load-path
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/")
+(add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "config"))
 (add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "lisp"))
 
-(unless (eq emacs-major-version '24)
-  (let ((default-directory
-          (concat (expand-file-name user-emacs-directory "packages"))))
-    (normal-top-level-add-subdirs-to-load-path)))
-
 (load-library "general")
-(load-library "interface")
 (load-library "functions")
 (load-library "editing")
 (load-library "applications")
+(load-library "interface")
 (load-library "bindings")
 (load-library "private")
+
+;; Do not put M-x customize settings in the init file
+(setq custom-file "~/.emacs.d/config/custom.el")
+(load custom-file)
 
 ;;; init.el ends here

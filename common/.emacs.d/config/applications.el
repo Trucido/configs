@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.3
-;; Time-stamp: <2015-01-30 16:53:42 PST xoddf2>
+;; Version: 2.0.4
+;; Time-stamp: <2015-02-02 18:48:06 PST xoddf2>
 
 ;;; Commentary:
 
@@ -58,8 +58,7 @@
         ("yt"  . "https://www.youtube.com/watch?v=")))
 
 ;; Magit
-(if (string-equal system-name "rofldell.local")
-    (require 'magit))
+(require 'magit)
 
 ;; mediawiki.el
 (if (string-equal system-name "rofldell.local")
