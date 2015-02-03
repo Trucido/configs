@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.1
-;; Time-stamp: <2014-12-26 21:39:09 PST xoddf2>
+;; Version: 2.0.2
+;; Time-stamp: <2015-02-02 20:15:59 PST xoddf2>
 
 ;;; Commentary:
 
@@ -18,18 +18,24 @@
 ;; View file
 (global-set-key (kbd "C-x 4 v") 'view-file-other-window)
 (global-set-key (kbd "C-x 5 v") 'view-file-other-frame)
-(global-set-key (kbd "C-x V") 'view-file)
+(global-set-key (kbd "C-c v") 'view-file)
+
+;; Scratch buffer
+(global-set-key (kbd "C-c s") 'switch-to-scratch-buffer)
+(global-set-key (kbd "C-c 4 s") 'switch-to-scratch-buffer-other-window)
+(global-set-key (kbd "C-c 5 s") 'switch-to-scratch-buffer-other-frame)
 
 ;; Applications
-(global-set-key (kbd "C-x m") 'gnus)
-(global-set-key (kbd "C-x w") 'w3m)
-(global-set-key (kbd "M-+") 'calc)
+(global-set-key (kbd "C-c m") 'gnus)
+(global-set-key (kbd "C-c w") 'w3m)
+(global-set-key (kbd "C-c d") 'calendar)
+(global-set-key (kbd "C-c l") 'calc)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; Unix
-(global-set-key (kbd "C-x /") 'grep)
-(global-set-key (kbd "C-x c") 'compile)
+(global-set-key (kbd "C-c g") 'grep)
+(global-set-key (kbd "C-c x") 'compile)
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Help
