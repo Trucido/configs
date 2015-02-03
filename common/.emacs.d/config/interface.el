@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.4
-;; Time-stamp: <2015-02-02 18:47:44 PST xoddf2>
+;; Version: 2.0.5
+;; Time-stamp: <2015-02-02 20:53:16 PST xoddf2>
 
 ;;; Commentary:
 
@@ -23,8 +23,9 @@
 (require 'evil)
 (evil-mode 1)
 
-;; Disable splash buffer
-(setq inhibit-startup-screen t)
+;; Do not display the splash buffer or the scratch buffer message
+(setq inhibit-startup-screen t
+      initial-scratch-message nil)
 
 ;; Make C-x C-c less dangerous
 (setq confirm-kill-emacs 'yes-or-no-p)
