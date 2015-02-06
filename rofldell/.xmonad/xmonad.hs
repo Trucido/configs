@@ -1,4 +1,4 @@
--- xmonad.hs 1.4.5   Time-stamp: <2015-01-29 10:22:59 PST xoddf2>
+-- xmonad.hs 1.5   Time-stamp: <2015-02-06 01:11:58 PST xoddf2>
 
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -25,14 +25,12 @@ import System.IO
 import XMonad.Actions.CycleWS
 import XMonad.Actions.Warp
 import XMonad.Actions.WindowGo
-import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
 import XMonad.Layout.Grid
 import XMonad.Layout.IM
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
-import XMonad.Layout.Roledex
 import XMonad.Layout.ThreeColumns
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -149,15 +147,15 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 myStartupHook = do
     banishScreen LowerRight
 
--- Layouts (Tall, Mirror Tall, Full, Grid, ThreeColMid, Roledex)
+-- Layouts (Tall, Mirror Tall, Full, Grid, ThreeColMid)
 myLayoutHook = avoidStruts
-             $ onWorkspace "1:main"      (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)) ||| Roledex)
-             $ onWorkspace "2:www"       ((noBorders Full) ||| (Mirror tiled) ||| Grid ||| Roledex)
-             $ onWorkspace "3:media"     ((noBorders Full) ||| Grid ||| Roledex)
+             $ onWorkspace "1:main"      (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)))
+             $ onWorkspace "2:www"       ((noBorders Full) ||| (Mirror tiled) ||| Grid)
+             $ onWorkspace "3:media"     ((noBorders Full) ||| Grid)
              $ onWorkspace "4:gimp"      (withIM (1/5) (Role "gimp-toolbox") Grid)
              $ onWorkspace "5:vm"        (noBorders Full)
              $ onWorkspace "6:emulation" (noBorders Full)
-             $ onWorkspace "7:other"     (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)) ||| Roledex)
+             $ onWorkspace "7:other"     (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)))
              $ tiled
            ||| (Mirror tiled)
            ||| Full
@@ -168,17 +166,11 @@ myLayoutHook = avoidStruts
         ratio      = 1/2
 
 main = do
-    xmproc <- spawnPipe "xmobar" -- For xmobar
-    xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
+    xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "red", "-fg", "yellow", "-fn", "-misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*", "-y", "1", "-ta", "l"] } $ defaultConfig
         { manageHook         = manageDocks <+> myManageHook
         , keys               = myKeys
         , mouseBindings      = myMouseBindings
         , workspaces         = myWorkspaces
-        , logHook            = dynamicLogWithPP xmobarPP
-                               { ppOutput = hPutStrLn xmproc
-                               , ppTitle  = xmobarColor "green"  ""
-                               , ppUrgent = xmobarColor "yellow" "red"
-                               }
         , layoutHook         = myLayoutHook
         , startupHook        = myStartupHook
         , modMask            = mod4Mask

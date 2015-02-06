@@ -1,5 +1,5 @@
-! .Xresources 2.10
-! Time-stamp: <2014-12-26 21:29:10 PST xoddf2>
+! .Xresources 2.10.1
+! Time-stamp: <2015-02-06 01:14:03 PST xoddf2>
 
 Xft.dpi: 96
 
@@ -11,7 +11,7 @@ URxvt.urgentOnBell: true
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 
-URxvt.background: rgba:0000/0000/0000/C0C0
+URxvt.background: black
 URxvt.foreground: white
 
 URxvt.color0: #000000
@@ -30,8 +30,6 @@ URxvt.color12: #5C5CFF
 URxvt.color13: #FF00FF
 URxvt.color14: #00FFFF
 URxvt.color15: #FFFFFF
-
-URxvt.depth: 32
 
 URxvt.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
 

@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.5
-;; Time-stamp: <2015-02-02 20:53:16 PST xoddf2>
+;; Version: 2.0.6
+;; Time-stamp: <2015-02-06 01:14:22 PST xoddf2>
 
 ;;; Commentary:
 
@@ -68,8 +68,5 @@
 ;; No 3D effect on mode line (in GUI)
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
-
-;; Transparency in GUI (requires compositor)
-(add-to-list 'default-frame-alist '(alpha 100 85))
 
 ;;; interface.el ends here

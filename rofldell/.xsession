@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 3.6
-# Time-stamp: <2015-01-27 19:06:19 PST xoddf2>
+# .xsession 3.6.1
+# Time-stamp: <2015-02-06 01:13:33 PST xoddf2>
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -22,10 +22,8 @@ xscreensaver -no-splash &
 # CAPS LOCK as Compose
 setxkbmap -option "compose:caps" &
 
-# Eye candy on the root window
-compton -b
-feh --bg-center -z ~/img/wallpaper/ &
-xsetroot -cursor_name left_ptr &
+# Root window colour and pointer
+xsetroot -cursor_name left_ptr -solid black &
 
 # rxvt-unicode daemon
 urxvtd -q -o -f
