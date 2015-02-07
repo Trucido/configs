@@ -1,5 +1,5 @@
-# .zshrc 1.4.3
-# Time-stamp: <2015-01-29 06:30:18 PST xoddf2>
+# .zshrc 1.4.4
+# Time-stamp: <2015-02-06 21:58:28 PST xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -32,7 +32,8 @@ case "$(hostname)" in
 esac
 
 local cmdstatus="%(?,%{$fg_bold[$prompt_color]%}%#%{$reset_color%},%{$fg_bold[red]%}%? %#%{$reset_color%})"
-export PS1="%{$fg_bold[${prompt_color}]%}%c%{$reset_color%} ${cmdstatus} "
+export PS1="%{$fg_bold[${prompt_color}]%}%~%{$reset_color%} ${cmdstatus} "
+export RPROMPT="%D{%Y-%m-%d} %*"
 
 # Make exiting difficult in tmux
 if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then

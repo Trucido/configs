@@ -1,4 +1,4 @@
--- xmonad.hs 1.5   Time-stamp: <2015-02-06 01:11:58 PST xoddf2>
+-- xmonad.hs 1.5.1   Time-stamp: <2015-02-06 21:59:10 PST xoddf2>
 
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -43,7 +43,7 @@ myWorkspaces = ["1:main","2:www","3:media","4:gimp","5:vm","6:emulation","7:othe
 myManageHook :: ManageHook
 myManageHook = composeAll . concat $
     [ [ className =? a --> viewShift "1:main"      | a <- myClassMainShifts  ]
-    , [ className =? b --> viewShift "2:www"       | b <- myClassWWWShifts   ]
+    , [ className =? b --> doF (W.shift "2:www")   | b <- myClassWWWShifts   ]
     , [ className =? c --> viewShift "3:media"     | c <- myClassMediaShifts ]
     , [ className =? d --> viewShift "4:gimp"      | d <- myClassGIMPShifts  ]
     , [ className =? e --> viewShift "5:vm"        | e <- myClassVMShifts    ]
