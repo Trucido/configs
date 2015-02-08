@@ -1,4 +1,4 @@
--- xmonad.hs 1.5.1   Time-stamp: <2015-02-06 21:59:10 PST xoddf2>
+-- xmonad.hs 1.6   Time-stamp: <2015-02-08 15:45:34 PST xoddf2>
 
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -25,6 +25,7 @@ import System.IO
 import XMonad.Actions.CycleWS
 import XMonad.Actions.Warp
 import XMonad.Actions.WindowGo
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
 import XMonad.Layout.Grid
@@ -166,11 +167,17 @@ myLayoutHook = avoidStruts
         ratio      = 1/2
 
 main = do
-    xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "red", "-fg", "yellow", "-fn", "-misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*", "-y", "1", "-ta", "l"] } $ defaultConfig
+    xmproc <- spawnPipe "xmobar"
+    xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
         { manageHook         = manageDocks <+> myManageHook
         , keys               = myKeys
         , mouseBindings      = myMouseBindings
         , workspaces         = myWorkspaces
+        , logHook            = dynamicLogWithPP xmobarPP
+                               { ppOutput = hPutStrLn xmproc
+                               , ppTitle  = xmobarColor "green"  ""
+                               , ppUrgent = xmobarColor "yellow" "red"
+                               }
         , layoutHook         = myLayoutHook
         , startupHook        = myStartupHook
         , modMask            = mod4Mask
