@@ -1,4 +1,4 @@
--- xmonad.hs 1.6   Time-stamp: <2015-02-08 15:45:34 PST xoddf2>
+-- xmonad.hs 1.6.1   Time-stamp: <2015-02-08 16:05:16 PST xoddf2>
 
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -183,6 +183,6 @@ main = do
         , modMask            = mod4Mask
         , terminal           = "urxvtcd"
         , clickJustFocuses   = False
-        , normalBorderColor  = "gray"
-        , focusedBorderColor = "red"
+        , normalBorderColor  = "grey40"
+        , focusedBorderColor = "goldenrod1"
         }
