@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.5
-;; Time-stamp: <2015-02-06 02:02:25 PST xoddf2>
+;; Version: 2.0.6
+;; Time-stamp: <2015-02-08 23:32:19 PST xoddf2>
 
 ;;; Commentary:
 
@@ -64,7 +64,10 @@
 (if (string-equal system-name "rofldell.local")
     (progn
       (require 'twittering-mode)
-      (setq twittering-use-master-password t)))
+      (setq twittering-use-master-password t)
+      (add-hook 'twittering-mode-hook
+                (lambda ()
+                  (twittering-icon-mode 1)))))
 
 ;; mediawiki.el
 (if (string-equal system-name "rofldell.local")
