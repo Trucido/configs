@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.6
-;; Time-stamp: <2015-02-06 01:14:22 PST xoddf2>
+;; Version: 2.0.7
+;; Time-stamp: <2015-02-09 00:46:39 PST xoddf2>
 
 ;;; Commentary:
 
@@ -56,7 +56,8 @@
 (setq display-time-24hr-format t
       display-time-interval 1
       display-time-format "%H:%M:%S"
-      display-time-mail-file t)
+      display-time-mail-file t
+      display-time-mail-directory "~/Mail/Gmail/INBOX/new/")
 (display-time-mode 1)
 
 ;; Remove mode-line clutter
