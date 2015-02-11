@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 3.6.1
-# Time-stamp: <2015-02-06 01:13:33 PST xoddf2>
+# .xsession 3.7
+# Time-stamp: <2015-02-11 12:27:09 PST xoddf2>
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -22,14 +22,16 @@ xscreensaver -no-splash &
 # CAPS LOCK as Compose
 setxkbmap -option "compose:caps" &
 
-# Root window colour and pointer
-xsetroot -cursor_name left_ptr -solid black &
+# Root window image, pointer, and compositor
+compton -b
+xsetroot -cursor_name left_ptr &
+feh --bg-center -z ~/img/wallpaper/ &
 
 # rxvt-unicode daemon
 urxvtd -q -o -f
 
 # Start a WM, or, failing that, an xterm
-xmonad || cwm || fvwm || twm || xterm
+xmonad || cwm || twm || xterm
 
 # Kill ssh-agent at the end of the session
 if [ "$SSH_AGENT_PID" ]; then
