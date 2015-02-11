@@ -1,4 +1,4 @@
--- xmonad.hs 1.7   Time-stamp: <2015-02-11 11:20:05 PST xoddf2>
+-- xmonad.hs 1.7.1   Time-stamp: <2015-02-11 12:17:15 PST xoddf2>
 
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -178,15 +178,17 @@ main = do
         , mouseBindings      = myMouseBindings
         , workspaces         = myWorkspaces
         , logHook            = dynamicLogWithPP xmobarPP
-                               { ppOutput = hPutStrLn xmproc
-                               , ppTitle  = xmobarColor "green"  ""
-                               , ppUrgent = xmobarColor "yellow" "red"
+                               { ppOutput  = hPutStrLn xmproc
+                               , ppTitle   = xmobarColor "#5FFFAF" ""
+                               , ppCurrent = xmobarColor "#AFAF5F" ""
+                               , ppLayout  = xmobarColor "#5FAF5F" ""
+                               , ppUrgent  = xmobarColor "white" "#FF5F00"
                                }
         , layoutHook         = myLayoutHook
         , startupHook        = myStartupHook
         , modMask            = mod4Mask
         , terminal           = "urxvtcd"
         , clickJustFocuses   = False
-        , normalBorderColor  = "grey40"
-        , focusedBorderColor = "goldenrod1"
+        , normalBorderColor  = "#808080"
+        , focusedBorderColor = "#5FAF5F"
         }

@@ -1,18 +1,18 @@
 -- ~/.xmobarrc 1.2   -*- Haskell -*-
--- Time-stamp: <2015-02-09 00:34:16 PST xoddf2>
+-- Time-stamp: <2015-02-11 12:09:31 PST xoddf2>
 
 Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
-       , bgColor = "black"
-       , fgColor = "white"
+       , bgColor = "#1C1C1C"
+       , fgColor = "#808080"
        , position = TopW L 100
        , hideOnStart = False
        , lowerOnStart = True
        , persistent = False
-       , commands = [ Run Weather "KRDD" ["-L","15","-H","25","--normal","yellow","--high","red","--low","green"] 18000
+       , commands = [ Run Weather "KRDD" ["-L","15","-H","25","--normal","#AFAF5F","--high","#FF5F00","--low","#5FAF5F"] 18000
                     , Run Date "%a %b %_d %H:%M:%S %Z %Y" "date" 1
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ : %KRDD% : <fc=cyan>%date%</fc>"
+       , template = "%StdinReader% }{ : %KRDD% : <fc=#5FAFD7>%date%</fc>"
        }
