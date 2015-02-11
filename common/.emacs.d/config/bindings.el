@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.2
-;; Time-stamp: <2015-02-02 20:15:59 PST xoddf2>
+;; Version: 2.0.3
+;; Time-stamp: <2015-02-11 11:30:53 PST xoddf2>
 
 ;;; Commentary:
 
@@ -30,6 +30,7 @@
 (global-set-key (kbd "C-c w") 'w3m)
 (global-set-key (kbd "C-c d") 'calendar)
 (global-set-key (kbd "C-c l") 'calc)
+(global-set-key (kbd "C-c t") 'twit)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
