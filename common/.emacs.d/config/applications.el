@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.6
-;; Time-stamp: <2015-02-08 23:32:19 PST xoddf2>
+;; Version: 2.0.7
+;; Time-stamp: <2015-02-13 22:14:27 PST xoddf2>
 
 ;;; Commentary:
 
@@ -65,6 +65,7 @@
     (progn
       (require 'twittering-mode)
       (setq twittering-use-master-password t)
+      (setq twittering-status-format "%i %s: %T (%@ via %f)%r%R")
       (add-hook 'twittering-mode-hook
                 (lambda ()
                   (twittering-icon-mode 1)))))
