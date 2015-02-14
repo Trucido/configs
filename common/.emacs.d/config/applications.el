@@ -2,13 +2,13 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.7
-;; Time-stamp: <2015-02-13 22:14:27 PST xoddf2>
+;; Version: 2.1
+;; Time-stamp: <2015-02-14 00:50:03 PST xoddf2>
 
 ;;; Commentary:
 
 ;; This file contains custom settings for Emacs applications such as dired,
-;; Gnus, etc.
+;; org, etc.
 
 ;;; Code:
 
@@ -18,13 +18,44 @@
       (setq ls-lisp-use-insert-directory-program nil)
       (require 'ls-lisp)))
 
-;; Gnus
+;; GPG
 (require 'epa-file)
 
-(setq read-mail-command 'gnus
-      mail-user-agent 'gnus-user-agent)
-
+;; mu4e
+(setq user-full-name "woddfellow2")
 (setq user-mail-address "woddfellow2@gmail.com") ; Kludge for compose-mail
+
+(if (string-equal system-name "rofldell.local")
+    (progn
+      (require 'mu4e)
+
+      (setq read-mail-command 'mu4e
+            mail-user-agent 'mu4e-user-agent)
+
+      (setq mu4e-maildir "~/Mail/Gmail/"
+            mu4e-sent-folder "/[Gmail].Sent Mail"
+            mu4e-drafts-folder "/[Gmail].Drafts"
+            mu4e-trash-folder "/[Gmail].Trash"
+            mu4e-refile-folder "/[Gmail].All Mail")
+
+      (setq mu4e-get-mail-command "offlineimap"
+            mu4e-update-interval 900)
+
+      (setq message-send-mail-function 'smtpmail-send-it
+            send-mail-function (quote smtpmail-send-it)
+            smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+            smtpmail-auth-credentials '(("smtp.gmail.com" 587 "woddfellow2@gmail.com"
+                                         nil))
+            smtpmail-default-smtp-server "smtp.gmail.com"
+            smtpmail-smtp-server "smtp.gmail.com"
+            smtpmail-smtp-service 587)
+
+      (setq mu4e-sent-messages-behavior 'delete) ; For Gmail
+
+      (setq mu4e-compose-signature (with-temp-buffer
+                                     (insert-file-contents "~/.signature")
+                                     (buffer-string)))
+      (setq message-signature-file "~/.signature")))
 
 ;; Emacs-w3m
 (if (string-equal system-name "rofldell.local")

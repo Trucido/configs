@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.3
-;; Time-stamp: <2015-02-11 11:30:53 PST xoddf2>
+;; Version: 2.0.4
+;; Time-stamp: <2015-02-14 00:28:11 PST xoddf2>
 
 ;;; Commentary:
 
@@ -26,7 +26,8 @@
 (global-set-key (kbd "C-c 5 s") 'switch-to-scratch-buffer-other-frame)
 
 ;; Applications
-(global-set-key (kbd "C-c m") 'gnus)
+(global-set-key (kbd "C-c m") 'mu4e)
+(global-set-key (kbd "C-c r") 'elfeed)
 (global-set-key (kbd "C-c w") 'w3m)
 (global-set-key (kbd "C-c d") 'calendar)
 (global-set-key (kbd "C-c l") 'calc)

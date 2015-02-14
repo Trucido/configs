@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.7.1
-;; Time-stamp: <2015-02-09 22:02:37 PST xoddf2>
+;; Version: 2.0.8
+;; Time-stamp: <2015-02-14 00:47:07 PST xoddf2>
 
 ;;; Commentary:
 
@@ -22,6 +22,9 @@
 ;; Evil
 (require 'evil)
 (evil-mode 1)
+
+(add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
+(add-to-list 'evil-emacs-state-modes 'elfeed-show-mode)
 
 ;; Do not display the splash buffer or the scratch buffer message
 (setq inhibit-startup-screen t
