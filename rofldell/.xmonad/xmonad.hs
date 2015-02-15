@@ -1,4 +1,4 @@
--- xmonad.hs 1.7.2   Time-stamp: <2015-02-14 19:32:24 PST xoddf2>
+-- xmonad.hs 1.7.3   Time-stamp: <2015-02-14 19:43:12 PST xoddf2>
 
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -168,7 +168,7 @@ myLayoutHook = avoidStruts
         tiled      = Tall nmaster delta ratio
         nmaster    = 1
         delta      = 1/100
-        ratio      = 45/100
+        ratio      = 46/100
 
 main = do
     xmproc <- spawnPipe "xmobar"
