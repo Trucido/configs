@@ -1,5 +1,5 @@
--- ~/.xmobarrc 1.2   -*- Haskell -*-
--- Time-stamp: <2015-02-11 12:09:31 PST xoddf2>
+-- ~/.xmobarrc 1.2.1   -*- Haskell -*-
+-- Time-stamp: <2015-02-14 19:37:00 PST xoddf2>
 
 Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , bgColor = "#1C1C1C"
@@ -8,7 +8,7 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , hideOnStart = False
        , lowerOnStart = True
        , persistent = False
-       , commands = [ Run Weather "KRDD" ["-L","15","-H","25","--normal","#AFAF5F","--high","#FF5F00","--low","#5FAF5F"] 18000
+       , commands = [ Run Weather "KRDD" ["-t","<station>: <tempC>C <skyCondition>, rh <rh>% (<hour>)","-L","15","-H","25","--normal","#AFAF5F","--high","#FF5F00","--low","#5FAF5F"] 18000
                     , Run Date "%a %b %_d %H:%M:%S %Z %Y" "date" 1
                     , Run StdinReader
                     ]
