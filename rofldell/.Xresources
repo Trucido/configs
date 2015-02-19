@@ -1,11 +1,9 @@
-! .Xresources 2.11
-! Time-stamp: <2015-02-11 12:27:47 PST xoddf2>
+! .Xresources 2.11.1
+! Time-stamp: <2015-02-18 16:28:46 PST xoddf2>
 
 Xft.dpi: 96
 
 ! rxvt-unicode -----------------------------------------------------------------
-URxvt.termName: xterm-256color
-
 URxvt.urgentOnBell: true
 
 URxvt.scrollBar: false
