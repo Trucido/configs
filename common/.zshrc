@@ -1,12 +1,12 @@
-# .zshrc 1.4.5
-# Time-stamp: <2015-03-02 00:41:13 PST xoddf2>
+# .zshrc 1.4.6
+# Time-stamp: <2015-03-02 01:09:17 PST xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
-# Report background job status immediately
+# Misc settings
 setopt notify
+setopt correct
 
-# Do not cd if a command does not exist, or beep on error
 unsetopt autocd beep
 
 # Auto-completion
