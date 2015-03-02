@@ -1,4 +1,4 @@
--- xmonad.hs 1.7.4   Time-stamp: <2015-03-01 22:48:27 PST xoddf2>
+-- xmonad.hs 1.7.5   Time-stamp: <2015-03-01 23:36:24 PST xoddf2>
 
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -182,7 +182,7 @@ main = do
                                , ppTitle   = xmobarColor "#5FFFAF" ""
                                , ppCurrent = xmobarColor "#AFAF5F" ""
                                , ppLayout  = xmobarColor "#5FAF5F" ""
-                               , ppUrgent  = xmobarColor "white"   "#FF5F00"
+                               , ppUrgent  = xmobarColor "#FF5F00" ""
                                }
         , layoutHook         = myLayoutHook
         , startupHook        = myStartupHook
