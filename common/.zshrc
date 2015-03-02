@@ -1,5 +1,5 @@
-# .zshrc 1.4.4
-# Time-stamp: <2015-02-06 21:58:28 PST xoddf2>
+# .zshrc 1.4.5
+# Time-stamp: <2015-03-02 00:41:13 PST xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -34,6 +34,13 @@ esac
 local cmdstatus="%(?,%{$fg_bold[$prompt_color]%}%#%{$reset_color%},%{$fg_bold[red]%}%? %#%{$reset_color%})"
 export PS1="%{$fg_bold[${prompt_color}]%}%~%{$reset_color%} ${cmdstatus} "
 export RPROMPT="%D{%Y-%m-%d} %*"
+
+# History
+HISTFILE=~/.zhistory
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt HIST_IGNORE_DUPS SHARE_HISTORY
 
 # Make exiting difficult in tmux
 if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
