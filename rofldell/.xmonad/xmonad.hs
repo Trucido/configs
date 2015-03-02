@@ -1,4 +1,4 @@
--- xmonad.hs 1.7.3   Time-stamp: <2015-02-14 19:43:12 PST xoddf2>
+-- xmonad.hs 1.7.4   Time-stamp: <2015-03-01 22:48:27 PST xoddf2>
 
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -60,7 +60,7 @@ myManageHook = composeAll . concat $
         myClassMediaShifts = ["feh","mpv"]
         myClassGIMPShifts  = ["Gimp"]
         myClassVMShifts    = ["QEMU","VirtualBox"]
-        myClassEmulShifts  = ["Mednafen","UAE","Xnest","Xephyr"]
+        myClassEmulShifts  = ["Fceux","Phoenix","Gvbam","Dgen","Mednafen","UAE","Xnest","Xephyr"]
         myClassOtherShifts = ["XConsole","XClock","XLoad","XBiff","Xmessage","Xpdf"]
 
 -- Keybindings
