@@ -1,4 +1,4 @@
--- xmonad.hs 1.7.5   Time-stamp: <2015-03-01 23:36:24 PST xoddf2>
+-- xmonad.hs 1.7.6   Time-stamp: <2015-03-07 21:31:15 PST xoddf2>
 
 -- This config is recommended with the following lines in ~/.xinitrc or
 -- ~/.xsession:
@@ -39,24 +39,22 @@ import XMonad.Prompt.Ssh
 import XMonad.Prompt.Window
 
 -- Workspaces and what to put in them
-myWorkspaces = ["1:main","2:www","3:im","4:media","5:gimp","6:vm","7:emulation","8:other"]
+myWorkspaces = ["1:main","2:www","3:media","4:gimp","5:vm","6:emulation","7:other"]
 
 myManageHook :: ManageHook
 myManageHook = composeAll . concat $
     [ [ className =? a --> viewShift "1:main"      | a <- myClassMainShifts  ]
     , [ className =? b --> doF (W.shift "2:www")   | b <- myClassWWWShifts   ]
-    , [ className =? c --> viewShift "3:im"        | c <- myClassIMShifts    ]
-    , [ className =? d --> viewShift "4:media"     | d <- myClassMediaShifts ]
-    , [ className =? e --> viewShift "5:gimp"      | e <- myClassGIMPShifts  ]
-    , [ className =? f --> viewShift "6:vm"        | f <- myClassVMShifts    ]
-    , [ className =? g --> viewShift "7:emulation" | g <- myClassEmulShifts  ]
-    , [ className =? h --> doF (W.shift "8:other") | h <- myClassOtherShifts ]
+    , [ className =? d --> viewShift "3:media"     | d <- myClassMediaShifts ]
+    , [ className =? e --> viewShift "4:gimp"      | e <- myClassGIMPShifts  ]
+    , [ className =? f --> viewShift "5:vm"        | f <- myClassVMShifts    ]
+    , [ className =? g --> viewShift "6:emulation" | g <- myClassEmulShifts  ]
+    , [ className =? h --> doF (W.shift "7:other") | h <- myClassOtherShifts ]
     ]
     where
         viewShift = doF . liftM2 (.) W.greedyView W.shift
         myClassMainShifts  = ["URxvt","XTerm","Emacs"]
         myClassWWWShifts   = ["Firefox"]
-        myClassIMShifts    = ["Pidgin"]
         myClassMediaShifts = ["feh","mpv"]
         myClassGIMPShifts  = ["Gimp"]
         myClassVMShifts    = ["QEMU","VirtualBox"]
@@ -104,7 +102,6 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Placeholder (This line will bind mod+s to SSH eventually.)
     , ((modMask,               xK_d),            raiseMaybe (spawn "emacsclient --alternate-editor='' -c") (className =? "Emacs"))
     , ((modMask,               xK_f),            raiseNextMaybe (spawn "firefox") (className =? "Firefox"))
-    , ((modMask,               xK_g),            raiseNextMaybe (spawn "pidgin") (className =? "Pidgin"))
 
     -- Open things
     , ((modMask,               xK_i),            spawn "xclip -o | xargs feh")
@@ -155,12 +152,11 @@ myStartupHook = do
 myLayoutHook = avoidStruts
              $ onWorkspace "1:main"      (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)))
              $ onWorkspace "2:www"       ((noBorders Full) ||| (Mirror tiled) ||| Grid)
-             $ onWorkspace "3:im"        (withIM (1/5) (Role "buddy_list") Grid)
-             $ onWorkspace "4:media"     ((noBorders Full) ||| Grid)
-             $ onWorkspace "5:gimp"      (withIM (1/5) (Role "gimp-toolbox") Grid)
-             $ onWorkspace "6:vm"        (noBorders Full)
-             $ onWorkspace "7:emulation" (noBorders Full)
-             $ onWorkspace "8:other"     (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)))
+             $ onWorkspace "3:media"     ((noBorders Full) ||| Grid)
+             $ onWorkspace "4:gimp"      (withIM (1/5) (Role "gimp-toolbox") Grid)
+             $ onWorkspace "5:vm"        (noBorders Full)
+             $ onWorkspace "6:emulation" (noBorders Full)
+             $ onWorkspace "7:other"     (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)))
              $ tiled
            ||| (Mirror tiled)
            ||| Full
