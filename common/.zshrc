@@ -1,5 +1,5 @@
-# .zshrc 1.4.6
-# Time-stamp: <2015-03-02 01:09:17 PST xoddf2>
+# .zshrc 1.4.6.1
+# Time-stamp: <2015-03-21 22:22:36 PDT xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -80,5 +80,5 @@ alias sprunge="curl -F sprunge=@- http://sprunge.us/"
 alias ix="curl -n -F 'f:1=<-' http://ix.io"
 
 alias mp="mpv"
-alias mp-monaural="mpv --af=pan=1:[0.5,0.5]"
+alias mp-monaural="mpv '--af=pan=1:[0.5,0.5]'"
 alias mp-overscan="mpv --vf=scale=320:240,crop=288:216 --video-aspect=4:3"
