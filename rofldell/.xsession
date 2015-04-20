@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 3.7
-# Time-stamp: <2015-02-11 12:27:09 PST xoddf2>
+# .xsession 3.8
+# Time-stamp: <2015-04-19 22:54:01 PDT xoddf2>
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -30,8 +30,12 @@ feh --bg-center -z ~/img/wallpaper/ &
 # rxvt-unicode daemon
 urxvtd -q -o -f
 
+# Applications
+urxvtcd -geometry 80x50+0+0 -name tmux -sl 0 -e tmux attach-session &
+emacsclient -a '' -c -F "((top . 20) (left . 20))" &
+
 # Start a WM, or, failing that, an xterm
-xmonad || cwm || twm || xterm
+cwm || twm || xterm
 
 # Kill ssh-agent at the end of the session
 if [ "$SSH_AGENT_PID" ]; then

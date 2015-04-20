@@ -1,0 +1,103 @@
+# .cwmrc 1.3
+# Time-stamp: <2015-04-19 22:43:03 PDT xoddf2>
+
+# Appearance ###################################################################
+
+fontname "Fixed:pixelsize=15:bold"
+
+# Window decorations
+color activeborder goldenrod1
+color inactiveborder grey40
+
+color groupborder green
+color ungroupborder blue
+
+# Urgent windows
+color urgencyborder red
+
+# Menu
+color menubg black
+color menufg green
+color font green
+
+# Applications #################################################################
+
+command term urxvtcd
+command lock "xscreensaver-command -lock"
+
+command tmux "urxvtcd -sl 0 -e tmux attach-session"
+command emacs "emacsclient -a '' -c"
+command www firefox
+command music audacious
+command gimp gimp
+command xpdf xpdf
+command nes fceux
+command snes higan
+command md run-dgen
+command dmg gvbam
+
+# Keybindings ##################################################################
+
+# Tiling
+bind 4-t htile
+bind 4-T vtile
+
+# This is easier to press than CM-delete
+bind 4-Escape lock
+
+# Volume
+bind 4-bracketleft "mixer vol -1"
+bind 4-bracketright "mixer vol +1"
+
+# Audacious
+bind 4-z "audacious --rew"
+bind 4-x "audacious --play"
+bind 4-c "audacious --pause"
+bind 4-v "audacious --stop"
+bind 4-b "audacious --fwd"
+
+# To avoid conflicting with Emacs undo keybinding
+bind C-slash unmap
+bind CM-slash menusearch
+
+# Other ########################################################################
+
+snapdist 8
+
+# Ignored Windows ##############################################################
+
+ignore xconsole
+ignore xclock
+ignore xload
+ignore xbiff
+
+# Groups #######################################################################
+
+# Main
+autogroup 1 URxvt
+autogroup 1 Emacs
+
+# WWW
+autogroup 2 Firefox
+
+# Music
+autogroup 3 Audacious
+
+# Media
+autogroup 4 feh
+autogroup 4 mpv
+
+# The GIMP
+autogroup 5 gimp
+
+# Emulators, VMs, etc
+autogroup 6 Fceux
+autogroup 6 Phoenix
+autogroup 6 Gvbam
+autogroup 6 Dgen
+autogroup 6 Mednafen
+autogroup 6 UAE
+autogroup 6 qemu-system-i386
+autogroup 6 qemu-system-x86_64
+autogroup 6 qemu-system-arm
+autogroup 6 Xephyr
