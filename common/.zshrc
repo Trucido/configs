@@ -1,5 +1,5 @@
-# .zshrc 1.4.6.1
-# Time-stamp: <2015-03-21 22:22:36 PDT xoddf2>
+# .zshrc 1.4.7
+# Time-stamp: <2015-06-07 18:23:13 PDT xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -14,7 +14,7 @@ autoload -Uz compinit
 compinit
 
 # Keybindings
-bindkey -v
+bindkey -e
 
 # What is a word?
 export WORDCHARS="*?.[]~=&;\!#\$%^(){}<>"
