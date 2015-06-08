@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.5
-;; Time-stamp: <2015-03-21 22:23:08 PDT xoddf2>
+;; Version: 2.0.6
+;; Time-stamp: <2015-06-07 17:56:07 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -35,6 +35,7 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; Unix
+(global-set-key (kbd "C-c z") 'shell)
 (global-set-key (kbd "C-c g") 'grep)
 (global-set-key (kbd "C-c x") 'compile)
 (global-set-key (kbd "C-x g") 'magit-status)

@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.4
-;; Time-stamp: <2015-02-02 19:02:51 PST xoddf2>
+;; Version: 2.0.5
+;; Time-stamp: <2015-06-07 17:55:05 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -27,5 +27,8 @@
 ;; Do not put M-x customize settings in the init file
 (setq custom-file "~/.emacs.d/config/custom.el")
 (load custom-file)
+
+;; Open a shell when Emacs starts
+(shell)
 
 ;;; init.el ends here

@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.8
-;; Time-stamp: <2015-02-14 00:47:07 PST xoddf2>
+;; Version: 2.0.9
+;; Time-stamp: <2015-06-07 17:55:33 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -18,13 +18,6 @@
 
 (setq ediff-window-setup-function 'ediff-setup-windows-plain
       ediff-grab-mouse nil)
-
-;; Evil
-(require 'evil)
-(evil-mode 1)
-
-(add-to-list 'evil-emacs-state-modes 'elfeed-search-mode)
-(add-to-list 'evil-emacs-state-modes 'elfeed-show-mode)
 
 ;; Do not display the splash buffer or the scratch buffer message
 (setq inhibit-startup-screen t
@@ -69,7 +62,6 @@
 ;; Remove mode-line clutter
 (require 'diminish)
 (diminish 'magit-auto-revert-mode)
-(diminish 'undo-tree-mode)
 (diminish 'yas-minor-mode)
 
 ;; No 3D effect on mode line (in GUI)

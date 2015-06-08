@@ -1,0 +1,59 @@
+# .mkshrc 1.0   -*- Shell-script -*-
+# Time-stamp: <2015-06-07 17:58:26 PDT xoddf2>
+
+# Prompt
+export PS1="${HOSTNAME:=$(hostname)} \$PWD \$? $(if (( USER_ID )); then print \$; else print \#; fi) "
+
+# Emacs keybindings
+set -o emacs
+
+# Editor
+export EDITOR="ed"
+[ -x "$(which emacs)" ] && export VISUAL="emacsclient" || export VISUAL="vi"
+
+# History
+export HISTFILE="$HOME/.mksh_history"
+export HISTSIZE=10000
+
+# Misc settings
+set -b
+
+# Avoid accidentally exiting main shell in tmux
+if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
+	alias exit="false"
+	alias logout="false"
+	set -o ignoreeof
+fi
+
+# ...or in an Emacs "M-x shell" buffer
+if [[ "$EMACS" == "t" ]]; then
+	alias exit="false"
+	alias logout="false"
+	set -o ignoreeof
+fi
+
+# Aliases
+case "$(uname)" in
+	"FreeBSD")
+		alias adx="ps adx" ;;
+	"Linux")
+		alias adx="ps awwfux"
+		alias uC="ps wwu -C"
+		;;
+esac
+
+alias ta="tmux attach-session"
+alias tad="tmux attach-session -d"
+alias tl="tmux list-sessions"
+alias la="ls -a"
+alias lh="ls -lh"
+alias lah="ls -lah"
+alias aux="ps auxww"
+alias p3="ping -c 3"
+
+alias sprunge="curl -F sprunge=@- http://sprunge.us/"
+alias ix="curl -n -F 'f:1=<-' http://ix.io"
+
+alias mp="mpv"
+alias mp-monaural="mpv '--af=pan=1:[0.5,0.5]'"
+alias mp-overscan="mpv --vf=scale=320:240,crop=288:216 --video-aspect=4:3"

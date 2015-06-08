@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 3.8
-# Time-stamp: <2015-04-19 22:54:01 PDT xoddf2>
+# .xsession 3.9
+# Time-stamp: <2015-06-07 18:19:46 PDT xoddf2>
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -30,9 +30,8 @@ feh --bg-center -z ~/img/wallpaper/ &
 # rxvt-unicode daemon
 urxvtd -q -o -f
 
-# Applications
-urxvtcd -geometry 80x50+0+0 -name tmux -sl 0 -e tmux attach-session &
-emacsclient -a '' -c -F "((top . 20) (left . 20))" &
+# Emacs
+emacsclient -a '' -c -F "((top . 1) (left . 1))" &
 
 # Start a WM, or, failing that, an xterm
 cwm || twm || xterm
