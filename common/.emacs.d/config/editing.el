@@ -2,14 +2,17 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0
-;; Time-stamp: <2014-11-09 00:07:10 PST xoddf2>
+;; Version: 2.0.1
+;; Time-stamp: <2015-12-23 22:39:09 PST xoddf2>
 
 ;;; Commentary:
 
 ;; This file contains custom settings for editing files.
 
 ;;; Code:
+
+;; General
+(setq require-final-newline t) ; Add missing newline when saving
 
 ;; Lisp
 (add-hook 'lisp-mode-hook
@@ -30,6 +33,7 @@
 (add-hook 'sh-mode-hook
           (lambda ()
             (setq sh-basic-offset 8)
+            (setq sh-indentation 8)
             (setq indent-tabs-mode t)))
 
 ;; Perl
@@ -59,7 +63,15 @@
 (add-hook 'css-mode-hook
           (lambda ()
             (setq css-indent-offset 8)
-            (setq indent-tabs-mode t)))
+            (setq indent-tabs-mode t)
+            (rainbow-mode 1)))
+
+;; Text
+(add-hook 'text-mode-hook
+          (lambda ()
+            (flyspell-mode 1)
+            (set-fill-column 80)
+            (auto-fill-mode 1)))
 
 ;; BBCode
 (if (string-equal system-name "rofldell.local")

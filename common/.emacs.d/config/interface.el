@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.9
-;; Time-stamp: <2015-06-07 17:55:33 PDT xoddf2>
+;; Version: 2.0.10
+;; Time-stamp: <2015-12-20 16:06:43 PST xoddf2>
 
 ;;; Commentary:
 
@@ -33,9 +33,10 @@
 ;; Misc interface settings
 (setq visible-bell t)
 
-;; Stretch cursor for tabs and indicate empty lines (requires GUI)
+;; Stretch cursor for tabs; indicate empty lines, buffer boundaries (GUI-only)
 (setq x-stretch-cursor t)
 (setq-default indicate-empty-lines t)
+(setq-default indicate-buffer-boundaries t)
 
 ;; Ido mode
 (ido-mode 1)
@@ -48,21 +49,32 @@
 (line-number-mode 1)
 (column-number-mode 1)
 
-;; Display time and load average in mode line
+;; Display time, load average, and (on laptop) battery life in mode line
 (setq display-time-24hr-format t
       display-time-interval 1
       display-time-format "%H:%M:%S"
-      display-time-mail-file t)
+      display-time-mail-file t
+      battery-mode-line-format " %b%p%%")
 
-(if (string-equal system-name "rofldell.local")
+(if (or
+      (string-equal system-name "rofldell.local")
+      (string-equal system-name "cheaptop.localdomain"))
     (setq display-time-mail-directory "~/Mail/Gmail/INBOX/new/"))
 
 (display-time-mode 1)
 
+(if (string-equal system-name "cheaptop.localdomain")
+    (display-battery-mode 1))
+
 ;; Remove mode-line clutter
 (require 'diminish)
-(diminish 'magit-auto-revert-mode)
 (diminish 'yas-minor-mode)
+
+;; Theme
+(if (or
+     (string-equal system-name "rofldell.local")
+     (string-equal system-name "cheaptop.localdomain"))
+    (load-theme 'dakrone t))
 
 ;; No 3D effect on mode line (in GUI)
 (set-face-attribute 'mode-line nil :box nil)

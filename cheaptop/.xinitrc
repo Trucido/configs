@@ -1,8 +1,6 @@
 #!/bin/sh
 # .xinitrc 1.0.2
-# Time-stamp: <2015-12-22 13:18:59 PST xoddf2>
-
-. ~/.profile
+# Time-stamp: <2015-12-09 23:21:08 PST xoddf2>
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -21,8 +19,8 @@ xrdb -merge ~/.Xresources
 # XScreenSaver
 xscreensaver -no-splash &
 
-# CAPS LOCK as Compose
-setxkbmap -option "compose:caps" &
+# CAPS LOCK as CTRL, and Menu as Compose
+setxkbmap -option "ctrl:nocaps" -option "compose:menu" &
 
 # Eye candy
 compton -b

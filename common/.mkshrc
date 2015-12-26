@@ -1,11 +1,14 @@
-# .mkshrc 1.0   -*- Shell-script -*-
-# Time-stamp: <2015-06-07 17:58:26 PDT xoddf2>
+# .mkshrc 1.0.1   -*- Shell-script -*-
+# Time-stamp: <2015-08-24 19:12:42 PDT xoddf2>
 
 # Prompt
 export PS1="${HOSTNAME:=$(hostname)} \$PWD \$? $(if (( USER_ID )); then print \$; else print \#; fi) "
 
-# Emacs keybindings
+# Keybindings
 set -o emacs
+bind '^L'=clear-screen
+bind '^[p'=up-history
+bind '^[n'=down-history
 
 # Editor
 export EDITOR="ed"
@@ -26,7 +29,7 @@ if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
 fi
 
 # ...or in an Emacs "M-x shell" buffer
-if [[ "$EMACS" == "t" ]]; then
+if [[ -n "$INSIDE_EMACS" ]]; then
 	alias exit="false"
 	alias logout="false"
 	set -o ignoreeof

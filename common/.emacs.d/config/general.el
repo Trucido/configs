@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.4
-;; Time-stamp: <2015-02-02 19:01:27 PST xoddf2>
+;; Version: 2.0.5
+;; Time-stamp: <2015-12-19 00:54:29 PST xoddf2>
 
 ;;; Commentary:
 
@@ -23,7 +23,7 @@
 (setq time-stamp-format "%:y-%02m-%02d %02H:%02M:%02S %Z %u")
 
 ;; Backup and autosave directory
-(setq temporary-file-directory "~/.emacs.d/tmp/")
+(setq temporary-file-directory "~/tmp/")
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 

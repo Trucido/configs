@@ -1,5 +1,5 @@
 # .cwmrc 1.3.3
-# Time-stamp: <2015-12-21 22:11:46 PST xoddf2>
+# Time-stamp: <2015-11-16 17:46:41 PST xoddf2>
 
 # Appearance ###################################################################
 
@@ -22,19 +22,20 @@ color font "#5FAF5F"
 
 # Applications #################################################################
 
-command term urxvtcd
+command term urxvtc
 command lock "xscreensaver-command -lock"
 
-command tmux "urxvtcd -sl 0 -name tmux -e tmux attach-session"
+command tmux "urxvtc -sl 0 -name tmux -e tmux attach-session"
 command emacs "emacsclient -a '' -c"
 command www firefox
 command music audacious
+command vlc vlc
 command gimp gimp
 command xpdf xpdf
-# command nes fceux
-# command snes higan
-# command md run-dgen
-# command dmg gvbam
+command vbox VirtualBox
+
+# "SSH to..." menu won't let me use mosh
+command mosh-elisabeth "urxvtc -T '[mosh] is.not.a.hax0r.se' -e mosh is.not.a.hax0r.se"
 
 # Keybindings ##################################################################
 
@@ -53,8 +54,9 @@ bind 4S-Tab rcycleingroup
 bind CM-Escape xkill
 
 # Volume
-bind 4-bracketleft "mixer vol -1"
-bind 4-bracketright "mixer vol +1"
+bind XF86AudioLowerVolume "amixer set Master 1-"
+bind XF86AudioRaiseVolume "amixer set Master 1+"
+bind XF86AudioMute "amixer set Master toggle"
 
 # Audacious
 bind 4-z "audacious --rew"
@@ -63,11 +65,14 @@ bind 4-c "audacious --pause"
 bind 4-v "audacious --stop"
 bind 4-b "audacious --fwd"
 
-# To avoid conflicting with Emacs keybindings
+# For the sake of completion
+bind XF86AudioPrev "audacious --rew"
+bind XF86AudioPlay "audacious --pause"
+bind XF86AudioNext "audacious --fwd"
+
+# To avoid conflicting with Emacs undo keybinding
 bind C-slash unmap
 bind CM-slash menusearch
-
-bind CM-s unmap
 
 # Other ########################################################################
 
@@ -97,11 +102,7 @@ autogroup 3 mpv
 autogroup 4 gimp
 
 # Emulators, VMs, etc
-autogroup 5 Fceux
-autogroup 5 Phoenix
-autogroup 5 Gvbam
 autogroup 5 Dgen
-autogroup 5 Mednafen
 autogroup 5 UAE
 autogroup 5 qemu-system-i386
 autogroup 5 qemu-system-x86_64
