@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xinitrc 1.0.2
-# Time-stamp: <2015-12-22 13:18:59 PST xoddf2>
+# .xinitrc 1.0.2.1
+# Time-stamp: <2015-12-26 02:11:59 PST xoddf2>
 
 . ~/.profile
 
@@ -9,7 +9,7 @@ id1=$HOME/.ssh/identity
 id2=$HOME/.ssh/id_dsa
 id3=$HOME/.ssh/id_rsa
 id4=$HOME/.ssh/id_ecdsa
-if [ -x "$(which ssh-agent)" ] && [ -f $id1 -o -f $id1 -o -f $id3 -o -f $id4 ];
+if [ -x "$(which ssh-agent)" ] && [ -f $id1 -o -f $id2 -o -f $id3 -o -f $id4 ];
 then
 	eval $(ssh-agent -s)
 	ssh-add < /dev/null
