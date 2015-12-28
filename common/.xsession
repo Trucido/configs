@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xinitrc 1.0.2.1
-# Time-stamp: <2015-12-26 02:11:59 PST xoddf2>
+# .xinitrc 1.1
+# Time-stamp: <2015-12-26 17:52:55 PST xoddf2>
 
 . ~/.profile
 
@@ -21,8 +21,15 @@ xrdb -merge ~/.Xresources
 # XScreenSaver
 xscreensaver -no-splash &
 
-# CAPS LOCK as Compose
-setxkbmap -option "compose:caps" &
+# setxkbmap
+setxkbmap -option "terminate:ctrl_alt_bksp" &
+
+case "$(hostname)" in
+	"rofldell.local")
+		setxkbmap -option "compose:caps" & ;;
+	"cheaptop")
+		setxkbmap -option "ctrl:nocaps" -option "compose:menu" & ;;
+esac
 
 # Eye candy
 compton -b
@@ -35,7 +42,7 @@ conky &
 # rxvt-unicode daemon
 urxvtd -q -o -f
 
-# Emacs
+# Auto-start tmux and Emacs
 urxvtc -geometry 80x50+0+0 -sl 0 -name tmux -e tmux attach-session &
 emacsclient -a '' -c -F "((top . 20) (left . 20))" &
 
