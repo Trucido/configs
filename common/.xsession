@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xinitrc 1.1
-# Time-stamp: <2015-12-26 17:52:55 PST xoddf2>
+# .xsession 1.1.1
+# Time-stamp: <2015-12-28 18:38:35 PST xoddf2>
 
 . ~/.profile
 
@@ -33,6 +33,7 @@ esac
 
 # Eye candy
 compton -b
+redshift &
 xsetroot -cursor_name left_ptr &
 feh --bg-center --no-fehbg -z ~/img/wallpaper/ &
 
