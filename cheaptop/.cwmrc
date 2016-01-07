@@ -1,5 +1,5 @@
-# .cwmrc 1.3.4
-# Time-stamp: <2016-01-06 19:43:23 PST xoddf2>
+# .cwmrc 1.3.4.1
+# Time-stamp: <2016-01-06 21:22:20 PST xoddf2>
 
 # Appearance ###################################################################
 
@@ -99,7 +99,7 @@ autogroup 3 feh
 autogroup 3 mpv
 
 # The GIMP
-autogroup 4 gimp
+autogroup 4 Gimp
 
 # Emulators, VMs, etc
 autogroup 5 Dgen
