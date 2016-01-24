@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.1.1
-# Time-stamp: <2015-12-28 18:38:35 PST xoddf2>
+# .xsession 1.2
+# Time-stamp: <2016-01-23 17:11:25 PST xoddf2>
 
 . ~/.profile
 
@@ -32,23 +32,42 @@ case "$(hostname)" in
 esac
 
 # Eye candy
-compton -b
 redshift &
-xsetroot -cursor_name left_ptr &
-feh --bg-center --no-fehbg -z ~/img/wallpaper/ &
-
-# Conky
-conky &
+case "$(hostname)" in
+	"rofldell.local")
+		xplanet -latitude 35 -longitude -95 -radius 75 -transparency & ;;
+	"cheaptop" )
+		compton -b
+		xsetroot -cursor_name left_ptr &
+		feh --bg-center --no-fehbg -z ~/img/wallpaper/ &
+		conky &
+		;;
+esac
 
 # rxvt-unicode daemon
 urxvtd -q -o -f
 
 # Auto-start tmux and Emacs
-urxvtc -geometry 80x50+0+0 -sl 0 -name tmux -e tmux attach-session &
-emacsclient -a '' -c -F "((top . 20) (left . 20))" &
+case "$(hostname)" in
+	"rofldell.local")
+		urxvtc -sl 0 -name tmux -e tmux attach-session &
+		emacsclient -a '' -c &
+		;;
+	"cheaptop")
+		urxvtc -geometry 80x50+0+0 -sl 0 -name tmux -e tmux attach-session &
+		emacsclient -a '' -c -F "((top . 20) (left . 20))" &
+		;;
+esac
 
 # Start a WM or an xterm
-cwm || twm || xterm
+case "$(hostname)" in
+	"rofldell.local")
+		fvwm ;;
+	"cheaptop")
+		cwm ;;
+	*)
+		twm || xterm ;;
+esac
 
 # Kill ssh-agent on exit
 if [ "$SSH_AGENT_PID" ]; then

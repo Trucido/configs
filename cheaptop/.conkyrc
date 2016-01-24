@@ -1,4 +1,4 @@
-# .conkyrc 2.5   Time-stamp: <2015-12-05 10:26:15 PST xoddf2>   -*- Conf -*-
+# .conkyrc 2.5.1   Time-stamp: <2016-01-24 03:33:19 PST xoddf2>   -*- Conf -*-
 
 # Where to appear
 out_to_console no
@@ -37,8 +37,7 @@ ${color FFFF00}${nodename}${color}${alignr}Up: ${color 00FF00}${uptime}${color}
 ${hr}
 CPU 1: ${color 00FF00}${cpu cpu1}%${color} (${color 00FF00}${freq_g cpu1} GHz${color})${alignr}CPU 2: ${color 00FF00}${cpu cpu2}%${color} (${color 00FF00}${freq_g cpu2} GHz${color})
 ${color 00FF00}${cpugraph cpu1 20,130}${color}${alignr}${color 00FF00}${cpugraph cpu2 20,130}${color}
-Load Averages:${alignr}${color 00FF00}${loadavg 1} ${loadavg 2} ${loadavg 3}${color}
-Temperature:${alignr}${color 00FF00}${acpitemp}°C${color}
+Load: ${color 00FF00}${loadavg 1} ${loadavg 2} ${loadavg 3}${color}${alignr}Temp: ${color 00FF00}${acpitemp}°C${color}
 
 Memory:${alignr}${color 00FF00}${mem}${color} of ${color 00FF00}${memmax}${color} (${color 00FF00}${memperc}%${color})
 ${membar 6}
