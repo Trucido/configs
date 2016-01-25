@@ -1,4 +1,4 @@
-# .fvwm2rc 6.0   Time-stamp: <2016-01-23 22:47:25 PST xoddf2>
+# .fvwm2rc 6.0.1   Time-stamp: <2016-01-24 18:21:04 PST xoddf2>
 
 # The following lines are expected to be in your ~/.xinitrc or ~/.xsession:
 #
@@ -77,7 +77,7 @@ Style FvwmButtons !Title, !Borders, Sticky, WindowListSkip, CirculateSkipIcon, F
 
 # Application styles
 Style URxvt StartsOnPage 0 0 0, !Title, BorderWidth 1, HandleWidth 1, Icon fvwm_icons/xterm.xpm, MiniIcon fvwm_icons/mini.xterm.xpm, Colorset 5, HilightColorset 4
-Style tmux MiniIcon tmux.png
+Style tmux Icon tmux32.xpm, MiniIcon tmux16.xpm
 Style ssh MiniIcon fvwm_icons/mini.telnet.xpm
 Style Emacs StartsOnPage 0 1 0, !Title, BorderWidth 1, HandleWidth 1, Icon fvwm_icons/gnu-animal.xpm, MiniIcon fvwm_icons/mini.gnu.xpm, Colorset 5, HilightColorset 4
 Style Seamonkey StartsOnPage 0 0 1, SkipMapping, Icon fvwm_icons/nscape.xpm, MiniIcon fvwm_icons/mini.nscape.xpm, IconOverride, EWMHMiniIconOverride
@@ -86,12 +86,11 @@ Style feh StartsOnPage 0 1 1, MiniIcon fvwm_icons/mini.picture.xpm
 Style mpv StartsOnPage 0 1 1
 Style gimp StartsOnPage 1 0 0, Icon fvwm_icons/gimp.xpm, MiniIcon fvwm_icons/mini.gimp.xpm
 Style QEMU StartsOnPage 1 0 1, Icon fvwm_icons/Monitor.xpm, MiniIcon fvwm_icons/mini.monitor.xpm
-Style Fceux StartsOnPage 1 1 0, Icon nes48.png, MiniIcon nes16.png
-Style Phoenix StartsOnPage 1 1 0, Icon snes32.png, MiniIcon snes16.png
-Style Gvbam StartsOnPage 1 1 0, Icon hicolor/16x16/apps/vbam.png, MiniIcon hicolor/32x32/apps/vbam.png
-Style Fusion StartsOnPage 1 1 0, Icon md32.png, MiniIcon md16.png
-Style Dgen StartsOnPage 1 1 0, Icon md32.png, MiniIcon md16.png
-Style UAE StartsOnPage 1 1 0, Icon hicolor/48x48/apps/fs-uae.png, MiniIcon hicolor/16x16/apps/fs-uae.png
+Style Fceux StartsOnPage 1 1 0, Icon nes32.xpm, MiniIcon nes16.xpm, IconOverride, EWMHMiniIconOverride
+Style Snes9x-gtk StartsOnPage 1 1 0, Icon snes32.xpm, MiniIcon snes16.xpm, IconOverride, EWMHMiniIconOverride
+Style Gvbam StartsOnPage 1 1 0, Icon dmg32.xpm, MiniIcon dmg16.xpm, IconOverride, EWMHMiniIconOverride
+Style Fusion StartsOnPage 1 1 0, Icon md32.xpm, MiniIcon md16.xpm, IconOverride, EWMHMiniIconOverride
+Style UAE StartsOnPage 1 1 0, Icon uae48.xpm, MiniIcon uae16.xpm, IconOverride, EWMHMiniIconOverride
 Style Xephyr StartsOnPage 1 1 1
 
 # Where to put iconified windows
@@ -269,7 +268,7 @@ Mouse 3 R A WindowList
 DestroyMenu MenuFvwmRoot
 AddToMenu MenuFvwmRoot@fvwm_icons/side.fvwm2.xpm@^black^ "Root Menu" Title
 + "%fvwm_icons/mini.xterm.xpm%URxv&tcd" Exec exec urxvtcd
-+ "%tmux.png%- tmu&x" Exec exec urxvtcd -name tmux -sl 0 -e tmux attach-session
++ "%tmux16.xpm%- tmu&x" Exec exec urxvtcd -name tmux -sl 0 -e tmux attach-session
 + "%fvwm_icons/mini.telnet.xpm%- &Remote Logins" Popup MenuLogins
 + "%fvwm_icons/mini.gnu.xpm%&Emacs" Exec exec emacsclient --alternate-editor='' -c
 + "%fvwm_icons/mini.nscape.xpm%Sea&Monkey" Exec exec seamonkey
@@ -278,8 +277,14 @@ AddToMenu MenuFvwmRoot@fvwm_icons/side.fvwm2.xpm@^black^ "Root Menu" Title
 + "" Nop
 + "%fvwm_icons/mini.cd.xpm%&VLC media player" Exec exec vlc
 + "%fvwm_icons/mini.sound.xpm%&Audacious" Exec exec audacious
-+ "%fvwm_icons/mini.audiovol.xpm%- A&udio Control" Popup MenuAudioControl
++ "%fvwm_icons/mini.audiovol.xpm%- Aud&io Control" Popup MenuAudioControl
 + "%fvwm_icons/mini.gimp.xpm%The &GIMP" Exec exec gimp
++ "" Nop
++ "%nes16.xpm%F&CEUX" Exec exec fceux
++ "%snes16.xpm%&Snes9x" Exec exec snes9x-gtk
++ "%dmg16.xpm%Visual&BoyAdvance-M" Exec exec gvbam
++ "%md16.xpm%&Kega Fusion" Exec exec Fusion
++ "%uae16.xpm%&UAE" Exec exec uae
 + "" Nop
 + "%fvwm_icons/mini.windows.xpm%&Window Ops" Popup MenuFvwmWindowOps
 + "" Nop
@@ -344,11 +349,11 @@ AddToMenu MenuLeave "Leave" Title
 
 DestroyMenu MenuAudioControl
 AddToMenu MenuAudioControl "Audio Control" Title
-+ "&Z. Previous" Exec exec audacious --rew
-+ "&X. Play" Exec exec audacious --play
-+ "&C. Pause" Exec exec audacious --pause
-+ "&V. Stop" Exec exec audacious --stop
-+ "&B. Next" Exec exec audacious --fwd
++ "%Tango/16x16/actions/player_rew.png%&Z. Previous" Exec exec audacious --rew
++ "%Tango/16x16/actions/player_play.png%&X. Play" Exec exec audacious --play
++ "%Tango/16x16/actions/player_pause.png%&C. Pause" Exec exec audacious --pause
++ "%Tango/16x16/actions/player_stop.png%&V. Stop" Exec exec audacious --stop
++ "%Tango/16x16/actions/player_fwd.png%&B. Next" Exec exec audacious --fwd
 
 DestroyMenu MenuLogins
 AddToMenu MenuLogins "Remote Logins" Title
