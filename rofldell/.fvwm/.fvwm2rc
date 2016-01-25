@@ -1,4 +1,4 @@
-# .fvwm2rc 6.0.1   Time-stamp: <2016-01-24 18:21:04 PST xoddf2>
+# .fvwm2rc 6.0.2   Time-stamp: <2016-01-24 19:14:04 PST xoddf2>
 
 # The following lines are expected to be in your ~/.xinitrc or ~/.xsession:
 #
@@ -63,9 +63,11 @@ ButtonStyle 5 4 50x25@1 75x75@0 25x75@0 50x25@1
 MenuStyle * Mwm
 MenuStyle * Foreground Yellow, Background ForestGreen
 MenuStyle * MenuFace DGradient 64 DarkGreen Green4
+MenuStyle * HilightBack FireBrick, ActiveFore Yellow
 MenuStyle WindowList Mwm
 MenuStyle WindowList Foreground Yellow, Background ForestGreen
 MenuStyle WindowList MenuFace DGradient 64 DarkGreen Green4
+MenuStyle WindowList HilightBack FireBrick, ActiveFore Yellow
 
 # If an application doesn't have its own icons, use these:
 DefaultIcon fvwm_icons/window.xpm
