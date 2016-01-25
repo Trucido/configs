@@ -1,4 +1,4 @@
-# .fvwm2rc 6.0.2   Time-stamp: <2016-01-24 19:14:04 PST xoddf2>
+# .fvwm2rc 6.0.2.3   Time-stamp: <2016-01-24 19:35:57 PST xoddf2>
 
 # The following lines are expected to be in your ~/.xinitrc or ~/.xsession:
 #
@@ -368,12 +368,12 @@ AddToMenu MenuLogins "Remote Logins" Title
 ## Modules
 
 DestroyModuleConfig FvwmButtons: *
-*FvwmButtons: Rows 7
+*FvwmButtons: Rows 9
 *FvwmButtons: Columns 2
 *FvwmButtons: Frame 0
 *FvwmButtons: Back Grey10
-*FvwmButtons: Geometry 128x448-0+0
-*FvwmButtons: (2x2, Swallow "FvwmPager" `Module FvwmPager * *`)
+*FvwmButtons: Geometry 128x576-0+0
+*FvwmButtons: (2x4, Swallow "FvwmPager" `Module FvwmPager 0 1`)
 *FvwmButtons: (Swallow "asclock", `Exec exec asclock`)
 *FvwmButtons: (Back DimGrey, Swallow "wmweather+", `Exec exec wmweather+`)
 *FvwmButtons: (Back DimGrey, Swallow "wmnd", `Exec exec wmnd`)
@@ -382,6 +382,8 @@ DestroyModuleConfig FvwmButtons: *
 *FvwmButtons: (2x2, Swallow "FvwmIconMan" `Module FvwmIconMan`)
 
 DestroyModuleConfig FvwmPager: *
+*FvwmPager: Rows 2
+*FvwmPager: Columns 1
 *FvwmPager: Font -misc-fixed-medium-r-*-*-10-*-*-*-*-*-*-*
 *FvwmPager: Back Grey10
 *FvwmPager: Fore Grey75
