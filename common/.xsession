@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.2.1
-# Time-stamp: <2016-02-21 02:48:06 PST xoddf2>
+# .xsession 1.2.1.1
+# Time-stamp: <2016-02-21 02:48:40 PST xoddf2>
 
 . ~/.profile
 
@@ -35,7 +35,7 @@ esac
 case "$(hostname)" in
 	"rofldell.local")
 		xplanet -latitude 35 -longitude -95 -radius 75 -transparency & ;;
-	"cheaptop" )
+	"cheaptop")
 		redshift &
 		compton -b
 		xsetroot -cursor_name left_ptr &
