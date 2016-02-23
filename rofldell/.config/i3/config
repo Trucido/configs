@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.0.1   Time-stamp: <2016-02-23 02:50:08 PST xoddf2>
+# ~/.config/i3/config 1.0.2   Time-stamp: <2016-02-23 02:54:17 PST xoddf2>
 
 # Appearance ###################################################################
 
@@ -157,6 +157,20 @@ bindsym $mod+z mode "apps"
 
 # SSH to...
 bindsym $mod+period exec "rofi -show ssh"
+
+# Audio control
+mode "audio" {
+	bindsym z exec "audacious --rew"; mode "default"
+	bindsym x exec "audacious --play"; mode "default"
+	bindsym c exec "audacious --pause"; mode "default"
+	bindsym v exec "audacious --stop"; mode "default"
+	bindsym b exec "audacious --fwd"; mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+m mode "audio"
 
 # Workspaces ###################################################################
 
