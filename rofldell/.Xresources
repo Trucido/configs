@@ -1,5 +1,5 @@
-! .Xresources 1.1
-! Time-stamp: <2016-01-23 17:29:34 PST xoddf2>
+! .Xresources 1.1.1
+! Time-stamp: <2016-02-23 02:29:39 PST xoddf2>
 
 Xft.dpi: 96
 
@@ -11,10 +11,7 @@ URxvt.urgentOnBell: true
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 
-URxvt.transparent: true
-URxvt.shading: 15
-
-URxvt.background: black
+URxvt.background: grey5
 URxvt.foreground: white
 
 URxvt.color0: #000000
@@ -34,7 +31,7 @@ URxvt.color13: #FF00FF
 URxvt.color14: #00FFFF
 URxvt.color15: #FFFFFF 
 
-URxvt.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
+URxvt.font: -misc-fixed-medium-r-semicondensed-*-13-*-*-*-*-*-*-*
 
 URxvt.perl-ext-common: keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
@@ -49,9 +46,12 @@ Emacs.verticalScrollBars: off
 Emacs.internalBorder: 2
 Emacs.background: black
 Emacs.foreground: white
-Emacs.font: -xos4-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
+Emacs.font: -misc-fixed-medium-r-semicondensed-*-13-*-*-*-*-*-*-*
 
 ! xload
 XLoad*background: black
 XLoad*foreground: white
 XLoad*highlight: red
+
+! Rofi
+rofi.font: Fixed 10px
