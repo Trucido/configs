@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.0   Time-stamp: <2016-02-23 02:33:54 PST xoddf2>
+# ~/.config/i3/config 1.0.1   Time-stamp: <2016-02-23 02:50:08 PST xoddf2>
 
 # Appearance ###################################################################
 
@@ -194,7 +194,7 @@ force_display_urgency_hint 1000 ms
 # i3bar ########################################################################
 bar {
         status_command i3status
-        tray_output default
+        tray_output primary
 
 	strip_workspace_numbers yes
 
