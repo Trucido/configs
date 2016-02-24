@@ -1,21 +1,23 @@
-# ~/.config/i3/config 1.0.3   Time-stamp: <2016-02-23 16:57:29 PST xoddf2>
+# ~/.config/i3/config 1.0.3.1   Time-stamp: <2016-02-23 17:37:51 PST xoddf2>
 
 # Appearance ###################################################################
 
+# Font
 font pango:Fixed 10px
 
 # Colours
 client.focused          #4D994D #356B35 #FFFFFF #6CB66C
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.unfocused        #333333 #222222 #888888 #292d2e
-client.urgent           #E65700 #A03C00 #ffffff #FF7623
-client.placeholder      #000000 #0c0c0c #ffffff #000000
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50
+client.unfocused        #333333 #222222 #888888 #292D2E
+client.urgent           #E65700 #A03C00 #FFFFFF #FF7623
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000
 
 client.background       #000000
 
-set $mod Mod4
-
 # Keys #########################################################################
+
+# Use SUPER as modifier
+set $mod Mod4
 
 # Arrows
 set $up    k
@@ -187,7 +189,7 @@ assign [class="UAE"]        6:vg
 assign [class="Xephyr"]     7:xnest
 assign [class="XConsole"]   8:misc
 
-# Misc ######## ################################################################
+# Misc #########################################################################
 
 for_window [class="Seamonkey"]  layout tabbed
 for_window [class="Gimp"]       floating enable
@@ -221,5 +223,5 @@ bar {
 	}
 }
 
-# Root window ##################################################################
+# Root window (exists due to glitch if run by .xsession) #######################
 exec "xsetroot -cursor_name left_ptr -solid black"
