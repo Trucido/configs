@@ -1,5 +1,5 @@
-# .zshrc 1.4.8
-# Time-stamp: <2016-02-24 02:52:39 PST xoddf2>
+# .zshrc 1.4.8.1
+# Time-stamp: <2016-02-24 03:01:08 PST xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -53,6 +53,9 @@ if [[ -n "$INSIDE_EMACS" ]]; then
 	alias exit="false"
 	alias logout="false"
 	setopt ignoreeof
+
+	# To avoid glitchiness:
+	unsetopt zle
 fi
 
 # Editor
