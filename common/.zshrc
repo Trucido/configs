@@ -1,5 +1,5 @@
-# .zshrc 1.4.7
-# Time-stamp: <2015-06-07 18:23:13 PDT xoddf2>
+# .zshrc 1.4.8
+# Time-stamp: <2016-02-24 02:52:39 PST xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -25,7 +25,6 @@ autoload -U colors && colors
 # Different prompt colour per box
 case "$(hostname)" in
 	"rofldell.local") local prompt_color="green" ;;
-	"tesseract") local prompt_color="magenta" ;;
 	"archon") local prompt_color="yellow" ;;
 	"elisabeth") local prompt_color="cyan" ;;
 	*) local prompt_color="default" ;;
@@ -42,8 +41,15 @@ SAVEHIST=10000
 
 setopt HIST_IGNORE_DUPS SHARE_HISTORY
 
-# Make exiting difficult in tmux
+# Avoid accidentally exiting main shell in tmux
 if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then
+	alias exit="false"
+	alias logout="false"
+	setopt ignoreeof
+fi
+
+# ...or in an Emacs "M-x shell" buffer
+if [[ -n "$INSIDE_EMACS" ]]; then
 	alias exit="false"
 	alias logout="false"
 	setopt ignoreeof
@@ -71,6 +77,7 @@ esac
 alias ta="tmux attach-session"
 alias tad="tmux attach-session -d"
 alias tl="tmux list-sessions"
+alias la="ls -a"
 alias lh="ls -lh"
 alias lah="ls -lah"
 alias aux="ps auxww"
