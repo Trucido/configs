@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.0.2   Time-stamp: <2016-02-23 02:54:17 PST xoddf2>
+# ~/.config/i3/config 1.0.3   Time-stamp: <2016-02-23 16:57:29 PST xoddf2>
 
 # Appearance ###################################################################
 
@@ -32,12 +32,11 @@ bindsym $mod+Shift+Return exec urxvtcd
 # Close window
 bindsym $mod+Shift+c kill
 
-# dmenu
-bindsym $mod+p       exec dmenu_run -b -fn "fixed-10" -nb \
-                     "#1C1C1C" -nf "#808080" -sb "#1C1C1C" -sf "#5FFFAF"
-bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -b \
-                     -fn 'fixed-10' -nb '#1C1C1C' -nf '#808080' \
-                     -sb '#1C1C1C' -sf '#5FFFAF'"
+# Rofi
+bindsym $mod+p       exec rofi -show run
+bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop \
+                     --dmenu="rofi -dmenu"
+bindsym $mod+period  exec "rofi -show ssh"
 
 # Focus
 bindsym $mod+$left  focus left
@@ -154,9 +153,6 @@ mode "apps" {
 }
 
 bindsym $mod+z mode "apps"
-
-# SSH to...
-bindsym $mod+period exec "rofi -show ssh"
 
 # Audio control
 mode "audio" {
