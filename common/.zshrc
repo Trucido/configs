@@ -1,5 +1,5 @@
-# .zshrc 1.4.8.1
-# Time-stamp: <2016-02-24 03:01:08 PST xoddf2>
+# .zshrc 1.4.9
+# Time-stamp: <2016-04-07 19:59:08 PDT xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -24,7 +24,7 @@ autoload -U colors && colors
 
 # Different prompt colour per box
 case "$(hostname)" in
-	"rofldell.local") local prompt_color="green" ;;
+	"nomad.local") local prompt_color="green" ;;
 	"archon") local prompt_color="yellow" ;;
 	"elisabeth") local prompt_color="cyan" ;;
 	*) local prompt_color="default" ;;

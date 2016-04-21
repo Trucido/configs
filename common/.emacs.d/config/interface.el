@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.10
-;; Time-stamp: <2015-12-20 16:06:43 PST xoddf2>
+;; Version: 2.0.11
+;; Time-stamp: <2016-04-08 17:33:09 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -56,14 +56,12 @@
       display-time-mail-file t
       battery-mode-line-format " %b%p%%")
 
-(if (or
-      (string-equal system-name "rofldell.local")
-      (string-equal system-name "cheaptop.localdomain"))
+(if (string-equal system-name "nomad.local")
     (setq display-time-mail-directory "~/Mail/Gmail/INBOX/new/"))
 
 (display-time-mode 1)
 
-(if (string-equal system-name "cheaptop.localdomain")
+(if (string-equal system-name "nomad.local")
     (display-battery-mode 1))
 
 ;; Remove mode-line clutter
@@ -71,9 +69,7 @@
 (diminish 'yas-minor-mode)
 
 ;; Theme
-(if (or
-     (string-equal system-name "rofldell.local")
-     (string-equal system-name "cheaptop.localdomain"))
+(if (string-equal system-name "nomad.local")
     (load-theme 'dakrone t))
 
 ;; No 3D effect on mode line (in GUI)

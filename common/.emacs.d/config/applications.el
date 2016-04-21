@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.1.1
-;; Time-stamp: <2015-12-20 15:47:12 PST xoddf2>
+;; Version: 2.1.2
+;; Time-stamp: <2016-04-08 17:33:11 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -56,9 +56,7 @@
 (setq message-signature-file "~/.signature")
 
 ;; Emacs-w3m
-(if (or
-      (string-equal system-name "rofldell.local")
-      (string-equal system-name "cheaptop.localdomain"))
+(if (string-equal system-name "nomad.local")
     (progn
       (require 'w3m)
       (require 'w3m-search)
@@ -92,9 +90,7 @@
 (require 'magit)
 
 ;; twittering-mode
-(if (or
-      (string-equal system-name "rofldell.local")
-      (string-equal system-name "cheaptop.localdomain"))
+(if (string-equal system-name "nomad.local")
     (progn
       (require 'twittering-mode)
       (setq twittering-use-master-password t)
@@ -104,7 +100,7 @@
                   (twittering-icon-mode 1)))))
 
 ;; mediawiki.el
-(if (string-equal system-name "rofldell.local")
+(if (string-equal system-name "nomad.local")
     (progn
       (require 'mediawiki)
 

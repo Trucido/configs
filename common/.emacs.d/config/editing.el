@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.1
-;; Time-stamp: <2015-12-23 22:39:09 PST xoddf2>
+;; Version: 2.0.2
+;; Time-stamp: <2016-04-08 17:33:10 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -74,7 +74,7 @@
             (auto-fill-mode 1)))
 
 ;; BBCode
-(if (string-equal system-name "rofldell.local")
+(if (string-equal system-name "nomad.local")
     (progn
       (require 'bbcode-mode)))
 

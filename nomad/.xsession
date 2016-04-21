@@ -1,8 +1,11 @@
 #!/bin/sh
-# .xsession 1.3
-# Time-stamp: <2016-02-23 02:09:51 PST xoddf2>
+# .xsession 1.3.1
+# Time-stamp: <2016-04-20 20:36:57 PDT xoddf2>
 
 . ~/.profile
+
+# Monitor setup
+monitor-switch --auto
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -21,8 +24,12 @@ xrdb -merge ~/.Xresources
 # XScreenSaver
 xscreensaver -no-splash &
 
-# setxkbmap
-setxkbmap -option "terminate:ctrl_alt_bksp" -option "compose:caps" &
+# Change some keys
+setxkbmap -option "terminate:ctrl_alt_bksp" &
+xmodmap ~/.Xmodmap
+
+# Disable bell
+xset b off &
 
 # rxvt-unicode daemon
 urxvtd -q -o -f

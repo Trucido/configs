@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.5
-;; Time-stamp: <2015-12-19 00:54:29 PST xoddf2>
+;; Version: 2.0.6
+;; Time-stamp: <2016-04-08 17:33:10 PDT xoddf2>
 
 ;;; Commentary:
 

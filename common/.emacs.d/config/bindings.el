@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.6
-;; Time-stamp: <2015-06-07 17:56:07 PDT xoddf2>
+;; Version: 2.0.7
+;; Time-stamp: <2016-04-08 17:33:10 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -44,7 +44,7 @@
 (define-key help-map "M" 'man)
 
 ;; BBCode
-(if (string-equal system-name "rofldell.local")
+(if (string-equal system-name "nomad.local")
     (define-key bbcode-mode-map (kbd "C-c C-u") 'post-update))
 
 ;;; bindings.el ends here
