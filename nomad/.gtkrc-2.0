@@ -1,0 +1,5 @@
+gtk-key-theme-name = "Emacs"
+
+# Appearance
+gtk-theme-name = "MurrinaAzul"
+gtk-icon-theme-name = "Tango"

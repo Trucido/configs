@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.3.1
-# Time-stamp: <2016-04-20 20:36:57 PDT xoddf2>
+# .xsession 1.3.2
+# Time-stamp: <2016-04-30 15:09:39 PDT xoddf2>
 
 . ~/.profile
 
@@ -30,6 +30,10 @@ xmodmap ~/.Xmodmap
 
 # Disable bell
 xset b off &
+
+# nm-applet and Redshift
+nm-applet &
+redshift-gtk &
 
 # rxvt-unicode daemon
 urxvtd -q -o -f

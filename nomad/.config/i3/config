@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.1   Time-stamp: <2016-04-20 20:38:20 PDT xoddf2>
+# ~/.config/i3/config 1.2   Time-stamp: <2016-04-30 17:47:01 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -34,11 +34,10 @@ bindsym $mod+Shift+Return exec urxvtcd
 # Close window
 bindsym $mod+Shift+c kill
 
-# Rofi
-bindsym $mod+p       exec rofi -show run
-bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop \
-                     --dmenu="rofi -dmenu"
-bindsym $mod+period  exec "rofi -show ssh"
+# dmenu
+bindsym $mod+p       exec --no-startup-id dmenu_run
+bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+period  exec --no-startup-id dmenu_ssh "urxvtc -e mosh"
 
 # Focus
 bindsym $mod+$left  focus left
@@ -93,7 +92,7 @@ bindsym $mod+2   workspace 2:www
 bindsym $mod+3   workspace 3:media
 bindsym $mod+4   workspace 4:gimp
 bindsym $mod+5   workspace 5:vm
-bindsym $mod+6   workspace 6:vg
+bindsym $mod+6   workspace 6:emu
 bindsym $mod+7   workspace 7:xnest
 bindsym $mod+8   workspace 8:misc
 bindsym $mod+Tab workspace back_and_forth
@@ -104,7 +103,7 @@ bindsym $mod+Shift+2   move container to workspace 2:www
 bindsym $mod+Shift+3   move container to workspace 3:media
 bindsym $mod+Shift+4   move container to workspace 4:gimp
 bindsym $mod+Shift+5   move container to workspace 5:vm
-bindsym $mod+Shift+6   move container to workspace 6:vg
+bindsym $mod+Shift+6   move container to workspace 6:emu
 bindsym $mod+Shift+7   move container to workspace 7:xnest
 bindsym $mod+Shift+8   move container to workspace 8:misc
 bindsym $mod+Shift+Tab move container to workspace back_and_forth
@@ -117,24 +116,26 @@ bindsym $mod+bracketright focus output right
 bindsym $mod+Shift+bracketleft  move workspace to output left
 bindsym $mod+Shift+bracketright move workspace to output right
 
-# Window list
-bindsym $mod+Shift+apostrophe exec "rofi -show window"
+# Monitor config
+bindsym XF86Display exec --no-startup-id "monitor-switch --auto"
 
 # Volume
-bindsym XF86AudioLowerVolume exec "mixer vol -1"
-bindsym XF86AudioRaiseVolume exec "mixer vol +1"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 1-"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 1+"
+bindsym XF86AudioMute        exec --no-startup-id "amixer set Master toggle"
 
 # Audacious
-bindsym XF86AudioPrev exec "audacious --rew"
-bindsym XF86AudioPlay exec "audacious --play-pause"
-bindsym XF86AudioStop exec "audacious --stop"
-bindsym XF86AudioNext exec "audacious --fwd"
+bindsym XF86AudioPrev exec --no-startup-id "audacious --rew"
+bindsym XF86AudioPlay exec --no-startup-id "audacious --play-pause"
+bindsym XF86AudioStop exec --no-startup-id "audacious --stop"
+bindsym XF86AudioNext exec --no-startup-id "audacious --fwd"
 
 # Exit
 bindsym $mod+Shift+e         reload
 bindsym $mod+Shift+r         restart
 bindsym $mod+Shift+backslash exit
-bindsym $mod+Escape          exec xscreensaver-command -lock
+bindsym $mod+Escape          exec --no-startup-id xscreensaver-command -lock
+bindsym XF86ScreenSaver      exec --no-startup-id xscreensaver-command -lock
 
 # Resize
 mode "resize" {
@@ -158,7 +159,8 @@ bindsym $mod+r mode "resize"
 mode "apps" {
 	bindsym t exec "urxvtcd -name tmux -e tmux attach-session"; mode "default"
 	bindsym e exec "emacsclient -a '' -c"; mode "default"
-	bindsym w exec "seamonkey --new-instance"; mode "default"
+	bindsym w exec "iceweasel --new-instance"; mode "default"
+	bindsym Shift+w exec "torbrowser-launcher"; mode "default"
 	bindsym v exec "vlc"; mode "default"
 	bindsym a exec "audacious"; mode "default"
 	bindsym g exec "gimp"; mode "default"
@@ -166,8 +168,8 @@ mode "apps" {
 	bindsym n exec "fceux"; mode "default"
 	bindsym s exec "snes9x-gtk"; mode "default"
 	bindsym b exec "gvbam"; mode "default"
-	bindsym k exec "Fusion"; mode "default"
-	bindsym u exec "uae"; mode "default"
+	bindsym k exec "kega-fusion"; mode "default"
+	bindsym u exec "fs-uae"; mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -177,43 +179,53 @@ bindsym $mod+z mode "apps"
 
 # Workspaces ###################################################################
 
-assign [class="URxvt"]      1:main
-assign [class="Emacs"]      1:main
-assign [class="Seamonkey"]  2:www
-assign [class="feh"]        3:media
-assign [class="mpv"]        3:media
-assign [class="vlc"]        3:media
-assign [title="Audacious$"] 3:media
-assign [class="Gimp"]       4:gimp
-assign [class="QEMU"]       5:vm
-assign [class="Fceux"]      6:vg
-assign [class="Snes9x-gtk"] 6:vg
-assign [class="Gvbam"]      6:vg
-assign [class="Fusion"]     6:vg
-assign [class="UAE"]        6:vg
-assign [class="Xephyr"]     7:xnest
-assign [class="XConsole"]   8:misc
+assign [class="URxvt"]       1:main
+assign [class="Emacs"]       1:main
+assign [class="Iceweasel"]   2:www
+assign [class="Tor Browser"] 2:www
+assign [class="feh"]         3:media
+assign [class="mpv"]         3:media
+assign [class="vlc"]         3:media
+assign [title="Audacious$"]  3:media
+assign [class="Gimp"]        4:gimp
+assign [class="QEMU"]        5:vm
+assign [class="Fceux"]       6:emu
+assign [class="Snes9x-gtk"]  6:emu
+assign [class="Gvbam"]       6:emu
+assign [class="Fusion"]      6:emu
+assign [class="fs-uae"]      6:emu
+assign [class="Xephyr"]      7:xnest
+assign [class="Xpdf"]        8:misc
+assign [class="XConsole"]    8:misc
 
 workspace "1:main"  output LVDS1
 workspace "2:www"   output VGA1
 workspace "3:media" output VGA1
 workspace "4:gimp"  output VGA1
 workspace "5:vm"    output VGA1
-workspace "6:vg"    output VGA1
+workspace "6:emu"   output VGA1
 workspace "7:xnest" output VGA1
 workspace "8:misc"  output VGA1
 
 # Misc #########################################################################
 
-for_window [class="Seamonkey"]  layout tabbed
-for_window [class="Gimp"]       floating enable
-for_window [class="QEMU"]       floating enable
-for_window [class="Fceux"]      floating enable
-for_window [class="Snes9x-gtk"] floating enable
-for_window [class="Gvbam"]      floating enable
-for_window [class="Fusion"]     floating enable
-for_window [class="UAE"]        floating enable
-for_window [class="Xephyr"]     floating enable
+for_window [class="Iceweasel"]      layout tabbed
+for_window [class="Tor Browser"]    layout tabbed
+for_window [class="Gimp"]           floating enable
+for_window [class="QEMU"]           floating enable
+for_window [class="Fceux"]          floating enable
+for_window [class="Snes9x-gtk"]     floating enable
+for_window [class="Gvbam"]          floating enable
+for_window [class="Fusion"]         floating enable
+for_window [class="fs-uae"]         floating enable
+for_window [class="Xephyr"]         floating enable
+for_window [class="Xmessage"]       floating enable
+for_window [title="^Event Tester$"] floating enable
+for_window [class="XClock"]         floating enable
+for_window [class="XLoad"]          floating enable
+for_window [class="XBiff"]          floating enable
+for_window [class="XCalc"]          floating enable
+for_window [class="XConsole"]       floating enable
 
 force_display_urgency_hint 1000 ms
 
@@ -238,4 +250,4 @@ bar {
 }
 
 # Root window (exists due to glitch if run by .xsession) #######################
-exec "xsetroot -cursor_name left_ptr -solid black"
+exec --no-startup-id "xsetroot -cursor_name left_ptr -solid black"

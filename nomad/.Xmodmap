@@ -1,0 +1,10 @@
+! ~/.Xmodmap   Time-stamp: <2016-04-30 05:48:14 PDT xoddf2>
+
+! CAPS LOCK as Compose
+clear Lock
+keycode 66 = Multi_key
+
+! Menu as RIGHT SUPER
+keycode 135 = Super_R
+
+add Mod4 = Super_L Super_R
