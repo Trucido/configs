@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2   Time-stamp: <2016-04-30 17:47:01 PDT xoddf2>
+# ~/.config/i3/config 1.2.1   Time-stamp: <2016-05-01 22:00:31 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -169,7 +169,7 @@ mode "apps" {
 	bindsym s exec "snes9x-gtk"; mode "default"
 	bindsym b exec "gvbam"; mode "default"
 	bindsym k exec "kega-fusion"; mode "default"
-	bindsym u exec "fs-uae"; mode "default"
+	bindsym u exec "fs-uae-launcher"; mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -179,24 +179,25 @@ bindsym $mod+z mode "apps"
 
 # Workspaces ###################################################################
 
-assign [class="URxvt"]       1:main
-assign [class="Emacs"]       1:main
-assign [class="Iceweasel"]   2:www
-assign [class="Tor Browser"] 2:www
-assign [class="feh"]         3:media
-assign [class="mpv"]         3:media
-assign [class="vlc"]         3:media
-assign [title="Audacious$"]  3:media
-assign [class="Gimp"]        4:gimp
-assign [class="QEMU"]        5:vm
-assign [class="Fceux"]       6:emu
-assign [class="Snes9x-gtk"]  6:emu
-assign [class="Gvbam"]       6:emu
-assign [class="Fusion"]      6:emu
-assign [class="fs-uae"]      6:emu
-assign [class="Xephyr"]      7:xnest
-assign [class="Xpdf"]        8:misc
-assign [class="XConsole"]    8:misc
+assign [class="URxvt"]          1:main
+assign [class="Emacs"]          1:main
+assign [class="Iceweasel"]      2:www
+assign [class="Tor Browser"]    2:www
+assign [class="feh"]            3:media
+assign [class="mpv"]            3:media
+assign [class="vlc"]            3:media
+assign [title="Audacious$"]     3:media
+assign [class="Gimp"]           4:gimp
+assign [class="QEMU"]           5:vm
+assign [class="Fceux"]          6:emu
+assign [class="Snes9x-gtk"]     6:emu
+assign [class="Gvbam"]          6:emu
+assign [class="Fusion"]         6:emu
+assign [class="fs-uae"]         6:emu
+assign [class="Application.py"] 6:emu
+assign [class="Xephyr"]         7:xnest
+assign [class="Xpdf"]           8:misc
+assign [class="XConsole"]       8:misc
 
 workspace "1:main"  output LVDS1
 workspace "2:www"   output VGA1
