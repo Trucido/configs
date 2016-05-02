@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.1   Time-stamp: <2016-05-01 22:00:31 PDT xoddf2>
+# ~/.config/i3/config 1.2.2   Time-stamp: <2016-05-01 23:30:40 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -197,6 +197,7 @@ assign [class="fs-uae"]         6:emu
 assign [class="Application.py"] 6:emu
 assign [class="Xephyr"]         7:xnest
 assign [class="Xpdf"]           8:misc
+assign [class="Audacity"]       8:misc
 assign [class="XConsole"]       8:misc
 
 workspace "1:main"  output LVDS1
