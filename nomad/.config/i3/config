@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.4   Time-stamp: <2016-05-03 18:21:25 PDT xoddf2>
+# ~/.config/i3/config 1.2.4.1   Time-stamp: <2016-05-03 18:51:31 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -29,15 +29,15 @@ set $right l
 floating_modifier $mod
 
 # Terminal
-bindsym $mod+Shift+Return exec urxvtcd
+bindsym $mod+Shift+Return exec "urxvtcd"
 
 # Close window
 bindsym $mod+Shift+c kill
 
 # dmenu
-bindsym $mod+p       exec --no-startup-id dmenu_run
-bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+period  exec --no-startup-id dmenu_ssh "urxvtc -e mosh"
+bindsym $mod+p       exec --no-startup-id "dmenu_run"
+bindsym $mod+Shift+p exec --no-startup-id "i3-dmenu-desktop"
+bindsym $mod+period  exec --no-startup-id "dmenu_ssh 'urxvtc -e mosh'"
 
 # Focus
 bindsym $mod+$left  focus left
@@ -143,8 +143,8 @@ bindsym XF86AudioNext exec --no-startup-id "audacious --fwd"
 bindsym $mod+Shift+e         reload
 bindsym $mod+Shift+r         restart
 bindsym $mod+Shift+backslash exit
-bindsym $mod+Escape          exec --no-startup-id xscreensaver-command -lock
-bindsym XF86ScreenSaver      exec --no-startup-id xscreensaver-command -lock
+bindsym $mod+Escape          exec --no-startup-id "xscreensaver-command -lock"
+bindsym XF86ScreenSaver      exec --no-startup-id "xscreensaver-command -lock"
 
 # Resize
 mode "resize" {
