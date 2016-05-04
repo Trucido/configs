@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.2   Time-stamp: <2016-05-01 23:30:40 PDT xoddf2>
+# ~/.config/i3/config 1.2.3   Time-stamp: <2016-05-03 17:38:57 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -118,6 +118,12 @@ bindsym $mod+Shift+bracketright move workspace to output right
 
 # Monitor config
 bindsym XF86Display exec --no-startup-id "monitor-switch --auto"
+
+# Battery
+bindsym XF86Battery exec --no-startup-id "acpi | xmessage -file -"
+
+# ThinkVantage
+bindsym XF86Launch1 exec "xdg-open http://www.thinkwiki.org/wiki/Category:X200"
 
 # Volume
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 1-"
