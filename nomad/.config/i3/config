@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.3   Time-stamp: <2016-05-03 17:38:57 PDT xoddf2>
+# ~/.config/i3/config 1.2.4   Time-stamp: <2016-05-03 18:21:25 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -118,6 +118,9 @@ bindsym $mod+Shift+bracketright move workspace to output right
 
 # Monitor config
 bindsym XF86Display exec --no-startup-id "monitor-switch --auto"
+
+# TrackPoint™ toggle
+bindsym XF86TouchpadToggle exec --no-startup-id "toggle-trackpoint"
 
 # Battery
 bindsym XF86Battery exec --no-startup-id "acpi | xmessage -file -"
