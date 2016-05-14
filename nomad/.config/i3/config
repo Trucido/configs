@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.4.1   Time-stamp: <2016-05-03 18:51:31 PDT xoddf2>
+# ~/.config/i3/config 1.2.4.2   Time-stamp: <2016-05-14 15:14:30 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -194,7 +194,7 @@ assign [class="Iceweasel"]      2:www
 assign [class="Tor Browser"]    2:www
 assign [class="feh"]            3:media
 assign [class="mpv"]            3:media
-assign [class="vlc"]            3:media
+assign [class="Vlc"]            3:media
 assign [title="Audacious$"]     3:media
 assign [class="Gimp"]           4:gimp
 assign [class="QEMU"]           5:vm
