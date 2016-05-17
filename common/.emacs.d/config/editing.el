@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.2
-;; Time-stamp: <2016-04-08 17:33:10 PDT xoddf2>
+;; Version: 2.0.3
+;; Time-stamp: <2016-05-17 01:44:26 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -69,9 +69,7 @@
 ;; Text
 (add-hook 'text-mode-hook
           (lambda ()
-            (flyspell-mode 1)
-            (set-fill-column 80)
-            (auto-fill-mode 1)))
+            (flyspell-mode 1)))
 
 ;; BBCode
 (if (string-equal system-name "nomad.local")
