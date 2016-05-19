@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.4.2   Time-stamp: <2016-05-14 15:14:30 PDT xoddf2>
+# ~/.config/i3/config 1.2.5   Time-stamp: <2016-05-18 21:33:11 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -118,6 +118,7 @@ bindsym $mod+Shift+bracketright move workspace to output right
 
 # Monitor config
 bindsym XF86Display exec --no-startup-id "monitor-switch --auto"
+bindsym $mod+m      exec --no-startup-id "monitor-switch --auto"
 
 # TrackPoint™ toggle
 bindsym XF86TouchpadToggle exec --no-startup-id "toggle-trackpoint"
@@ -132,6 +133,10 @@ bindsym XF86Launch1 exec "xdg-open http://www.thinkwiki.org/wiki/Category:X200"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 1-"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 1+"
 bindsym XF86AudioMute        exec --no-startup-id "amixer set Master toggle"
+
+bindsym $mod+semicolon  exec --no-startup-id "amixer set Master 1-"
+bindsym $mod+apostrophe exec --no-startup-id "amixer set Master 1+"
+bindsym $mod+slash      exec --no-startup-id "amixer set Master toggle"
 
 # Audacious
 bindsym XF86AudioPrev exec --no-startup-id "audacious --rew"
