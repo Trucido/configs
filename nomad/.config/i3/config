@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.6   Time-stamp: <2016-06-04 01:11:33 PDT xoddf2>
+# ~/.config/i3/config 1.2.6.1   Time-stamp: <2016-06-04 02:05:32 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -206,7 +206,7 @@ assign [class="Fusion"]                 6:emu
 assign [class="fs-uae"]                 6:emu
 assign [class="Application.py"]         6:emu
 assign [class="lbreakout2"]             7:games
-assign [title="^Frozen-Bubble 2$"]      7:games
+assign [class="Frozen-Bubble 2"]        7:games
 assign [title="^Micropolis Scenarios$"] 7:games
 assign [title="^Micropolis Controls$"]  7:games
 assign [title="^Micropolis Budget$"]    7:games
