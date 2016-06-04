@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.3.3.1
-# Time-stamp: <2016-05-14 20:10:46 PDT xoddf2>
+# .xsession 1.3.4
+# Time-stamp: <2016-06-04 00:58:16 PDT xoddf2>
 
 . ~/.profile
 
@@ -23,10 +23,6 @@ xrdb -merge ~/.Xresources
 
 # XScreenSaver
 xscreensaver -no-splash &
-
-# Change some keys
-setxkbmap -device $(xinput list --id-only "AT Translated Set 2 keyboard") -option "ctrl:nocaps" -option "compose:menu" -option "terminate:ctrl_alt_bksp"
-setxkbmap -device $(xinput list --id-only "Chicony PFU-65 USB Keyboard") -option "compose:caps" -option "terminate:ctrl_alt_bksp"
 
 # Disable bell
 xset b off &

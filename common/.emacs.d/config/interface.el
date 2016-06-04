@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.11
-;; Time-stamp: <2016-04-08 17:33:09 PDT xoddf2>
+;; Version: 2.0.12
+;; Time-stamp: <2016-06-04 00:58:19 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -67,10 +67,6 @@
 ;; Remove mode-line clutter
 (require 'diminish)
 (diminish 'yas-minor-mode)
-
-;; Theme
-(if (string-equal system-name "nomad.local")
-    (load-theme 'dakrone t))
 
 ;; No 3D effect on mode line (in GUI)
 (set-face-attribute 'mode-line nil :box nil)
