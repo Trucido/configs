@@ -1,4 +1,4 @@
-! ~/.Xmodmap   Time-stamp: <2016-06-11 21:41:57 PDT xoddf2>
+! ~/.Xmodmap   Time-stamp: <2016-06-11 21:44:45 PDT xoddf2>
 
 clear Lock
 clear Control
@@ -6,11 +6,14 @@ clear Control
 ! CAPS LOCK as CTRL
 keycode 66 = Control_L
 
+! Restort RIGHT CTRL
+keycode 105 = Control_R
+
 ! Menu as RIGHT SUPER
 keycode 135 = Super_R
 
 ! LEFT CTRL as Compose
 keycode 37 = Multi_key
 
-add Control = Control_L
+add Control = Control_L Control_R
 add Mod4 = Super_L Super_R
