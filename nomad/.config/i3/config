@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.6.1   Time-stamp: <2016-06-04 02:05:32 PDT xoddf2>
+# ~/.config/i3/config 1.2.6.2   Time-stamp: <2016-06-12 14:17:53 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -169,7 +169,7 @@ bindsym $mod+r mode "resize"
 mode "apps" {
 	bindsym t exec "urxvtcd -name tmux -e tmux attach-session"; mode "default"
 	bindsym e exec "emacsclient -a '' -c"; mode "default"
-	bindsym w exec "iceweasel --new-instance"; mode "default"
+	bindsym w exec "firefox --new-instance"; mode "default"
 	bindsym Shift+w exec "torbrowser-launcher"; mode "default"
 	bindsym v exec "vlc"; mode "default"
 	bindsym a exec "audacious"; mode "default"
@@ -191,7 +191,7 @@ bindsym $mod+z mode "apps"
 
 assign [class="URxvt"]                  1:main
 assign [class="Emacs"]                  1:main
-assign [class="Iceweasel"]              2:www
+assign [class="Firefox"]                2:www
 assign [class="Tor Browser"]            2:www
 assign [class="feh"]                    3:media
 assign [class="mpv"]                    3:media
@@ -228,7 +228,7 @@ workspace "9:misc"  output VGA1
 
 # Misc #########################################################################
 
-for_window [class="Iceweasel"]      layout tabbed
+for_window [class="Firefox"]        layout tabbed
 for_window [class="Tor Browser"]    layout tabbed
 for_window [class="Gimp"]           floating enable
 for_window [class="QEMU"]           floating enable
