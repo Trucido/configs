@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.6.2   Time-stamp: <2016-06-12 14:17:53 PDT xoddf2>
+# ~/.config/i3/config 1.2.6.3   Time-stamp: <2016-06-24 03:10:19 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -193,6 +193,7 @@ assign [class="URxvt"]                  1:main
 assign [class="Emacs"]                  1:main
 assign [class="Firefox"]                2:www
 assign [class="Tor Browser"]            2:www
+assign [class="Torbrowser-launcher"]    2:www
 assign [class="feh"]                    3:media
 assign [class="mpv"]                    3:media
 assign [class="Vlc"]                    3:media
@@ -228,23 +229,24 @@ workspace "9:misc"  output VGA1
 
 # Misc #########################################################################
 
-for_window [class="Firefox"]        layout tabbed
-for_window [class="Tor Browser"]    layout tabbed
-for_window [class="Gimp"]           floating enable
-for_window [class="QEMU"]           floating enable
-for_window [class="Fceux"]          floating enable
-for_window [class="Snes9x-gtk"]     floating enable
-for_window [class="Gvbam"]          floating enable
-for_window [class="Fusion"]         floating enable
-for_window [class="fs-uae"]         floating enable
-for_window [class="Xephyr"]         floating enable
-for_window [class="Xmessage"]       floating enable
-for_window [title="^Event Tester$"] floating enable
-for_window [class="XClock"]         floating enable
-for_window [class="XLoad"]          floating enable
-for_window [class="XBiff"]          floating enable
-for_window [class="XCalc"]          floating enable
-for_window [class="XConsole"]       floating enable
+for_window [class="Firefox"]             layout tabbed
+for_window [class="Tor Browser"]         layout tabbed
+for_window [class="Torbrowser-launcher"] floating enable
+for_window [class="Gimp"]                floating enable
+for_window [class="QEMU"]                floating enable
+for_window [class="Fceux"]               floating enable
+for_window [class="Snes9x-gtk"]          floating enable
+for_window [class="Gvbam"]               floating enable
+for_window [class="Fusion"]              floating enable
+for_window [class="fs-uae"]              floating enable
+for_window [class="Xephyr"]              floating enable
+for_window [class="Xmessage"]            floating enable
+for_window [title="^Event Tester$"]      floating enable
+for_window [class="XClock"]              floating enable
+for_window [class="XLoad"]               floating enable
+for_window [class="XBiff"]               floating enable
+for_window [class="XCalc"]               floating enable
+for_window [class="XConsole"]            floating enable
 
 force_display_urgency_hint 1000 ms
 
