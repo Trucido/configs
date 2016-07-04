@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.12
-;; Time-stamp: <2016-06-04 00:58:19 PDT xoddf2>
+;; Version: 2.0.13
+;; Time-stamp: <2016-07-04 03:03:30 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -48,6 +48,93 @@
 ;; Display both line and column numbers in mode line
 (line-number-mode 1)
 (column-number-mode 1)
+
+;; Sort ibuffer list
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ("Emacs"
+                (or
+                 (mode . lisp-interaction-mode)
+                 (mode . messages-buffer-mode)))
+               ("Programming"
+                (or
+                 (mode . lisp-mode)
+                 (mode . emacs-lisp-mode)
+                 (mode . c-mode)
+                 (mode . sh-mode)
+                 (mode . cperl-mode)
+                 (mode . python-mode)
+                 (mode . haskell-mode)))
+               ("Web Dev"
+                (or
+                 (mode . html-mode)
+                 (mode . css-mode)
+                 (mode . js-mode)))
+               ("Doc"
+                (or
+                 (mode . text-mode)
+                 (mode . bbcode-mode)
+                 (mode . mediawiki-mode)
+                 (mode . markdown-mode)
+                 (mode . tex-mode)
+                 (mode . plain-tex-mode)
+                 (mode . texinfo-mode)
+                 (mode . latex-mode)
+                 (mode . doctex-mode)))
+               ("Org"
+                (or
+                 (mode . org-mode)
+                 (mode . org-agenda-mode)
+                 (mode . diary-mode)))
+               ("Conf"
+                (or
+                 (mode . conf-mode)
+                 (mode . conf-unix-mode)
+                 (mode . conf-space-mode)
+                 (mode . conf-colon-mode)
+                 (mode . conf-xdefaults-mode)
+                 (mode . conf-windows-mode)
+                 (mode . conf-javaprop-mode)
+                 (mode . conf-ppd-mode)))
+               ("Hexl"
+                (mode . hexl-mode))
+               ("Fundamental"
+                (mode . fundamental-mode))
+               ("DocView"
+                (mode . doc-view-mode))
+               ("Dired"
+                (mode . dired-mode))
+               ("Mail"
+                (or
+                 (mode . mu4e-main-mode)
+                 (mode . mu4e-headers-mode)
+                 (mode . mu4e-compose-mode)
+                 (mode . mu4e-compose-org-mode)
+                 (mode . mu4e-view-mode)
+                 (mode . mu4e~update-mail-mode)
+                 (mode . mu4e~main-toggle-mail-sending-mode)
+                 (mode . mu4e-about-mode)))
+               ("IRC"
+                (mode . erc-mode))
+               ("Documentation"
+                (or
+                 (mode . Info-mode)
+                 (mode . Man-mode)
+                 (mode . apropos-mode)
+                 (mode . help-mode)
+                 (mode . woman-mode)))
+               ("REPL"
+                (or
+                 (mode . shell-mode)
+                 (mode . eshell-mode)
+                 (mode . inferior-emacs-lisp-mode)
+                 (mode . inferior-python-mode)
+                 (mode . term-mode)))))))
+
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-switch-to-saved-filter-groups "default")))
+
 
 ;; Display time, load average, and (on laptop) battery life in mode line
 (setq display-time-24hr-format t
