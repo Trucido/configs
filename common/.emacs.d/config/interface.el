@@ -3,7 +3,7 @@
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
 ;; Version: 2.0.13
-;; Time-stamp: <2016-07-04 03:03:30 PDT xoddf2>
+;; Time-stamp: <2016-07-04 03:05:07 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -134,7 +134,6 @@
 (add-hook 'ibuffer-mode-hook
           (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")))
-
 
 ;; Display time, load average, and (on laptop) battery life in mode line
 (setq display-time-24hr-format t
