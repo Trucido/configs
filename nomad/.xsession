@@ -1,12 +1,13 @@
 #!/bin/sh
-# .xsession 1.4
-# Time-stamp: <2016-08-10 10:23:43 PDT xoddf2>
+# .xsession 1.4.1
+# Time-stamp: <2016-08-10 16:18:08 PDT xoddf2>
 
 . ~/.profile
 
-export XMODIFIERS=@im=SCIM
-export GTK_IM_MODULE="scim"
-export QT_IM_MODULE="scim"
+export GTK_IM_MODULE="uim"
+export QT_IM_MODULE="uim"
+uim-xim &
+export XMODIFIERS="@im=uim"
 
 # Monitor setup
 monitor-switch --auto
@@ -31,10 +32,9 @@ xscreensaver -no-splash &
 # Disable bell
 xset b off &
 
-# nm-applet, Redshift, and SCIM
+# nm-applet and Redshift
 nm-applet &
 redshift-gtk &
-scim -d
 
 # rxvt-unicode daemon
 urxvtd -q -o -f
