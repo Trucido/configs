@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.6.5   Time-stamp: <2016-08-10 10:23:42 PDT xoddf2>
+# ~/.config/i3/config 1.2.7   Time-stamp: <2016-08-22 18:28:59 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -135,11 +135,11 @@ bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 1-"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 1+"
 bindsym XF86AudioMute        exec --no-startup-id "amixer set Master toggle"
 
-# Audacious
-bindsym XF86AudioPrev exec --no-startup-id "audacious --rew"
-bindsym XF86AudioPlay exec --no-startup-id "audacious --play-pause"
-bindsym XF86AudioStop exec --no-startup-id "audacious --stop"
-bindsym XF86AudioNext exec --no-startup-id "audacious --fwd"
+# mpd
+bindsym XF86AudioPrev exec --no-startup-id "mpc -q prev"
+bindsym XF86AudioPlay exec --no-startup-id "mpc -q toggle"
+bindsym XF86AudioStop exec --no-startup-id "mpc -q stop"
+bindsym XF86AudioNext exec --no-startup-id "mpc -q next"
 
 # Exit
 bindsym $mod+Shift+e         reload
@@ -172,7 +172,6 @@ mode "apps" {
 	bindsym w exec "firefox --new-instance"; mode "default"
 	bindsym Shift+w exec "torbrowser-launcher"; mode "default"
 	bindsym v exec "vlc"; mode "default"
-	bindsym a exec "audacious"; mode "default"
 	bindsym g exec "gimp"; mode "default"
 
 	bindsym n exec "fceux"; mode "default"
@@ -197,7 +196,6 @@ assign [class="Torbrowser-launcher"]    2:www
 assign [class="feh"]                    3:media
 assign [class="mpv"]                    3:media
 assign [class="Vlc"]                    3:media
-assign [title="Audacious$"]             3:media
 assign [class="Gimp"]                   4:gimp
 assign [class="QEMU"]                   5:vm
 assign [class="Fceux"]                  6:emu
