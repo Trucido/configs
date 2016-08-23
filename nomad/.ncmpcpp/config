@@ -1,4 +1,4 @@
-# ~/.ncmpcpp/config   Time-stamp: <2016-08-22 18:38:59 PDT xoddf2>
+# ~/.ncmpcpp/config   Time-stamp: <2016-08-22 18:53:59 PDT xoddf2>
 
 # Tag editor and renaming files
 mpd_host = "localhost"
@@ -16,7 +16,7 @@ playlist_display_mode = "columns"
 browser_display_mode = "columns"
 search_engine_display_mode = "columns"
 user_interface = "alternative"
-song_columns_list_format = "(5f)[green]{n} (25)[cyan]{a} (35)[]{t|f} (25)[red]{b} (7f)[magenta]{l}"
+song_columns_list_format = "(5f)[green]{n} (25)[cyan]{a} (35)[]{t|f} (25)[red]{b} (7f)[magenta]{lr}"
 
 # Seconds in clock
 clock_display_seconds = "yes"
