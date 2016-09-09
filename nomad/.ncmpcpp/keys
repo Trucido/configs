@@ -1,4 +1,4 @@
-# ~/.ncmpcpp/keys   Time-stamp: <2016-08-26 15:57:24 PDT xoddf2>
+# ~/.ncmpcpp/keys   Time-stamp: <2016-09-08 17:12:42 PDT xoddf2>
 
 key_up = 259 'k'
 key_down = 258 'j'
@@ -13,8 +13,8 @@ key_end = 360
 key_space = 32
 key_enter = 10
 key_delete = 330 'd'
-key_volume_up = 261 ''
-key_volume_down = 260 ''
+key_volume_up = 261 '+'
+key_volume_down = 260 '-'
 key_prev_column = 260
 key_next_column = 261
 key_toggle_space_mode = 't'
