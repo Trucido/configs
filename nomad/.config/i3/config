@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.7   Time-stamp: <2016-08-22 18:28:59 PDT xoddf2>
+# ~/.config/i3/config 1.2.8   Time-stamp: <2016-10-18 20:40:53 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -237,6 +237,7 @@ for_window [class="Snes9x-gtk"]          floating enable
 for_window [class="Gvbam"]               floating enable
 for_window [class="Fusion"]              floating enable
 for_window [class="fs-uae"]              floating enable
+for_window [class="Wine"]                floating enable
 for_window [class="Xephyr"]              floating enable
 for_window [class="Xmessage"]            floating enable
 for_window [title="^Event Tester$"]      floating enable
