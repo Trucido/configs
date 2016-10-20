@@ -1,4 +1,4 @@
-# ~/.config/i3/config 1.2.8   Time-stamp: <2016-10-18 20:40:53 PDT xoddf2>
+# ~/.config/i3/config 1.2.8.9   Time-stamp: <2016-10-20 01:12:49 PDT xoddf2>
 
 # Appearance ###################################################################
 
@@ -37,7 +37,7 @@ bindsym $mod+Shift+c kill
 # dmenu
 bindsym $mod+p       exec --no-startup-id "dmenu_run"
 bindsym $mod+Shift+p exec --no-startup-id "i3-dmenu-desktop"
-bindsym $mod+period  exec --no-startup-id "dmenu_ssh 'urxvtc -e mosh'"
+bindsym $mod+period  exec --no-startup-id "dmenu_ssh 'urxvtc -name mosh -e mosh'"
 
 # Focus
 bindsym $mod+$left  focus left
