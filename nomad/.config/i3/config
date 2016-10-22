@@ -1,9 +1,9 @@
-# ~/.config/i3/config 1.2.8.9   Time-stamp: <2016-10-20 01:12:49 PDT xoddf2>
+# ~/.config/i3/config 1.2.9   Time-stamp: <2016-10-22 04:59:08 PDT xoddf2>
 
 # Appearance ###################################################################
 
 # Font
-font pango:Fixed 10px
+font pango:Fixed Medium Semi-Condensed 13px
 
 # Colours
 client.focused          #4D994D #356B35 #FFFFFF #6CB66C
@@ -29,7 +29,7 @@ set $right l
 floating_modifier $mod
 
 # Terminal
-bindsym $mod+Shift+Return exec "urxvtcd"
+bindsym $mod+Shift+Return exec "st"
 
 # Close window
 bindsym $mod+Shift+c kill
@@ -37,7 +37,7 @@ bindsym $mod+Shift+c kill
 # dmenu
 bindsym $mod+p       exec --no-startup-id "dmenu_run"
 bindsym $mod+Shift+p exec --no-startup-id "i3-dmenu-desktop"
-bindsym $mod+period  exec --no-startup-id "dmenu_ssh 'urxvtc -name mosh -e mosh'"
+bindsym $mod+period  exec --no-startup-id "dmenu_ssh 'st -n mosh -e mosh'"
 
 # Focus
 bindsym $mod+$left  focus left
@@ -149,25 +149,25 @@ bindsym XF86ScreenSaver      exec --no-startup-id "xscreensaver-command -lock"
 
 # Resize
 mode "resize" {
-        bindsym $left  resize shrink width 1 px or 1 ppt
-        bindsym $down  resize grow height 1 px or 1 ppt
-        bindsym $up    resize shrink height 1 px or 1 ppt
-        bindsym $right resize grow width 1 px or 1 ppt
+	bindsym $left  resize shrink width 1 px or 1 ppt
+	bindsym $down  resize grow height 1 px or 1 ppt
+	bindsym $up    resize shrink height 1 px or 1 ppt
+	bindsym $right resize grow width 1 px or 1 ppt
 
 	bindsym Shift+$left  resize shrink width 10 px or 10 ppt
 	bindsym Shift+$down  resize grow height 10 px or 10 ppt
 	bindsym Shift+$up    resize shrink height 10 px or 10 ppt
 	bindsym Shift+$right resize grow width 10 px or 10 ppt
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 # Applications
 mode "apps" {
-	bindsym t exec "urxvtcd -name tmux -e tmux attach-session"; mode "default"
+	bindsym t exec "st -n tmux -e tmux attach-session"; mode "default"
 	bindsym e exec "emacsclient -a '' -c"; mode "default"
 	bindsym w exec "firefox --new-instance"; mode "default"
 	bindsym Shift+w exec "torbrowser-launcher"; mode "default"
@@ -188,7 +188,7 @@ bindsym $mod+z mode "apps"
 
 # Workspaces ###################################################################
 
-assign [class="URxvt"]                  1:main
+assign [class="st-256color"]            1:main
 assign [class="Emacs"]                  1:main
 assign [class="Firefox"]                2:www
 assign [class="Tor Browser"]            2:www
@@ -251,8 +251,8 @@ force_display_urgency_hint 1000 ms
 
 # i3bar ########################################################################
 bar {
-        status_command i3status
-        tray_output primary
+	status_command i3status
+	tray_output primary
 
 	strip_workspace_numbers yes
 

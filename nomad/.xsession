@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.4.1
-# Time-stamp: <2016-08-10 16:18:08 PDT xoddf2>
+# .xsession 1.4.2
+# Time-stamp: <2016-10-22 04:59:10 PDT xoddf2>
 
 . ~/.profile
 
@@ -36,11 +36,8 @@ xset b off &
 nm-applet &
 redshift-gtk &
 
-# rxvt-unicode daemon
-urxvtd -q -o -f
-
 # Auto-start tmux and Emacs
-urxvtc -sl 0 -name tmux -e tmux attach-session &
+st -n tmux -e tmux attach-session &
 emacsclient -a '' -c &
 
 # Start a WM or an xterm
