@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.13
-;; Time-stamp: <2016-07-04 03:05:07 PDT xoddf2>
+;; Version: 2.0.14
+;; Time-stamp: <2016-11-17 16:38:27 PST xoddf2>
 
 ;;; Commentary:
 
@@ -154,8 +154,8 @@
 (require 'diminish)
 (diminish 'yas-minor-mode)
 
-;; No 3D effect on mode line (in GUI)
-(set-face-attribute 'mode-line nil :box nil)
-(set-face-attribute 'mode-line-inactive nil :box nil)
+;; Theme
+(if (string-equal system-name "nomad.local")
+    (load-theme 'xoddf2 t))
 
 ;;; interface.el ends here

@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.4.2
-# Time-stamp: <2016-10-22 04:59:10 PDT xoddf2>
+# .xsession 1.5
+# Time-stamp: <2016-11-17 15:48:34 PST xoddf2>
 
 . ~/.profile
 
@@ -29,6 +29,9 @@ xrdb -merge ~/.Xresources
 # XScreenSaver
 xscreensaver -no-splash &
 
+# Set root window colour and mouse pointer
+xsetroot -solid rgb:24/24/24 -cursor_name left_ptr &
+
 # Disable bell
 xset b off &
 
@@ -36,12 +39,8 @@ xset b off &
 nm-applet &
 redshift-gtk &
 
-# Auto-start tmux and Emacs
-st -n tmux -e tmux attach-session &
-emacsclient -a '' -c &
-
 # Start a WM or an xterm
-i3 || twm || xterm
+xmonad || twm || xterm
 
 # Kill ssh-agent on exit
 if [ "$SSH_AGENT_PID" ]; then
