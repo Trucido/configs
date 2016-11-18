@@ -1,4 +1,4 @@
--- xmonad.hs 2.0   Time-stamp: <2016-11-17 16:25:22 PST xoddf2>
+-- xmonad.hs 2.0.1   Time-stamp: <2016-11-17 18:12:44 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -47,7 +47,6 @@ myManageHook = composeAll . concat $
   -- Floating
   , [ className =? "Torbrowser-launcher" --> doFloat
     , className =? "TorLauncher"         --> doFloat
-    , className =? "Gimp"                --> doFloat 
     , className =? "QEMU"                --> doFloat
     , className =? "Fceux"               --> doFloat
     , className =? "Snes9x-gtk"          --> doFloat
@@ -159,7 +158,7 @@ myLayoutHook = avoidStruts
                $ onWorkspace "1:main"  (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)))
                $ onWorkspace "2:www"   ((noBorders Full) ||| (Mirror tiled) ||| Grid)
                $ onWorkspace "3:media" ((noBorders Full) ||| Grid ||| tiled ||| (Mirror tiled) ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)))
-               $ onWorkspace "4:gimp"  (withIM (1/5) (Role "gimp-toolbox") Grid)
+               $ onWorkspace "4:gimp"  (withIM (1/4) (Role "gimp-toolbox") Grid)
                $ onWorkspace "5:vm"    (noBorders Full)
                $ onWorkspace "6:emul"  (noBorders Full)
                $ onWorkspace "7:games" (noBorders Full)
