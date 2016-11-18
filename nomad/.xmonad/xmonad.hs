@@ -1,4 +1,4 @@
--- xmonad.hs 2.0.1   Time-stamp: <2016-11-17 18:12:44 PST xoddf2>
+-- xmonad.hs 2.0.2   Time-stamp: <2016-11-18 14:26:42 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -148,7 +148,6 @@ myKeys =
 -- Startup (I'd rather put the spawn commands in ~/.xsession, but that fails)
 myStartupHook = do
   spawn "xmodmap ~/.Xmodmap"
-  spawn "trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x484848 --height 17 --margin 0"
   runInTerm "-n tmux" "tmux attach-session"
   spawn "emacsclient -a '' -c"
   banishScreen LowerRight
