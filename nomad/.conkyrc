@@ -1,4 +1,4 @@
-# .conkyrc   Time-stamp: <2016-11-18 23:38:22 PST xoddf2>   -*- Conf -*-
+# .conkyrc   Time-stamp: <2016-11-19 19:34:06 PST xoddf2>   -*- Conf -*-
 
 # Output to stdout
 out_to_console yes
@@ -8,4 +8,4 @@ background no
 temperature_unit celsius
 
 TEXT
-${if_match ${new_mails $HOME/Mail/Gmail/INBOX} > 0}Mail: ${new_mails $HOME/Mail/Gmail/INBOX} <fc=\#515151>|</fc> ${endif}${if_mixer_mute}${else}Vol: ${mixer Vol}% <fc=\#515151>|</fc> ${endif}${loadavg 1} ${loadavg 2} ${loadavg 3} <fc=\#515151>|</fc>${if_match ${memperc} > 50} ${mem}${endif}${if_match ${swapperc} > 0}${if_match ${memperc} > 75} (${swap}) <fc=\#515151>|</fc>${endif}${endif}${if_match ${acpitemp} >= 75} ${acpitemp}°C <fc=\#515151>|</fc>${endif} ${battery}
+${if_match ${new_mails $HOME/Mail/Gmail/INBOX} > 0}Mail: ${new_mails $HOME/Mail/Gmail/INBOX} <fc=\#515151>|</fc> ${endif}${if_mixer_mute}${else}Vol: ${mixer Vol}% <fc=\#515151>|</fc> ${endif}${loadavg 1} ${loadavg 2} ${loadavg 3} <fc=\#515151>|</fc>${if_match ${memperc} > 50} ${mem} <fc=\#515151>|</fc>${endif}${if_match ${swapperc} > 0}${if_match ${memperc} > 75} (${swap}) <fc=\#515151>|</fc>${endif}${endif}${if_match ${acpitemp} >= 75} ${acpitemp}°C <fc=\#515151>|</fc>${endif} ${battery}
