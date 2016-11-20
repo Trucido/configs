@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.14
-;; Time-stamp: <2016-11-17 16:38:27 PST xoddf2>
+;; Version: 2.0.15
+;; Time-stamp: <2016-11-19 16:18:50 PST xoddf2>
 
 ;;; Commentary:
 
@@ -134,21 +134,6 @@
 (add-hook 'ibuffer-mode-hook
           (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")))
-
-;; Display time, load average, and (on laptop) battery life in mode line
-(setq display-time-24hr-format t
-      display-time-interval 1
-      display-time-format "%H:%M:%S"
-      display-time-mail-file t
-      battery-mode-line-format " %b%p%%")
-
-(if (string-equal system-name "nomad.local")
-    (setq display-time-mail-directory "~/Mail/Gmail/INBOX/new/"))
-
-(display-time-mode 1)
-
-(if (string-equal system-name "nomad.local")
-    (display-battery-mode 1))
 
 ;; Remove mode-line clutter
 (require 'diminish)
