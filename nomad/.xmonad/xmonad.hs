@@ -1,4 +1,4 @@
--- xmonad.hs 2.0.2   Time-stamp: <2016-11-18 14:26:42 PST xoddf2>
+-- xmonad.hs 2.0.3   Time-stamp: <2016-11-27 21:28:08 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -48,9 +48,11 @@ myManageHook = composeAll . concat $
   , [ className =? "Torbrowser-launcher" --> doFloat
     , className =? "TorLauncher"         --> doFloat
     , className =? "QEMU"                --> doFloat
+    , className =? "VirtualBox"          --> doFloat
     , className =? "Fceux"               --> doFloat
     , className =? "Snes9x-gtk"          --> doFloat
     , className =? "Gvbam"               --> doFloat
+    , className =? "Desmume"             --> doFloat
     , className =? "Fusion"              --> doFloat
     , className =? "fs-uae"              --> doFloat
     , className =? "Wine"                --> doFloat
@@ -71,11 +73,11 @@ myManageHook = composeAll . concat $
     myClassWWWShifts   = ["Navigator","Firefox","Tor Browser","Torbrowser-launcher","TorLauncher","chromium-browser"]
     myClassMediaShifts = ["feh","mpv","Vlc"]
     myClassGIMPShifts  = ["Gimp"]
-    myClassVMShifts    = ["QEMU"]
-    myClassEmulShifts  = ["Fceux","Snes9x-gtk","Gvbam","Fusion","fs-uae","Application.py"]
+    myClassVMShifts    = ["QEMU","VirtualBox"]
+    myClassEmulShifts  = ["Fceux","Snes9x-gtk","Gvbam","Desmume","Fusion","fs-uae","Application.py"]
     myClassGameShifts  = ["lbreakout2","Frozen-Bubble 2"]
     myClassXnestShifts = ["Xephyr"]
-    myClassOtherShifts = ["Wine","Xpdf","Audacity","XConsole"]
+    myClassOtherShifts = ["Wine","Xpdf","Audacity","Easytag","XConsole"]
 
 -- Keybindings
 myKeys =
