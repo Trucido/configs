@@ -1,5 +1,5 @@
--- .xmobarrc 2.1   -*- Haskell -*-
--- Time-stamp: <2016-11-18 22:56:35 PST xoddf2>
+-- .xmobarrc 2.1.1   -*- Haskell -*-
+-- Time-stamp: <2016-12-20 02:25:04 PST xoddf2>
 
 Config { font         = "xft:Dina-8"
        , bgColor      = "#242424"
@@ -12,5 +12,5 @@ Config { font         = "xft:Dina-8"
                         ]
        , sepChar      = "%"
        , alignSep     = "}{"
-       , template     = "%StdinReader% }{ %conky% <fc=#515151>|</fc> <fc=#7FE0DC>%date%</fc>"
+       , template     = "%StdinReader% }{ %conky% <fc=#7FE0DC>%date%</fc>"
        }

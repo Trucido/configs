@@ -1,4 +1,4 @@
--- xmonad.hs 2.0.3   Time-stamp: <2016-11-27 21:28:08 PST xoddf2>
+-- xmonad.hs 2.0.4   Time-stamp: <2016-12-20 02:17:55 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -184,6 +184,7 @@ main = do
     , startupHook        = myStartupHook
     , logHook            = dynamicLogWithPP xmobarPP
                            { ppOutput  = hPutStrLn xmproc
+                           , ppSep     = " "
                            , ppTitle   = xmobarColor "#8BDE58" ""
                            , ppCurrent = xmobarColor "#DBDF39" ""
                            , ppLayout  = xmobarColor "#7DACDE" ""
