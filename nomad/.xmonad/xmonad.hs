@@ -1,4 +1,4 @@
--- xmonad.hs 2.0.4   Time-stamp: <2016-12-20 02:17:55 PST xoddf2>
+-- xmonad.hs 2.0.5   Time-stamp: <2016-12-25 05:32:57 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -74,7 +74,7 @@ myManageHook = composeAll . concat $
     myClassMediaShifts = ["feh","mpv","Vlc"]
     myClassGIMPShifts  = ["Gimp"]
     myClassVMShifts    = ["QEMU","VirtualBox"]
-    myClassEmulShifts  = ["Fceux","Snes9x-gtk","Gvbam","Desmume","Fusion","fs-uae","Application.py"]
+    myClassEmulShifts  = ["Fceux","Snes9x-gtk","Gvbam","Desmume","Fusion","fs-uae","dosbox","Application.py"]
     myClassGameShifts  = ["lbreakout2","Frozen-Bubble 2"]
     myClassXnestShifts = ["Xephyr"]
     myClassOtherShifts = ["Wine","Xpdf","Audacity","Easytag","XConsole"]
