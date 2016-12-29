@@ -1,4 +1,4 @@
--- xmonad.hs 2.0.6   Time-stamp: <2016-12-28 18:06:38 PST xoddf2>
+-- xmonad.hs 2.0.6.1   Time-stamp: <2016-12-29 09:27:27 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -88,7 +88,7 @@ myKeys =
   , ("M-a",                         raiseMaybe (runInTerm "-n tmux" "tmux attach-session")    (resource =? "tmux"))
   , ("M-s",                         raiseMaybe (spawn "dmenu_ssh 'st -n mosh -e mosh'")       (resource =? "mosh"))
   , ("M-d",                         raiseMaybe (spawn "emacsclient --alternate-editor='' -c") (className =? "Emacs"))
-  , ("M-f",                         raiseMaybe (spawn "palemoon")                             (className =? "Firefox"))
+  , ("M-f",                         raiseMaybe (spawn "palemoon")                             (className =? "Pale moon"))
   , ("M-S-f",                       raiseMaybe (spawn "torbrowser-launcher")                  (className =? "Tor Browser"))
 
   -- mosh
