@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.5.1
-# Time-stamp: <2016-11-18 14:26:42 PST xoddf2>
+# .xsession 1.6
+# Time-stamp: <2016-12-31 00:28:35 PST xoddf2>
 
 . ~/.profile
 
@@ -25,6 +25,9 @@ fi
 
 # X resources
 xrdb -merge ~/.Xresources
+
+# Keyboard settings
+remap &
 
 # XScreenSaver
 xscreensaver -no-splash &
