@@ -1,4 +1,4 @@
--- xmonad.hs 2.0.6.2   Time-stamp: <2016-12-31 00:28:59 PST xoddf2>
+-- xmonad.hs 2.0.6.3   Time-stamp: <2017-01-01 22:41:17 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -70,7 +70,7 @@ myManageHook = composeAll . concat $
   where
     viewShift = doF . liftM2 (.) W.greedyView W.shift
     myClassMainShifts  = ["st-256color","XTerm","Emacs"]
-    myClassWWWShifts   = ["Navigator","Pale moon","Tor Browser","Torbrowser-launcher","TorLauncher","Firefox","chromium-browser"]
+    myClassWWWShifts   = ["Navigator","Pale moon","Tor Browser","Torbrowser-launcher","TorLauncher","Firefox","Chromium-browser"]
     myClassMediaShifts = ["feh","mpv","Vlc"]
     myClassGIMPShifts  = ["Gimp"]
     myClassVMShifts    = ["QEMU","VirtualBox"]
