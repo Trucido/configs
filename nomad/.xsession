@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.6
-# Time-stamp: <2016-12-31 00:28:35 PST xoddf2>
+# .xsession 1.6.1
+# Time-stamp: <2017-01-24 21:38:03 PST xoddf2>
 
 . ~/.profile
 
@@ -8,9 +8,6 @@ export GTK_IM_MODULE="uim"
 export QT_IM_MODULE="uim"
 uim-xim &
 export XMODIFIERS="@im=uim"
-
-# Monitor setup
-monitor-switch --auto
 
 # ssh-agent
 id1=$HOME/.ssh/identity
@@ -22,6 +19,9 @@ then
 	eval $(ssh-agent -s)
 	ssh-add < /dev/null
 fi
+
+# Monitor setup
+monitor-switch --auto
 
 # X resources
 xrdb -merge ~/.Xresources

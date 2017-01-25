@@ -1,4 +1,4 @@
--- xmonad.hs 2.0.6.3   Time-stamp: <2017-01-01 22:41:17 PST xoddf2>
+-- xmonad.hs 2.0.7   Time-stamp: <2017-01-24 21:36:07 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -70,7 +70,7 @@ myManageHook = composeAll . concat $
   where
     viewShift = doF . liftM2 (.) W.greedyView W.shift
     myClassMainShifts  = ["st-256color","XTerm","Emacs"]
-    myClassWWWShifts   = ["Navigator","Pale moon","Tor Browser","Torbrowser-launcher","TorLauncher","Firefox","Chromium-browser"]
+    myClassWWWShifts   = ["Navigator","Seamonkey","Tor Browser","Torbrowser-launcher","TorLauncher","Firefox","Pale moon","Chromium-browser"]
     myClassMediaShifts = ["feh","mpv","Vlc"]
     myClassGIMPShifts  = ["Gimp"]
     myClassVMShifts    = ["QEMU","VirtualBox"]
@@ -88,7 +88,7 @@ myKeys =
   , ("M-a",                         raiseMaybe (runInTerm "-n tmux" "tmux attach-session")    (resource =? "tmux"))
   , ("M-s",                         raiseMaybe (spawn "dmenu_ssh 'st -n mosh -e mosh'")       (resource =? "mosh"))
   , ("M-d",                         raiseMaybe (spawn "emacsclient --alternate-editor='' -c") (className =? "Emacs"))
-  , ("M-f",                         raiseMaybe (spawn "palemoon")                             (className =? "Pale moon"))
+  , ("M-f",                         raiseMaybe (spawn "seamonkey")                            (className =? "Seamonkey"))
   , ("M-S-f",                       raiseMaybe (spawn "torbrowser-launcher")                  (className =? "Tor Browser"))
 
   -- mosh
