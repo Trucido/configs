@@ -1,10 +1,10 @@
--- .xmobarrc 2.1.1   -*- Haskell -*-
--- Time-stamp: <2016-12-20 02:25:04 PST xoddf2>
+-- .xmobarrc 2.2   -*- Haskell -*-
+-- Time-stamp: <2017-02-19 15:40:01 PST xoddf2>
 
 Config { font         = "xft:Dina-8"
        , bgColor      = "#242424"
        , fgColor      = "#E5E5E5"
-       , position     = TopW R 90
+       , position     = BottomW R 90
        , lowerOnStart = True
        , commands     = [ Run Date "%a %b %d %H:%M:%S %Z %Y" "date" 1
                         , Run Com "conky" ["-q", "-i", "1"] "conky" 50

@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.6.1
-# Time-stamp: <2017-01-24 21:38:03 PST xoddf2>
+# .xsession 1.6.2
+# Time-stamp: <2017-02-19 15:41:26 PST xoddf2>
 
 . ~/.profile
 
@@ -39,7 +39,7 @@ xsetroot -solid rgb:24/24/24 -cursor_name left_ptr &
 xset b off &
 
 # System tray
-trayer --edge top --align left --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x484848 --height 17 --margin 0 &
+trayer --edge bottom --align left --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x484848 --height 17 --margin 0 &
 
 # nm-applet and Redshift
 nm-applet &

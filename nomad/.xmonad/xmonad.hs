@@ -1,4 +1,4 @@
--- xmonad.hs 2.0.8   Time-stamp: <2017-02-08 02:59:30 PST xoddf2>
+-- xmonad.hs 2.0.9   Time-stamp: <2017-02-19 15:30:20 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -16,6 +16,7 @@ import XMonad.Actions.CycleWS
 import XMonad.Actions.Warp
 import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook 
 import XMonad.Layout.Grid
@@ -188,6 +189,7 @@ main = do
                            , ppLayout  = xmobarColor "#7DACDE" ""
                            , ppUrgent  = xmobarColor "#DD424C" ""
                            }
+    , handleEventHook    = fullscreenEventHook
     , modMask            = mod4Mask
     , terminal           = "st"
     , normalBorderColor  = "#929292"
