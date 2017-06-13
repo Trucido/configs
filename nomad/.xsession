@@ -1,6 +1,6 @@
 #!/bin/sh
-# .xsession 1.6.2
-# Time-stamp: <2017-02-19 15:41:26 PST xoddf2>
+# .xsession 1.6.2.1
+# Time-stamp: <2017-02-20 14:03:03 PST xoddf2>
 
 . ~/.profile
 
@@ -19,9 +19,6 @@ then
 	eval $(ssh-agent -s)
 	ssh-add < /dev/null
 fi
-
-# Monitor setup
-monitor-switch --auto
 
 # X resources
 xrdb -merge ~/.Xresources

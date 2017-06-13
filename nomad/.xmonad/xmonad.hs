@@ -1,4 +1,4 @@
--- xmonad.hs 2.0.9   Time-stamp: <2017-02-19 15:30:20 PST xoddf2>
+-- xmonad.hs 2.0.9.1   Time-stamp: <2017-02-19 16:03:00 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -24,11 +24,6 @@ import XMonad.Layout.IM
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.ThreeColumns
-import XMonad.Prompt
-import XMonad.Prompt.Input
-import XMonad.Prompt.Shell
-import XMonad.Prompt.Ssh
-import XMonad.Prompt.Window
 
 -- Workspaces
 myWorkspaces = ["1:main","2:www","3:media","4:gimp","5:vm","6:emul","7:games","8:xnest","9:misc"]
@@ -46,25 +41,27 @@ myManageHook = composeAll . concat $
   , [ className =? i --> doF (W.shift "9:misc") | i <- myClassOtherShifts ]
 
   -- Floating
-  , [ className =? "Torbrowser-launcher" --> doFloat
-    , className =? "TorLauncher"         --> doFloat
-    , className =? "QEMU"                --> doFloat
-    , className =? "VirtualBox"          --> doFloat
-    , className =? "Phoenix"             --> doFloat
-    , className =? "Gvbam"               --> doFloat
-    , className =? "Desmume"             --> doFloat
-    , className =? "Fusion"              --> doFloat
-    , className =? "fs-uae"              --> doFloat
-    , className =? "Wine"                --> doFloat
-    , className =? "Xephyr"              --> doFloat
-    , className =? "Xmessage"            --> doFloat
-    , title     =? "Event Tester"        --> doFloat
-    , className =? "XClock"              --> doFloat
-    , className =? "XLoad"               --> doFloat
-    , className =? "XBiff"               --> doFloat
-    , className =? "Xmag"                --> doFloat
-    , className =? "XCalc"               --> doFloat
-    , className =? "XConsole"            --> doFloat
+  , [ className =? "Torbrowser-launcher"  --> doFloat
+    , className =? "TorLauncher"          --> doFloat
+    , className =? "QEMU"                 --> doFloat
+    , className =? "VirtualBox"           --> doFloat
+    , className =? "Phoenix"              --> doFloat
+    , className =? "Gvbam"                --> doFloat
+    , className =? "Desmume"              --> doFloat
+    , className =? "Fusion"               --> doFloat
+    , className =? "fs-uae"               --> doFloat
+    , className =? "Wine"                 --> doFloat
+    , className =? "Xephyr"               --> doFloat
+    , className =? "Xmessage"             --> doFloat
+    , title     =? "Event Tester"         --> doFloat
+    , className =? "Nm-applet"            --> doFloat
+    , className =? "Nm-connection-editor" --> doFloat
+    , className =? "XClock"               --> doFloat
+    , className =? "XLoad"                --> doFloat
+    , className =? "XBiff"                --> doFloat
+    , className =? "Xmag"                 --> doFloat
+    , className =? "XCalc"                --> doFloat
+    , className =? "XConsole"             --> doFloat
     ]
   ]
   where
@@ -147,12 +144,6 @@ myKeys =
   , ("<XF86Launch1>",               spawn "xdg-open http://www.thinkwiki.org/wiki/Category:X200")
   ]
 
--- Startup (I'd rather put the spawn commands in ~/.xsession, but that fails)
-myStartupHook = do
-  runInTerm "-n tmux" "tmux attach-session"
-  spawn "emacsclient -a '' -c"
-  banishScreen LowerRight
-
 -- Layouts
 myLayoutHook = avoidStruts
                $ onWorkspace "1:main"  (tiled ||| (Mirror tiled) ||| Full ||| Grid ||| (ThreeCol 1 (3/100) (1/2)) ||| (ThreeColMid 1 (3/100) (1/2)))
@@ -180,7 +171,6 @@ main = do
     { manageHook         = manageDocks <+> myManageHook
     , layoutHook         = myLayoutHook
     , workspaces         = myWorkspaces
-    , startupHook        = myStartupHook
     , logHook            = dynamicLogWithPP xmobarPP
                            { ppOutput  = hPutStrLn xmproc
                            , ppSep     = " "
