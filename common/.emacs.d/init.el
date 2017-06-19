@@ -3,7 +3,7 @@
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
 ;; Version: 2.0.6
-;; Time-stamp: <2016-04-08 17:33:08 PDT xoddf2>
+;; Time-stamp: <2017-06-19 03:29:40 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -12,6 +12,14 @@
 ;;; Code:
 
 ;; load-path
+
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/")
 (add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "config"))
 (add-to-list 'load-path (concat (expand-file-name user-emacs-directory) "lisp"))

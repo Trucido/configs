@@ -1,20 +1,13 @@
-! .Xresources 1.3.1
-! Time-stamp: <2016-11-17 16:49:36 PST xoddf2>
-
-Xft.dpi: 96
+! .Xresources
+! Time-stamp: <2017-06-19 03:28:31 PDT xoddf2>
 
 ! Emacs
 Emacs.geometry: 80x50
 Emacs.menuBar: off
 Emacs.toolBar: off
-Emacs.verticalScrollBars: off
-Emacs.internalBorder: 2
+Emacs.verticalScrollBars: false
+Emacs.internalBorder: 1
 Emacs.background: black
 Emacs.foreground: white
 Emacs.FontBackend: xft
-Emacs.font: Dina-8
-
-! Rofi
-rofi.font: Fixed 13px
-rofi.terminal: st
-rofi.ssh-client: mosh
+Emacs.font: Dina-7

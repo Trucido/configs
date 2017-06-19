@@ -2,8 +2,8 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.1.2
-;; Time-stamp: <2016-04-08 17:33:11 PDT xoddf2>
+;; Version: 2.2
+;; Time-stamp: <2017-06-19 03:24:46 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -55,23 +55,6 @@
                                (buffer-string)))
 (setq message-signature-file "~/.signature")
 
-;; Emacs-w3m
-(if (string-equal system-name "nomad.local")
-    (progn
-      (require 'w3m)
-      (require 'w3m-search)
-
-      (setq w3m-use-cookies t)
-      (setq browse-url-browser-function 'w3m-browse-url)
-
-      (w3m-lnum-mode 1) ; Conkeror-like hints
-
-      (add-to-list 'w3m-search-engine-alist
-                   '("duckduckgo" "https://duckduckgo.com/?q=%s"))
-      (setq w3m-search-default-engine "duckduckgo")
-
-      (setq w3m-fill-column 80)))
-
 ;; Calendar
 (setq calendar-time-display-form
       '(24-hours ":" minutes
@@ -88,25 +71,5 @@
 
 ;; Magit
 (require 'magit)
-
-;; twittering-mode
-(if (string-equal system-name "nomad.local")
-    (progn
-      (require 'twittering-mode)
-      (setq twittering-use-master-password t)
-      (setq twittering-status-format "%i %s: %T (%@ via %f)%r%R")
-      (add-hook 'twittering-mode-hook
-                (lambda ()
-                  (twittering-icon-mode 1)))))
-
-;; mediawiki.el
-(if (string-equal system-name "nomad.local")
-    (progn
-      (require 'mediawiki)
-
-      (eval-after-load "mediawiki"
-        '(add-to-list 'mediawiki-site-alist
-                      '("Wikipedia" "http://en.wikipedia.org/w/"
-                        "Xoddf2" "" "Main Page")))))
 
 ;;; applications.el ends here
