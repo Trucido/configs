@@ -2,8 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.6
-;; Time-stamp: <2017-06-19 03:48:06 PDT xoddf2>
+;; Time-stamp: <2017-06-19 04:47:39 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -11,8 +10,10 @@
 
 ;;; Code:
 
-;; To prevent package.el from tampering with this file
+;; To prevent package.el and M-x customize from tampering with this file
 (setq package--init-file-ensured t)
+(setq custom-file "~/.emacs.d/config/custom.el")
+(load custom-file)
 
 ;; load-path
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/")
@@ -26,9 +27,5 @@
 (load-library "interface")
 (load-library "bindings")
 (load-library "private")
-
-;; Do not put M-x customize settings in the init file
-(setq custom-file "~/.emacs.d/config/custom.el")
-(load custom-file)
 
 ;;; init.el ends here

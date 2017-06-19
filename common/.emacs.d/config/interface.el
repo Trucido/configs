@@ -2,8 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.16
-;; Time-stamp: <2017-06-19 03:31:08 PDT xoddf2>
+;; Time-stamp: <2017-06-19 04:48:42 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -39,16 +38,21 @@
 (setq-default indicate-buffer-boundaries t)
 
 ;; Helm
-(require 'helm)
-(require 'helm-config)
+(use-package helm
+  :ensure t
 
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
+  :bind
+  (("M-x" . helm-M-x)
+   ("C-x C-f" . helm-find-files)
+   ("C-x r b" . helm-filtered-bookmarks)
 
-(define-key help-map "M" 'helm-man-woman)
+   :map help-map
+   ("M" . helm-man-woman))
 
-(helm-mode 1)
+  :diminish helm-mode
+
+  :config
+  (helm-mode 1))
 
 ;; Highlight matching ()s (like Vim default)
 (show-paren-mode 1)
@@ -142,11 +146,6 @@
 (add-hook 'ibuffer-mode-hook
           (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")))
-
-;; Remove mode-line clutter
-(require 'diminish)
-(diminish 'yas-minor-mode)
-(diminish 'helm-mode)
 
 ;; Theme
 (if (string-equal (system-name) "nomad")

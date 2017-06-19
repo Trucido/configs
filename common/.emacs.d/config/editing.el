@@ -2,8 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.4
-;; Time-stamp: <2017-06-19 03:24:46 PDT xoddf2>
+;; Time-stamp: <2017-06-19 04:48:30 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -72,8 +71,8 @@
             (flyspell-mode 1)))
 
 ;; BBCode
-(if (string-equal (system-name) "nomad")
-    (progn
-      (require 'bbcode-mode)))
+(use-package bbcode-mode
+  :bind (:map bbcode-mode-map
+              ("C-c C-u" . post-update)))
 
 ;;; editing.el ends here

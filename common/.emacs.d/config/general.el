@@ -2,8 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.6
-;; Time-stamp: <2016-04-08 17:33:10 PDT xoddf2>
+;; Time-stamp: <2017-06-19 04:48:38 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -15,8 +14,19 @@
 (require 'package)
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
+
+;; use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
+(require 'diminish)
+(require 'bind-key)
 
 ;; Time-stamp
 (add-hook 'before-save-hook 'time-stamp)
@@ -28,15 +38,18 @@
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 ;; YASnippet
-(require 'yasnippet)
-(yas-global-mode 1)
+(use-package yasnippet
+  :config
+  (yas-global-mode 1)
 
-(add-to-list 'yas/root-directory
-             (concat (expand-file-name user-emacs-directory) "snippets"))
+  (add-to-list 'yas/root-directory
+               (concat (expand-file-name user-emacs-directory) "snippets"))
 
-;; Do not use a GUI menu for yasnippet prompts in X
-(setq yas-prompt-functions
-      (cons 'yas-ido-prompt
-            (remove 'yas-ido-prompt yas-prompt-functions)))
+  ;; Do not use a GUI menu for yasnippet prompts in X
+  (setq yas-prompt-functions
+        (cons 'yas-ido-prompt
+              (remove 'yas-ido-prompt yas-prompt-functions)))
+
+  :diminish yas-minor-mode)
 
 ;;; general.el ends here

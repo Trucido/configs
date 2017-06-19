@@ -2,8 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.0.8
-;; Time-stamp: <2017-06-19 03:30:19 PDT xoddf2>
+;; Time-stamp: <2017-06-19 04:48:24 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -26,7 +25,6 @@
 (global-set-key (kbd "C-c 5 s") 'switch-to-scratch-buffer-other-frame)
 
 ;; Applications
-(global-set-key (kbd "C-c m") 'mu4e)
 (global-set-key (kbd "C-c d") 'calendar)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
@@ -35,13 +33,5 @@
 (global-set-key (kbd "C-c z") 'shell)
 (global-set-key (kbd "C-c g") 'grep)
 (global-set-key (kbd "C-c x") 'compile)
-(global-set-key (kbd "C-x g") 'magit-status)
-
-;; Help
-(define-key help-map "M" 'man)
-
-;; BBCode
-(if (string-equal (system-name) "nomad")
-    (define-key bbcode-mode-map (kbd "C-c C-u") 'post-update))
 
 ;;; bindings.el ends here

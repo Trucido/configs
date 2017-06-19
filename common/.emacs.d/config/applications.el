@@ -2,8 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Version: 2.2
-;; Time-stamp: <2017-06-19 03:24:46 PDT xoddf2>
+;; Time-stamp: <2017-06-19 04:48:20 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -19,41 +18,42 @@
       (require 'ls-lisp)))
 
 ;; GPG
-(require 'epa-file)
+  (require 'epa-file)
 
 ;; mu4e
-(setq user-full-name "woddfellow2")
-(setq user-mail-address "woddfellow2@gmail.com") ; Kludge for compose-mail
+(use-package mu4e
+  :config
+  (setq user-full-name "woddfellow2")
+  (setq user-mail-address "woddfellow2@gmail.com") ; Kludge for compose-mail
 
-(require 'mu4e)
+  (setq read-mail-command 'mu4e
+        mail-user-agent 'mu4e-user-agent)
 
-(setq read-mail-command 'mu4e
-      mail-user-agent 'mu4e-user-agent)
+  (setq mu4e-maildir "~/Mail/Gmail/"
+        mu4e-sent-folder "/[Gmail].Sent Mail"
+        mu4e-drafts-folder "/[Gmail].Drafts"
+        mu4e-trash-folder "/[Gmail].Trash"
+        mu4e-refile-folder "/[Gmail].All Mail")
 
-(setq mu4e-maildir "~/Mail/Gmail/"
-      mu4e-sent-folder "/[Gmail].Sent Mail"
-      mu4e-drafts-folder "/[Gmail].Drafts"
-      mu4e-trash-folder "/[Gmail].Trash"
-      mu4e-refile-folder "/[Gmail].All Mail")
+  (setq mu4e-get-mail-command "offlineimap"
+        mu4e-update-interval 900)
 
-(setq mu4e-get-mail-command "offlineimap"
-      mu4e-update-interval 900)
+  (setq message-send-mail-function 'smtpmail-send-it
+        send-mail-function (quote smtpmail-send-it)
+        smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+        smtpmail-auth-credentials '(("smtp.gmail.com" 587 "woddfellow2@gmail.com"
+                                     nil))
+        smtpmail-default-smtp-server "smtp.gmail.com"
+        smtpmail-smtp-server "smtp.gmail.com"
+        smtpmail-smtp-service 587)
 
-(setq message-send-mail-function 'smtpmail-send-it
-      send-mail-function (quote smtpmail-send-it)
-      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      smtpmail-auth-credentials '(("smtp.gmail.com" 587 "woddfellow2@gmail.com"
-                                   nil))
-      smtpmail-default-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-service 587)
+  (setq mu4e-sent-messages-behavior 'delete) ; For Gmail
 
-(setq mu4e-sent-messages-behavior 'delete) ; For Gmail
-
-(setq mu4e-compose-signature (with-temp-buffer
-                               (insert-file-contents "~/.signature")
-                               (buffer-string)))
-(setq message-signature-file "~/.signature")
+  (setq mu4e-compose-signature (with-temp-buffer
+                                 (insert-file-contents "~/.signature")
+                                 (buffer-string)))
+  (setq message-signature-file "~/.signature")
+  :bind ("C-c m" . mu4e))
 
 ;; Calendar
 (setq calendar-time-display-form
@@ -70,6 +70,7 @@
         ("yt"  . "https://www.youtube.com/watch?v=")))
 
 ;; Magit
-(require 'magit)
+(use-package magit
+  :bind (("C-x g" . magit-status)))
 
 ;;; applications.el ends here
