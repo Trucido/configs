@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-06-19 04:48:42 PDT xoddf2>
+;; Time-stamp: <2017-06-20 10:00:19 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -40,6 +40,9 @@
 ;; Helm
 (use-package helm
   :ensure t
+
+  :init
+  (require 'helm-config)
 
   :bind
   (("M-x" . helm-M-x)
