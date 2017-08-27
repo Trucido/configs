@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-06-20 10:00:19 PDT xoddf2>
+;; Time-stamp: <2017-08-26 21:38:29 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -131,6 +131,8 @@
                  (mode . mu4e-about-mode)))
                ("IRC"
                 (mode . erc-mode))
+               ("Twitter"
+                (mode . twittering-mode))
                ("Documentation"
                 (or
                  (mode . Info-mode)
