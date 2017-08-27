@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-06-19 04:48:20 PDT xoddf2>
+;; Time-stamp: <2017-08-26 19:23:00 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -72,5 +72,15 @@
 ;; Magit
 (use-package magit
   :bind (("C-x g" . magit-status)))
+
+;; twittering-mode
+(if (string-equal (system-name) "nomad")
+    (progn
+      (require 'twittering-mode)
+      (setq twittering-use-master-password t)
+      (setq twittering-status-format "%i %s: %T (%@ via %f)%r%R")
+      (add-hook 'twittering-mode-hook
+                (lambda ()
+                  (twittering-icon-mode 1)))))
 
 ;;; applications.el ends here
