@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-08-26 19:23:00 PDT xoddf2>
+;; Time-stamp: <2017-08-28 12:55:05 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -18,7 +18,7 @@
       (require 'ls-lisp)))
 
 ;; GPG
-  (require 'epa-file)
+(require 'epa-file)
 
 ;; mu4e
 (use-package mu4e
@@ -73,14 +73,26 @@
 (use-package magit
   :bind (("C-x g" . magit-status)))
 
+;; Mingus
+(if (string-equal (system-name) "nomad")
+    (use-package mingus
+      :config
+      (setq mingus-mpd-config-file "~/.config/mpd/mpd.conf"
+            mingus-mpd-root "~/media/audio/music/"
+            mingus-mpd-playlist-dir "~/.config/mpd/playlists"
+            mingus-mode-line-string-max 30
+            mingus-seek-amount 5)
+      :bind ("C-c b" . mingus)))
+
 ;; twittering-mode
 (if (string-equal (system-name) "nomad")
-    (progn
-      (require 'twittering-mode)
+    (use-package twittering-mode
+      :config
       (setq twittering-use-master-password t)
       (setq twittering-status-format "%i %s: %T (%@ via %f)%r%R")
       (add-hook 'twittering-mode-hook
                 (lambda ()
-                  (twittering-icon-mode 1)))))
+                  (twittering-icon-mode 1)))
+      :bind ("C-c t" . twit)))
 
 ;;; applications.el ends here
