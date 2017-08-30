@@ -1,5 +1,5 @@
 ! .Xresources
-! Time-stamp: <2017-06-19 03:28:31 PDT xoddf2>
+! Time-stamp: <2017-08-29 17:21:25 PDT xoddf2>
 
 ! Emacs
 Emacs.geometry: 80x50
@@ -10,4 +10,4 @@ Emacs.internalBorder: 1
 Emacs.background: black
 Emacs.foreground: white
 Emacs.FontBackend: xft
-Emacs.font: Dina-7
+Emacs.font: Terminus-10
