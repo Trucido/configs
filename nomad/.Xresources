@@ -1,13 +1,29 @@
 ! .Xresources
-! Time-stamp: <2017-08-29 17:21:25 PDT xoddf2>
+! Time-stamp: <2017-08-30 20:10:47 PDT xoddf2>
+
+Xft.dpi: 96
 
 ! Emacs
 Emacs.geometry: 80x50
 Emacs.menuBar: off
 Emacs.toolBar: off
 Emacs.verticalScrollBars: false
-Emacs.internalBorder: 1
+Emacs.internalBorder: 2
 Emacs.background: black
 Emacs.foreground: white
 Emacs.FontBackend: xft
-Emacs.font: Terminus-10
+Emacs.font: Terminus-11
+
+! Rofi
+rofi.terminal: st
+rofi.ssh-client: mosh
+rofi.modi: run,window,ssh
+
+rofi.font: Terminus 14px
+rofi.bw: 2
+rofi.separator-style: solid
+
+rofi.color-normal: #242424,#E5E5E5,#2A2A2A,#515151,#E5E5E5
+rofi.color-urgent: #242424,#DD424C,#2A2A2A,#DD424C,#E5E5E5
+rofi.color-active: #242424,#8BDE58,#2A2A2A,#8BDE58,#242424
+rofi.color-window: #242424,#929292

@@ -1,0 +1,13 @@
+# ~/.XCompose   -*- Conf -*-
+# Time-stamp: <2017-07-15 00:46:39 PDT xoddf2>
+
+include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+
+<Multi_key> <l> <o> <d> : "ಠ_ಠ" # Look of disapproval
+<Multi_key> <p> <o> <o> : "💩" U1F4A9 # PILE OF POO
+<Multi_key> <o> <p> : "℗" U24C5 # SOUND RECORDING COPYRIGHT
+
+<Multi_key> <u> <p> : "↑"
+<Multi_key> <d> <o> <w> <n> : "↓"
+<Multi_key> <l> <e> <f> <t> : "←"
+<Multi_key> <r> <i> <g> <h> <t> : "→"
