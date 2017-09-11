@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Time-stamp: <2017-08-30 21:37:19 PDT xoddf2>
+-- Time-stamp: <2017-09-11 10:09:58 PDT xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -71,7 +71,7 @@ myManageHook = composeAll . concat $
     myClassMediaShifts = ["feh","mpv","vlc","Gtk-gnash"]
     myClassDocShifts   = ["Xpdf"]
     myClassGIMPShifts  = ["Gimp"]
-    myClassVMShifts    = ["QEMU","VirtualBox","Xephyr","Hiro","Fusion","mGBA","Desmume","fs-uae","dosbox","Application.py","Wine"]
+    myClassVMShifts    = ["QEMU","VirtualBox","Xephyr","Hiro","Fusion","stella","mGBA","Desmume","fs-uae","dosbox","Application.py","Wine"]
     myClassOtherShifts = ["Audacity","Easytag","Wireshark","lbreakout2","perl"]
 
 -- Layouts
