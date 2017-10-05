@@ -1,6 +1,6 @@
 #!/bin/sh
 # .xinitrc
-# Time-stamp: <2017-09-05 22:36:34 PDT xoddf2>
+# Time-stamp: <2017-09-29 01:57:59 PDT xoddf2>
 
 . ~/.profile
 
@@ -45,6 +45,7 @@ remap
 
 # XScreenSaver
 xscreensaver -no-splash &
+dunst-screensaver &
 
 # Compositor
 compton -b

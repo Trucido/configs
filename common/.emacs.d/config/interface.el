@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-08-28 12:48:15 PDT xoddf2>
+;; Time-stamp: <2017-10-04 20:52:27 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -151,19 +151,6 @@
 (add-hook 'ibuffer-mode-hook
           (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")))
-
-;; Display time, load average, battery life, and biff in mode line
-(if (string-equal (system-name) "nomad")
-    (progn
-      (setq display-time-24hr-format t
-            display-time-interval 1
-            display-time-format "%H:%M:%S")
-      (setq display-time-mail-file t
-            display-time-mail-directory "~/Mail/Gmail/INBOX/new/")
-      (setq battery-mode-line-format " %b%p%%")
-
-      (display-time-mode 1)
-      (display-battery-mode 1)))
 
 ;; Theme
 (if (string-equal (system-name) "nomad")
