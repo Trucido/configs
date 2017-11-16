@@ -1,6 +1,6 @@
 #!/bin/sh
 # .xinitrc
-# Time-stamp: <2017-11-16 08:51:46 PST xoddf2>
+# Time-stamp: <2017-11-16 10:34:41 PST xoddf2>
 
 . ~/.profile
 
@@ -10,7 +10,7 @@ export QT_IM_MODULE="uim"
 uim-xim &
 export XMODIFIERS="@im=uim"
 
-# Use GTK them in Qt 5 applications
+# Use GTK theme in Qt 5 applications
 export QT_QPA_PLATFORMTHEME="gtk2"
 export QT_STYLE_OVERRIDE="gtk2"
 
