@@ -1,6 +1,6 @@
 #!/bin/sh
 # .xinitrc
-# Time-stamp: <2017-09-29 01:57:59 PDT xoddf2>
+# Time-stamp: <2017-11-16 08:51:46 PST xoddf2>
 
 . ~/.profile
 
@@ -31,10 +31,10 @@ eval $(dbus-launch --sh-syntax --exit-with-session)
 # Configure monitors and set wallpaper
 if (xrandr | grep -q "HDMI-2 connected"); then
 	xrandr --output "LVDS-1" --auto --primary --output "HDMI-2" --auto --right-of "LVDS-1"
-	feh --bg-scale --no-fehbg -z ~/media/img/wallpaper ~/media/img/wallpaper
+	feh --bg-fill --no-fehbg -z ~/media/img/wallpaper ~/media/img/wallpaper
 else
 	xrandr --output "LVDS-1" --auto --primary --output "HDMI-2" --off
-	feh --bg-scale --no-fehbg -z ~/media/img/wallpaper
+	feh --bg-fill --no-fehbg -z ~/media/img/wallpaper
 fi
 
 # X resources
