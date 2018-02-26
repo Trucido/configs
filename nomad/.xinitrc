@@ -1,6 +1,6 @@
 #!/bin/sh
 # .xinitrc
-# Time-stamp: <2017-11-16 10:34:41 PST xoddf2>
+# Time-stamp: <2018-02-26 06:20:13 PST xoddf2>
 
 . ~/.profile
 
@@ -68,14 +68,17 @@ uim-toolbar-gtk-systray &
 # Bottom status bar
 xmobar ~/.xmonad/xmobar-bottom.hs &
 
-# Start Emacs and tmux
+# Start Emacs, tmux, and mpd
 pgrep -u $(whoami) -f "emacs --daemon" || emacs --daemon
 pgrep -u $(whoami) -f "tmux -u start-server" || tmux -u start-server
+pgrep -u $(whoami) -f "mpd" || mpd
 
 # Start window manager
 xmonad
 
-# Kill ssh-agent on exit
+# Kill mpd and ssh-agent on exit
+mpd --kill
+
 if [ "$SSH_AGENT_PID" ]; then
 	ssh-add -D < /dev/null
 	eval $(ssh-agent -s -k)
