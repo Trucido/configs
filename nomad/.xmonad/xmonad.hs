@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Time-stamp: <2017-09-11 10:09:58 PDT xoddf2>
+-- Time-stamp: <2018-03-03 11:16:20 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -25,7 +25,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
 import XMonad.Layout.SimplestFloat
-import XMonad.Util.EZConfig(additionalKeysP)
+import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run
 import XMonad.Util.WorkspaceCompare
@@ -188,6 +188,13 @@ myKeys =
     myToggle = windows $ W.view =<< W.tag . head . filter
             ((\x -> x /= "NSP" && x /= "SP") . W.tag) . W.hidden
 
+myRemoveKeys =
+  -- I can just run xmonad --recompile and xmonad --restart instead:
+  [ "M-q"
+  -- I prefer dmenu instead, and gmrun is not even installed:
+  , "M-S-p"
+  ]
+
 -- Startup
 myStartupHook = do
   banishScreen LowerRight
@@ -215,4 +222,4 @@ main = do
     , normalBorderColor  = "#929292"
     , focusedBorderColor = "#8BDE58"
     , borderWidth        = 2
-    } `additionalKeysP` myKeys
+    } `additionalKeysP` myKeys `removeKeysP` myRemoveKeys
