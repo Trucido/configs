@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Time-stamp: <2018-03-03 11:16:20 PST xoddf2>
+-- Time-stamp: <2018-03-06 19:31:50 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -115,7 +115,7 @@ myKeys =
   , ("M-S-f",                       raiseMaybe (spawn "torbrowser")                           (className =? "Tor Browser"))
 
   -- Run
-  , ("M-p",                         spawn "dmenu_run -fn 'Terminus-11' -nb '#242424' -nf '#E5E5E5' -sb '#242424' -sf '#8BDE58'")
+  , ("M-p",                         spawn "dmenu_run -fn 'Terminus-11' -nb '#3F3F3F' -nf '#DCDCCC' -sb '#3F3F3F' -sf '#C3BF9F'")
 
   -- mosh
   , ("M-S-s",                       spawn "dmenu_ssh 'st -n mosh -e mosh'")
@@ -174,6 +174,9 @@ myKeys =
   -- TrackPoint Toggle
   , ("<XF86TouchpadToggle>",        spawn "toggle-trackpoint")
 
+  -- Clear Clipboard
+  , ("M-=",                         spawn "clear-clipboard")
+
   -- ThinkVantage
   , ("<XF86Launch1>",               spawn "xdg-open http://www.thinkwiki.org/wiki/Category:X200")
   ]
@@ -209,17 +212,17 @@ main = do
     , startupHook        = myStartupHook
     , logHook            = dynamicLogWithPP xmobarPP
                            { ppOutput  = hPutStrLn xmproc
-                           , ppSep     = " <fc=#515151>|</fc> "
-                           , ppTitle   = xmobarColor "#8BDE58" ""
-                           , ppCurrent = xmobarColor "#DBDF39" ""
-                           , ppLayout  = xmobarColor "#7DACDE" ""
-                           , ppUrgent  = xmobarColor "#DD424C" ""
+                           , ppSep     = " <fc=#709080>|</fc> "
+                           , ppTitle   = xmobarColor "#C3BF9F" ""
+                           , ppCurrent = xmobarColor "#F0DFAF" ""
+                           , ppLayout  = xmobarColor "#94BFF3" ""
+                           , ppUrgent  = xmobarColor "#DCA3A3" ""
                            , ppSort    = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
                            } <+> ewmhDesktopsLogHook
     , handleEventHook    = ewmhDesktopsEventHook <+> docksEventHook <+> fullscreenEventHook
     , modMask            = mod4Mask
     , terminal           = "st"
-    , normalBorderColor  = "#929292"
-    , focusedBorderColor = "#8BDE58"
+    , normalBorderColor  = "#6F6F6F"
+    , focusedBorderColor = "#7F9F7F"
     , borderWidth        = 2
     } `additionalKeysP` myKeys `removeKeysP` myRemoveKeys

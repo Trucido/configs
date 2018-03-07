@@ -1,5 +1,5 @@
 # dunstrc   -*- Conf -*-
-# Time-stamp: <2017-09-06 00:50:37 PDT xoddf2>
+# Time-stamp: <2018-03-06 19:34:19 PST xoddf2>
 
 [global]
     font = Terminus 11
@@ -152,7 +152,7 @@
 
 [frame]
     width = 2
-    color = "#515151"
+    color = "#709080"
 
 [shortcuts]
 
@@ -178,18 +178,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#242424"
-    foreground = "#7DACDE"
+    background = "#3F3F3F"
+    foreground = "#94BFF3"
     timeout = 10
 
 [urgency_normal]
-    background = "#242424"
-    foreground = "#8BDE58"
+    background = "#3F3F3F"
+    foreground = "#C3BF9F"
     timeout = 10
 
 [urgency_critical]
-    background = "#242424"
-    foreground = "#DD424C"
+    background = "#3F3F3F"
+    foreground = "#DCA3A3"
     timeout = 0
 
 

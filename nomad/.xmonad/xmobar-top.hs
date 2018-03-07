@@ -1,9 +1,9 @@
 -- Configuration for top xmobar   -*- Haskell -*-
--- Time-stamp: <2017-08-29 21:30:05 PDT xoddf2>
+-- Time-stamp: <2018-03-06 19:32:19 PST xoddf2>
 
 Config { font         = "xft:Terminus-11"
-       , bgColor      = "#242424"
-       , fgColor      = "#E5E5E5"
+       , bgColor      = "#3F3F3F"
+       , fgColor      = "#DCDCCC"
        , position     = TopW L 100
        , lowerOnStart = True
        , commands     = [ Run Date "%a %b %d %H:%M:%S %Z %Y" "date" 1
@@ -11,5 +11,5 @@ Config { font         = "xft:Terminus-11"
                         ]
        , sepChar      = "%"
        , alignSep     = "}{"
-       , template     = "%StdinReader% }{ <fc=#515151>|</fc> <fc=#7FE0DC>%date%</fc>"
+       , template     = "%StdinReader% }{ <fc=#709080>|</fc> <fc=#93E0E3>%date%</fc>"
        }

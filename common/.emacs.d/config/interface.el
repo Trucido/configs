@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-10-04 20:52:27 PDT xoddf2>
+;; Time-stamp: <2018-03-06 19:38:04 PST xoddf2>
 
 ;;; Commentary:
 
@@ -154,6 +154,6 @@
 
 ;; Theme
 (if (string-equal (system-name) "nomad")
-    (load-theme 'xoddf2 t))
+    (load-theme 'zenburn t))
 
 ;;; interface.el ends here

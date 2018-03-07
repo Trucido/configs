@@ -1,6 +1,6 @@
 #!/bin/sh
 # .xinitrc
-# Time-stamp: <2018-02-26 06:20:13 PST xoddf2>
+# Time-stamp: <2018-03-06 19:34:57 PST xoddf2>
 
 . ~/.profile
 
@@ -57,7 +57,7 @@ xsetroot -cursor_name left_ptr
 xset b off
 
 # System tray and notifications
-trayer --edge bottom --align left --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --alpha 0 --tint 0x242424 --height 18 --margin 0 &
+trayer --edge bottom --align left --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --alpha 0 --tint 0x3F3F3F --height 18 --margin 0 &
 dunst &
 
 # System tray icons
