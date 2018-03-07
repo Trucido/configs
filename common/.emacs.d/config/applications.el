@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-08-28 12:55:05 PDT xoddf2>
+;; Time-stamp: <2018-03-06 21:13:01 PST xoddf2>
 
 ;;; Commentary:
 
@@ -12,10 +12,17 @@
 ;;; Code:
 
 ;; dired
-(if (eq system-type 'berkeley-unix)
-    (progn
-      (setq ls-lisp-use-insert-directory-program nil)
-      (require 'ls-lisp)))
+(add-hook 'dired-load-hook
+          '(lambda ()
+             (require 'dired-x)
+
+             (setq dired-listing-switches "-alh")
+
+             (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))))
+
+(add-hook 'dired-mode-hook
+          '(lambda ()
+             (dired-omit-mode 1)))
 
 ;; GPG
 (require 'epa-file)
