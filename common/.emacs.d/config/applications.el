@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-06 21:13:01 PST xoddf2>
+;; Time-stamp: <2018-03-08 15:08:06 PST xoddf2>
 
 ;;; Commentary:
 
@@ -60,6 +60,28 @@
                                  (insert-file-contents "~/.signature")
                                  (buffer-string)))
   (setq message-signature-file "~/.signature")
+
+  (setq mu4e-bookmarks
+        `( ,(make-mu4e-bookmark
+             :name  "Unread messages"
+             :query "flag:unread AND NOT flag:trashed AND NOT maildir:\"/[Gmail].All Mail\" AND NOT maildir:\"/[Gmail].Sent Mail\" AND NOT \"/[Gmail].Important\" AND NOT maildir:\"/[Gmail].Spam\" AND NOT \"maildir:/[Gmail].Trash\""
+             :key ?u)
+           ,(make-mu4e-bookmark
+             :name "Today's messages"
+             :query "date:today..now AND NOT \"/INBOX\" AND NOT maildir:\"/[Gmail].Sent Mail\" AND NOT maildir:\"/[Gmail].Spam\" AND NOT \"/[Gmail].Important\""
+             :key ?t)
+           ,(make-mu4e-bookmark
+             :name "Last 7 days"
+             :query "date:7d..now AND NOT \"/INBOX\" AND NOT maildir:\"/[Gmail].Sent Mail\" AND NOT maildir:\"/[Gmail].Spam\" AND NOT \"/[Gmail].Important\""
+             :key ?w)
+           ,(make-mu4e-bookmark
+             :name "All Mail"
+             :query "\"/[Gmail].All Mail\""
+             :key ?a)
+           ,(make-mu4e-bookmark
+             :name "Sent messages"
+             :query "maildir:\"/[Gmail].Sent Mail\""
+             :key ?s)))
   :bind ("C-c m" . mu4e))
 
 ;; Calendar
