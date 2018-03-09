@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Time-stamp: <2018-03-06 19:31:50 PST xoddf2>
+-- Time-stamp: <2018-03-08 20:57:11 PST xoddf2>
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -53,6 +53,7 @@ myManageHook = composeAll . concat $
     , title     =? "Event Tester"         --> doFloat
     , className =? "Nm-applet"            --> doFloat
     , className =? "Nm-connection-editor" --> doFloat
+    , className =? "Pinentry"             --> doFloat
     , className =? "Uim-pref-gtk"         --> doFloat
     , className =? "XClock"               --> doFloat
     , className =? "XLoad"                --> doFloat
