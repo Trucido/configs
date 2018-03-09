@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-08 15:08:06 PST xoddf2>
+;; Time-stamp: <2018-03-08 22:47:09 PST xoddf2>
 
 ;;; Commentary:
 
@@ -118,7 +118,6 @@
     (use-package twittering-mode
       :config
       (setq twittering-use-master-password t)
-      (setq twittering-status-format "%i %s: %T (%@ via %f)%r%R")
       (add-hook 'twittering-mode-hook
                 (lambda ()
                   (twittering-icon-mode 1)))
