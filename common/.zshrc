@@ -1,5 +1,5 @@
 # .zshrc
-# Time-stamp: <2017-06-13 01:31:11 PDT xoddf2>
+# Time-stamp: <2018-03-15 03:12:10 PDT xoddf2>
 
 zstyle :compinstall filename '~/.zshrc'
 
@@ -38,7 +38,7 @@ HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt HIST_IGNORE_DUPS SHARE_HISTORY
+setopt HIST_IGNORE_DUPS SHARE_HISTORY EXTENDED_HISTORY
 
 # Avoid accidentally exiting main shell in tmux
 if [[ -n "$TMUX" ]] && [[ "$TMUX_PANE" == "%0" ]]; then

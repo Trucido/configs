@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-08 22:47:09 PST xoddf2>
+;; Time-stamp: <2018-03-15 03:15:16 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -23,6 +23,14 @@
 (add-hook 'dired-mode-hook
           '(lambda ()
              (dired-omit-mode 1)))
+
+;; Shell
+(setq comint-input-ring-size 10000)
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (setq comint-input-ring-file-name "~/.zhistory")
+            (setq comint-input-ring-separator "\n: [0-9]+:[0-9]+;")
+            (comint-read-input-ring t)))
 
 ;; GPG
 (require 'epa-file)
