@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # .bashrc
-# Time-stamp: <2018-03-16 20:11:54 PDT xoddf2>
+# Time-stamp: <2018-03-17 01:17:52 PDT xoddf2>
 
 # Check for an interactive shell
 if [[ $- != *i* ]]; then
@@ -37,6 +37,10 @@ EDITOR="ed"
 
 if command -v emacs >/dev/null 2>&1; then
 	VISUAL="emacsclient"
+elif command -v zile >/dev/null 2>&1; then
+	VISUAL="zile"
+elif command -v mg >/dev/null 2>&1; then
+	VISUAL="mg"
 else
 	VISUAL="vi"
 fi
