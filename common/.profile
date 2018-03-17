@@ -1,11 +1,13 @@
 #!/bin/sh
 # ~/.profile
-# Time-stamp: <2018-03-17 01:44:21 PDT xoddf2>
+# Time-stamp: <2018-03-17 02:58:35 PDT xoddf2>
 
 # Set PATH
 PATH="/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin"
 
-if [ -d "$HOME/bin" ]; then
+if [ -d "$HOME/local/bin" ]; then
+	PATH="$HOME/local/bin:$PATH"
+elif [ -d "$HOME/bin" ]; then
 	PATH="$HOME/bin:$PATH"
 fi
 
@@ -13,6 +15,11 @@ export PATH
 
 # Set locale
 export LANG="en_US.UTF-8"
+
+# Set MANPATH
+if [ -d "$HOME/local/share/man" ]; then
+	export MANPATH="$HOME/local/share/man:$MANPATH"
+fi
 
 # Set width of manual pages
 export MANWIDTH=80

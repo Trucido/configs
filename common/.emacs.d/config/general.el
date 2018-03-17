@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-06-19 04:48:38 PDT xoddf2>
+;; Time-stamp: <2018-03-17 02:58:37 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -33,7 +33,7 @@
 (setq time-stamp-format "%:y-%02m-%02d %02H:%02M:%02S %Z %u")
 
 ;; Backup and autosave directory
-(setq temporary-file-directory "~/tmp/")
+(setq temporary-file-directory "~/local/var/tmp/")
 (setq backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 

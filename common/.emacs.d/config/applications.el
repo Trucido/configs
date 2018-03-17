@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-16 22:35:04 PDT xoddf2>
+;; Time-stamp: <2018-03-17 02:27:06 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -46,7 +46,7 @@
   (setq read-mail-command 'mu4e
         mail-user-agent 'mu4e-user-agent)
 
-  (setq mu4e-maildir "~/Mail/Gmail/"
+  (setq mu4e-maildir "~/local/var/mail/Gmail/"
         mu4e-sent-folder "/[Gmail].Sent Mail"
         mu4e-drafts-folder "/[Gmail].Drafts"
         mu4e-trash-folder "/[Gmail].Trash"
