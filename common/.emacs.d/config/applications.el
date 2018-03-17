@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-16 22:07:03 PDT xoddf2>
+;; Time-stamp: <2018-03-16 22:35:04 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -16,7 +16,7 @@
           '(lambda ()
              (require 'dired-x)
 
-             (setq dired-listing-switches "-alh")
+             (setq dired-listing-switches "-alh --group-directories-first")
 
              (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))))
 
