@@ -1,6 +1,6 @@
 #!/bin/sh
 # ~/.profile
-# Time-stamp: <2018-03-17 02:58:35 PDT xoddf2>
+# Time-stamp: <2018-03-17 04:24:17 PDT xoddf2>
 
 # Set PATH
 PATH="/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin"
@@ -26,6 +26,11 @@ export MANWIDTH=80
 
 # Sort dotfiles first
 export LC_COLLATE="C"
+
+# Set time zone at salt.hax0r.se
+if [ "$HOSTNAME" = "salt" ]; then
+	export TZ="UTC"
+fi
 
 # Display a fortune
 if command -v fortune >/dev/null 2>&1 && [[ $(tty) != /dev/tty1 ]] && [[ $- == *i* ]]; then
