@@ -1,6 +1,6 @@
 #!/bin/sh
 # ~/.profile
-# Time-stamp: <2018-03-17 01:17:59 PDT xoddf2>
+# Time-stamp: <2018-03-17 01:44:21 PDT xoddf2>
 
 # Set PATH
 PATH="/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin"
@@ -29,4 +29,9 @@ fi
 # Start X from tty1
 if [ "$HOSTNAME" = "nomad" ] && [[ $(tty) == /dev/tty1 ]]; then
 	exec startx
+fi
+
+# Under bash(1), source ~/.bashrc if it exists
+if [[ $SHELL =~ bash ]] && [ -f "$HOME/.bashrc" ]; then
+	. $HOME/.bashrc
 fi
