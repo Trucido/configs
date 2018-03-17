@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-06-19 04:47:39 PDT xoddf2>
+;; Time-stamp: <2018-03-16 23:30:10 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -27,5 +27,8 @@
 (load-library "interface")
 (load-library "bindings")
 (load-library "private")
+
+;; Open a shell when Emacs starts, and switch to it when emacsclient starts
+(setq initial-buffer-choice 'shell)
 
 ;;; init.el ends here
