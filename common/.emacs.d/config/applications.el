@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-15 03:15:16 PDT xoddf2>
+;; Time-stamp: <2018-03-16 22:07:03 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -25,11 +25,13 @@
              (dired-omit-mode 1)))
 
 ;; Shell
+(require 'shell)
+
 (setq comint-input-ring-size 10000)
+
 (add-hook 'shell-mode-hook
           (lambda ()
-            (setq comint-input-ring-file-name "~/.zhistory")
-            (setq comint-input-ring-separator "\n: [0-9]+:[0-9]+;")
+            (setq comint-input-ring-file-name "~/.bash_history")
             (comint-read-input-ring t)))
 
 ;; GPG

@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2017-09-08 06:45:18 PDT xoddf2>
+;; Time-stamp: <2018-03-16 22:07:25 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -34,5 +34,8 @@
 (global-set-key (kbd "C-c z") 'shell)
 (global-set-key (kbd "C-c g") 'grep)
 (global-set-key (kbd "C-c x") 'compile)
+
+;; Shell
+(define-key shell-mode-map (kbd "RET") 'comint-send-input-and-update-input-ring)
 
 ;;; bindings.el ends here
