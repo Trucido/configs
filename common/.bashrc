@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # .bashrc
-# Time-stamp: <2018-03-17 01:17:52 PDT xoddf2>
+# Time-stamp: <2018-03-17 01:36:16 PDT xoddf2>
 
 # Check for an interactive shell
 if [[ $- != *i* ]]; then
@@ -8,9 +8,6 @@ if [[ $- != *i* ]]; then
 fi
 
 # Settings #####################################################################
-
-# Keybindings
-set -o emacs
 
 # Globbing
 shopt -s extglob
@@ -22,6 +19,16 @@ set -o notify
 set bell-style none
 shopt -s checkwinsize
 shopt -s no_empty_cmd_completion
+
+# Keybindings ##################################################################
+
+# Emacs keybindings
+set -o emacs
+
+# Make readline match Emacs comint
+bind '"\ep": previous-history'
+bind '"\en": next-history'
+bind '"\er": reverse-search-history'
 
 # History ######################################################################
 
