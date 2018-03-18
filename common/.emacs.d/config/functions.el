@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-17 20:38:25 PDT xoddf2>
+;; Time-stamp: <2018-03-17 20:43:08 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -34,8 +34,8 @@ switches to the *scratch* buffer in another frame."
     (lisp-interaction-mode)))
 
 (defun comint-send-input-and-update-input-ring ()
-  "Send input to the process, and then synchronise the shell history with
-the comint input ring.  See `comint-send-input' and `comint-read-input-ring'
+  "Synchronise the shell history with the comint input ring before sending
+input to the process.  See `comint-read-input-ring' and `comint-send-input'
 for more information."
   (interactive)
   (comint-read-input-ring)
