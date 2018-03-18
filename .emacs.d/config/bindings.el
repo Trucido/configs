@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-16 22:07:25 PDT xoddf2>
+;; Time-stamp: <2018-03-17 21:01:47 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -28,7 +28,6 @@
 (global-set-key (kbd "C-c d") 'calendar)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-c r") 'elfeed)
 
 ;; Unix
 (global-set-key (kbd "C-c z") 'shell)

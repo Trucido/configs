@@ -1,0 +1,15 @@
+# $XDG_CONFIG_HOME/user-dirs.dirs
+# Time-stamp: <2018-03-17 22:15:25 PDT xoddf2>
+
+XDG_CONFIG_DIR="$HOME/local/etc"
+XDG_DATA_DIR="$HOME/local/share"
+XDG_CACHE_DIR="$HOME/local/var/cache"
+XDG_DOWNLOAD_DIR="$HOME/local/var/tmp/downloads"
+XDG_TEMPLATES_DIR="$XDG_DATA_DIR/templates"
+XDG_PUBLICSHARE_DIR="$HOME/local/srv"
+XDG_DOCUMENTS_DIR="$HOME/doc"
+XDG_MUSIC_DIR="$HOME/media/audio/music"
+XDG_PICTURES_DIR="$HOME/media/img"
+XDG_VIDEOS_DIR="$HOME/media/video"
+XDG_TEMPLATES_DIR="$HOME/files/templates"
+XDG_DESKTOP_DIR="$HOME/local/share/desktop"

@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-17 02:27:06 PDT xoddf2>
+;; Time-stamp: <2018-03-17 22:10:02 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -31,7 +31,7 @@
 
 (add-hook 'shell-mode-hook
           (lambda ()
-            (setq comint-input-ring-file-name "~/.bash_history")
+            (setq comint-input-ring-file-name "~/local/var/cache/bash_history")
             (comint-read-input-ring t)))
 
 ;; GPG
@@ -67,9 +67,9 @@
   (setq mu4e-sent-messages-behavior 'delete) ; For Gmail
 
   (setq mu4e-compose-signature (with-temp-buffer
-                                 (insert-file-contents "~/.signature")
+                                 (insert-file-contents "~/doc/signature")
                                  (buffer-string)))
-  (setq message-signature-file "~/.signature")
+  (setq message-signature-file "~/doc/signature")
 
   (setq mu4e-bookmarks
         `( ,(make-mu4e-bookmark
@@ -112,6 +112,13 @@
 (use-package magit
   :bind (("C-x g" . magit-status)))
 
+;; elfeed
+(if (string-equal (system-name) "nomad")
+    (use-package elfeed
+      :config
+      (setq elfeed-db-directory (concat (expand-file-name user-emacs-directory) "elfeed"))
+      :bind (("C-c r" . elfeed))))
+
 ;; Mingus
 (if (string-equal (system-name) "nomad")
     (use-package mingus
@@ -127,7 +134,8 @@
 (if (string-equal (system-name) "nomad")
     (use-package twittering-mode
       :config
-      (setq twittering-use-master-password t)
+      (setq twittering-use-master-password t
+            twittering-private-info-file (concat (expand-file-name user-emacs-directory) "twittering-mode.gpg"))
       (add-hook 'twittering-mode-hook
                 (lambda ()
                   (twittering-icon-mode 1)))

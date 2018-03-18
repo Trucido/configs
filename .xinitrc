@@ -1,6 +1,6 @@
 #!/bin/sh
 # .xinitrc
-# Time-stamp: <2018-03-06 19:34:57 PST xoddf2>
+# Time-stamp: <2018-03-17 21:21:58 PDT xoddf2>
 
 . ~/.profile
 
@@ -38,7 +38,7 @@ else
 fi
 
 # X resources
-xrdb -merge ~/.Xresources
+xrdb -merge $XDG_CONFIG_HOME/xorg/Xresources
 
 # Keyboard settings
 remap

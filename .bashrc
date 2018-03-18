@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 # .bashrc
-# Time-stamp: <2018-03-17 01:36:16 PDT xoddf2>
+# Time-stamp: <2018-03-17 22:16:52 PDT xoddf2>
 
 # Check for an interactive shell
-if [[ $- != *i* ]]; then
-	return
-fi
+[[ $- != *i* ]] && return
 
 # Settings #####################################################################
 
@@ -31,6 +29,8 @@ bind '"\en": next-history'
 bind '"\er": reverse-search-history'
 
 # History ######################################################################
+
+[ "$HOSTNAME" = "nomad" ] && HISTFILE="$XDG_CACHE_HOME/bash_history"
 
 HISTSIZE=10000
 HISTFILESIZE=10000
