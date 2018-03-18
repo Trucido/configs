@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-16 22:07:11 PDT xoddf2>
+;; Time-stamp: <2018-03-17 20:38:25 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -38,8 +38,8 @@ switches to the *scratch* buffer in another frame."
 the comint input ring.  See `comint-send-input' and `comint-read-input-ring'
 for more information."
   (interactive)
-  (comint-send-input)
-  (comint-read-input-ring))
+  (comint-read-input-ring)
+  (comint-send-input))
 
 (defun post-update ()
   "Insert a timestamp and the bold text 'Update:', useful for
