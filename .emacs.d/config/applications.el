@@ -2,7 +2,7 @@
 
 ;; Author: xoddf2 <woddfellow2@gmail.com>
 ;; Keywords: local
-;; Time-stamp: <2018-03-17 22:10:02 PDT xoddf2>
+;; Time-stamp: <2018-03-17 22:25:53 PDT xoddf2>
 
 ;;; Commentary:
 
@@ -123,9 +123,9 @@
 (if (string-equal (system-name) "nomad")
     (use-package mingus
       :config
-      (setq mingus-mpd-config-file "~/.config/mpd/mpd.conf"
+      (setq mingus-mpd-config-file "~/local/etc/mpd/mpd.conf"
             mingus-mpd-root "~/media/audio/music/"
-            mingus-mpd-playlist-dir "~/.config/mpd/playlists"
+            mingus-mpd-playlist-dir "~/local/etc/mpd/playlists"
             mingus-mode-line-string-max 30
             mingus-seek-amount 5)
       :bind ("C-c b" . mingus)))

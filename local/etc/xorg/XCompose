@@ -1,5 +1,5 @@
-# ~/.XCompose   -*- Conf -*-
-# Time-stamp: <2017-07-15 00:46:39 PDT xoddf2>
+# $XDG_CONFIG_HOME/xorg/XCompose   -*- Conf -*-
+# Time-stamp: <2018-03-17 22:23:43 PDT xoddf2>
 
 include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 

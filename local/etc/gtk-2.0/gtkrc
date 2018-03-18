@@ -1,5 +1,5 @@
-# .gtkrc-2.0
-# Time-stamp: <2017-08-30 20:10:55 PDT xoddf2>
+# $XDG_CONFIG_HOME/gtk-2.0/gtkrc
+# Time-stamp: <2018-03-17 22:24:58 PDT xoddf2>
 
 # Keybindings
 gtk-key-theme-name = "Emacs"
